@@ -342,7 +342,7 @@ ol {
 .header-section .logo {
 	float: left;
 	margin-left: 20px;
-	/* margin-right: 10px; */
+	margin-right: 10px;
 }
 
 .header-section .logo a {
@@ -411,8 +411,9 @@ ol {
 
 .hero-text h1 {
 	color: #fff;
-	font-size: 96px;
-	margin-bottom: 34px;
+	font-size: 66px;
+	margin-top: 20px;
+	margin-bottom: 25px;
 }
 
 .filter-search {
@@ -2559,4 +2560,34 @@ ol {
 	.howit-img.last-img {
 		margin-left: 0;
 	}
+}
+
+
+/* login */
+
+.login h1{
+	color: white;
+	margin-bottom: 30px; !important
+	font-size: 60px; !important
+}
+
+.login .filter-search{
+	padding: 25px 38px 38px;
+	position: relative;
+	z-index: 1;
+	width: 50%;
+	margin-left: 280px;
+}
+.login .filter-search label{
+	margin-top: 15px; !important
+	/* margin-left: 30px; !important */
+}
+
+.login .filter-search .form-control{
+	width: 80%;
+	margin-left: 50px;
+}
+
+.login .filter-search .invalid-feedback{
+	color: #495057
 }

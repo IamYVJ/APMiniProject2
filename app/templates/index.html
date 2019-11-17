@@ -1,69 +1,14 @@
-<!DOCTYPE html>
-<html lang="zxx">
+<!-- templates/index.html -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Yoga Studio Template">
-    <meta name="keywords" content="Yoga, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quad Core</title>
+{% extends "base.html" %}
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/font-awesome.min.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/flaticon.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/nice-select.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/owl.carousel.min.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/magnific-popup.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/slicknav.min.css')}}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css')}}">
-</head>
-
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="container-fluid">
-            <div class="logo">
-                <a href="./index.html">Quad Core</a>
-            </div>
-            <nav class="main-menu mobile-menu">
-                <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="#">Explore</a></li>
-                    <li><a href="#">More Cities</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div class="user-access">
-                    <a href="#">Register/</a>
-                    <a href="#">Login</a>
-                </div>
-                <a href="#" class="primary-btn">Add Listing</a>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-    <!-- Header End -->
-
-    <!-- Hero Section Begin -->
-    <section class="hero-section set-bg" data-setbg="/static/img/hero-bg.jpg">
+{% block content %}
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="hero-text">
-                        <img src="img/placeholder.png" alt="">
-                        <h1>New York</h1>
+                        <img src="/static/img/placeholder.png" alt="">
+                        <h1>Where to next?</h1>
                         <form action="#" class="filter-search">
                             <div class="category-search">
                                 <h5>Search Category</h5>
@@ -87,116 +32,4 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Hero Section End -->
-
-   
-
-
-
-    <!-- Footer Section Begin -->
-    <footer class="footer-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="#" class="newslatter-form">
-                        <input type="text" placeholder="Your email address">
-                        <button type="submit">Subscribe to our Newsletter</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Usefull Links</h4>
-                        <ul>
-                            <li>About us</li>
-                            <li>Testimonials</li>
-                            <li>How it works</li>
-                            <li>Create an account</li>
-                            <li>Our Services</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Categories</h4>
-                        <ul>
-                            <li>Hotels</li>
-                            <li>Restaurant</li>
-                            <li>Spa & resorts</li>
-                            <li>Concert & Events</li>
-                            <li>Bars & Pubs</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Usefull Links</h4>
-                        <ul>
-                            <li>About us</li>
-                            <li>Testimonials</li>
-                            <li>How it works</li>
-                            <li>Create an account</li>
-                            <li>Our Services</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>From the Blog</h4>
-                        <div class="single-blog">
-                            <div class="blog-pic">
-                                <img src="/static/img/f-blog-1.jpg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <h6>10 Best clubs in town</h6>
-                                <span>March 27, 2019</span>
-                            </div>
-                        </div>
-                        <div class="single-blog">
-                            <div class="blog-pic">
-                                <img src="/static/img/f-blog-2.jpg" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <h6>10 Best clubs in town</h6>
-                                <span>March 27, 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row footer-bottom">
-                <div class="col-lg-5 order-2 order-lg-1">
-                    <div class="copyright"><p class="text-white">
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a> -->
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p></div>
-                </div>
-                <div class="col-lg-7 text-center text-lg-right order-1 order-lg-2">
-                    <div class="footer-menu">
-                        <a href="#">Home</a>
-                        <a href="#">Explore</a>
-                        <a href="#">More Cities</a>
-                        <a href="#">News</a>
-                        <a href="#">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/jquery.slicknav.js')}}"></script>
-    <script src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/jquery.nice-select.min.js')}}"></script>
-    <!-- <script src="{{url_for('static', filename='js/mixitup.min.js')}}"></script> -->
-    <script src="{{url_for('static', filename='js/main.js')}}"></script>
-</body>
-
-</html>
+        {% endblock %}
