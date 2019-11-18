@@ -38,18 +38,27 @@
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="#">Explore</a></li>
-                    <li><a href="#">More Cities</a></li>
-                    <li><a href="#">News</a></li>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Support</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-right">
                 <div class="user-access">
+                        {% if current_user.is_authenticated%}
+                    <div class="dropdown">
+                            <button class="dropbtn" style="font-size: 20px; !important
+                            font-weight: 400; ">Hi , {{ current_user.username }}</button>
+                            <div class="dropdown-content">
+                              <a href="/logout">Logout</a>
+                            </div>
+                    </div>
+                    {%else%}
                     <a href="{{ url_for('register') }}">Register/</a>
                     <a href="{{ url_for('login') }}">Login</a>
                 </div>
-                <a href="#" class="primary-btn">Add Listing</a>
+                {%endif%}
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
