@@ -342,7 +342,7 @@ ol {
 .header-section .logo {
 	float: left;
 	margin-left: 20px;
-	margin-right: 10px;
+	margin-right: 200px;
 }
 
 .header-section .logo a {
@@ -2635,4 +2635,17 @@ ol {
 
 .login .filter-search .invalid-feedback{
 	color: #495057
+}
+
+.flight-mode ul{
+	color:white;
+	margin-bottom: 15px;
+}
+.flight-mode {
+    margin-left: -30px;
+}
+.flight-mode input[type=radio] {
+	margin-right: 5px;
+    margin-left: 20px;
+    margin-top: 2px;
 }
