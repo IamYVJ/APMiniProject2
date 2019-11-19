@@ -2647,5 +2647,16 @@ ol {
 .flight-mode input[type=radio] {
 	margin-right: 5px;
     margin-left: 20px;
-    margin-top: 2px;
+	margin-top: 2px;
 }
+	
+.flight-mode .filter-search .category-search .nice-select .lo-search{
+	width: calc(100% - 20px);
+	font-size: 16px;
+	color: #fff;
+	background: transparent;
+	height: 50px;
+	line-height: 46px;
+	border-radius: 0;
+	padding-left: 13px;
+	}
