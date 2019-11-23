@@ -32,12 +32,12 @@
                                 <li><a href="#">Cindy</a></li>
                                 </ul>
                                 <div class="category-search" style="width: 100%; margin-top:10px;">
-                                <h6 style="color: white">Traveller(s) , class:  </h6>  
-                                
+                                <h6 style="color: white">Traveller(s) , class:  </h6>
+
                                 </div>
                             </div>
-                                
-                            
+
+
                             <div class="category-search" style="width: 500px; !important">
                                     <div class="location-search" style="width:258px;">
                                 <h5>To:</h5>
@@ -49,25 +49,28 @@
                                 <div class="depart">
                                     <h5>Depart:</h5>
                                     {{ form.dt(class='datepicker') }}
-
+                                      <!-- <form action="/action_page.php">
+                                      <h5>Travel Date:</h5>
+                                      <input type="date" name="tday">
+                                      </form> -->
                                                            </div>
                             </div>
                             <div class="category-search" style="width: 110px; !important">
                                     <div class="return">
                                         <h5>Return:</h5>
-                                        
+
                                     </div>
                                 </div>
 
                             <button type="submit" style="top:95px; !important">Search Now</button>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
 
-        
+
 <script>
     function myFunction() {
       // Declare variables
@@ -77,7 +80,7 @@
       ul = document.getElementById("myUL");
       ul.style.display="block";
       li = ul.getElementsByTagName('li');
-    
+
       // Loop through all list items, and hide those who don't match the search query
       for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
