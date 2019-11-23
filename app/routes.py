@@ -6,6 +6,7 @@ from app.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_wtf import Form
 from wtforms.fields.html5 import DateField
+from datetime import date
 
 class ExampleForm(Form):
     dt = DateField('DatePicker', format='%Y-%m-%d')
@@ -57,7 +58,9 @@ def logout():
 
 @app.route('/flights')
 def flights():
+    dtoday = str(date.today())
+    print(dtoday)
     form = ExampleForm()
     if form.validate_on_submit():
         return form.dt.data.strftime('%Y-%m-%d')
-    return render_template('flights.html',form=form)
+    return render_template('flights.html',form=form, dtoday = dtoday)
