@@ -2738,17 +2738,21 @@ input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
     color: #95a5a6;
-    font-family: "Helvetica", arial, sans-serif;
-    font-size: 18px;
-    border:1px solid #ecf0f1;
-    background:#ecf0f1;
+    /* font-family: "Helvetica", arial, sans-serif; */
+    font-size: 16px;
+    /* border:1px solid #ecf0f1; */
+		border: 1px solid #ddd;
+    /* background:#ecf0f1; */
+		background: none;
     padding:5px;
     display: inline-block !important;
     visibility: visible !important;
+		height: 50px;
 }
 
 input[type="date"], focus {
-    color: #95a5a6;
+    /* color: #95a5a6; */
+		color: white;
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
