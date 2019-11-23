@@ -404,20 +404,20 @@ ol {
 .header-right .user-access .dropdown .dropbtn {
 	background-color: transparent;
 	font-size: 20px; !important
-    font-weight: 400; 
+    font-weight: 400;
     line-height: 0;
 	color: white;
 	padding: 16px;
 	font-size: 16px;
 	border: none;
   }
-  
+
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
 	position: relative;
 	display: inline-block;
   }
-  
+
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
 	display: none;
@@ -427,7 +427,7 @@ ol {
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
   }
-  
+
   /* Links inside the dropdown */
   .dropdown-content a {
 	color: black;
@@ -435,13 +435,13 @@ ol {
 	text-decoration: none;
 	display: block;
   }
-  
+
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #FF5581;}
-  
+
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
-  
+
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #FF5581;}
 
@@ -2649,7 +2649,7 @@ ol {
     margin-left: 20px;
 	margin-top: 2px;
 }
-	
+
 .flight-mode .filter-search .category-search .nice-select .lo-search{
 	width: calc(100% - 20px);
 	font-size: 16px;
@@ -2688,7 +2688,7 @@ ol {
 	margin-bottom: 12px; /* Add some space below the input */
 	color: white;
   }
-  
+
   #myUL {
 	/* Remove default list styling */
 	list-style-type: none;
@@ -2712,7 +2712,44 @@ ol {
 	color: white; /* Add a black text color */
 	display: block; /* Make it into a block element to fill the whole list */
   }
-  
+
   #myUL li a:hover:not(.header) {
 	background-color: #eee; /* Add a hover effect to all links, except for headers */
   }
+
+
+	/* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
