@@ -9,27 +9,35 @@
                     <div class="hero-text">
                         <img src="/static/img/placeholder.png" alt="">
                         <h1>Where to next?</h1>
-                        <form action="#" class="filter-search">
+                        <form action="#" class="filter-search flights">
                             <div class="flight-mode">
                                 <ul class="col-lg-12" style="display: inline-flex; list-style-type: none;">
                                         <input  type="radio" name="type" value="onewway"> One Way
                                         <input type="radio" name="type" value="roundtrip"> Round Trip
-                                    <!-- <li class="col-lg-3">
-                                        One Way
-                                    </li>
-                                    <li class="col-lg-3">Round Trip</li> -->
                                 </ul>
                             </div>
                             <div class="category-search" style="width: 25%; !important">
                                 <h5>From:</h5>
-                                <select class="ca-search">
-                                    <option>Restaurants</option>
-                                    <option>Hotels</option>
-                                    <option>Food & Drinks</option>
-                                    <option>Home Delievery</option>
-                                    <option>Commercial Shops</option>
-                                </select>
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="From">
+
+                                <ul id="myUL">
+                                <li onclick="set(1)"><a href="#" >Adele</a></li>
+                                <li><a href="#">Agnes</a></li>
+
+                                <li><a href="#">Billy</a></li>
+                                <li><a href="#">Bob</a></li>
+
+                                <li><a href="#">Calvin</a></li>
+                                <li><a href="#">Christina</a></li>
+                                <li><a href="#">Cindy</a></li>
+                                </ul>
+                                <div class="category-search" style="width: 100%; margin-top:10px;">
+                                <h6 style="color: white">Traveller(s) , class:  </h6>  
+                                
+                                </div>
                             </div>
+                                
+                            
                             <div class="category-search" style="width: 500px; !important">
                                     <div class="location-search" style="width:258px;">
                                 <h5>To:</h5>
@@ -40,11 +48,7 @@
                             <div class="category-search" style="width: 110px; !important">
                                 <div class="depart">
                                     <h5>Depart:</h5>
-                                    <div class="md-form">
-                                        <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
-                                        <label for="date-picker-example">Try me...</label>
-                                      </div>
-                        </div>
+                                                           </div>
                             </div>
                             <div class="category-search" style="width: 110px; !important">
                                     <div class="return">
@@ -52,13 +56,46 @@
                                         
                                     </div>
                                 </div>
+
                             <button type="submit" style="top:95px; !important">Search Now</button>
                         </form>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
         
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      ul.style.display="block";
+      li = ul.getElementsByTagName('li');
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
 
+    function set(a){
+        input = document.getElementById('myInput');
+        input.value="Adele";
+        if(a==1){
+            input.value="Adele";
+            ul = document.getElementById("myUL");
+            ul.style.display="none";
+        }
+    }
+    </script>
         {% endblock %}

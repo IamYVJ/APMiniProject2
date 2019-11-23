@@ -4,6 +4,11 @@ import sqlite3
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
 from flask_login import login_user, current_user, logout_user, login_required
+from flask_wtf import Form
+from wtforms.fields.html5 import DateField
+
+class ExampleForm(Form):
+    dt = DateField('DatePicker', format='%Y-%m-%d')
 
 @app.route('/')
 @app.route('/index')
@@ -52,4 +57,7 @@ def logout():
 
 @app.route('/flights')
 def flights():
-    return render_template('flights.html')
+    form = ExampleForm()
+    if form.validate_on_submit():
+        return form.dt.data.strftime('%Y-%m-%d')
+    return render_template('flights.html',form=form)
