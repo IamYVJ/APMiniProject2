@@ -1,12 +1,20 @@
 from app import app , db, bcrypt
 from flask import render_template, flash, redirect , url_for , request, session , g
 import sqlite3
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm , FlightForm
 from app.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_wtf import Form
 from wtforms.fields.html5 import DateField
 from datetime import date
+from app.auth import OAuthSignIn
+
+
+app.config['OAUTH_CREDENTIALS'] = {
+    'google': {
+        'id': '356186709623-6tb84gjrptp1ss0cificl90ia45qufa4.apps.googleusercontent.com',
+        'secret': 'gJ5hLx6ikRTAC8NlONLZ67Kx'
+    }}
 
 class ExampleForm(Form):
     dt = DateField('DatePicker', format='%Y-%m-%d')
@@ -56,15 +64,48 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/flights')
+@app.route('/flights',methods = ['POST', 'GET'])
 def flights():
+    # if request.method == 'POST':
+    #   result = request.form
     dtoday = str(date.today())
     print(dtoday)
-    form = ExampleForm()
+    form = FlightForm()
     if form.validate_on_submit():
         return form.dt.data.strftime('%Y-%m-%d')
     return render_template('flights.html',form=form, dtoday = dtoday)
 
-@app.route('/flightsearch')
+@app.route('/flightsearch',methods = ['POST', 'GET'])
 def flightsearch():
+    # if request.method == 'POST':
+    #   result = request.form['type']
+    # print(result)
     return render_template('flightsearch.html')
+
+@app.route('/authorize/<provider>')
+def oauth_authorize(provider):
+    if not current_user.is_anonymous:
+        return redirect(url_for('index'))
+    oauth = OAuthSignIn.get_provider(provider)
+    return oauth.authorize()
+
+@app.route('/gCallback/<provider>')
+def oauth_callback(provider):
+    print(provider)
+    if not current_user.is_anonymous:
+        return redirect(url_for('index'))
+    oauth = OAuthSignIn.get_provider(provider)
+    email = oauth.callback()
+    if email is None:
+        flash('Authentication failed.')
+        return redirect(url_for('index'))
+    user=User.query.filter_by(email=email).first()
+    if not user:
+        username = email.split('@')[0]
+        stri=" "
+        user=User(username=username, email=email,password=bcrypt.generate_password_hash(stri).decode('utf-8'))
+        db.session.add(user)
+        db.session.commit()
+    
+    login_user(user, remember=True)
+    return redirect(url_for('index'))

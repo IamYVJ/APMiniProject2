@@ -32,3 +32,13 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+
+class FlightForm(FlaskForm):
+    From = StringField('From',validators=[DataRequired()])
+    To = StringField('To',validators=[DataRequired()])
+    Depart = StringField('To',validators=[DataRequired()])
+    Return = StringField('To')
+    Class= StringField('Traveller(s) , class:',validators=[DataRequired()])
+
+    
