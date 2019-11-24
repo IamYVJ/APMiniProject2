@@ -2790,3 +2790,28 @@ padding-top: 20px;
     cursor: pointer;
     border: 1px solid #FF5581;
 }
+
+.myaccount{
+	background-color: rgba(255, 255, 255, 0.6);
+	margin-top: 100px;
+}
+
+.myacc{
+	padding-top: 20px;
+	color: white; !important
+	border-right: : 1px solid #616161; !important
+
+}
+
+.manage-booking{
+	border-top: 1px solid #616161;
+    margin: 15px auto 0;
+    padding-top: 10px;
+	max-width: 180px;
+	list-style-type: none ;
+	margin-bottom: 15px;
+}
+
+.manage-booking li{
+	margin: 10px 0;
+}

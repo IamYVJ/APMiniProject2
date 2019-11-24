@@ -109,3 +109,7 @@ def oauth_callback(provider):
     
     login_user(user, remember=True)
     return redirect(url_for('index'))
+
+@app.route('/myaccount')
+def myaccount():
+    return render_template('myaccount.html')

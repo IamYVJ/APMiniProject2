@@ -50,8 +50,9 @@
                         {% if current_user.is_authenticated%}
                     <div class="dropdown">
                             <button class="dropbtn" style="font-size: 20px; !important
-                            font-weight: 400; ">Hi , {{ current_user.username }}</button>
+                            font-weight: 400; margin-right:30px;">Hi , {{ current_user.username }}</button>
                             <div class="dropdown-content">
+                                <a href="{{ url_for('myaccount') }}">My Account</a>
                               <a href="/logout">Logout</a>
                             </div>
                     </div>
