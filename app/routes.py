@@ -64,3 +64,7 @@ def flights():
     if form.validate_on_submit():
         return form.dt.data.strftime('%Y-%m-%d')
     return render_template('flights.html',form=form, dtoday = dtoday)
+
+@app.route('/flightsearch')
+def flightsearch():
+    return render_template('flightsearch.html')

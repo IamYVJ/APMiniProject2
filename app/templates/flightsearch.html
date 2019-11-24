@@ -1,0 +1,77 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flightsearch container" style="height:700px; color: black;">
+    <h4 style=" margin-bottom: 30px;"> Search Results:</h4>
+    <div class="flightresult row text-center"  style="height: 50px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.7);">
+        <div class="col-lg-3">
+        <div class="flightdetail"><h6>Sort By</h6>
+        </div>
+            </div>
+    <div class="col-lg-2" style="    top: 15px;">
+        <h5>Depart</h5>
+        
+    </div>
+    <div class="col-lg-2" style="    top: 15px;">
+            <h5>Arrival</h5>
+    </div>
+    <div class="col-lg-2" style="    top: 15px;">
+        <h6>
+Duration    </h6></div>
+    <div class="col-lg-3" style="    top: 15px;"><h6>
+Price</h6>
+</div> </div>
+    <div class="flightresult row text-center"  style="height: 130px; margin-right: 10px;
+    margin-left: 10px;background-color: rgba(255, 255, 255, 0.7);
+    padding-top: 30px;">
+        <div class="col-lg-3">
+            <div class="flightlogo"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;"> 
+            </div>
+        <div class="flightdetail"><h6>Indigo</h6>
+            <h6>6E-252</h6></div>
+            </div>
+    <div class="col-lg-2" style="    top: 15px;">
+        <h5>09:25</h5>
+        <h6>Nagpur</h6>
+    </div>
+    <div class="col-lg-2" style="    top: 15px;">
+            <h5>09:25</h5>
+            <h6>Nagpur</h6>
+    </div>
+    <div class="col-lg-2" style="    top: 25px;">
+        <h6>
+            1h 50m
+    </h6></div>
+    <div class="col-lg-3" style="    top: -5px;"><h6>
+            Rs 3000
+    </h6><button type="submit">Book</button>
+</div>
+
+
+    </div>
+
+
+    <!-- <table style="width: 100%;">
+            <tr>
+                    <th>Sort By:</th>
+                    <th>Depart</th> 
+                    <th>Arrive</th>
+                    <th>Duration</th>
+                    <th>Price per Adult</th>
+                  </tr>
+                  <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                  </tr> 
+                </table> -->
+
+</div>
+{% endblock %}
+

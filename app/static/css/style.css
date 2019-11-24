@@ -2757,3 +2757,36 @@ input[type="date"], focus {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
 }
+
+.flightsearch{
+background-color: rgba(255, 255, 255, 0.6);
+/* opacity: 0.60; */
+/* color:;!important */
+height: 700px;
+padding-top: 20px;
+}
+
+.fs{
+	padding-top: 150px; !important
+}
+.flightlogo{
+	width: 40%;
+}
+.flightdetail{
+	position: absolute;
+    margin-top: 10px;
+    top: 5px;
+    left: 100px;
+}
+
+.flightresult button{
+	color: #fff;
+    background: #FF5581;
+    font-size: 16px;
+    position: absolute;
+    right: 38px;
+    top: 40px;
+    padding: 13px 65px;
+    cursor: pointer;
+    border: 1px solid #FF5581;
+}
