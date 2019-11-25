@@ -22,7 +22,7 @@
                 {% else %}
                     {{ form.email(class="form-control form-control-lg") }}
                 {% endif %}
-        
+
                 <div style="margin-top: 10px;">
                 {{ form.password.label(class="form-control-label") }}
                 {% if form.password.errors %}
@@ -39,14 +39,17 @@
                 <div style="margin-top: 10px;">
                  {{ form.remember(class="form-check-input") }}
                             {{ form.remember.label(class="form-check-label") }}<br>
-                        
+
                         <div style="margin-top: 10px;">{{ form.submit(class="signup") }}</div>
                         <div style="margin-top:10px; "><a href="{{ url_for('oauth_authorize', provider='google') }}"><img style="height:40px; width:auto;"   src="static/img/google_signin.png" /></a></div>
 
-                    
+
                     </form>
+            </div>
+            <div>
+                    Forgot Your Password?
+                    <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>   </div>
             </div>
             </div>
 </div>
 {% endblock %}
-
