@@ -8,7 +8,9 @@ from flask_wtf import Form
 from wtforms.fields.html5 import DateField
 from datetime import date
 from app.auth import OAuthSignIn
-
+from app.forms import ResetPasswordRequestForm
+from app.emailPasswordReset import send_password_reset_email
+from app.forms import ResetPasswordForm
 
 app.config['OAUTH_CREDENTIALS'] = {
     'google': {
@@ -106,10 +108,43 @@ def oauth_callback(provider):
         user=User(username=username, email=email,password=bcrypt.generate_password_hash(stri).decode('utf-8'))
         db.session.add(user)
         db.session.commit()
-    
+
     login_user(user, remember=True)
     return redirect(url_for('index'))
 
 @app.route('/myaccount')
 def myaccount():
     return render_template('myaccount.html')
+
+
+@app.route('/reset_password_request', methods=['GET', 'POST'])
+def reset_password_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = ResetPasswordRequestForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+            flash('Check your email for the instructions to reset your password')
+            return redirect(url_for('login'))
+        flash('Email Id not registered. Please Sign Up.')
+    return render_template('reset_password_request.html',
+                           title='Reset Password', form=form)
+
+
+
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    user = User.verify_reset_password_token(token)
+    if not user:
+        return redirect(url_for('index'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        db.session.commit()
+        flash('Your password has been reset.')
+        return redirect(url_for('login'))
+    return render_template('reset_password.html', title = 'Reset Password', form=form)
