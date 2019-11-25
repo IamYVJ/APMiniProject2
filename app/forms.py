@@ -41,4 +41,9 @@ class FlightForm(FlaskForm):
     Return = StringField('To')
     Class= StringField('Traveller(s) , class:',validators=[DataRequired()])
 
-    
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
