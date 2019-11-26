@@ -14,7 +14,7 @@ driver = ""
 def get_source():
 
     options = Options()
-    # options.headless = True
+    options.headless = True
     driver = wd.Firefox(options=options)
 
     url = 'https://railways.makemytrip.com/listing?date=20191129&srcStn=HWH&srcCity=Kolkata&destStn=NDLS&destCity=New&Delhi&classCode='
