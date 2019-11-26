@@ -53,10 +53,17 @@ aa = get_source()
 soup = BeautifulSoup(aa, 'html5lib')
 
 # print(soup.prettify())
-# print(soup)
 
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
+
+    # train = []
+    #
+    # for row in row1.findAll('p', attrs = {'class':'appendBottom10 latoBlack font22 blackText'}):
+    #     train.append(row.text[1:])
+
+
     temp = row1.text
+
     hl = temp.find('#')
     train = temp[1:hl-2]
     print(train)
@@ -66,29 +73,56 @@ for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
     trainno = temp[:hl-1]
     print(trainno)
 
-    departs = temp[hl:-1]
+    departs = []
+
+    for row in row1.findAll('span', attrs = {'class':'greenText latoBold'}):
+        departs.append(row.text)
+
     print(departs)
 
+print()
 
+for row1 in soup.findAll('span', attrs = {'class':'font22 latoBold'}):
+    print(row1.text)
+    # print()
+
+print()
 
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railDeparture'}):
-    print(row1.text)
-    print()
+    tt = row1.text
+    print(tt[:tt.find('M')+1], end=" ")
+    print(row1.text[tt.find('M')+4:tt.find('M')+8])
+    print(row1.text[tt.find('M')+8:])
+    # print()
 
-
+print()
 
 for row1 in soup.findAll('div', attrs = {'class':'railInfo textCenter railDuration'}):
-    print(row1.text)
-    print()
+    tt = row1.text
+    print(tt[:tt.find('V')-1])
+    # print()
 
-
+print()
 
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railArrival'}):
-    print(row1.text)
-    print()
+    tt = row1.text
+    print(tt[:tt.find('M')+1], end=" ")
+    print(row1.text[tt.find('M')+4:tt.find('M')+8])
+    print(row1.text[tt.find('M')+8:])
+    # print()
 
-
+print()
 
 for row1 in soup.findAll('div', attrs = {'class':'railClassBox'}):
-    print(row1.text)
-    print()
+    classes = []
+    tt = row1.text
+    ti = 0
+    tp = tt.find('ago')
+    while(tp!=-1):
+        tclass = []
+        tclass.append(tt[ti:tp+3])
+        ti = tp+3
+        tp = tt.find('ago', ti)
+        classes.append(tclass)
+    print(classes)
+    # print()
