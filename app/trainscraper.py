@@ -34,7 +34,9 @@ def get_source():
 
     for i in modSource:
         try:
-            raw = raw + i
+            # print(i, end="")
+            if(i!='\u20b9' and i!='\ufffd'):
+                raw = raw + i
         except:
             continue
 
@@ -42,14 +44,30 @@ def get_source():
 
 aa = get_source()
 
-
+# print()
+# print()
+# print()
+# print()
 
 
 soup = BeautifulSoup(aa, 'html5lib')
 
+# print(soup.prettify())
+# print(soup)
+
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
-    print(row1.text)
-    print()
+    temp = row1.text
+    hl = temp.find('#')
+    train = temp[1:hl-2]
+    print(train)
+
+    temp = temp[hl:]
+    hl = temp.find('D')
+    trainno = temp[:hl-1]
+    print(trainno)
+
+    departs = temp[hl:-1]
+    print(departs)
 
 
 
