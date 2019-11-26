@@ -19,8 +19,7 @@ def get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
     destCity = destCity.strip()
     destCity = destCity.replace(' ', '&')
 
-    url = 'https://railways.makemytrip.com/listing?date=' + str(yyyy) + str(mm) + str(dd)
-                + '&srcStn=' + srcStn + '&srcCity=' + srcCity + '&destStn=' + destStn + '&destCity=' + destCity + '&classCode='
+    url = 'https://railways.makemytrip.com/listing?date=' + str(yyyy) + str(mm) + str(dd) + '&srcStn=' + srcStn + '&srcCity=' + srcCity + '&destStn=' + destStn + '&destCity=' + destCity + '&classCode='
 
     options = Options()
     options.headless = True
@@ -42,7 +41,6 @@ def get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
 
     for i in modSource:
         try:
-            # print(i, end="")
             if(i!='\u20b9' and i!='\ufffd'):
                 raw = raw + i
         except:
@@ -61,10 +59,6 @@ def gettraindata(rawData):
     for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
 
         train = []
-        #
-        # for row in row1.findAll('p', attrs = {'class':'appendBottom10 latoBlack font22 blackText'}):
-        #     train.append(row.text[1:])
-
 
         temp = row1.text
 
@@ -90,21 +84,10 @@ def gettraindata(rawData):
 
         traindata.append(train)
 
-    # print()
-
-    # for row1 in soup.findAll('span', attrs = {'class':'font22 latoBold'}):
-    #     print(row1.text)
-    #     # print()
-    #
-    # print()
     i = 0
     for row1 in soup.findAll('div', attrs = {'class':'railInfo railDeparture'}):
         tt = row1.text
         tp = tt.find('M')
-        # print(tt[1:tp+1], end=" ")
-        # print(tt[tp+4:tp+8])
-        # print(tt[tp+8:])
-        # print()
 
         at = tt[1:tp+1] + " " + tt[tp+4:tp+8]
         att = tt[tp+8:]
@@ -112,34 +95,26 @@ def gettraindata(rawData):
         traindata[i].append(att)
         i = i+1
 
-    # print()
 
     i = 0
     for row1 in soup.findAll('div', attrs = {'class':'railInfo textCenter railDuration'}):
         tt = row1.text
         dr = tt[:tt.find('V')-1]
-        # print(dr)
+
         traindata[i].append(dr)
         i = i+1
 
-
-    # print()
 
     i = 0
     for row1 in soup.findAll('div', attrs = {'class':'railInfo railArrival'}):
         tt = row1.text
         tp = tt.find('M')
-        # print(tt[1:tp+1], end=" ")
-        # print(tt[tp+4:tp+8])
-        # print(tt[tp+8:])
-        # print()
 
         dt = tt[1:tp+1] + " " + tt[tp+4:tp+8]
         dtt = tt[tp+8:]
         traindata[i].append(dt)
         traindata[i].append(dtt)
         i = i+1
-    # print()
 
     i = 0
     for row1 in soup.findAll('div', attrs = {'class':'railClassBox'}):
@@ -149,11 +124,10 @@ def gettraindata(rawData):
         ti = 0
         tp = tt.find('ago')
         while(tp!=-1):
-            # tclass = []
             allclasses.append(tt[ti:tp+3])
             ti = tp+3
             tp = tt.find('ago', ti)
-            # classes.append(tclass)
+
         for j in allclasses:
             ttt = []
             tp = 0
@@ -190,7 +164,9 @@ def gettraindata(rawData):
             #     ttt.append('')
             #     tp = len('')
             else:
+                print("UNKNOWN CLASS FOUND: ")
                 print(j)
+                print()
                 continue
 
             fare = ""
@@ -215,14 +191,34 @@ def gettraindata(rawData):
         # print()
         traindata[i].append(classes)
         i = i+1
+    return(traindata)
 
-def train
+
+
+def trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
+
+    rawData = get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy)
+    traindata = gettraindata(rawData)
+
+    return(traindata)
+
+
+# TEST
 
 def test():
+    srcStn = 'R'
+    srcCity = 'Raipur'
+    destStn = 'HWH'
+    destCity = 'Kolkata'
+    dd = 30
+    mm = 11
+    yyyy = 2019
 
-    get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
+    traindata =  trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy)
 
     for i in traindata:
         for j in i:
             print(j)
         print()
+
+test()
