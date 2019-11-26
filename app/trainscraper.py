@@ -17,7 +17,7 @@ def get_source():
     # options.headless = True
     driver = wd.Firefox(options=options)
 
-    url = 'https://railways.makemytrip.com/listing?date=20191127&srcStn=NDLS&srcCity=New%20Delhi&destStn=CNB&destCity=Kanpur&classCode='
+    url = 'https://railways.makemytrip.com/listing?date=20191129&srcStn=HWH&srcCity=Kolkata&destStn=NDLS&destCity=New&Delhi&classCode='
     driver.get(url)
     source_code = driver.page_source
     time.sleep(0.5)
@@ -48,7 +48,6 @@ aa = get_source()
 # print()
 # print()
 # print()
-
 
 soup = BeautifulSoup(aa, 'html5lib')
 
@@ -141,21 +140,78 @@ for row1 in soup.findAll('div', attrs = {'class':'railInfo railArrival'}):
 
 i = 0
 for row1 in soup.findAll('div', attrs = {'class':'railClassBox'}):
+    allclasses = []
     classes = []
     tt = row1.text
     ti = 0
     tp = tt.find('ago')
     while(tp!=-1):
-        tclass = []
-        tclass.append(tt[ti:tp+3])
+        # tclass = []
+        allclasses.append(tt[ti:tp+3])
         ti = tp+3
         tp = tt.find('ago', ti)
-        classes.append(tclass)
+        # classes.append(tclass)
+    for j in allclasses:
+        ttt = []
+        tp = 0
+        if j.find('Click to update')!=-1:
+            j = j[j.find('Click to update')+14:]
+        if j.find('AC Chair Car')!=-1:
+            ttt.append('AC Chair Car')
+            tp = len('AC Chair Car')
+        elif j.find('Executive Chair Car')!=-1:
+            ttt.append('Executive Chair Car')
+            tp = len('Executive Chair Car')
+        elif j.find('3 Tier AC')!=-1:
+            ttt.append('3 Tier AC')
+            tp = len('3 Tier AC')
+        elif j.find('2 Tier AC')!=-1:
+            ttt.append('2 Tier AC')
+            tp = len('2 Tier AC')
+        elif j.find('1st Class AC')!=-1:
+            ttt.append('1st Class AC')
+            tp = len('1st Class AC')
+        elif j.find('Executive Anubhuti')!=-1:
+            ttt.append('Executive Anubhuti')
+            tp = len('Executive Anubhuti')
+        elif j.find('Sleeper')!=-1:
+            ttt.append('Sleeper')
+            tp = len('Sleeper')
+        elif j.find('Second Sitting')!=-1:
+            ttt.append('Second Sitting')
+            tp = len('Second Sitting')
+        # elif j.find('')!=-1:
+        #     ttt.append('')
+        #     tp = len('')
+        # elif j.find('')!=-1:
+        #     ttt.append('')
+        #     tp = len('')
+        else:
+            print(j)
+            continue
+
+        fare = ""
+
+        for k in j[tp:]:
+            if k.isdigit():
+                fare = fare + k
+                tp = tp + 1
+            else:
+                break
+        ttt.append(fare)
+
+        up = j[tp:].find('Updated')
+
+        ttt.append(j[tp:tp+up])
+        ttt.append(j[tp+up:])
+
+        classes.append(ttt)
+        # print(ttt)
+        # print(j[tp:])
     # print(classes)
     # print()
     traindata[i].append(classes)
     i = i+1
-
 
 for i in traindata:
     for j in i:
