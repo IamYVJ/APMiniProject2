@@ -54,9 +54,11 @@ soup = BeautifulSoup(aa, 'html5lib')
 
 # print(soup.prettify())
 
+traindata = []
+
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
 
-    # train = []
+    train = []
     #
     # for row in row1.findAll('p', attrs = {'class':'appendBottom10 latoBlack font22 blackText'}):
     #     train.append(row.text[1:])
@@ -65,54 +67,79 @@ for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
     temp = row1.text
 
     hl = temp.find('#')
-    train = temp[1:hl-2]
-    print(train)
+    tr = temp[1:hl-2]
+    # print(tr)
 
     temp = temp[hl:]
     hl = temp.find('D')
     trainno = temp[:hl-1]
-    print(trainno)
+    # print(trainno)
 
-    departs = []
+    departs = ""
 
     for row in row1.findAll('span', attrs = {'class':'greenText latoBold'}):
-        departs.append(row.text)
+        departs = departs + " " + (row.text)
+    departs = departs.strip()
+    # print(departs)
 
-    print(departs)
+    train.append(tr)
+    train.append(trainno)
+    train.append(departs)
 
-print()
+    traindata.append(train)
 
-for row1 in soup.findAll('span', attrs = {'class':'font22 latoBold'}):
-    print(row1.text)
-    # print()
+# print()
 
-print()
-
+# for row1 in soup.findAll('span', attrs = {'class':'font22 latoBold'}):
+#     print(row1.text)
+#     # print()
+#
+# print()
+i = 0
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railDeparture'}):
     tt = row1.text
-    print(tt[:tt.find('M')+1], end=" ")
-    print(row1.text[tt.find('M')+4:tt.find('M')+8])
-    print(row1.text[tt.find('M')+8:])
+    tp = tt.find('M')
+    # print(tt[1:tp+1], end=" ")
+    # print(tt[tp+4:tp+8])
+    # print(tt[tp+8:])
     # print()
 
-print()
+    at = tt[1:tp+1] + " " + tt[tp+4:tp+8]
+    att = tt[tp+8:]
+    traindata[i].append(at)
+    traindata[i].append(att)
+    i = i+1
 
+# print()
+
+i = 0
 for row1 in soup.findAll('div', attrs = {'class':'railInfo textCenter railDuration'}):
     tt = row1.text
-    print(tt[:tt.find('V')-1])
-    # print()
+    dr = tt[:tt.find('V')-1]
+    # print(dr)
+    traindata[i].append(dr)
+    i = i+1
 
-print()
 
+# print()
+
+i = 0
 for row1 in soup.findAll('div', attrs = {'class':'railInfo railArrival'}):
     tt = row1.text
-    print(tt[:tt.find('M')+1], end=" ")
-    print(row1.text[tt.find('M')+4:tt.find('M')+8])
-    print(row1.text[tt.find('M')+8:])
+    tp = tt.find('M')
+    # print(tt[1:tp+1], end=" ")
+    # print(tt[tp+4:tp+8])
+    # print(tt[tp+8:])
     # print()
 
-print()
+    dt = tt[1:tp+1] + " " + tt[tp+4:tp+8]
+    dtt = tt[tp+8:]
+    traindata[i].append(dt)
+    traindata[i].append(dtt)
+    i = i+1
+# print()
 
+i = 0
 for row1 in soup.findAll('div', attrs = {'class':'railClassBox'}):
     classes = []
     tt = row1.text
@@ -124,5 +151,13 @@ for row1 in soup.findAll('div', attrs = {'class':'railClassBox'}):
         ti = tp+3
         tp = tt.find('ago', ti)
         classes.append(tclass)
-    print(classes)
+    # print(classes)
     # print()
+    traindata[i].append(classes)
+    i = i+1
+
+
+for i in traindata:
+    for j in i:
+        print(j)
+    print()
