@@ -41,3 +41,36 @@ def get_source():
     return(raw)
 
 aa = get_source()
+
+
+
+
+soup = BeautifulSoup(aa, 'html5lib')
+
+for row1 in soup.findAll('div', attrs = {'class':'railInfo railTitle'}):
+    print(row1.text)
+    print()
+
+
+
+for row1 in soup.findAll('div', attrs = {'class':'railInfo railDeparture'}):
+    print(row1.text)
+    print()
+
+
+
+for row1 in soup.findAll('div', attrs = {'class':'railInfo textCenter railDuration'}):
+    print(row1.text)
+    print()
+
+
+
+for row1 in soup.findAll('div', attrs = {'class':'railInfo railArrival'}):
+    print(row1.text)
+    print()
+
+
+
+for row1 in soup.findAll('div', attrs = {'class':'railClassBox'}):
+    print(row1.text)
+    print()
