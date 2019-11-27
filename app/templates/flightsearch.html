@@ -32,9 +32,16 @@ Price</h6>
     margin-left: 0px;background-color: rgba(255, 255, 255, 0.7);
     padding-top: 30px; margin-top: 50px; width: 1100px;">
         <div class="col-lg-3">
-            
+            {%if row[2] == 'IndiGo'%}
             <div class="flightlogo"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;"> 
-            </div>
+                {%elif row[2] == 'Air India'%}
+                <div class="flightlogo"><img src="/static/img/ai.png" style="max-width: 100%; height: 60px;">
+                    {%elif row[2] == 'Vistara'%}
+                <div class="flightlogo"><img src="/static/img/vistara.png" style="max-width: 100%; height: 60px;">  
+                    {%else%}
+                    <div class="flightlogo"><img src="/static/img/spicejet.png" style="max-width: 100%; height: 60px;">  
+                        {% endif %}
+                    </div>
         <div class="flightdetail"><h6>{{row[2]}}</h6>
             <h6>{{row[3]}}</h6></div>
             </div>

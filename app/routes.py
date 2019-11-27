@@ -86,11 +86,11 @@ def flightsearch():
     ret = ""
     if request.method == 'POST':
         departureCode = request.form['from']
-        arrivalCode = request.form['to']
+        # arrivalCode = request.form['to']
         dep=request.form['tday'].split('-')
         ret=request.form['rday'].split('-')
     print(departureCode)
-    print(arrivalCode)
+    # print(arrivalCode)
     print(dep)
     print(ret)
     # flights = flightSearch(departureCode, arrivalCode, dep[2], dep[1], dep[0])

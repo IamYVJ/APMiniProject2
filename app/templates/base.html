@@ -13,6 +13,7 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet"> -->
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css')}}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/font-awesome.min.css')}}">
@@ -69,7 +70,16 @@
 
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg fs" data-setbg="/static/img/hero-bg.jpg">
-        {% block content %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+       {% block content %}
                 {% endblock %}
     </section>
     <!-- Hero Section End -->
@@ -173,6 +183,8 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/date.js')}}"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>

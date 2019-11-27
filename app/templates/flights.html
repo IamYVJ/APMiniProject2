@@ -30,7 +30,7 @@
                                 </ul>
                                 <div class="category-search" style="width: 100%; margin-top:10px;">
                                 <h6 style="color: white">Traveller(s) , class:  </h6>
-                                <select class="lo-search" >
+                                <select id="abc" class="lo-search" >
                                         <option>Economy</option>
                                         <option>Buisness</option>
                                     </select>
@@ -42,16 +42,26 @@
                             <div class="category-search" style="width: 500px; !important">
                                     <div class="location-search" style="width:258px;">
                                 <h5>To:</h5>
-                                <input type="text" name="to" id="myInput1" onkeyup="myFunction()" placeholder="From">
-                                <ul id="myUL1">
-                                <li onclick="set(1)"><a href="#">Adele</a></li>
-                                <li><a href="#">Agnes</a></li>
-                                <li><a href="#">Billy</a></li>
-                                <li><a href="#">Bob</a></li>
-                                <li><a href="#">Calvin</a></li>
-                                <li><a href="#">Christina</a></li>
-                                <li><a href="#">Cindy</a></li>
-                                </ul>
+                                <div class="searchable">
+                                        <input type="text" placeholder="search countries" onkeyup="filterFunction(this,event)">
+                                        <ul>
+                                            <li>Algeria</li>
+                                            <li>Bulgaria</li>
+                                            <li>Canada</li>
+                                            <li>Egypt</li>
+                                            <li>Fiji</li>
+                                            <li>India</li>
+                                            <li>Japan</li>
+                                            <li>Iran (Islamic Republic of)</li>
+                                            <li>Lao People's Democratic Republic</li>
+                                            <li>Micronesia (Federated States of)</li>
+                                            <li>Nicaragua</li>
+                                            <li>Senegal</li>
+                                            <li>Tajikistan</li>
+                                            <li>Yemen</li>
+                                        </ul>
+                                    </div>
+                                
                             </div>
                             <div class="category-search" style="width: 110px; !important">
                                 <div class="depart">
@@ -121,4 +131,83 @@
         }
     }
     </script>
+
+
+<script>
+
+function filterFunction(that, event) {
+        let container, input, filter, li, input_val;
+        container = $(that).closest(".searchable");
+        input_val = container.find("input").val().toUpperCase();
+    
+        if (["ArrowDown", "ArrowUp", "Enter"].indexOf(event.key) != -1) {
+            keyControl(event, container)
+        } else {
+            li = container.find("ul li");
+            li.each(function (i, obj) {
+                if ($(this).text().toUpperCase().indexOf(input_val) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+    
+            container.find("ul li").removeClass("selected");
+            setTimeout(function () {
+                container.find("ul li:visible").first().addClass("selected");
+            }, 100)
+        }
+    }
+    
+    function keyControl(e, container) {
+        if (e.key == "ArrowDown") {
+    
+            if (container.find("ul li").hasClass("selected")) {
+                if (container.find("ul li:visible").index(container.find("ul li.selected")) + 1 < container.find("ul li:visible").length) {
+                    container.find("ul li.selected").removeClass("selected").nextAll().not('[style*="display: none"]').first().addClass("selected");
+                }
+    
+            } else {
+                container.find("ul li:first-child").addClass("selected");
+            }
+    
+        } else if (e.key == "ArrowUp") {
+    
+            if (container.find("ul li:visible").index(container.find("ul li.selected")) > 0) {
+                container.find("ul li.selected").removeClass("selected").prevAll().not('[style*="display: none"]').first().addClass("selected");
+            }
+        } else if (e.key == "Enter") {
+            container.find("input").val(container.find("ul li.selected").text()).blur();
+            onSelect(container.find("ul li.selected").text())
+        }
+    
+        container.find("ul li.selected")[0].scrollIntoView({
+            behavior: "smooth",
+        });
+    }
+    
+    function onSelect(val) {
+        alert(val)
+    }
+    
+    $(".searchable input").focus(function () {
+        $(this).closest(".searchable").find("ul").show();
+        $(this).closest(".searchable").find("ul li").show();
+    });
+    $(".searchable input").blur(function () {
+        let that = this;
+        setTimeout(function () {
+            $(that).closest(".searchable").find("ul").hide();
+        }, 300);
+    });
+    
+    $(document).on('click', '.searchable ul li', function () {
+        $(this).closest(".searchable").find("input").val($(this).text()).blur();
+        onSelect($(this).text())
+    });
+    
+    $(".searchable ul li").hover(function () {
+        $(this).closest(".searchable").find("ul li.selected").removeClass("selected");
+        $(this).addClass("selected");
+    });</script>
         {% endblock %}

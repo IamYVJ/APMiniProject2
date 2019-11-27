@@ -96,5 +96,9 @@
         format: 'mm/dd/yyyy',
         startDate: '-3d'
     });
+
+    $('#select-state').selectize({
+        sortField: 'text'
+    });
     
 })(jQuery);
