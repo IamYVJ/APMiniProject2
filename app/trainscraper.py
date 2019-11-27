@@ -5,7 +5,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 import time
-from selenium.webdriver.firefox.options import Options
+# from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 
 global driver
 driver = ""
@@ -21,13 +22,17 @@ def get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
 
     url = 'https://railways.makemytrip.com/listing?date=' + str(yyyy) + str(mm) + str(dd) + '&srcStn=' + srcStn + '&srcCity=' + srcCity + '&destStn=' + destStn + '&destCity=' + destCity + '&classCode='
 
-    options = Options()
-    options.headless = True
-    driver = wd.Firefox(options=options)
+    # options = Options()
+    # options.headless = True
+    # driver = wd.Firefox(options=options)
+
+    chrome_options = Options()
+    # chrome_options.add_argument("--headless")
+    driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
 
     driver.get(url)
     source_code = driver.page_source
-    time.sleep(0.5)
+    time.sleep(5)
     driver.close()
     # print(source_code)
     modSource = ""

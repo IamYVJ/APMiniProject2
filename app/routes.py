@@ -11,6 +11,7 @@ from app.auth import OAuthSignIn
 from app.forms import ResetPasswordRequestForm
 from app.emailPasswordReset import send_password_reset_email
 from app.forms import ResetPasswordForm
+from app.flightscraper import flightSearch
 
 app.config['OAUTH_CREDENTIALS'] = {
     'google': {
@@ -79,10 +80,23 @@ def flights():
 
 @app.route('/flightsearch',methods = ['POST', 'GET'])
 def flightsearch():
-    # if request.method == 'POST':
-    #   result = request.form['type']
-    # print(result)
-    return render_template('flightsearch.html')
+    departureCode= ""
+    arrivalCode=""
+    dep = ""
+    ret = ""
+    if request.method == 'POST':
+        departureCode = request.form['from']
+        arrivalCode = request.form['to']
+        dep=request.form['tday'].split('-')
+        ret=request.form['rday'].split('-')
+    print(departureCode)
+    print(arrivalCode)
+    print(dep)
+    print(ret)
+    # flights = flightSearch(departureCode, arrivalCode, dep[2], dep[1], dep[0])
+    flights=[['New Delhi', 'Mumbai', 'Air India', 'AI-865', '10:40', '12:40', '2h 00m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-665', '08:00', '10:15', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air Asia', 'I5-716', '11:55', '14:15', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8911', '10:35', '12:45', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-171', '04:55', '07:05', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Go Air', 'G8-338', '10:30', '12:50', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-887', '07:00', '09:05', '2h 05m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8723', '08:30', '10:35', '2h 05m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8161', '15:50', '18:05', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8153', '06:05', '08:35', '2h 30m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Go Air', 'G8-530', '07:00', '09:10', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Go Air', 'G8-334', '08:00', '10:10', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-933', '15:30', '17:40', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-995', '10:20', '12:35', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-945', '11:40', '14:00', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-5335', '05:35', '07:45', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-755', '16:00', '18:15', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-5339', '10:00', '12:20', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-181', '09:20', '11:45', '2h 25m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-975', '06:00', '08:00', '2h 00m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-641/628', '23:30', '09:20+ 1 day', '9h 50m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-957', '11:30', '13:40', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-179', '08:25', '10:40', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-683/656', '13:40', '18:15', '4h 35m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-475/646', '12:55', '13:35+ 1 day', '24h 40m ', 'Non Stop ']]
+    print(flights)
+    return render_template('flightsearch.html', flights=flights)
 
 @app.route('/authorize/<provider>')
 def oauth_authorize(provider):

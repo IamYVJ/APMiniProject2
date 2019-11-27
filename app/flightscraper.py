@@ -5,7 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 import time
 from bs4 import BeautifulSoup
-from selenium.webdriver.firefox.options import Options
+# from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 
 global driver
 driver = ""
@@ -64,9 +65,14 @@ def flightData(rawData):
 
 def get_source(departureCode, arrivalCode, dd, mm, yyyy):
 
-    options = Options()
-    options.headless = True
-    driver = wd.Firefox(options=options)
+    # options = Options()
+    # options.headless = True
+    # driver = wd.Firefox(options=options)
+
+
+    chrome_options = Options()
+    # chrome_options.add_argument("--headless")
+    driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
 
     url = 'https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin=' + str(departureCode)+ '&originCountry=IN&destination=' + str(arrivalCode) + '&destinationCountry=IN&flight_depart_date='+str(dd)+'%2F'+str(mm)+'%2F'+str(yyyy)+'&ADT=1&CHD=0&INF=0&class=Economy&source=fresco-home&version=1.8'
     driver.get(url)
@@ -91,11 +97,11 @@ def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
 
 def testCase():
     departureCode = "DEL"
-    arrivalCode = "BOM"
+    arrivalCode = "RPR"
     dd = 28
     mm = 11
     yyyy = 2019
     flights = flightSearch(departureCode, arrivalCode, dd, mm, yyyy)
     print(flights)
 
-testCase()
+# testCase()
