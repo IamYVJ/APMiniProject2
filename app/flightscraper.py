@@ -60,7 +60,7 @@ def flightData(rawData):
         if n==0:
             flight.append(st)
         else:
-            flight.append(str(n) + " stop(s)")
+            flight.append(str(n) + " Stop(s)")
         flights.append(flight)
 
     # print(flights)
@@ -188,6 +188,7 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
          ae =  departureCode + arrivalCode + dtdt
          # for j in y["resultData"]:
          #     print(j["fareDetails"]["DELBOM20191128"])
+         bool = False
          for j in y["resultData"]:
              try:
                  # print(j["fareDetails"][ae][we]["O"]["ADT"]["tf"])
@@ -199,13 +200,55 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
                     # print(j["fareDetails"][ae][zzz]["O"]["ADT"]["tf"])
 
                  flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["tf"])
+                 bool = True
+
                  # break
 
              except:
                  continue
          # break
+         if(fl[0:2]=='9I'):
+              fl = 'AI' + fl[2:]
+         if bool==False:
+             try:
+                 if flights[i][7]=='1 Stop(s)':
+                     boolff = False
+                     for j in y["resultData"]:
+                         s = str(j["fareDetails"][ae])
+                         f1n = fl.find('/')
+                         fp1 = s.find(fl[:f1n])
+                         # print(fl[:f1n])
 
+                         while(fp1!=-1):
+                             # print(fl[:2]+fl[f1n+1:])
+                             fp2 = s.find(fl[:2]+fl[f1n+1:], fp1)
 
+                             while(fp2!=-1):
+                                 if(fp2-fp1>16 and fp2-fp1<22):
+                                     # print("T1")
+                                     ap = s.find(lc, fp2)
+                                     if(ap-fp2>8 and ap-fp2<20):
+                                         # print("T2")
+                                         tflp = s.find("tf", ap)
+                                         if(tflp-ap>28 and tflp-ap<42):
+                                             sff = s[tflp+6:s.find(',',tflp+6)-1]
+                                             flights[i].append(sff)
+                                             # print(sff)
+                                             boolff = True
+                                             break
+
+                                 fp2 =  s.find(fl[:2]+fl[f1n+1:], fp2+1)
+                                 if(fp2-fp1>22):
+                                     break
+                             if(boolff==True):
+                                 break
+                             fp1 = s.find(fl[:f1n], fp1+1)
+                         if(boolff==True):
+                             break
+             except:
+                    print('Exception')
+         else:
+             bool = False
 
     return(flights)
      # ["DELBOM6E17120191128_6EAPI"]["O"]["ADT"]["tf"])
