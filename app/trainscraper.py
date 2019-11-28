@@ -5,13 +5,72 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 import time
-# from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options as OptionsCr
+# from app.OSDetect import osDetect
+from OSDetect import osDetect
 
 global driver
 driver = ""
 
 def get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
+
+    syst = osDetect()
+
+
+    if syst=='W':
+        options = Options()
+        options.headless = True
+        # path = os.path.dirname(os.path.realpath(__file__))
+        # +"\\drivers\\Windows\\geckodriver"
+        driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
+    elif syst=='M':
+
+        # options = Options()
+        # options.headless = True
+        # driver = wd.Firefox(executable_path = r'drivers/MacOS/geckodriver', options=options)
+        # driver = wd.Firefox(executable_path = r'//usr/local/bin/geckodriver', options=options)
+
+        # options = wd.ChromeOptions()
+        # options.add_argument('--ignore-certificate-errors')
+        # options.add_argument("--test-type")
+        # options.binary_location = "/usr/bin/chromium"
+        # driver = wd.Chrome(chrome_options=options)
+
+        # chrome_options = wd.ChromeOptions()
+        # chrome_options.add_argument('--headless')
+        # driver = wd.Chrome(options = chrome_options)
+
+
+        # options = wd.ChromeOptions()
+        # options.binary_location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+        # options.add_argument('headless')
+        # driver = wd.Chrome(chrome_options=options)
+
+        driver = wd.Chrome()
+
+        # chrome_options = OptionsCr()
+        # chrome_options.add_argument("--headless")
+        # driver = wd.Chrome('chromedriver')
+        # driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
+        # driver = wd.Chrome(options=chrome_options)
+        # driver = wd.Chrome(executable_path='drivers/MacOS/geckodriver',options=chrome_options)
+        # driver = wd.Chrome(executable_path='drivers/MacOS/geckodriver')
+
+        # Other Code
+
+        # # chrome_options = wd.ChromeOptions()
+        # chrome_options = OptionsCr()
+        # chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--no-sandbox') # required when running as root user. otherwise you would get no sandbox errors.
+        # driver = wd.Chrome(executable_path='drivers/MacOS/geckodriver', chrome_options=chrome_options)
+
+    elif syst=='L':
+        #Linux Code
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
+
 
     srcStn = srcStn.strip()
     srcCity = srcCity.strip()
@@ -26,9 +85,9 @@ def get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
     # options.headless = True
     # driver = wd.Firefox(options=options)
 
-    chrome_options = Options()
-    # chrome_options.add_argument("--headless")
-    driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
+    # chrome_options = Options() #THIS WAS WORKING
+    # # chrome_options.add_argument("--headless")
+    # driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
 
     driver.get(url)
     source_code = driver.page_source
