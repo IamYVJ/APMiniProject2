@@ -7,8 +7,8 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 import time
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options as OptionsCr
-# from app.OSDetect import osDetect
-from OSDetect import osDetect
+from app.OSDetect import osDetect
+# from OSDetect import osDetect
 
 global driver
 driver = ""
@@ -285,4 +285,4 @@ def test():
             print(j)
         print()
 
-test()
+# test()
