@@ -2797,8 +2797,8 @@ padding-top: 20px;
 }
 
 .myaccount{
-	background-color: rgba(255, 255, 255, 0.6);
-	margin-top: 100px;
+	background-color: rgba(0, 0, 0, 0.4);
+	margin-top: 200px;
 }
 
 .myacc{
@@ -2815,6 +2815,8 @@ padding-top: 20px;
 	max-width: 180px;
 	list-style-type: none ;
 	margin-bottom: 15px;
+	/* color: #ef7273; */
+	color: white;
 }
 
 .manage-booking li{

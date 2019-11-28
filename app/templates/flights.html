@@ -12,8 +12,8 @@
                         <form action="{{ url_for('flightsearch') }}" class="filter-search flights" method="post">
                             <div class="flight-mode">
                                 <ul class="col-lg-12" style="display: inline-flex; list-style-type: none;">
-                                        <input  type="radio" name="type" value="oneway" checked="checked"> One Way
-                                        <input type="radio" name="type" value="roundtrip"> Round Trip
+                                        <input  type="radio" id="one" onchange="hide()" name="type" value="oneway" checked="checked"> One Way
+                                        <input type="radio" id="round" name="type" value="roundtrip"> Round Trip
                                 </ul>
                             </div>
                             <div class="category-search" style="width: 25%; !important">
@@ -70,7 +70,7 @@
                                       </form>
                                  </div>
                             </div>
-                            <div class="category-search" style="width: 110px; !important">
+                            <div class="category-search" id="rday" style="width: 110px; !important">
                                     <div class="return">
                                         <h5>Return:</h5>
                                         <input type="date" name="rday" min={{dtoday}} style="width: 120px;
@@ -91,6 +91,18 @@
 
 
 <script>
+    function hide(){
+        var input;
+        input = document.getElementById('rday');
+        input.style.display="none";
+    }
+    function hide1(){
+        var input;
+        input = document.getElementById('rday');
+        input.style.display="none";
+    }
+
+
     function myFunction() {
       // Declare variables
       var input, filter, ul, li, a, i, txtValue;
@@ -124,81 +136,5 @@
     </script>
 
 
-<script>
 
-function filterFunction(that, event) {
-        let container, input, filter, li, input_val;
-        container = $(that).closest(".searchable");
-        input_val = container.find("input").val().toUpperCase();
-    
-        if (["ArrowDown", "ArrowUp", "Enter"].indexOf(event.key) != -1) {
-            keyControl(event, container)
-        } else {
-            li = container.find("ul li");
-            li.each(function (i, obj) {
-                if ($(this).text().toUpperCase().indexOf(input_val) > -1) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-    
-            container.find("ul li").removeClass("selected");
-            setTimeout(function () {
-                container.find("ul li:visible").first().addClass("selected");
-            }, 100)
-        }
-    }
-    
-    function keyControl(e, container) {
-        if (e.key == "ArrowDown") {
-    
-            if (container.find("ul li").hasClass("selected")) {
-                if (container.find("ul li:visible").index(container.find("ul li.selected")) + 1 < container.find("ul li:visible").length) {
-                    container.find("ul li.selected").removeClass("selected").nextAll().not('[style*="display: none"]').first().addClass("selected");
-                }
-    
-            } else {
-                container.find("ul li:first-child").addClass("selected");
-            }
-    
-        } else if (e.key == "ArrowUp") {
-    
-            if (container.find("ul li:visible").index(container.find("ul li.selected")) > 0) {
-                container.find("ul li.selected").removeClass("selected").prevAll().not('[style*="display: none"]').first().addClass("selected");
-            }
-        } else if (e.key == "Enter") {
-            container.find("input").val(container.find("ul li.selected").text()).blur();
-            onSelect(container.find("ul li.selected").text())
-        }
-    
-        container.find("ul li.selected")[0].scrollIntoView({
-            behavior: "smooth",
-        });
-    }
-    
-    function onSelect(val) {
-        alert(val)
-    }
-    
-    $(".searchable input").focus(function () {
-        $(this).closest(".searchable").find("ul").show();
-        $(this).closest(".searchable").find("ul li").show();
-    });
-    $(".searchable input").blur(function () {
-        let that = this;
-        setTimeout(function () {
-            $(that).closest(".searchable").find("ul").hide();
-        }, 300);
-    });
-    
-    $(document).on('click', '.searchable ul li', function () {
-        $(this).closest(".searchable").find("input").val($(this).text()).blur();
-        onSelect($(this).text())
-    });
-    
-    $(".searchable ul li").hover(function () {
-        $(this).closest(".searchable").find("ul li.selected").removeClass("selected");
-        $(this).addClass("selected");
-    });</script>
         {% endblock %}
