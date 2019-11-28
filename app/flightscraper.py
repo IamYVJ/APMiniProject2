@@ -8,8 +8,8 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
-from app.OSDetect import osDetect
-# from OSDetect import osDetect
+# from app.OSDetect import osDetect
+from OSDetect import osDetect
 
 
 global driver
@@ -314,6 +314,10 @@ def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
             break
     if boolExp==True:
         flights = flightFares(source, flights, departureCode, arrivalCode, dd, mm, yyyy)
+
+    for i in range(0, len(flights)):
+        flights[i].insert(0, i)
+
     return(flights)
 
 def testCase():
@@ -328,4 +332,4 @@ def testCase():
     for i in flights:
         print(i)
 
-# testCase()
+testCase()
