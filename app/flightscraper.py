@@ -6,8 +6,10 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 import time
 from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.options import Options
-# from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
+# from app import app
+from OSDetect import osDetect
 
 
 global driver
@@ -70,14 +72,16 @@ def flightData(rawData):
 
 def get_source(departureCode, arrivalCode, dd, mm, yyyy):
 
-    options = Options()
-    options.headless = True
-    driver = wd.Firefox(options=options)
+    syst = osDetect()
 
-
-    # chrome_options = Options()
-    # # chrome_options.add_argument("--headless")
-    # driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
+    if syst=='W':
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(options=options)
+    elif syst=='M':
+        chrome_options = OptionsCr()
+        # chrome_options.add_argument("--headless")
+        driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
 
     url = 'https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin=' + str(departureCode)+ '&originCountry=IN&destination=' + str(arrivalCode) + '&destinationCountry=IN&flight_depart_date='+str(dd)+'%2F'+str(mm)+'%2F'+str(yyyy)+'&ADT=1&CHD=0&INF=0&class=Economy&source=fresco-home&version=1.8'
     driver.get(url)
@@ -259,6 +263,13 @@ def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
     source = get_source(departureCode, arrivalCode, dd, mm, yyyy)
     flights = flightData(source)
     flights = flightFares(source, flights, departureCode, arrivalCode, dd, mm, yyyy)
+    boolExp = True
+    for i in flights:
+        if len(i)==9:
+            boolExp = False
+            break
+    if boolExp==True:
+        flights = flightFares(source, flights, departureCode, arrivalCode, dd, mm, yyyy)
     return(flights)
 
 def testCase():
@@ -273,4 +284,4 @@ def testCase():
     for i in flights:
         print(i)
 
-# testCase()
+testCase()
