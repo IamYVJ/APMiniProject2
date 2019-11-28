@@ -8,8 +8,8 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
-# from app import app
-from OSDetect import osDetect
+from app.OSDetect import osDetect
+# from OSDetect import osDetect
 
 
 global driver
@@ -81,10 +81,15 @@ def get_source(departureCode, arrivalCode, dd, mm, yyyy):
         # +"\\drivers\\Windows\\geckodriver"
         driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
     elif syst=='M':
-        chrome_options = OptionsCr()
-        # chrome_options.add_argument("--headless")
+
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers/MacOS/geckodriver', options=options)
+
+        # chrome_options = OptionsCr()
+        # # chrome_options.add_argument("--headless")
+        # # driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
         # driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
-        driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
 
         # Other Code
 
@@ -300,4 +305,4 @@ def testCase():
     for i in flights:
         print(i)
 
-testCase()
+# testCase()
