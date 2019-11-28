@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
 # from app import app
 from OSDetect import osDetect
-
+import os
 
 global driver
 driver = ""
@@ -77,11 +77,25 @@ def get_source(departureCode, arrivalCode, dd, mm, yyyy):
     if syst=='W':
         options = Options()
         options.headless = True
+        # path = os.path.dirname(os.path.realpath(__file__))
+        # +"\\drivers\\Windows\\geckodriver"
         driver = wd.Firefox(options=options)
     elif syst=='M':
         chrome_options = OptionsCr()
         # chrome_options.add_argument("--headless")
         driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
+
+        # Other Code
+
+        # chrome_options = wd.ChromeOptions()
+        # chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--no-sandbox') # required when running as root user. otherwise you would get no sandbox errors.
+        # driver = webdriver.Chrome(driver_path='/chromedriver', chrome_options=chrome_options)
+
+
+    elif syst=='L':
+        #Linux Code
+        print("LINUX")
 
     url = 'https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin=' + str(departureCode)+ '&originCountry=IN&destination=' + str(arrivalCode) + '&destinationCountry=IN&flight_depart_date='+str(dd)+'%2F'+str(mm)+'%2F'+str(yyyy)+'&ADT=1&CHD=0&INF=0&class=Economy&source=fresco-home&version=1.8'
     driver.get(url)
