@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
 # from app import app
 from OSDetect import osDetect
-import os
+
 
 global driver
 driver = ""
@@ -79,10 +79,11 @@ def get_source(departureCode, arrivalCode, dd, mm, yyyy):
         options.headless = True
         # path = os.path.dirname(os.path.realpath(__file__))
         # +"\\drivers\\Windows\\geckodriver"
-        driver = wd.Firefox(options=options)
+        driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
     elif syst=='M':
         chrome_options = OptionsCr()
         # chrome_options.add_argument("--headless")
+        # driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
         driver = wd.Chrome(executable_path='//Users/raj.burad7/Desktop/APMiniProject2/app/chromedriver',options=chrome_options)
 
         # Other Code
@@ -92,10 +93,11 @@ def get_source(departureCode, arrivalCode, dd, mm, yyyy):
         # chrome_options.add_argument('--no-sandbox') # required when running as root user. otherwise you would get no sandbox errors.
         # driver = webdriver.Chrome(driver_path='/chromedriver', chrome_options=chrome_options)
 
-
     elif syst=='L':
         #Linux Code
-        print("LINUX")
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'geckodriver-v0.26.0-linux64_orig.tar', options=options)
 
     url = 'https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin=' + str(departureCode)+ '&originCountry=IN&destination=' + str(arrivalCode) + '&destinationCountry=IN&flight_depart_date='+str(dd)+'%2F'+str(mm)+'%2F'+str(yyyy)+'&ADT=1&CHD=0&INF=0&class=Economy&source=fresco-home&version=1.8'
     driver.get(url)
