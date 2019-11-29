@@ -18,7 +18,9 @@ driver = ""
 
 def flightData(rawData):
     soup = BeautifulSoup(rawData, 'html5lib')
-
+    # xxx= soup.prettify()
+    # for i in xxx:
+    #     print(i, end="")
     flights = [] # Departure City, Arrival City, Airline, Flight No, Departure Time, Arrival Time, Flight Duration,, No of stops
 
     for row1 in soup.findAll('div', attrs = {'class':'schedule v-aligm-t pr'}):
@@ -247,7 +249,27 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
                  #    zzz = str(k)
                     # print(j["fareDetails"][ae][zzz]["O"]["ADT"]["tf"])
 
-                 flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["tf"])
+                 flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["tf"]) #Total Fare
+                 flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["bf"]) #Base Fare
+                 flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["YQ"]) #Fuel Surcharge
+                 flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["PSF"]) #Passenger Service Fee
+                 flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["TF"]) #CUTE Fee
+                 # PSF":"Passenger Service Fee"
+                 # "YQ":"Fuel Surcharge"
+                 # "KKC":"Krishi Kalyan Cess"
+                 # "GST":"Goods And Service Tax"
+                 # "OT":"Fee And Taxes"
+                 # "UDF":"User Development Fee"
+                 # "JN":"Govt. Service Tax"
+                 # "WC":"Airport Arrival Tax"
+                 # "DF":"Development Fee"
+                 # "OC":"Other Charges"
+                 # "CM":"Commission"
+                 # "PHF":"Add to Base"
+                 # "SBC":"Swachh Bharat Cess"
+                 # "TF":"CUTE Fee"
+                 # "OC":"Miscelleneous"
+
                  bool = True
 
                  # break
@@ -314,9 +336,16 @@ def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
             break
     if boolExp==True:
         flights = flightFares(source, flights, departureCode, arrivalCode, dd, mm, yyyy)
-
+    max = 0
     for i in range(0, len(flights)):
         flights[i].insert(0, i)
+        if(max<len(flights[i])):
+            max = len(flights[i])
+    # print(max)
+    for i in flights:
+        if len(i)<max:
+            for j in range(max-len(i)):
+                i.append("NA")
 
     return(flights)
 
