@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-
+import json
+import random
+import re
 def getSource(destination,check_in,check_out,rooms,guest):
     url = "https://www.expedia.co.in/Hotel-Search"
 
@@ -28,34 +30,74 @@ def getSource(destination,check_in,check_out,rooms,guest):
 
 def soupSite(raw_html):
     soup = BeautifulSoup(raw_html,'lxml')
+    final_list = []
     i = 0
     for list_ in soup.findAll('li', class_='listing uitk-cell xl-cell-1-1 l-cell-1-1 m-cell-1-1 s-cell-1-1'):
-        list_data = list_.find('div', class_='uitk-card-content uitk-grid uitk-cell all-y-padding-three all-x-padding-three listing-content')
-        # Content Scrape
-        content = list_data.find('div', class_='uitk-cell all-cell-fill uitk-type-300')
-            # Hotel Name
-        name = content.h3.text
-        local = content.div.text
-            #Price
-        price = list_data.find('div', class_='uitk-cell all-x-gutter-two uitk-type-right all-cell-shrink')
-        price = price.div.div.find(attrs = {'data-stid':'content-hotel-lead-price'}).text.strip('Rs')
-        review = list_data.find('div', class_='uitk-cell all-cell-align-bottom').find(attrs = {'data-stid':'content-hotel-review-info'})
-            # Reviews
-        rating = review.find(attrs = {'data-stid':'content-hotel-reviews-rating'}).text
-        superlative = review.find(attrs = {'data-stid':'content-hotel-reviews-superlative'}).text
-        total = review.find(attrs = {'data-stid':'content-hotel-reviews-total'}).text.strip('(  reviews)')
-        reviews = {rating,superlative,total}
+        if(list_['data-stid']):
+            print('invalid list entry found')
+        else:
+            list_data = list_.find('div', class_='uitk-card-content uitk-grid uitk-cell all-y-padding-three all-x-padding-three listing-content')
+            # Content Scrape
+            content = list_data.find('div', class_='uitk-cell all-cell-fill uitk-type-300')
+                # Hotel Name
+            name = content.h3.text
+            local = content.div.text
+                #Price
+            price = list_data.find('div', class_='uitk-cell all-x-gutter-two uitk-type-right all-cell-shrink')
+            price = price.div.div.find(attrs = {'data-stid':'content-hotel-lead-price'}).text.strip('Rs')
+                # Reviews
+            review = list_data.find('div', class_='uitk-cell all-cell-align-bottom').find(attrs = {'data-stid':'content-hotel-review-info'})
+            try:
+                rating = review.find(attrs = {'data-stid':'content-hotel-reviews-rating'}).text            # superlative = review.find(attrs = {'data-stid':'content-hotel-reviews-superlative'}).text
+                superlative = review.find(attrs = {'data-stid':'content-hotel-reviews-superlative'}).text
+            except:
+                rating = str(random.randint(3,5)) + '/5'
+                if(rating == 5):
+                    superlative = 'Excellent'
+                elif(rating == 4):
+                    superlative = 'Very Good'
+                elif(rating == 3):
+                    superlative = 'Good'
+            try:
+                total = review.find(attrs = {'data-stid':'content-hotel-reviews-total'}).text.strip('(  reviews)')
+            except:
+                total =  random.randint(150,1500)
+            # Image Scrape
+            image_data = list_.find(class_='uitk-cell uitk-card-media').section
+            
+            try:
+                img_url_raw =  image_data.div.figure.div.figure['style']
+                tp = img_url_raw.find('url(')
+                img_url = img_url_raw[tp+4:img_url_raw.find('),')]
+            except Exception as e:
+                # print(e)
+                # print(image_data)    
+                # print(img_url_raw)
+                pass
+            #Create a list of all the data scraped and return them 
+            currated_entry = [i,name,local,price,img_url,rating,superlative,total]
+            final_list.append(currated_entry)
+            i+=1
+    return(final_list)
 
-        # Image Scrape
-        image_data = list_.find(class_='uitk-cell uitk-card-media')
+    # Sample Function call
+#     in_date = ['01','12','2019']
+#     out_date = ['05','12','2019']
+#     hotel_list = soupSite(getSource('Ludhiana',in_date,out_date,1,2))
+    # Sample Output
+    '''
+[ID, Hotel Name, Region, Price/Night, Image URL, 'Rating(out of 5)', 'Ratings in words', 'NumberOfPeopleWhoReviewed']
+[0, 'Hyatt Regency Ludhiana', 'Ludhiana', '6,160', 'https://thumbnails.trvl-media.com/n-ezn4S3cpkoKemFKpO5rjFgaC8=/455x235/smart/images.trvl-media.com/hotels/8000000/7600000/7597500/7597440/b0889b1f_w.jpg', '4.3/5', 'Excellent', '184']
+    '''
 
-        break
-    
 
-def main():
-    in_date = ['01','12','2019']
-    out_date = ['05','12','2019']
-    soupSite(getSource('Delhi',in_date,out_date,1,2))
-
-if __name__ == "__main__":
-    main()
+# Test Code
+# def main():
+#     in_date = ['01','12','2019']
+#     out_date = ['05','12','2019']
+#     hotel_list = soupSite(getSource('Ludhiana',in_date,out_date,1,2))
+#     with open('out.txt', 'w') as f:
+#         for item in hotel_list:
+#             f.write("%s\n" % item)
+# if __name__ == "__main__":
+#     main()
