@@ -142,20 +142,8 @@ def get_source(departureCode, arrivalCode, dd, mm, yyyy):
         bool = 0
     return(modSource)
 
-def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
-
-    ff = []
+def jsonData(rawData):
     soup = BeautifulSoup(rawData, 'html5lib')
-    # qqq = soup.prettify()
-    # try:
-    #     for i in qqq:
-    #         print(i,end="")
-    # except:
-    #     bool = 0
-
-    # print(soup.prettify())
-    # print()
-    # print()
     i = 1
     yy = ""
     for row1 in soup.findAll('script', attrs = {'type':'text/javascript'}):
@@ -171,8 +159,41 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
     val = yy.find('mainData')
     val = yy.find('mainData', val+1)
     yy = yy[yy.find('{'):val-10]
+    return(yy)
 
-    y = json.loads(yy)
+
+def flightFares(rawJSON, flights, departureCode, arrivalCode, dd, mm, yyyy):
+
+    ff = []
+    # soup = BeautifulSoup(rawData, 'html5lib')
+    # # qqq = soup.prettify()
+    # # try:
+    # #     for i in qqq:
+    # #         print(i,end="")
+    # # except:
+    # #     bool = 0
+    #
+    # # print(soup.prettify())
+    # # print()
+    # # print()
+    # i = 1
+    # yy = ""
+    # for row1 in soup.findAll('script', attrs = {'type':'text/javascript'}):
+    #     if i!=10:
+    #         i = i+1
+    #         continue
+    #     # print(row1.prettify())
+    #     yy = str(row1.text)
+    #     break
+    # # val = -1
+    # # for i in range(0, 4):
+    # #     val = yy.find(';', val + 1)
+    # val = yy.find('mainData')
+    # val = yy.find('mainData', val+1)
+    # yy = yy[yy.find('{'):val-10]
+
+    print(rawJSON)
+    y = json.loads(rawJSON)
 
     # for i in range(len(flights)):
     #
@@ -242,6 +263,7 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
          for j in y["resultData"]:
              try:
                  # print(j["fareDetails"][ae][we]["O"]["ADT"]["tf"])
+                 # print(ae)
                  # print(j["fareDetails"][ae])
 
                  # for k in j["fareDetails"][ae]:
@@ -254,6 +276,7 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
                  flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["YQ"]) #Fuel Surcharge
                  flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["PSF"]) #Passenger Service Fee
                  flights[i].append(j["fareDetails"][ae][we]["O"]["ADT"]["TF"]) #CUTE Fee
+                 flights[i].append(we)
                  # PSF":"Passenger Service Fee"
                  # "YQ":"Fuel Surcharge"
                  # "KKC":"Krishi Kalyan Cess"
@@ -302,6 +325,7 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
                                          tflp = s.find("tf", ap)
                                          if(tflp-ap>28 and tflp-ap<42):
                                              sff = s[tflp+6:s.find(',',tflp+6)-1]
+                                             # print(s[fp1:ap])
                                              flights[i].append(sff)
                                              # print(sff)
                                              boolff = True
@@ -320,15 +344,122 @@ def flightFares(rawData, flights, departureCode, arrivalCode, dd, mm, yyyy):
          else:
              bool = False
 
-    return(flights)
+    return(flights, ae)
      # ["DELBOM6E17120191128_6EAPI"]["O"]["ADT"]["tf"])
+
+
+def flightDetails(rawJSON, flights, ae):
+    y = json.loads(rawJSON)
+    f =[]
+    for i in y["resultData"]:
+        # print(i["fltSchedule"]["DELRPR20191130"])
+        # print(i["fltSchedule"]["airportNames"])
+        # print(i["fltSchedule"]["cityNames"])
+        for j in i["fltSchedule"][ae]:
+            ff = []
+            ff.append(j["ID"])
+            # print(j["ID"])
+            # print(j["convFee"])
+            for k in j["OD"]:
+                ff.append(k["bga"])
+                # print(k["bga"])
+                # print(k["FS"])
+                for l in k["FS"]:
+                    fff = []
+                    try:
+                        fff.append(l["dac"])
+                        print(l["dac"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["aac"])
+                        print(l["aac"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["ddt"])
+                        print(l["ddt"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["adt"])
+                        print(l["adt"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["dd"])
+                        print(l["dd"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["ad"])
+                        print(l["ad"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["eq"])
+                        print(l["eq"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["bga"])
+                        print(l["bga"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["dt"])
+                        print(l["dt"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["at"])
+                        print(l["at"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["classtype"])
+                        print(l["classtype"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                    try:
+                        fff.append(l["ml"])
+                        print(l["ml"])
+                    except:
+                        fff.append("NA")
+                        print("NA")
+                ff.append(fff)
+            f.append(ff)
+            print()
+    for i in f:
+        for j in flights:
+            if j[14]==i[0]:
+                for k in i:
+                    if k==i[0]:
+                        continue
+                    j.append(k)
+                break
+    return(flights)
 
 
 def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
 
     source = get_source(departureCode, arrivalCode, dd, mm, yyyy)
     flights = flightData(source)
-    flights = flightFares(source, flights, departureCode, arrivalCode, dd, mm, yyyy)
+    rawJSON = jsonData(source)
+    flights, ae = flightFares(rawJSON, flights, departureCode, arrivalCode, dd, mm, yyyy)
+
+
     boolExp = True
     for i in flights:
         if len(i)==9:
@@ -347,11 +478,13 @@ def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
             for j in range(max-len(i)):
                 i.append("NA")
 
+    flights = flightDetails(rawJSON, flights, ae)
+
     return(flights)
 
 def testCase():
     departureCode = "DEL"
-    arrivalCode = "RPR"
+    arrivalCode = "CCU"
     dd = 30
     mm = 11
     yyyy = 2019
