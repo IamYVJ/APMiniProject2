@@ -19,8 +19,6 @@ app.config['OAUTH_CREDENTIALS'] = {
         'secret': 'gJ5hLx6ikRTAC8NlONLZ67Kx'
     }}
 
-class ExampleForm(Form):
-    dt = DateField('DatePicker', format='%Y-%m-%d')
 
 @app.route('/')
 @app.route('/index')
@@ -71,6 +69,10 @@ def logout():
 def flights():
     # if request.method == 'POST':
     #   result = request.form
+    # print(flights)
+    with sqlite3.connect('app/site.db') as conn:
+        cur = conn.cursor()
+        cur.execute("DELETE from flights")
     dtoday = str(date.today())
     print(dtoday)
     form = FlightForm()
@@ -84,6 +86,7 @@ def flightsearch():
     arrivalCode=""
     dep = ""
     ret = ""
+    flights=[]
     form=FlightForm
     dtoday = str(date.today())
     if request.method == 'POST':
@@ -95,11 +98,30 @@ def flightsearch():
     print(arrivalCode)
     print(dep)
     print(ret)
-    if(departureCode=="" or arrivalCode=="" or len(dep)==0):
-        return render_template('flights.html',form=form, dtoday = dtoday)
-    # flights = flightSearch(departureCode, arrivalCode, dep[2], dep[1], dep[0])
-    flights = [['New Delhi', 'Raipur', 'Air India', 'AI-469', '05:15', '07:05', '1h 50m ', 'Non Stop ', '4153'], ['New Delhi', 'Raipur', 'IndiGo', '6E-2757', '06:45', '08:35', '1h 50m ', 'Non Stop ', '4773'], ['New Delhi', 'Raipur', 'IndiGo', '6E-2393', '08:25', '10:15', '1h 50m ', 'Non Stop ', '5300'], ['New Delhi', 'Raipur', 'Vistara Premium Economy', 'UK-793', '06:40', '08:20', '1h 40m ', 'Non Stop '], ['New Delhi', 'Raipur', 'IndiGo', '6E-2912', '17:25', '19:15', '1h 50m ', 'Non Stop ', '5928'], ['New Delhi', 'Raipur', 'Vistara', 'UK-793', '06:40', '08:20', '1h 40m ', 'Non Stop ', '6554'], ['New Delhi', 'Raipur', 'Vistara', 'UK-797', '18:00', '19:45', '1h 45m ', 'Non Stop ', '6554'], ['New Delhi', 'Raipur', 'IndiGo', '6E-2201', '12:30', '14:20', '1h 50m ', 'Non Stop ', '6558'], ['New Delhi', 'Raipur', 'Vistara Premium Economy', 'UK-797', '18:00', '19:45', '1h 45m ', 'Non Stop '], ['New Delhi', 'Raipur', 'IndiGo', '6E-656/811', '05:25', '09:00', '3h 35m ', '1 Stop(s)', '8244'], ['New Delhi', 'Raipur', 'Air India', 'AI-435/9683', '05:55', '17:00', '11h 05m ', '1 Stop(s)', '9456'], ['New Delhi', 'Raipur', 'Air India', 'AI-417/9720', '11:10', '15:20', '4h 10m ', '1 Stop(s)', '9666'], ['New Delhi', 'Raipur', 'Air India', '9I-9843/9683', '05:55', '17:00', '11h 05m ', '1 Stop(s)', '10558'], ['New Delhi', 'Raipur', 'Air India', 'AI-191/651', '21:00', '11:50+ 1 day', '14h 50m ', '1 Stop(s)', '10978'], ['New Delhi', 'Raipur', 'Air India', 'AI-805/651', '20:00', '11:50+ 1 day', '15h 50m ', '1 Stop(s)', '10978'], ['New Delhi', 'Raipur', 'Air India', 'AI-24/651', '18:00', '11:50+ 1 day', '17h 50m ', '1 Stop(s)', '10978'], ['New Delhi', 'Raipur', 'Air India', 'AI-665/651', '08:00', '11:50+ 1 day', '27h 50m ', '1 Stop(s)', '10978'], ['New Delhi', 'Raipur', 'IndiGo', '6E-5038/252', '09:10', '16:35', '7h 25m ', '1 Stop(s)', '11107'], ['New Delhi', 'Raipur', 'Air India', 'AI-863/651', '23:00', '11:50+ 1 day', '12h 50m ', '1 Stop(s)', '11157'], ['New Delhi', 'Raipur', 'Air India', 'AI-102/651', '17:00', '11:50+ 1 day', '18h 50m ', '1 Stop(s)', '11293'], ['New Delhi', 'Raipur', 'Air India', 'AI-865/651', '10:40', '11:50+ 1 day', '25h 10m ', '1 Stop(s)', '11293'], ['New Delhi', 'Raipur', 'Air India', '9I-9643/9683', '18:45', '17:00+ 1 day', '22h 15m ', '1 Stop(s)', '11503'], ['New Delhi', 'Raipur', 'Air India', 'AI-437/9683', '20:00', '17:00+ 1 day', '21h 00m ', '1 Stop(s)', '12028'], ['New Delhi', 'Raipur', 'Air India', 'AI-441/651', '17:50', '11:50+ 1 day', '18h 00m ', '1 Stop(s)', '12763'], ['New Delhi', 'Raipur', 'Air India', 'AI-19/30/651', '05:00', '11:50+ 1 day', '30h 50m ', '2 Stop(s)']]
-    # flights=[['New Delhi', 'Mumbai', 'Air India', 'AI-865', '10:40', '12:40', '2h 00m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-665', '08:00', '10:15', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air Asia', 'I5-716', '11:55', '14:15', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8911', '10:35', '12:45', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-171', '04:55', '07:05', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Go Air', 'G8-338', '10:30', '12:50', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-887', '07:00', '09:05', '2h 05m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8723', '08:30', '10:35', '2h 05m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8161', '15:50', '18:05', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'SpiceJet', 'SG-8153', '06:05', '08:35', '2h 30m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Go Air', 'G8-530', '07:00', '09:10', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Go Air', 'G8-334', '08:00', '10:10', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-933', '15:30', '17:40', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-995', '10:20', '12:35', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-945', '11:40', '14:00', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-5335', '05:35', '07:45', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-755', '16:00', '18:15', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-5339', '10:00', '12:20', '2h 20m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-181', '09:20', '11:45', '2h 25m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-975', '06:00', '08:00', '2h 00m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-641/628', '23:30', '09:20+ 1 day', '9h 50m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-957', '11:30', '13:40', '2h 10m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'IndiGo', '6E-179', '08:25', '10:40', '2h 15m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Vistara', 'UK-683/656', '13:40', '18:15', '4h 35m ', 'Non Stop '], ['New Delhi', 'Mumbai', 'Air India', 'AI-475/646', '12:55', '13:35+ 1 day', '24h 40m ', 'Non Stop ']]
+    with sqlite3.connect('app/site.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT count(*) FROM flights")
+        row=cur.fetchone()
+        print(row[0])
+    # if(row[0]==0):
+    #     if(departureCode=="" or arrivalCode=="" or len(dep)==0):
+    #         return render_template('flights.html',form=form, dtoday = dtoday)
+    #     # else:
+    #         # flights = flightSearch(departureCode, arrivalCode, dep[2], dep[1], dep[0])
+    # else:
+    #     with sqlite3.connect('app/site.db') as conn:
+    #         cur = conn.cursor()
+    #         cur.execute("SELECT * FROM flights")
+    #         row=cur.fetchall()
+    #         for rows in row:
+    #             flights.append(rows)
+    # print(flights)
+
+    flights=[[0, 'New Delhi', 'Mumbai', 'Go Air', 'G8-429', '21:35', '23:50', '2h 15m ', 'Non Stop ', '5308'], [1, 'New Delhi', 'Mumbai', 'Go Air', 'G8-338', '10:30', '12:50', '2h 20m ', 'Non Stop ', '5308'], [2, 'New Delhi', 'Mumbai', 'Go Air', 'G8-640', '18:00', '20:20', '2h 20m ', 'Non Stop ', '5308'], [3, 'New Delhi', 'Mumbai', 'Go Air', 'G8-544', '22:40', '01:00+ 1 day', '2h 20m ', 'Non Stop ', '5308'], [4, 'New Delhi', 'Mumbai', 'Go Air', 'G8-446', '19:40', '22:05', '2h 25m ', 'Non Stop ', '5308'], [5, 'New Delhi', 'Mumbai', 'Vistara', 'UK-975', '06:00', '08:00', '2h 00m ', 'Non Stop ', '5518'], [6, 'New Delhi', 'Mumbai', 'Air India', 'AI-887', '07:00', '09:05', '2h 05m ', 'Non Stop ', '5518'], [7, 'New Delhi', 'Mumbai', 'Vistara', 'UK-985', '19:50', '21:55', '2h 05m ', 'Non Stop ', '5518'], [8, 'New Delhi', 'Mumbai', 'Air India', 'AI-805', '20:00', '22:10', '2h 10m ', 'Non Stop ', '5518'], [9, 'New Delhi', 'Mumbai', 'Air India', 'AI-191', '21:00', '23:10', '2h 10m ', 'Non Stop ', '5518'], [10, 'New Delhi', 'Mumbai', 'Vistara', 'UK-927', '09:30', '11:40', '2h 10m ', 'Non Stop ', '5518'], [11, 'New Delhi', 'Mumbai', 'Vistara', 'UK-953', '20:40', '22:50', '2h 10m ', 'Non Stop ', '5518'], [12, 'New Delhi', 'Mumbai', 'Vistara', 'UK-981', '21:40', '23:50', '2h 10m ', 'Non Stop ', '5518'], [13, 'New Delhi', 'Mumbai', 'Vistara', 'UK-933', '15:30', '17:40', '2h 10m ', 'Non Stop ', '5518'], [14, 'New Delhi', 'Mumbai', 'Go Air', 'G8-530', '07:00', '09:10', '2h 10m ', 'Non Stop ', '5518'], [15, 'New Delhi', 'Mumbai', 'Air India', 'AI-665', '08:00', '10:15', '2h 15m ', 'Non Stop ', '5518'], [16, 'New Delhi', 'Mumbai', 'Air India', 'AI-24', '18:00', '20:15', '2h 15m ', 'Non Stop ', '5518'], [17, 'New Delhi', 'Mumbai', 'Vistara', 'UK-995', '10:20', '12:35', '2h 15m ', 'Non Stop ', '5518'], [18, 'New Delhi', 'Mumbai', 'Vistara', 'UK-993', '12:45', '15:00', '2h 15m ', 'Non Stop ', '5518'], [19, 'New Delhi', 'Mumbai', 'Vistara', 'UK-923', '06:40', '09:00', '2h 20m ', 'Non Stop ', '5518'], [20, 'New Delhi', 'Mumbai', 'Vistara', 'UK-963', '08:50', '11:10', '2h 20m ', 'Non Stop ', '5518'], [21, 'New Delhi', 'Mumbai', 'Vistara', 'UK-945', '11:40', '14:00', '2h 20m ', 'Non Stop ', '5518'], [22, 'New Delhi', 'Mumbai', 'Vistara', 'UK-955', '17:45', '20:05', '2h 20m ', 'Non Stop ', '5518'], [23, 'New Delhi', 'Mumbai', 'Vistara', 'UK-977', '18:55', '21:15', '2h 20m ', 'Non Stop ', '5518'], [24, 'New Delhi', 'Mumbai', 'Air Asia', 'I5-881', '05:20', '07:30', '2h 10m ', 'Non Stop ', '5600']]
+    # with sqlite3.connect('app/site.db') as conn:
+    #     cur = conn.cursor()
+    #     for rows in flights:
+    #         cur.execute("INSERT INTO flights (flightid, destination ,arrival,airlines,flightno,depart,arrive,duration ,type,price) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)", (rows[0],rows[1],rows[2],rows[3],rows[4],rows[5],rows[6],rows[7],rows[8],rows[9]))
     # print(flights)
     return render_template('flightsearch.html', flights=flights)
 
@@ -132,9 +154,19 @@ def oauth_callback(provider):
     return redirect(url_for('index'))
 
 @app.route('/myaccount')
+@login_required
 def myaccount():
     return render_template('myaccount.html')
 
+@app.route('/book')
+def book():
+    flight =  str(request.args.get('flightid'))
+    print(flight)
+    with sqlite3.connect('app/site.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM flights WHERE flightid =" +str(flight))
+        row=cur.fetchone()
+    return render_template('book.html', row=row)
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
@@ -167,3 +199,8 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', title = 'Reset Password', form=form)
+
+@app.route('/payment',methods = ['POST', 'GET'])
+def payment():
+    print("111")
+    return render_template('payment.html')

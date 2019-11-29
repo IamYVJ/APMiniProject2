@@ -34,44 +34,45 @@ Price</h6>
     margin-left: 0px;background-color: rgba(255, 255, 255, 0.7);
     padding-top: 30px; margin-top: 50px; width: 1100px;">
         <div class="col-lg-3">
-            {%if row[2] == 'IndiGo'%}
+            {%if row[3] == 'IndiGo'%}
             <div class="flightlogo"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;"> 
-                {%elif row[2] == 'Air India'%}
+                {%elif row[3] == 'Air India'%}
                 <div class="flightlogo"><img src="/static/img/ai.png" style="max-width: 100%; height: 60px;">
-                    {%elif row[2] == 'Vistara'%}
+                    {%elif row[3] == 'Vistara'%}
                 <div class="flightlogo"><img src="/static/img/vistara.png" style="max-width: 100%; height: 60px;">  
-                    {%elif row[2] == 'Go Air'%}
+                    {%elif row[3] == 'Go Air'%}
                     <div class="flightlogo"><img src="/static/img/goair.png" style="max-width: 100%; height: 60px;"> 
-                        {%elif row[2] == 'Air Asia'%}
+                        {%elif row[3] == 'Air Asia'%}
                         <div class="flightlogo"><img src="/static/img/Airasia.png" style="max-width: 100%; height: 60px;">   
                     {%else%}
                     <div class="flightlogo"><img src="/static/img/Spicejet.jpg" style="max-width: 100%; height: 60px;">  
                         {% endif %}
                     </div>
-        <div class="flightdetail"><h6>{{row[2]}}</h6>
-            <h6>{{row[3]}}</h6></div>
+        <div class="flightdetail"><h6>{{row[3]}}</h6>
+            <h6>{{row[4]}}</h6></div>
             </div>
     <div class="col-lg-2" style="    top: 15px;">
-        <h5>{{row[4]}}</h5>
-        <h6>{{row[0]}}</h6>
+        <h5>{{row[5]}}</h5>
+        <h6>{{row[1]}}</h6>
     </div>
     <div class="col-lg-2" style="    top: 15px;">
-            <h5>{{row[5]}}</h5>
-            <h6>{{row[1]}}</h6>
+            <h5>{{row[6]}}</h5>
+            <h6>{{row[2]}}</h6>
     </div>
     <div class="col-lg-2" style="    top: 25px;">
         <h6>
-            {{row[6]}}
+            {{row[7]}}
         </h6>
-        <h6>{{row[7]}}</h6>
+        <h6>{{row[8]}}</h6>
     </div>
     <div class="col-lg-3" style="    top: -5px;"><h6>
-            {%if row[7] == 'Non Stop '%}
-            Rs {{row[8]}}
+            {%if row[8] == 'Non Stop '%}
+            Rs {{row[9]}}
             {%else%}
             Rs N/A
             {% endif %}
-    </h6><button type="submit">Book</button>
+    </h6>
+    <a href="/book?flightid={{row[0]}}"><button type="submit">Book</button></a>
 </div>
 {% endfor %}
 
