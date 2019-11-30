@@ -52,7 +52,7 @@
         
     </div>
 
-    <form action="/payment?flightid={{row[0]}}"  method="POST">
+    <form action="/payment?flightid={{row[0]}}"  method="POST" >
     <div class="row1">
             <h4 style="color: #FF5581; margin-left: 45px; margin-top: 20px;"> Enter Traveller Details </h4>
             <div class="flightresult row"  style="height: 130px; margin-right: 0px;
@@ -64,10 +64,10 @@
                 <h4>Contact Details:</h4>
                 </div>
         <div class="col-lg-3 text-left" style=" top: 15px;">
-                <input name="email" type="email" placeholder="Enter your email">
+                <input name="email" type="email" placeholder="Enter your email" required>
         </div>
         <div class="col-lg-4 text-center" style="    top: 15px;">
-                <input name="phone" type="number" placeholder="Enter your email" style="width: 100%;
+                <input name="phone" type="number" placeholder="Enter your email" required style="width: 100%;
                 height: 40px;" >
         </div>
         <div class="col-lg-12 text-center">

@@ -2963,3 +2963,8 @@ input[type="email"] {
     top: -15px;
     left: 40px;
 }
+
+.row1 ::placeholder {
+	color: black; !important
+	margin-left: 30px;
+  }
