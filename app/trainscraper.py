@@ -264,6 +264,12 @@ def trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
     rawData = get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy)
     traindata = gettraindata(rawData)
 
+    for i in traindata:
+        i.append(srcStn)
+        i.append(srcCity)
+        i.append(destStn)
+        i.append(destCity)
+
     return(traindata)
 
 
