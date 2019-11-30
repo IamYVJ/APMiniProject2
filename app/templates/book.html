@@ -52,7 +52,7 @@
         
     </div>
 
-    <form action="{{ url_for('payment') }}"  method="POST">
+    <form action="/payment?flightid={{row[0]}}"  method="POST">
     <div class="row1">
             <h4 style="color: #FF5581; margin-left: 45px; margin-top: 20px;"> Enter Traveller Details </h4>
             <div class="flightresult row"  style="height: 130px; margin-right: 0px;

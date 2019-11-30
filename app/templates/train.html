@@ -1,0 +1,128 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero-text">
+                        <img src="/static/img/placeholder.png" alt="">
+                        <h1>Where to next?</h1>
+                        <form action="{{ url_for('trainsearch') }}" class="filter-search flights" method="POST">
+                            
+                            <div class="category-search" style="width: 25%; !important">
+                                <h5>From:</h5>
+                                <input type="text" name="from" id="myInput" onkeyup="myFunction()" placeholder="From">
+                                <ul id="myUL">
+                                <li onclick="set(1)"><a href="#">Adele</a></li>
+                                <li><a href="#">Agnes</a></li>
+                                <li><a href="#">Billy</a></li>
+                                <li><a href="#">Bob</a></li>
+                                <li><a href="#">Calvin</a></li>
+                                <li><a href="#">Christina</a></li>
+                                <li><a href="#">Cindy</a></li>
+                                </ul>
+                                <div class="category-search" style="width: 100%; margin-top:10px;">
+                                <h6 style="color: white">Traveller(s) , class:  </h6>
+                                <select id="abc" class="lo-search" >
+                                        <option>Economy</option>
+                                        <option>Buisness</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+
+                            <div class="category-search" style="width: 500px; !important">
+                                    <div class="location-search" style="width:258px;     position: relative;
+                                    top: 45px;
+                                    left: 50px;">
+                                <h5>To:</h5>
+                                <input type="text" name="to" id="myInput" onkeyup="myFunction()" placeholder="From">
+                                <ul id="myUL">
+                                <li onclick="set(1)"><a href="#">Adele</a></li>
+                                <li><a href="#">Agnes</a></li>
+                                <li><a href="#">Billy</a></li>
+                                <li><a href="#">Bob</a></li>
+                                <li><a href="#">Calvin</a></li>
+                                <li><a href="#">Christina</a></li>
+                                <li><a href="#">Cindy</a></li>
+                                </ul>
+                                
+                            </div>
+                            <div class="category-search" style="width: 110px; !important     margin-left: 70px;!important">
+                                <div class="depart" style="margin-left: 70px;">
+                                    <h5>Depart:</h5>
+                                      <form>
+                                      <input type="date" name="tday" min={{dtoday}} style="font-size: 16px;
+                                          font-size: 16px;
+                                            width: 150px;
+                                            font-weight: 500;
+                                            height: 50px;
+                                            color: white;
+                                            background-color: transparent;
+                                            border-right-width: 1px;
+                                            border-right-color: lightsteelblue;">
+                                      </form>
+                                 </div>
+                            </div>
+                            
+
+                            <button type="submit" style="top:100px; !important">Search Now</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<script>
+    function hide(){
+        var input;
+        input = document.getElementById('rday');
+        input.style.display="none";
+    }
+    function hide1(){
+        var input;
+        input = document.getElementById('rday');
+        input.style.display="none";
+    }
+
+
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      ul.style.display="block";
+      li = ul.getElementsByTagName('li');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+
+    function set(a){
+        input = document.getElementById('myInput');
+        input.value="Adele";
+        if(a==1){
+            input.value="Adele";
+            ul = document.getElementById("myUL");
+            ul.style.display="none";
+        }
+    }
+    </script>
+
+
+
+        {% endblock %}
