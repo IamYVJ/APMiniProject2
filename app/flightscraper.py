@@ -8,8 +8,8 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
-# from app.OSDetect import osDetect
-from OSDetect import osDetect
+from app.OSDetect import osDetect
+
 
 
 global driver
@@ -494,4 +494,5 @@ def testCase():
     for i in flights:
         print(i)
 
-testCase()
+# from OSDetect import osDetect
+# testCase()

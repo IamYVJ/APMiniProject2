@@ -269,7 +269,7 @@ def trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
         i.append(srcCity)
         i.append(destStn)
         i.append(destCity)
-
+        i.append(str(str(dd)+'-'+str(mm)+'-'str(yyyy)))
     return(traindata)
 
 
