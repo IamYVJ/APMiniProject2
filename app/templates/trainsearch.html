@@ -54,21 +54,25 @@ Arrival    </h6></div>
 
     </div>
 </div>
+{% set a = (loop.index)*10 %}
+
 
 
 <div class="row" style="background-color: rgba(255, 255, 255,0.6); margin-right: 10px;
 margin-left: 0px; height: 140px; width: 1100px; ">
 {% for r in row[8] %}
 
+<a href="/booktrain?trainid={{a}}{{loop.index-1}}" style="display:contents;">
     <div class="col-lg-2" style="background-color: white;
     margin: 10px 0px 10px 10px;
     height: 90%; cursor: pointer;">
-        <h5 style="font-weight: 600; margin-top: 10px; ">{{r[0]}}</h5>
+
+        <h5 style="font-weight: 600; margin-top: 10px; ">{{r[0]}} {{a}} {{loop.index-1}}</h5>
         <h5 style="margin-top: 5px;">Rs {{r[1]}}</h5>
         <h5 style="color: #f09819; margin-top: 5px;"> {{r[2]}}</h5>
         <h6 style="margin-top: 5px; font-size: 10px;"> {{r[3]}}</h5>
     </div>
-
+</a>
 {% endfor %}
 {% endfor %}
 
