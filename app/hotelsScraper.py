@@ -70,15 +70,36 @@ def soupSite(raw_html):
                 tp = img_url_raw.find('url(')
                 img_url = img_url_raw[tp+4:img_url_raw.find('),')]
             except Exception as e:
+                img_url = get_img('https://www.expedia.co.in' + str(list_.find(class_='listing__link uitk-card-link')['href']))
                 # print(e)
                 # print(image_data)    
                 # print(img_url_raw)
-                pass
             #Create a list of all the data scraped and return them 
             currated_entry = [i,name,local,price,img_url,rating,superlative,total]
             final_list.append(currated_entry)
             i+=1
     return(final_list)
+
+
+def get_img(hotel_url):
+    headers = {
+        'User-Agent': "PostmanRuntime/7.20.1",
+        'Accept': "*/*",
+        'Cache-Control': "no-cache",
+        'Postman-Token': "78b879c8-c863-43dd-a825-9cd1397c9702,63922611-78f1-49f9-bf88-2834f203e368",
+        'Host': "www.expedia.co.in",
+        'Accept-Encoding': "gzip, deflate",
+        'Cookie': "currency=INR; linfo=v.4,|0|0|255|1|0||||||||2057|0|0||0|0|0|-1|-1; pwa_csrf=3b01eb74-aa97-40c6-be3a-602c6752067e|K9CdltQQQ3AzE0CB0enVvRGwB3MmOBs4S_2G8UM7YoiXnB5WyKuP3i7GjImRsgox--d9kjjIXzatiRm6EDHPWA; tpid=v.1,27; MC1=GUID=768e9884a9064ccc8134ee6bae5f34b2; DUAID=768e9884-a906-4ccc-8134-ee6bae5f34b2; cesc=%7B%22marketingClick%22%3A%5B%22false%22%2C1575004054202%5D%2C%22hitNumber%22%3A%5B%221%22%2C1575004054202%5D%2C%22visitNumber%22%3A%5B%223%22%2C1575004054202%5D%2C%22entryPage%22%3A%5B%22page.Hotel-Search%22%2C1575004054202%5D%2C%22seo%22%3A%5B%22SEO.B.google.com%22%2C1574969227223%5D%2C%22cid%22%3A%5B%22SEO.B.google.com%22%2C1574969227223%5D%7D",
+        'Connection': "keep-alive",
+        'cache-control': "no-cache"
+        }
+
+    response = requests.request("GET", hotel_url, headers=headers)
+    soup = BeautifulSoup(response.content, 'html5lib').find(class_='uitk-image photo-gallery__image photo-gallery__image--active image-loader')['style']
+    tp = soup.find('url(')
+    img_url = soup[tp+4:soup.find('),')]
+    return(img_url)
+
 
     # Sample Function call
 #     in_date = ['01','12','2019']
