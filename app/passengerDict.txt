@@ -1,0 +1,22 @@
+{
+  "passengersInfo" : [
+    {
+        "firstName" : "",
+        "lastName" : "",
+        "emailID" : "",
+        "phoneNo" : ""
+    },
+    {
+        "firstName" : "",
+        "lastName" : "",
+        "emailID" : "",
+        "phoneNo" : ""
+    },
+    {
+        "firstName" : "",
+        "lastName" : "",
+        "emailID" : "",
+        "phoneNo" : ""
+    }
+  ]
+}
