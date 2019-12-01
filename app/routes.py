@@ -356,9 +356,10 @@ def trainbooked():
     # b="['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Mon', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Tue', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', ['3 Tier AC', '1165', 'RLWL 23', 'Updated 8 hrs ago'], 'R', 'Raipur', 'HWH', 'Kolkata', '02-12-2019', ['yash.burad_ug21@ashoka.edu.in', '9898', 'Mr.', 'Yash', 'Burad']]"
     pnr=generatePNR()
     print(pnr)
+    sdetails=str(b)
     with sqlite3.connect('app/site.db') as conn:
         cur = conn.cursor()
-        cur.execute("INSERT INTO ordertrains (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,b,pnr,pnr))
+        cur.execute("INSERT INTO ordertrains (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
     # genQR(current_user.id, pnr, b[14][3],b[14][4],b[10],b[12],b[5],b[3],b[6],b[13],5)
     return render_template('trainbooked.html', pnr=pnr, row=b)
