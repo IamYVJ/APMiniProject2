@@ -87,11 +87,8 @@ Price</h6>
     <div class="col-lg-3" style="    top: -5px;"><h6>
             Rs {{row['totalFare']}}
     </h6>
-    {%if type=='oneway'%}
-    <a href="/book?flightid={{loop.index-1}}"><button type="submit">Book</button></a>
-    {%else%}
-    <a href="/returnflightsearch?flightid={{loop.index-1}}"><button type="submit">Book</button></a>
-    {%endif%}</div>
+    <a href="/book?flightid={{loop.index}}{{onway}}"><button type="submit">Book</button></a>
+    </div>
 {%else%}
 <div class="flightdetail"><h6>{{row['otherFlightsInfo'][0]['airline']}}</h6>
     <h6>{{row['otherFlightsInfo'][0]['airlineCode']}}-{{row['otherFlightsInfo'][0]['flightNo']}}/{{row['otherFlightsInfo'][1]['flightNo']}}</h6></div>
@@ -114,11 +111,8 @@ Price</h6>
     Rs {{row['totalFare']}}
 </h6>
 
-{%if type=='oneway'%}
-<a href="/book?flightid={{loop.index-1}}"><button type="submit">Book</button></a>
-{%else%}
-<a href="/returnflightsearch?flightid={{loop.index-1}}"><button type="submit">Book</button></a>
-{%endif%}
+<a href="/book?flightid={{loop.index-1}}{{onway}}"><button type="submit">Book</button></a>
+
 </div>
 {%endif%}
 {% endfor %}

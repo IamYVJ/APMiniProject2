@@ -59,7 +59,7 @@
                                 <div class="depart">
                                     <h5>Depart:</h5>
                                       <form>
-                                      <input type="date" name="tday" min={{dtoday}} style="font-size: 16px;
+                                      <input type="date"  name="tday" min={{dtoday}} style="font-size: 16px;
                                           font-size: 16px;
                                             width: 120px;
                                             font-weight: 500;
@@ -67,18 +67,18 @@
                                             color: white;
                                             background-color: transparent;
                                             border-right-width: 1px;
-                                            border-right-color: lightsteelblue;">
+                                            border-right-color: lightsteelblue;" >
                                       </form>
                                  </div>
                             </div>
                             <div class="category-search" id="rday" style="opacity:0; margin-left: 10px; width: 110px; !important ">
                                     <div class="return">
                                         <h5>Return:</h5>
-                                        <input type="date"  name="rday" min={{dtoday}} style="width: 120px;
+                                        <input type="date" id="rday1"  name="rday" min={{dtoday}} style="width: 120px;
                                         height: 50px;
                                         font-size: 16px;background-color: transparent;
                                         color: white;
-                                        font-weight: 500;">
+                                        font-weight: 500;" disabled>
                                     </div>
                                 </div>
                                 <div class="category-search" style="width: 30%; margin-top:20px;">
@@ -117,9 +117,12 @@
 <script>
     function hide(){
         document.getElementById("rday").style.opacity = "0";
+        document.getElementById("rday1").disabled = true;
     }
     function hide1(){
         document.getElementById("rday").style.opacity = "1";
+        document.getElementById("rday1").disabled = false;
+
     }
 
 
