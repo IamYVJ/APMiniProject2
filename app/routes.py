@@ -344,22 +344,23 @@ def trainpayment():
 @app.route('/trainbooked',methods = ['POST', 'GET'])
 @login_required
 def trainbooked():
-    trainid =  str(request.args.get('trainid'))
-    ind=(int(trainid[0]))
-    priceindex=int(trainid[1])
-    global a
-    b=a[ind]
-    print(b)
-    print(b[ind])
-    b[8]=b[8][priceindex]
-    print(b)
+    # trainid =  str(request.args.get('trainid'))
+    # ind=(int(trainid[0]))
+    # priceindex=int(trainid[1])
+    # global a
+    # b=a[ind]
+    # print(b)
+    # print(b[ind])
+    # b[8]=b[8][priceindex]
+    # print(b)
     # b="['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Mon', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Tue', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', ['3 Tier AC', '1165', 'RLWL 23', 'Updated 8 hrs ago'], 'R', 'Raipur', 'HWH', 'Kolkata', '02-12-2019', ['yash.burad_ug21@ashoka.edu.in', '9898', 'Mr.', 'Yash', 'Burad']]"
+    b={'flightID': 'DELIDR6E503820191215IDRRPR6E25220191215_6EAPI', 'xmlKey': '6EAPI', 'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'totalStops': '1', 'totalDuration': '07:25', 'totalLayover': '04:45', 'airline': '', 'airlineCode': '', 'vehicleCode': '', 'flightNo': '', 'departureCityCode': '', 'arrivalCityCode': '', 'departureDate': '', 'arrivalDate': '', 'departureTime': '', 'arrivalTime': '', 'aircraft': '', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': '', 'baseFare': '6091', 'totalFare': '7241', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '1150', 'PSF': '0', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': [{'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '5038', 'departureCityCode': 'DEL', 'arrivalCityCode': 'IDR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '09:10', 'arrivalTime': '10:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}, {'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '252', 'departureCityCode': 'IDR', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '15:20', 'arrivalTime': '16:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}]}
     pnr=generatePNR()
     print(pnr)
     sdetails=str(b)
     with sqlite3.connect('app/site.db') as conn:
         cur = conn.cursor()
-        cur.execute("INSERT INTO ordertrains (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
+        cur.execute("INSERT INTO ordertrains1 (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
     # genQR(current_user.id, pnr, b[14][3],b[14][4],b[10],b[12],b[5],b[3],b[6],b[13],5)
     return render_template('trainbooked.html', pnr=pnr, row=b)
