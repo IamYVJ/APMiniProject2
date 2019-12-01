@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class=" container booking" style="height:700px;padding-left: 0px;  overflow: auto;">
+    <div class="paymentoption col-lg-2">
+        <ul style="list-style-type: none; width: 150px;">
+            <li class="payment"><button class="payment">UPI</button></li>
+            <li class="payment"><button class="payment">Credit Card</button></li>
+            <li class="payment"><button class="payment">Debit Card</button></li>
+            <li class="payment"><button class="payment">Net Banking</button></li>
+            <li class="payment"><button class="payment">Paytm</button></li>
+            <li class="payment"><button class="payment">Google Pay</button></li>
+            <li class="payment"><button class="payment">Amazon Pay</button></li>
+        </ul>
+    </div>
+    <div style="margin-left: 150px;height: 500px;width: 750px; border-right: 1px solid white;">
+    <h4 style="color: white;
+    position: relative;
+    !important ;
+    top: 210px;
+    left: 120px;">Pay Now</h4>
+    <button class="paynow">Pay Now</button>
+    </div>
+    <div class="paymentdetails ">
+        <h6 style="color: white; margin-left: 60px;">Payment Details</h6>
+        <h6 style="color: white; margin-top: 20px; margin-left: 10px;">Base Fare:             Rs {{row['baseFare']}}</h6>
+        <h6 style="color: white; margin-top: 20px; margin-left: 10px;">Fuel&Surcharge Fee:             Rs {{row['fuelSurcharge']}}</h6>
+        <h4 style="color: white;
+        margin-top: 20px;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        padding-top: 20px;
+        padding-left: 20px; padding-bottom: 20px;">You Pay:             Rs {{row['totalFare']}}</h4>
+
+    </div>
+
+    </div>
+
+
+
+{% endblock %}

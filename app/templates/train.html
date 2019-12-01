@@ -9,13 +9,8 @@
                     <div class="hero-text">
                         <img src="/static/img/placeholder.png" alt="">
                         <h1>Where to next?</h1>
-                        <form action="{{ url_for('flightsearch') }}" class="filter-search flights" method="POST">
-                            <div class="flight-mode">
-                                <ul class="col-lg-12" style="display: inline-flex; list-style-type: none;">
-                                        <input  type="radio" id="one" onchange="hide()" name="type" value="oneway" checked="checked"> One Way
-                                        <input type="radio" id="round" name="type" value="roundtrip"> Round Trip
-                                </ul>
-                            </div>
+                        <form action="{{ url_for('trainsearch') }}" class="filter-search flights" method="POST">
+                            
                             <div class="category-search" style="width: 25%; !important">
                                 <h5>From:</h5>
                                 <input type="text" name="from" id="myInput" onkeyup="myFunction()" placeholder="From">
@@ -28,19 +23,14 @@
                                 <li><a href="#">Christina</a></li>
                                 <li><a href="#">Cindy</a></li>
                                 </ul>
-                                <div class="category-search" style="width: 100%; margin-top:10px;">
-                                <h6 style="color: white">Traveller(s) , class:  </h6>
-                                <select id="abc" class="lo-search" >
-                                        <option>Economy</option>
-                                        <option>Buisness</option>
-                                    </select>
-
-                                </div>
+                                
                             </div>
 
 
                             <div class="category-search" style="width: 500px; !important">
-                                    <div class="location-search" style="width:258px;">
+                                    <div class="location-search" style="width:258px;     position: relative;
+                                    top: 45px;
+                                    left: 50px;">
                                 <h5>To:</h5>
                                 <input type="text" name="to" id="myInput" onkeyup="myFunction()" placeholder="From">
                                 <ul id="myUL">
@@ -54,13 +44,13 @@
                                 </ul>
                                 
                             </div>
-                            <div class="category-search" style="width: 110px; !important">
-                                <div class="depart">
+                            <div class="category-search" style="width: 110px; !important     margin-left: 70px;!important">
+                                <div class="depart" style="margin-left: 70px;">
                                     <h5>Depart:</h5>
                                       <form>
                                       <input type="date" name="tday" min={{dtoday}} style="font-size: 16px;
                                           font-size: 16px;
-                                            width: 120px;
+                                            width: 150px;
                                             font-weight: 500;
                                             height: 50px;
                                             color: white;
@@ -70,18 +60,9 @@
                                       </form>
                                  </div>
                             </div>
-                            <div class="category-search" id="rday" style="width: 110px; !important">
-                                    <div class="return">
-                                        <h5>Return:</h5>
-                                        <input type="date" name="rday" min={{dtoday}} style="width: 120px;
-                                        height: 50px;
-                                        font-size: 16px;background-color: transparent;
-                                        color: white;
-                                        font-weight: 500;">
-                                    </div>
-                                </div>
+                            
 
-                            <button type="submit" style="top:95px; !important">Search Now</button>
+                            <button type="submit" style="top:100px; !important">Search Now</button>
                         </form>
 
                     </div>

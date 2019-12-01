@@ -2892,3 +2892,79 @@ div.searchable {
   margin: 50px;
   display: block;
 }
+.flightdetails{
+	background-color: rgb(255,255,255,0.5);
+    height: 700px;
+    margin-top: 30px;
+
+}
+
+.flightlogo1{
+	margin-bottom: 10px;
+}
+.booking{
+	background-color: rgba(0, 0, 0, 0.4);
+	height: auto;
+	overflow: auto;
+}
+
+input[type="email"] {
+	width: 100%;
+    height: 40px;
+}
+
+.flightresult h4,h5,h6{
+	/* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+
+.paymentoption{
+	border-right: 1px solid #dfe6d4;
+	float: left;
+	width: 150px;
+	height: 400px;
+	position: absolute;
+	padding-left: 0px;
+}
+
+.payment{
+	border: white;
+    width: 100%;
+    background-color: #ff5581;
+    color: white;
+    height: 70px;
+	border-bottom: 1px solid white;
+	cursor: pointer;
+
+}
+
+.paynow{
+	left: 300px;
+    position: relative;
+    top: 170px;
+	color: #fff;
+	background: #FF5581;
+	font-size: 16px;
+	padding: 13px 65px;
+	cursor: pointer;
+	border: 1px solid #FF5581;
+}
+
+.paymentdetails{
+	position: absolute;
+    top: 150px;
+	margin-left: 900px;
+	width: 240px;
+	padding-top: 20px;
+}
+
+.traindetail{
+	position: absolute;
+    margin-top: 10px;
+    top: -15px;
+    left: 40px;
+}
+
+.row1 ::placeholder {
+	color: black; !important
+	margin-left: 30px;
+  }

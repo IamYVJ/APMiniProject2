@@ -1,0 +1,112 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flightsearch container" style="height:700px; color: black;   overflow: auto;">
+    <h4 style=" margin-bottom: 30px;"> Search Results:</h4>
+
+<div class="flightresult row text-center"  style="    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255);
+    padding-top: 0px;">
+        <div class="col-lg-3">
+        <div class="flightdetail"><h6>Sort By</h6>
+        </div>
+            </div>
+    <div class="col-lg-3" style="    top: 15px;">
+        <h5>Depart</h5>
+        
+    </div>
+    <div class="col-lg-3" style="    top: 15px;">
+            <h5>Duration</h5>
+    </div>
+    <div class="col-lg-3" style="    top: 15px;">
+        <h6>
+Arrival    </h6></div>
+    </div>
+{% for row in flights %}
+<div class="flightresult row "  style="height: 130px; margin-right: 0px;
+    margin-left: 0px;background-color: rgba(255, 255, 255);
+    padding-top: 30px; margin-top: 40px; width: 1100px;">
+        <div class="col-lg-3">
+        <div class="traindetail">
+            <h4 >{{row[0]}}</h4>
+            <h6 style="margin-top: 10px;">{{row[1]}}</h6>
+            <h6 style="margin-top: 10px;">Departs on : {{row[2]}}</h6>
+        </div>
+            </div>
+    <div class="col-lg-3 text-center" style="   top: 15px;">
+        <h5>{{row[3]}}</h5>
+        <h6 style="margin-top: 10px;">{{row[4][40]}}</h6>
+    </div>
+    <div class="col-lg-3 text-center" style=" margin top: 25px;">
+            <h6>
+                {{row[5]}}
+            </h6>
+            <!-- <h6>{{row[8][0]}}</h6> -->
+    </div>
+    <div class="col-lg-3 text-center" style="   top: 15px;">
+            <h5>{{row[6]}}</h5>
+            <h6 style="margin-top: 10px;">{{row[1]}}</h6>
+
+    </div>
+</div>
+{% set a = (loop.index)*10 %}
+
+
+
+<div class="row" style="background-color: rgba(255, 255, 255,0.6); margin-right: 10px;
+margin-left: 0px; height: 180px; width: 1100px; ">
+{% for r in row[8] %}
+{% if r[2] == "Booking not allowed" %}
+<div class="col-lg-2" style="background-color: white;
+    margin: 10px 0px 10px 10px;
+    height: 90%; cursor: pointer;">
+
+        <h5 style="font-weight: 600; margin-top: 10px; ">{{r[0]}} {{a}} {{loop.index-1}}</h5>
+        <h5 style="margin-top: 5px;">Rs {{r[1]}}</h5>
+        <h5 style="color: #f09819; margin-top: 5px;"> {{r[2]}}</h5>
+        <h6 style="margin-top: 5px; font-size: 10px;"> {{r[3]}}</h5>
+    </div>
+{%else%}
+<a href="/booktrain?trainid={{a}}{{loop.index-1}}" style="display:contents;">
+    <div class="col-lg-2" style="background-color: white;
+    margin: 10px 0px 10px 10px;
+    height: 90%; cursor: pointer;">
+
+        <h5 style="font-weight: 600; margin-top: 10px; ">{{r[0]}} {{a}} {{loop.index-1}}</h5>
+        <h5 style="margin-top: 5px;">Rs {{r[1]}}</h5>
+        <h5 style="color: #f09819; margin-top: 5px;"> {{r[2]}}</h5>
+        <h6 style="margin-top: 5px; font-size: 10px;"> {{r[3]}}</h5>
+    </div>
+</a>
+{%endif%}
+{% endfor %}
+{% endfor %}
+
+
+
+    </div>
+
+
+    <!-- <table style="width: 100%;">
+            <tr>
+                    <th>Sort By:</th>
+                    <th>Depart</th> 
+                    <th>Arrive</th>
+                    <th>Duration</th>
+                    <th>Price per Adult</th>
+                  </tr>
+                  <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                  </tr> 
+                </table> -->
+
+</div>
+{% endblock %}
+
