@@ -41,7 +41,7 @@
                 <ul>
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('flights') }}">Flights</a></li>
-                    <li><a href="#">Hotels</a></li>
+                    <li><a href="{{ url_for('hotels') }}">Hotels</a></li>
                     <li><a href="{{ url_for('train') }}">Trains</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -49,14 +49,17 @@
             <div class="header-right">
                 <div class="user-access">
                         {% if current_user.is_authenticated%}
-                    <div class="dropdown">
-                            <button class="dropbtn" style="font-size: 20px; !important
-                            font-weight: 400; margin-right:30px;">Hi , {{ current_user.username }}</button>
-                            <div class="dropdown-content">
-                                <a href="{{ url_for('myaccount') }}">My Account</a>
-                              <a href="/logout">Logout</a>
-                            </div>
-                    </div>
+                        <div class="dropdown" style="margin-right: 20px;">
+                                <button class="dropbtn" style="font-size: 20px;">Hi, {{ current_user.username }} <i class="arrow down"></i></button>
+                                <div class="dropdown-content">
+                                    <a href="{{ url_for('myaccount') }}">My Account</a>
+                                    <a href="#"  class="navbar-item">
+                                        My Orders
+                                    </a>
+                                    
+                                  <a href="{{ url_for('logout') }}">Logout</a>
+                                </div>
+                              </div>
                     {%else%}
                     <a href="{{ url_for('register') }}">Register/</a>
                     <a href="{{ url_for('login') }}">Login</a>

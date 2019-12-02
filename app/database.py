@@ -72,7 +72,7 @@ for i in a:
 # e=row[0][2].toArray()
 # print(e)
 
-
+conn.execute('''ALTER table orderflights ADD return TEXT''')
 # # conn.execute('''CREATE TABLE orderflights
 # 		(userid INTEGER ,
 # 		orderid INTEGER PRIMARY KEY,

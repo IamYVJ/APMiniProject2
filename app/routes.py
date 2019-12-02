@@ -255,6 +255,10 @@ def flightbooked():
     # a={'flightID': 'DELRPRAI47720191204_GALDOM', 'xmlKey': 'GALDOM', 'baggageAllowance': '25 kgs', 'classtype': 'Economy', 'totalStops': '0', 'totalDuration': '01:40', 'totalLayover': '00:00', 'airline': 'Air India', 'airlineCode': 'AI', 'vehicleCode': 'AI', 'flightNo': '477', 'departureCityCode': 'DEL', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-04', 'arrivalDate': '2019-12-04', 'departureTime': '05:25', 'arrivalTime': '07:05', 'aircraft': 'Airbus A319', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Free Meal', 'baseFare': '3530', 'totalFare': '4153', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '355', 'PSF': '268', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': []}
     print(a)
     global passenger
+    global return1
+    abc=[]
+    abc.append(a)
+    abc.append(return1)
     # passenger={'passengersInfo': [{'firstName': 'Yash', 'lastName': 'Burad', 'emailID': '', 'phoneNo': '9898', 'title': 'Mr.', 'emailId': 'yash.burad_ug21@ashoka.edu.in'}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}]}
     print(passenger)
     pnr=generatePNR()
@@ -263,11 +267,12 @@ def flightbooked():
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
     genQR(current_user.id, pnr, passenger['passengersInfo'][0]['firstName'],passenger['passengersInfo'][0]['lastName'],a['departureCityCode'],a['arrivalCityCode'],a['totalDuration'],a['departureTime'],a['arrivalTime'],dtoday,5)
     details=str(a)
+    returndetails=str(return1)
     passengerdetails=str(passenger)
     with sqlite3.connect('app/site.db') as conn:
         cur = conn.cursor()
-        cur.execute("INSERT INTO orderflights (userId, details ,pnr,passengers) VALUES (?, ?, ?, ?)", (current_user.id,details,pnr,passengerdetails))
-    return render_template('flightbooked.html', row=a, passenger=passenger,pnr=pnr)
+        cur.execute("INSERT INTO orderflights (userId, details ,pnr,passengers,return) VALUES (?, ?, ?, ?,?)", (current_user.id,details,pnr,passengerdetails,returndetails))
+    return render_template('flightbooked.html', row=abc, passenger=passenger,pnr=pnr)
 
 
 
@@ -490,3 +495,9 @@ def trainbooked():
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
     # genQR(current_user.id, pnr, b[14][3],b[14][4],b[10],b[12],b[5],b[3],b[6],b[13],5)
     return render_template('trainbooked.html', pnr=pnr, row=b)
+
+@app.route('/hotels',methods = ['POST', 'GET'])
+def hotels():
+    dtoday = str(date.today())
+    print(dtoday)
+    return render_template('hotels.html', dtoday = dtoday)

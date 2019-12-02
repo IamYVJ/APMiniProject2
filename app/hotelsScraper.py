@@ -112,13 +112,14 @@ def get_img(hotel_url):
     '''
 
 
-# Test Code
-# def main():
-#     in_date = ['01','12','2019']
-#     out_date = ['05','12','2019']
-#     hotel_list = soupSite(getSource('Ludhiana',in_date,out_date,1,2))
-#     with open('out.txt', 'w') as f:
-#         for item in hotel_list:
-#             f.write("%s\n" % item)
-# if __name__ == "__main__":
-#     main()
+
+def main():
+    in_date = ['05','12','2019']
+    out_date = ['06','12','2019']
+    hotel_list = soupSite(getSource('Raipur',in_date,out_date,1,2))
+    print(hotel_list)
+    with open('out.txt', 'w') as f:
+        for item in hotel_list:
+            f.write("%s\n" % item)
+if __name__ == "__main__":
+    main()
