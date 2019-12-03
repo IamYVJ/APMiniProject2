@@ -100,5 +100,5 @@
     $('#select-state').selectize({
         sortField: 'text'
     });
-    
+
 })(jQuery);
