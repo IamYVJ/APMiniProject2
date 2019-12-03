@@ -332,6 +332,8 @@ def reset_password(token):
 @login_required
 def payment():
     email=""
+    fare=['500','1000','1500']
+    return render_template('payment.html',fare=fare)
     dtoday = str(date.today())
     if request.method == 'POST':
         email = request.form['email']
