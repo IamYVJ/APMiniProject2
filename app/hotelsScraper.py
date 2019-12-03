@@ -4,6 +4,15 @@ import json
 import random
 import re
 
+from selenium import webdriver as wd
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait as wait
+from selenium.webdriver.support.expected_conditions import presence_of_element_located
+import time
+from selenium.webdriver.firefox.options import Options
+from app.OSDetect import osDetect
+
 def getSource(destination,check_in,check_out,rooms,guest):
     url = "https://www.expedia.co.in/Hotel-Search"
 
@@ -63,12 +72,12 @@ def soupSite(raw_html):
                 total = review.find(attrs = {'data-stid':'content-hotel-reviews-total'}).text.strip('(  reviews)')
             except:
                 total =  random.randint(150,1500)
-            
+
             hotel_link = 'https://www.expedia.co.in' + str(list_.find(class_='listing__link uitk-card-link')['href'])
 
             # Image Scrape
             image_data = list_.find(class_='uitk-cell uitk-card-media').section
-            
+
             try:
                 img_url_raw =  image_data.div.figure.div.figure['style']
                 tp = img_url_raw.find('url(')
@@ -77,10 +86,10 @@ def soupSite(raw_html):
                 print('img link not found.....resorting to hotel link to get the img')
                 img_url = get_img(hotel_url=hotel_link)
                 # print(e)
-                # print(image_data)    
+                # print(image_data)
                 # print(img_url_raw)
-            #Create a list of all the data scraped and return them 
-            
+            #Create a list of all the data scraped and return them
+
             currated_entry = [i,name,local,price,img_url,rating,superlative,total,hotel_link]
             final_list.append(currated_entry)
             i+=1
@@ -106,7 +115,22 @@ def get_img(hotel_url):
     return(img_url)
 
 def hotelDetail(hotel_url):
-    driver =  wd.Chrome("d:\\Users\\Sai\Desktop\\chromedriver.exe")
+    driver = ""
+    syst = osDetect()
+
+    if syst=='W':
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
+
+    elif syst=='M':
+        driver = wd.Chrome()
+
+    elif syst=='L':
+        # options = Options()
+        # options.headless = True
+        # driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
+        driver =  wd.Chrome("d:\\Users\\Sai\Desktop\\chromedriver.exe")
     driver.get(hotel_url)
     page_raw = driver.page_source
     driver.close()
@@ -127,14 +151,14 @@ def hotelDetail(hotel_url):
     for room in room_data.find_all('li' , attrs={'data-stid':'section-roomtype'}):
         local_list = []
         local_list.append(room.find('span', attrs={'aria-hidden':'true','class':'uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate'}))
-        
+
         raws = room.find_all('span', attrs={'class':'all-l-padding-two'})
         for q  in raws:
             local_list.append(q.text)
 
         local_list.append(room.find('span', attrs={'data-stid':'content-hotel-display-price'}).find(attrs={'aria-hidden':'true'}).text.strip("Rs."))
         room_type_list.append(local_list)
-    
+
     # Info Section
     infoSection = raw_html.find(attrs={'data-stid':'section-property-amenities'})
     info_list = []
@@ -144,7 +168,7 @@ def hotelDetail(hotel_url):
         for bullets in info.findAll('li',class_='amenity-property__list--item'):
             local_list.append(bullets.text)
         info_list.append(local_list)
-    #Image Section 
+    #Image Section
     image_list = []
     image_list.append(img_data.find(class_='uitk-image photo-gallery__image photo-gallery__image--active image-loader float-above-card-link')['style'].split("\"")[1])
     image_list.append(img_data.find(class_='uitk-image photo-gallery__image photo-gallery__image--next image-loader')['style'].split("\"")[1])
@@ -155,7 +179,7 @@ def hotelDetail(hotel_url):
     rating_list.append(review_raw.find(attrs={'itemprop':'ratingValue'})['content'])
     rating_list.append(review_raw.find(attrs={'itemprop':'description'})['content'])
     rating_list.append(review_raw.find(attrs={'itemprop':'reviewCount'})['content'])
-    
+
     return(name,rating_list,info_list,image_list,room_type_list)
 
 def main():
