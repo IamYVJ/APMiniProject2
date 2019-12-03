@@ -13,7 +13,7 @@
 
                             <div class="category-search" style="width: 300px; !important">
                                 <h5>From:</h5>
-                                <input type="text"  class="trainarrival" name="from" id="search"  placeholder="To" list="searchresults" autocomplete="off" style="background-color: transparent;
+                                <input type="text"  class="trainarrival" name="from" id="search"  placeholder="From" list="searchresults" autocomplete="off" style="background-color: transparent;
                                 border: 1px solid white;
                                 height: 50px;
                                 width: 280px; color: white; padding: 25px;" >
@@ -27,10 +27,10 @@
                                     top: 45px;
                                     left: 10px;">
                                 <h5>To:</h5>
-                                
 
 
-                                <input type="text"  class="trainarrival" name="to" id="search1"  placeholder="To" list="searchresults1" autocomplete="off" style="background-color: transparent;
+
+                                <input type="text"  class="trainarrival" name="to" id="to"  placeholder="To" list="searchresults1" autocomplete="off" style="background-color: transparent;
                                 border: 1px solid white;
                                 height: 50px;
                                 width: 280px; color: white; padding: 25px;" >
@@ -75,16 +75,16 @@
         input = document.getElementById('rday');
         input.style.display="none";
     }
-    function func(){
-      var a;
-      if(document.getElementById("search").value==""){}
-      else{
-      a=document.getElementById("search").value;
-      document.getElementById("search").value=a[0];
-      document.querySelector('#searchresults').content.style.display="None";
-
-    }
-    }
+    // function func(){
+    //   var a;
+    //   if(document.getElementById("search").value==""){}
+    //   else{
+    //   a=document.getElementById("search").value;
+    //   document.getElementById("search").value=a[0];
+    //   document.querySelector('#searchresults').content.style.display="None";
+    //
+    // }
+    // }
 
     function myFunction() {
       // Declare variables
@@ -9335,17 +9335,17 @@
     </script>
 
     <script>
-      var search = document.querySelector('#search1');
-      var results = document.querySelector('#searchresults1');
-      var templateContent = document.querySelector('#resultstemplate1').content;
-      search.addEventListener('keyup', function handler(event) {
-      while (results.children.length) results.removeChild(results.firstChild);
-      var inputVal = new RegExp(search.value.trim(), 'i');
-      var set = Array.prototype.reduce.call(templateContent.cloneNode(true).children, function searchFilter(frag, item, i) {
-          if (inputVal.test(item.textContent) && frag.children.length < 6) frag.appendChild(item);
+      var to = document.querySelector('#to');
+      var results1 = document.querySelector('#searchresults1');
+      var templateContent1 = document.querySelector('#resultstemplate1').content;
+      to.addEventListener('keyup', function handler(event) {
+      while (results1.children.length) results1.removeChild(results1.firstChild);
+      var inputVal1 = new RegExp(to.value.trim(), 'i');
+      var set1 = Array.prototype.reduce.call(templateContent.cloneNode(true).children, function searchFilter(frag, item, i) {
+          if (inputVal1.test(item.textContent) && frag.children.length < 6) frag.appendChild(item);
           return frag;
       }, document.createDocumentFragment());
-      results.appendChild(set);
+      results1.appendChild(set1);
       });
     </script>
 
