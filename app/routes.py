@@ -14,7 +14,7 @@ from app.forms import ResetPasswordForm
 from app.flightScraperV2 import flightSearch
 from app.trainscraper import trainSearch
 from app.generatePNRCode import generatePNR
-from app.gen_qr import genQR
+from app.gen_qr import genTrainQR
 from app.extractData import extractFlight
 from app.hotelsScraper import soupSite,get_source_sel,hotelDetail
 from app.emailSend import EmailClass
@@ -510,8 +510,9 @@ def trainbooked():
         cur = conn.cursor()
         cur.execute("INSERT INTO ordertrains (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
-    genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
-    
+    # genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
+    genTrainQR(b, pnr)
+    EmailClass.sendEmailTrain(b, pnr)
     return render_template('trainbooked.html', pnr=pnr, row=b)
 
 @app.route('/hotels',methods = ['POST', 'GET'])
@@ -565,10 +566,8 @@ def trainhistory():
         cur = conn.cursor()
         cur.execute("SELECT * FROM ordertrains WHERE userid="+str(current_user.id))
         row=cur.fetchall()
-    b=[] 
-    for j in row:  
-        i=extractFlight(j[2]) 
+    b=[]
+    for j in row:
+        i=extractFlight(j[2])
         b.append(i)
     return render_template('trainhistory.html',row=b)
-
-
