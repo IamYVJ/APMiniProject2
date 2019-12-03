@@ -13,6 +13,8 @@ import time
 from selenium.webdriver.firefox.options import Options
 # from app.OSDetect import osDetect
 # from OSDetect import osDetect
+from app.OSDetect import osDetect
+
 
 def getSource(destination,check_in,check_out,rooms,guest):
     url = "https://www.expedia.co.in/Hotel-Search"
@@ -45,7 +47,22 @@ def get_source_sel(destination,check_in,check_out,rooms,guest):
 
     url = 'https://www.expedia.co.in/Hotel-Search?destination=' + str(destination) + '&startDate=' + str(c_in_str) + '&endDate=' + str(c_out_str) + '&rooms=' + str(rooms) + '&adults=' + str(guest)
 
-    driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
+    # driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
+    syst = osDetect()
+
+    if syst=='W':
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
+
+    elif syst=='M':
+        driver = wd.Chrome()
+
+    elif syst=='L':
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
+
     driver.get(url)
     driver.minimize_window
 
@@ -154,7 +171,21 @@ def hotelDetail(hotel_url):
     #     # options = Options()
     #     # options.headless = True
     #     driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
-    driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
+    # driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
+    syst = osDetect()
+
+    if syst=='W':
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
+
+    elif syst=='M':
+        driver = wd.Chrome()
+
+    elif syst=='L':
+        options = Options()
+        options.headless = True
+        driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
     driver.get(hotel_url)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     page_raw = driver.page_source
