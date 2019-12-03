@@ -42,6 +42,6 @@ def qrlogo(qrPath):
     region = logo
     region = region.resize((700, 110), 0)
     im.paste(region, (340, 640) )
-    im.show()
+    # im.show()
     im.save(qrPath)
 # qrlogo()
