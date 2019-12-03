@@ -10,7 +10,7 @@
                         <img src="/static/img/placeholder.png" alt="">
                         <h1>Where to next?</h1>
                         <form action="{{ url_for('trainsearch') }}" class="filter-search flights" method="POST">
-                            
+
                             <div class="category-search" style="width: 25%; !important">
                                 <h5>From:</h5>
                                 <input type="text" name="from" id="myInput" onkeyup="myFunction()" placeholder="From">
@@ -23,7 +23,7 @@
                                 <li><a href="#">Christina</a></li>
                                 <li><a href="#">Cindy</a></li>
                                 </ul>
-                                
+
                             </div>
 
 
@@ -32,7 +32,7 @@
                                     top: 45px;
                                     left: 50px;">
                                 <h5>To:</h5>
-                                <input type="text" name="to" id="myInput" onkeyup="myFunction()" placeholder="From">
+                                <!-- <input type="text" name="to" id="myInput" onkeyup="myFunction()" placeholder="From">
                                 <ul id="myUL">
                                 <li onclick="set(1)"><a href="#">Adele</a></li>
                                 <li><a href="#">Agnes</a></li>
@@ -41,8 +41,20 @@
                                 <li><a href="#">Calvin</a></li>
                                 <li><a href="#">Christina</a></li>
                                 <li><a href="#">Cindy</a></li>
-                                </ul>
-                                
+                                </ul> -->
+
+                                <!-- <input name="to" id="myInput" onkeyup="myFunction()" placeholder="From" list="stations">
+                                <datalist id="stations">
+                                  <option value="R">
+                                  <option value="HWH">
+                                  <option value="NDLS">
+                                </datalist> -->
+
+
+
+                                <input type="text" name="to" id="search"  placeholder="type 'r'" list="searchresults" autocomplete="off" />
+                                <datalist id="searchresults"></datalist>
+
                             </div>
                             <div class="category-search" style="width: 110px; !important     margin-left: 70px;!important">
                                 <div class="depart" style="margin-left: 70px;">
@@ -60,7 +72,7 @@
                                       </form>
                                  </div>
                             </div>
-                            
+
 
                             <button type="submit" style="top:100px; !important">Search Now</button>
                         </form>
@@ -116,6 +128,4482 @@
     }
     </script>
 
+    <template id="resultstemplate">
+      <option> A N Dev Nagar - ACND </option>
+      <option> Abhaipur - AHA </option>
+      <option> Abhayapuri Asam - AYU </option>
+      <option> Abohar - ABS </option>
+      <option> Abu Road - ABR </option>
+      <option> Achalda - ULD </option>
+      <option> Achhnera Junction - AH </option>
+      <option> Adas Road - ADD </option>
+      <option> Adavali - ADVI </option>
+      <option> Adesar - AAR </option>
+      <option> Adgaon Buzurg - ABZ </option>
+      <option> Adhartal - ADTL </option>
+      <option> Adhikari - ADQ </option>
+      <option> Adi Saptagram - ADST </option>
+      <option> Adilabad - ADB </option>
+      <option> Adina - ADF </option>
+      <option> Adipur - AI </option>
+      <option> Adityapur - ADTP </option>
+      <option> Adoni - AD </option>
+      <option> Adra Junction - ADRA </option>
+      <option> Adrsh Ngr Delhi - ANDI </option>
+      <option> Aduturai - ADT </option>
+      <option> Agartala - AGTL </option>
+      <option> Agasod - AGD </option>
+      <option> Aghwanpur - AWP </option>
+      <option> Agomoni - AGMN </option>
+      <option> Agori Khas - AGY </option>
+      <option> Agra Cantt - AGC </option>
+      <option> Agra City - AGA </option>
+      <option> Agra Fort - AF </option>
+      <option> Ahalyapur - AHLR </option>
+      <option> Aherwadi - AHD </option>
+      <option> Ahiran - AHN </option>
+      <option> Ahmadgarh - AHH </option>
+      <option> Ahmadnagar - ANG </option>
+      <option> Ahmadpur Junction - AMP </option>
+      <option> Ahmedabad Junction - ADI </option>
+      <option> Ahmedabad Mg - ADIJ </option>
+      <option> Ahraura Road - ARW </option>
+      <option> Aishbagh - ASH </option>
+      <option> Ait - AIT </option>
+      <option> Aithal - ATMO </option>
+      <option> Ajaibpur - AJR </option>
+      <option> Ajanti - ANI </option>
+      <option> Ajaraka - AIA </option>
+      <option> Ajgain - AJ </option>
+      <option> Ajjampur - AJP </option>
+      <option> Ajmer Junction - AII </option>
+      <option> Ajni - AJNI </option>
+      <option> Ajnod - AJN </option>
+      <option> Akalkot Road - AKOR </option>
+      <option> Akaltara - AKT </option>
+      <option> Akanapet - AKE </option>
+      <option> Akathumuri - AMY </option>
+      <option> Akbarganj - AKJ </option>
+      <option> Akbarnagar - AKN </option>
+      <option> Akbarpur - ABP </option>
+      <option> Akividu - AKVD </option>
+      <option> Akkaraippatti - API </option>
+      <option> Akodia - AKD </option>
+      <option> Akola Junction - AK </option>
+      <option> Akolner - AKR </option>
+      <option> Akot - AKOT </option>
+      <option> Akshaywat R Ngr - AYRN </option>
+      <option> Akurdi - AKRD </option>
+      <option> Alai - ALJ </option>
+      <option> Alamanda - ALM </option>
+      <option> Alamnagar - AMG </option>
+      <option> Alampur - ALMR </option>
+      <option> Alandi - ALN </option>
+      <option> Aler - ALER </option>
+      <option> Algawan - AIG </option>
+      <option> Alia Bada - ALB </option>
+      <option> Aligarh Junction - ALJN </option>
+      <option> Alipur Duar - APD </option>
+      <option> Alipur Duar Junction - APDJ </option>
+      <option> Allahabad City - ALY </option>
+      <option> Allahabad Junction - ALD </option>
+      <option> Alleppey - ALLP </option>
+      <option> Alluru Road - AXR </option>
+      <option> Almatti - LMT </option>
+      <option> Alnavar Junction - LWR </option>
+      <option> Alniya - ALNI </option>
+      <option> Aluabari Road - AUB </option>
+      <option> Aluva - AWY </option>
+      <option> Alwal - ALW </option>
+      <option> Alwar - AWR </option>
+      <option> Amagura - AGZ </option>
+      <option> Amalner - AN </option>
+      <option> Amalsad - AML </option>
+      <option> Amarda Road - ARD </option>
+      <option> Amargarh - AGR </option>
+      <option> Amarpura - APA </option>
+      <option> Amausi - AMS </option>
+      <option> Amb Andaura - AADR </option>
+      <option> Ambagaon - AGB </option>
+      <option> Ambala Cant Junction - UMB </option>
+      <option> Ambala City - UBC </option>
+      <option> Ambalapuzha - AMPA </option>
+      <option> Ambale - ABLE </option>
+      <option> Ambari Falakata - ABFC </option>
+      <option> Ambarnath - ABH </option>
+      <option> Ambasa - ABSA </option>
+      <option> Ambasamudram - ASD </option>
+      <option> Ambaturai - ABI </option>
+      <option> Ambika Kalna - ABKA </option>
+      <option> Ambika Rohina - AMBR </option>
+      <option> Ambikapur - ABKP </option>
+      <option> Ambli Road - ABD </option>
+      <option> Ambliyasan - UMN </option>
+      <option> Ambodala - AMB </option>
+      <option> Ambur - AB </option>
+      <option> Amdara - UDR </option>
+      <option> Amethi - AME </option>
+      <option> Amgaon - AGN </option>
+      <option> Amguri - AGI </option>
+      <option> Amla Junction - AMLA </option>
+      <option> Amlai - AAL </option>
+      <option> Amlakhurd - AMX </option>
+      <option> Amli - AMLI </option>
+      <option> Ammanabrolu - ANB </option>
+      <option> Ammasandra - AMSA </option>
+      <option> Ammuguda - AMQ </option>
+      <option> Amoni - AONI </option>
+      <option> Amravati - AMI </option>
+      <option> Amritapura - AMC </option>
+      <option> Amritsar Junction - ASR </option>
+      <option> Amroha - AMRO </option>
+      <option> Anakapalle - AKP </option>
+      <option> Anand Junction - ANND </option>
+      <option> Anand Nagar - ANDN </option>
+      <option> Anand Vihar - ANVR </option>
+      <option> Anand Vihar Trm - ANVT </option>
+      <option> Anandapuram - ANF </option>
+      <option> Anandpur Sahib - ANSB </option>
+      <option> Anantapur - ATP </option>
+      <option> Anantnag - ANT </option>
+      <option> Anaparti - APT </option>
+      <option> Anara - ANR </option>
+      <option> Anas - ANAS </option>
+      <option> Anavardikhanpet - AVN </option>
+      <option> Ancheli - ACL </option>
+      <option> Andal Junction - UDL </option>
+      <option> Andheri - ADH </option>
+      <option> Andul - ADL </option>
+      <option> Angadippuram - AAM </option>
+      <option> Angamali - AFK </option>
+      <option> Angar - AAG </option>
+      <option> Angul - ANGL </option>
+      <option> Anjani - ANO </option>
+      <option> Anjar - AJE </option>
+      <option> Anjhi Shahabad - AJI </option>
+      <option> Ank Mmr Direct - ANKX </option>
+      <option> Ankai - ANK </option>
+      <option> Ankleshwar Junction - AKV </option>
+      <option> Ankola - ANKL </option>
+      <option> Ankorah Akorha - ANH </option>
+      <option> Annavaram - ANV </option>
+      <option> Annigeri - NGR </option>
+      <option> Anpara - ANPR </option>
+      <option> Antah - ATH </option>
+      <option> Antu - ANTU </option>
+      <option> Anugraha N Road - AUBR </option>
+      <option> Anuppur Junction - APR </option>
+      <option> Anupshahr - AUS </option>
+      <option> Aonla - AO </option>
+      <option> Appikatla - APL </option>
+      <option> Apta - APTA </option>
+      <option> Ara - ARA </option>
+      <option> Arag - ARAG </option>
+      <option> Arakkonam - AJJ </option>
+      <option> Arakku - ARK </option>
+      <option> Aralvaymozhi - AAY </option>
+      <option> Arand - ARN </option>
+      <option> Arang Mahanadi - ANMD </option>
+      <option> Arariya - ARR </option>
+      <option> Arariya Court - ARQ </option>
+      <option> Aravali Road - AVRD </option>
+      <option> Aravankadu - AVK </option>
+      <option> Arigada - ARGD </option>
+      <option> Ariyalur - ALU </option>
+      <option> Arjuni - AJU </option>
+      <option> Arnetha - ARE </option>
+      <option> Arni Road - ARV </option>
+      <option> Arsikere Junction - ASK </option>
+      <option> Arumuganeri - ANY </option>
+      <option> Arunachal - ARCL </option>
+      <option> Aruppukkottai - APK </option>
+      <option> Asafpur - AFR </option>
+      <option> Asalpur Jobner - JOB </option>
+      <option> Asangaon - ASO </option>
+      <option> Asansol Junction - ASN </option>
+      <option> Asaoti - AST </option>
+      <option> Asarva Junction - ASV </option>
+      <option> Ashapura Gomat - AQG </option>
+      <option> Ashok Nagar - ASKN </option>
+      <option> Ashokapuram - AP </option>
+      <option> Asifabad Road - ASAF </option>
+      <option> Aslana - ANA </option>
+      <option> Aslaoda - ASL </option>
+      <option> Asokhar - AXK </option>
+      <option> Asranada - AAS </option>
+      <option> Atari - ATT </option>
+      <option> Atarra - ATE </option>
+      <option> Ateli - AEL </option>
+      <option> Athmal Gola - ATL </option>
+      <option> Atrampur - ARP </option>
+      <option> Atru - ATRU </option>
+      <option> Attabira - ATS </option>
+      <option> Attar - ATR </option>
+      <option> Attili - AL </option>
+      <option> Attippattu - AIP </option>
+      <option> Attur - ATU </option>
+      <option> Atul - ATUL </option>
+      <option> Aulenda - AED </option>
+      <option> Aung - AUNG </option>
+      <option> Aunrihar Junction - ARJ </option>
+      <option> Aurangabad - AWB </option>
+      <option> Ausa Road - OSA </option>
+      <option> Auvaneswsarem - AVS </option>
+      <option> Auwa - AUWA </option>
+      <option> Avadi - AVD </option>
+      <option> Awantipura - ATPA </option>
+      <option> Awatarnagar - ATNR </option>
+      <option> Ayodhya - AY </option>
+      <option> Ayodhyapattanam - APN </option>
+      <option> Azamgarh - AMH </option>
+      <option> Azamnagar Road - AZR </option>
+      <option> Azimganj City - ACLE </option>
+      <option> Azimganj Junction - AZ </option>
+      <option> B Cement Nagar - BEY </option>
+      <option> Babatpur - BTP </option>
+      <option> Babhnan - BV </option>
+      <option> Babina - BAB </option>
+      <option> Babrala - BBA </option>
+      <option> Babugarh - BBO </option>
+      <option> Babupeth - BUPH </option>
+      <option> Bacheli - BCHL </option>
+      <option> Bachhrawan - BCN </option>
+      <option> Bachwara Junction - BCA </option>
+      <option> Bad - BAD </option>
+      <option> Badabandha - BDBA </option>
+      <option> Badami - BDM </option>
+      <option> Badampudi - BPY </option>
+      <option> Badarpur Junction - BPB </option>
+      <option> Badarwas - BDWS </option>
+      <option> Bade Arapur - BDXX </option>
+      <option> Badhal - BDHL </option>
+      <option> Badhwa Bara - BDWA </option>
+      <option> Badkulla - BDZ </option>
+      <option> Badla Ghat - BHB </option>
+      <option> Badlapur - BUD </option>
+      <option> Badli - BHD </option>
+      <option> Badmal - BUDM </option>
+      <option> Badnapur - BDU </option>
+      <option> Badnera Junction - BD </option>
+      <option> Badodar - BDDR </option>
+      <option> Badshahnagar - BNZ </option>
+      <option> Badshahpur - BSE </option>
+      <option> Badulipar - BLPR </option>
+      <option> Badurpur Ghat - BPG </option>
+      <option> Bagaha - BUG </option>
+      <option> Bagalia - BGA </option>
+      <option> Bagalkot - BGK </option>
+      <option> Bagbahra - BGBR </option>
+      <option> Bagdihi - BEH </option>
+      <option> Bagetar - BF </option>
+      <option> Bagevadi Road - BSRX </option>
+      <option> Baghauli - BGH </option>
+      <option> Baghdogra - BORA </option>
+      <option> Baghnapara - BGRA </option>
+      <option> Baghora - BJQ </option>
+      <option> Baghuapal - BGPL </option>
+      <option> Bagnan - BZN </option>
+      <option> Bagra Tawa - BGTA </option>
+      <option> Bagri Nagar - BQN </option>
+      <option> Bagri Sajjanpur - BGX </option>
+      <option> Bagumra - BGMR </option>
+      <option> Bagwada (Halt) - BAGD </option>
+      <option> Bahadurgarh - BGZ </option>
+      <option> Bahadurpur - BPD </option>
+      <option> Baheri - BHI </option>
+      <option> Bahjoi - BJ </option>
+      <option> Bahraich - BRK </option>
+      <option> Baiguda - BGUA </option>
+      <option> Baihatola - BATL </option>
+      <option> Baikunth - BKTH </option>
+      <option> Baikunthpur Road - BRH </option>
+      <option> Bainchi - BOI </option>
+      <option> Bairagarh - BIH </option>
+      <option> Bairagnia - BGU </option>
+      <option> Baitalpur - BALR </option>
+      <option> Baitarani Road - BTV </option>
+      <option> Baiyyappanahali - BYPL </option>
+      <option> Bajrangarh - BJG </option>
+      <option> Bajud - BJUD </option>
+      <option> Bajva - BJW </option>
+      <option> Bakanian Bhaunr - BQE </option>
+      <option> Bakhleta - BQQ </option>
+      <option> Bakhtiyarpur Junction - BKP </option>
+      <option> Baktal - BKTL </option>
+      <option> Bakudi - BKLE </option>
+      <option> Balabhadrapuram - BBPM </option>
+      <option> Balabnramapuram - BRAM </option>
+      <option> Balagarh - BGAE </option>
+      <option> Balaghat Junction - BTC </option>
+      <option> Balamu Junction - BLM </option>
+      <option> Balangir - BLGR </option>
+      <option> Balasore - BLS </option>
+      <option> Balawali - BLW </option>
+      <option> Bale - BALE </option>
+      <option> Balganur - BLR </option>
+      <option> Balharshah - BPQ </option>
+      <option> Baliakheri - BAE </option>
+      <option> Balichak - BCK </option>
+      <option> Ballabgarh - BVH </option>
+      <option> Ballenahalli - BAHI </option>
+      <option> Ballia - BUI </option>
+      <option> Bally - BLY </option>
+      <option> Balod - BXA </option>
+      <option> Balotra Junction - BLT </option>
+      <option> Balpur Halt - BPRH </option>
+      <option> Balsamand - BLSD </option>
+      <option> Balugan - BALU </option>
+      <option> Balurghat - BLGT </option>
+      <option> Bamhrauli - BMU </option>
+      <option> Bamla - BMLL </option>
+      <option> Bamnia - BMI </option>
+      <option> Bamra - BMB </option>
+      <option> Banahi - BYN </option>
+      <option> Banapura - BPF </option>
+      <option> Banar - BNO </option>
+      <option> Banas - BNS </option>
+      <option> Banaswadi - BAND </option>
+      <option> Banbasa - BNSA </option>
+      <option> Banda Junction - BNDA </option>
+      <option> Bandakpur - BNU </option>
+      <option> Bandanwara - BDW </option>
+      <option> Bandarkhal - BXK </option>
+      <option> Bandel Junction - BDC </option>
+      <option> Bandh Bareta - BR </option>
+      <option> Bandhua - BNF </option>
+      <option> Bandikui Junction - BKI </option>
+      <option> Bandra Terminus - BDTS </option>
+      <option> Bangalore Cant - BNC </option>
+      <option> Bangalore Cy Junction - SBC </option>
+      <option> Bangalore East - BNCE </option>
+      <option> Bangarapet - BWT </option>
+      <option> Bangarapet - BWY </option>
+      <option> Bangriposi - BGY </option>
+      <option> Bangrod - BOD </option>
+      <option> Bani - BANI </option>
+      <option> Bani Bihar - BNBH </option>
+      <option> Banihal - BAHL </option>
+      <option> Banisar - BS </option>
+      <option> Banka - BAKA </option>
+      <option> Banka Ghat - BKG </option>
+      <option> Banka Road Oa - BNKR </option>
+      <option> Bankata - BTK </option>
+      <option> Bankhedi - BKH </option>
+      <option> Bankura - BQA </option>
+      <option> Banmor - BAO </option>
+      <option> Bano - BANO </option>
+      <option> Banpas - BPS </option>
+      <option> Bansh Baria - BSAE </option>
+      <option> Banshlai Bridge - BSBR </option>
+      <option> Bansi Paharpur - BIQ </option>
+      <option> Bansipur - BSQP </option>
+      <option> Banspani - BSPX </option>
+      <option> Bansthali Niwai - BNLW </option>
+      <option> Banta Rnathgarh - BGG </option>
+      <option> Bantanahal - BLL </option>
+      <option> Bantawala - BNTL </option>
+      <option> Banthra - BTRA </option>
+      <option> Baori Thikria - BOTI </option>
+      <option> Bap - BAF </option>
+      <option> Bapatla - BPP </option>
+      <option> Bapudm Motihari - MKI </option>
+      <option> Bapudm Motihari - BMKI </option>
+      <option> Bar - BAR </option>
+      <option> Bara Jamda - BJMD </option>
+      <option> Barabambo - BRM </option>
+      <option> Barabanki Junction - BBK </option>
+      <option> Barabhum - BBM </option>
+      <option> Barabil - BBN </option>
+      <option> Barachak - BCQ </option>
+      <option> Baradwar - BUA </option>
+      <option> Baragopal - BAGL </option>
+      <option> Barahat - BHLE </option>
+      <option> Baraigram Jn - BRGM </option>
+      <option> Barakar - BRR </option>
+      <option> Baral - BARL </option>
+      <option> Baran - BAZ </option>
+      <option> Barang - BRAG </option>
+      <option> Barara - RAA </option>
+      <option> Barauni Junction - BJU </option>
+      <option> Baraut - BTU </option>
+      <option> Barbatpur - BBTR </option>
+      <option> Barchi Road - BCRD </option>
+      <option> Barddhaman Junction - BWN </option>
+      <option> Bardhana Halt - BRDH </option>
+      <option> Bardoli - BIY </option>
+      <option> Bareilly - BE </option>
+      <option> Bareilly - BRY </option>
+      <option> Bareilly City - BC </option>
+      <option> Barejadi - BJD </option>
+      <option> Barelipur - BQM </option>
+      <option> Bareta - BRZ </option>
+      <option> Bareth - BET </option>
+      <option> Bargarh - BRG </option>
+      <option> Bargarh Road - BRGA </option>
+      <option> Bargawan - BRGW </option>
+      <option> Bargi - BUQ </option>
+      <option> Barh - BARH </option>
+      <option> Barhan - BRN </option>
+      <option> Barharwa Junction - BHW </option>
+      <option> Barhiya - BRYA </option>
+      <option> Barhiya - DKGS </option>
+      <option> Barhni - BNY </option>
+      <option> Bari Brahman - BBMN </option>
+      <option> Bariarpur - BUP </option>
+      <option> Baripada - BPO </option>
+      <option> Bariwala - BRW </option>
+      <option> Barka Kana - BRKA </option>
+      <option> Barkhera - BKA </option>
+      <option> Barkisalalya - BSYA </option>
+      <option> Barkur - BKJ </option>
+      <option> Barlai - BLAX </option>
+      <option> Barmer - BME </option>
+      <option> Barnala - BNN </option>
+      <option> Barog - BOF </option>
+      <option> Barpali - BRPL </option>
+      <option> Barpathar - BXP </option>
+      <option> Barpeta Road - BPRD </option>
+      <option> Barrackpore - BP </option>
+      <option> Barrajpur - BJR </option>
+      <option> Barsali - BYS </option>
+      <option> Barsi Town - BTW </option>
+      <option> Barsoi Junction - BOE </option>
+      <option> Barsola - BZO </option>
+      <option> Barua Bamungaon - BBGN </option>
+      <option> Barud - BRUD </option>
+      <option> Barwa Sagar - BWR </option>
+      <option> Barwadih Junction - BRWD </option>
+      <option> Barwaha - BWW </option>
+      <option> Barya Ram - BYHA </option>
+      <option> Basai - BZY </option>
+      <option> Basantapur - BSTP </option>
+      <option> Basar - BSX </option>
+      <option> Basbari - BSI </option>
+      <option> Basharatganj - BTG </option>
+      <option> Basin Bridge Junction - BBQ </option>
+      <option> Basmat - BMF </option>
+      <option> Basni - BANE </option>
+      <option> Bassi - BAI </option>
+      <option> Bassi Pathanam - BSPN </option>
+      <option> Basta - BTS </option>
+      <option> Basti - BST </option>
+      <option> Basugaon - BSGN </option>
+      <option> Basukinath - BSKH </option>
+      <option> Baswa - BU </option>
+      <option> Batala Junction - BAT </option>
+      <option> Bataspur - BSLE </option>
+      <option> Bathinda Cantt. - BTIC </option>
+      <option> Bauria Junction - BVA </option>
+      <option> Bawal - BWL </option>
+      <option> Bawani Khera - BWK </option>
+      <option> Bayana Junction - BXN </option>
+      <option> Baytu - BUT </option>
+      <option> Bayyavaram - BVM </option>
+      <option> Bazarsau - BZLE </option>
+      <option> Bazpur - BPZ </option>
+      <option> Beas - BEAS </option>
+      <option> Beawar - BER </option>
+      <option> Bechhiwara - BHWA </option>
+      <option> Begampet - BMT </option>
+      <option> Begdewadi - BGW </option>
+      <option> Begu Sarai - BGS </option>
+      <option> Behtagokul - BEG </option>
+      <option> Behula - BHLA </option>
+      <option> Bekal Fort - BFR </option>
+      <option> Bela - BELA </option>
+      <option> Bela Tal - BTX </option>
+      <option> Belakoba - BLK </option>
+      <option> Belampalli - BPA </option>
+      <option> Belapur - BAP </option>
+      <option> Belasar - BLSR </option>
+      <option> Belda - BLDA </option>
+      <option> Beldanga - BEB </option>
+      <option> Belgahna - BIG </option>
+      <option> Belgaum - BGM </option>
+      <option> Belgharia - BLH </option>
+      <option> Belha - BYL </option>
+      <option> Bellamkonda - BMKD </option>
+      <option> Bellary Cant - BYC </option>
+      <option> Bellary Junction - BAY </option>
+      <option> Bellenahalli - BNHL </option>
+      <option> Belpahar - BPH </option>
+      <option> Belrayan - BXM </option>
+      <option> Belsonda - BLSN </option>
+      <option> Belthara Road - BLTR </option>
+      <option> Belvandi - BWD </option>
+      <option> Beohari - BEHR </option>
+      <option> Berawanya - BRNA </option>
+      <option> Berchha - BCH </option>
+      <option> Berhampore Crt - BPC </option>
+      <option> Bermo - BRMO </option>
+      <option> Betamcherla - BMH </option>
+      <option> Betavad - BEW </option>
+      <option> Bethampurdi - BTPD </option>
+      <option> Bethuadahari - BTY </option>
+      <option> Betnoti - BTQ </option>
+      <option> Bettiah - BTH </option>
+      <option> Betul - BZU </option>
+      <option> Bevinahalu - BNL </option>
+      <option> Bhabhar - BAH </option>
+      <option> Bhabta - BFT </option>
+      <option> Bhabua Road - BBU </option>
+      <option> Bhachau - BCO </option>
+      <option> Bhachau Bg - BCOB </option>
+      <option> Bhadan - BDN </option>
+      <option> Bhadaura - BWH </option>
+      <option> Bhadbhunja - BBAI </option>
+      <option> Bhadli - BDI </option>
+      <option> Bhadohi - BOY </option>
+      <option> Bhadrachalam Road - BDCR </option>
+      <option> Bhadrakh - BHC </option>
+      <option> Bhadravati - BDVT </option>
+      <option> Bhadreshwar - BHR </option>
+      <option> Bhadri - BHDR </option>
+      <option> Bhadroli - BBY </option>
+      <option> Bhaga Junction - VAA </option>
+      <option> Bhagalpur - BGP </option>
+      <option> Bhagalpur - ZZZZ </option>
+      <option> Bhagat Ki Kothi - BGKT </option>
+      <option> Bhagwangola - BQG </option>
+      <option> Bhagwanpur - BNR </option>
+      <option> Bhagwanpura - BGPR </option>
+      <option> Bhairoganj - BRU </option>
+      <option> Bhairongarh - BOG </option>
+      <option> Bhakti Nagar - BKNG </option>
+      <option> Bhalki - BHLK </option>
+      <option> Bhalui - BFM </option>
+      <option> Bhaluka Road F - BKRD </option>
+      <option> Bhalukmara - BLMR </option>
+      <option> Bhalulata - BUL </option>
+      <option> Bhalumaska - BLMK </option>
+      <option> Bhalwani - BLNI </option>
+      <option> Bhanapur - BNP </option>
+      <option> Bhandak - BUX </option>
+      <option> Bhandara Road - BRD </option>
+      <option> Bhandaridah - BHME </option>
+      <option> Bhandu Motidau - BHU </option>
+      <option> Bhansi - BHNS </option>
+      <option> Bhanvad - BNUD </option>
+      <option> Bhanvad - BNVD </option>
+      <option> Bhanwar Tonk - BHTK </option>
+      <option> Bhanwasa - BNWS </option>
+      <option> Bharat Kup - BTKP </option>
+      <option> Bharatpur Junction - BTE </option>
+      <option> Bharoli - BHRL </option>
+      <option> Bharthana - BNT </option>
+      <option> Bharuch Junction - BH </option>
+      <option> Bharwa Sumerpur - BSZ </option>
+      <option> Bharwari - BRE </option>
+      <option> Bhatapara - BYT </option>
+      <option> Bhatinda Junction - BTI </option>
+      <option> Bhatisuda(Halt) - BTSD </option>
+      <option> Bhatiya - BHTA </option>
+      <option> Bhatkal - BTJL </option>
+      <option> Bhatkal - BTKL </option>
+      <option> Bhatni Junction - BTT </option>
+      <option> Bhaton Ki Gali - BHG </option>
+      <option> Bhatpar Rani - BHTR </option>
+      <option> Bhattiprolu - BQU </option>
+      <option> Bhattu - BHT </option>
+      <option> Bhavanagar Para - BVP </option>
+      <option> Bhavani Nagar - BVNR </option>
+      <option> Bhavnagar Trmus - BVC </option>
+      <option> Bhawani Mandi - BWM </option>
+      <option> Bhawanipatna - BWIP </option>
+      <option> Bhayandar - BYR </option>
+      <option> Bhayavadar - BHY </option>
+      <option> Bhedia - BDH </option>
+      <option> Bheerpur - BEP </option>
+      <option> Bheja - BHJA </option>
+      <option> Bheraghat - BRGT </option>
+      <option> Bhesana - BFY </option>
+      <option> Bheslana - BILA </option>
+      <option> Bhestan - BHET </option>
+      <option> Bhigwan - BGVN </option>
+      <option> Bhiknur - BKU </option>
+      <option> Bhilad - BLD </option>
+      <option> Bhilai - BIA </option>
+      <option> Bhilai Pwr Hs - BPHB </option>
+      <option> Bhilainagar - BQR </option>
+      <option> Bhilavdi - BVQ </option>
+      <option> Bhildi - BLDI </option>
+      <option> Bhilwara - BHL </option>
+      <option> Bhimadolu - BMD </option>
+      <option> Bhimal - BIML </option>
+      <option> Bhimalgondi - BMC </option>
+      <option> Bhimana - BMN </option>
+      <option> Bhimasar Bg - BMSB </option>
+      <option> Bhimavaram Junction - BVRM </option>
+      <option> Bhimavaram Town - BVRT </option>
+      <option> Bhimgara - BMGA </option>
+      <option> Bhimkhoj - BMKJ </option>
+      <option> Bhimsen - BZM </option>
+      <option> Bhind - BIX </option>
+      <option> Bhinwaliya - BWA </option>
+      <option> Bhira Kheri - BIK </option>
+      <option> Bhitaura - BTO </option>
+      <option> Bhitoni - BHTN </option>
+      <option> Bhivpuri Road - BVS </option>
+      <option> Bhiwandi Road - BIRD </option>
+      <option> Bhiwani - BNW </option>
+      <option> Bhiwani City - BNWC </option>
+      <option> Bhogpur Sirwal - BPRS </option>
+      <option> Bhojipura Junction - BPR </option>
+      <option> Bhojo - BOJ </option>
+      <option> Bhojudih Junction - BJE </option>
+      <option> Bhokar - BOKR </option>
+      <option> Bhoke - BOKE </option>
+      <option> Bhoma - BHV </option>
+      <option> Bhone - BHNE </option>
+      <option> Bhongaon - BGQ </option>
+      <option> Bhongir - BG </option>
+      <option> Bh Onra - BON </option>
+      <option> Bhopal Junction - BPL </option>
+      <option> Bhoras Budrukh - BFJ </option>
+      <option> Bhortex - BRTK </option>
+      <option> Bhubaneswar - BBS </option>
+      <option> Bhuchchu - BCU </option>
+      <option> Bhugaon - BPK </option>
+      <option> Bhuj - BHUJ </option>
+      <option> Bhulanpur - BHLP </option>
+      <option> Bhulon - BLO </option>
+      <option> Bhupalsagar - BSJ </option>
+      <option> Bhupdeopur - BEF </option>
+      <option> Bhupia Mau - VPO </option>
+      <option> Bhurkunda - BHKD </option>
+      <option> Bhusandpur - BSDP </option>
+      <option> Bhusaval Junction - BSL </option>
+      <option> Bhuteshwar - BTSR </option>
+      <option> Bibinagar - BN </option>
+      <option> Bichia - BIC </option>
+      <option> Bidadi - BID </option>
+      <option> Bidanpur - BDNP </option>
+      <option> Bidar - BIDR </option>
+      <option> Bidhan Nagar - BNXR </option>
+      <option> Bidupur - BIU </option>
+      <option> Bigga - BIGA </option>
+      <option> Bighapur - BQP </option>
+      <option> Bihar Sharif - BEHS </option>
+      <option> Bihara - BHZ </option>
+      <option> Bihiya - BEA </option>
+      <option> Bihta - BTA </option>
+      <option> Bijainagar - BJNR </option>
+      <option> Bijapur - BJP </option>
+      <option> Bijauli - BJI </option>
+      <option> Bijaysota - VST </option>
+      <option> Bijni - BJF </option>
+      <option> Bijnor - BJO </option>
+      <option> Bijoor - BIJR </option>
+      <option> Bijora - BJK </option>
+      <option> Bijuli Halt - BJIH </option>
+      <option> Bijuri - BJRI </option>
+      <option> Bijwasan - BWSN </option>
+      <option> Bikaner Junction - BKN </option>
+      <option> Bikkavolu - BVL </option>
+      <option> Bikram Shila - BKSL </option>
+      <option> Bikrampur - BMR </option>
+      <option> Bilaspur Junction - BSP </option>
+      <option> Bilaspur Road - BLOR </option>
+      <option> Bilaspur Road - BLQR </option>
+      <option> Bildi - BILD </option>
+      <option> Bilga - BZG </option>
+      <option> Bilhar Ghat - BLG </option>
+      <option> Bilhaur - BLU </option>
+      <option> Bilimora Junction - BIM </option>
+      <option> Billi - BXLL </option>
+      <option> Bilpur - BLPU </option>
+      <option> Bilwai - BWI </option>
+      <option> Bina Junction - BINA </option>
+      <option> Binaiki - VNK </option>
+      <option> Bindki Road - BKO </option>
+      <option> Binnaguri - BNV </option>
+      <option> Bir - BIR </option>
+      <option> Biradhwal - BDWL </option>
+      <option> Birambad - BAMA </option>
+      <option> Biramdih - BRMD </option>
+      <option> Birapatti - BRPT </option>
+      <option> Birlanagar - BLNR </option>
+      <option> Birnagar - BIJ </option>
+      <option> Birohe - BEO </option>
+      <option> Biroliya - BRLY </option>
+      <option> Birsinghpur - BRS </option>
+      <option> Birur Junction - RRB </option>
+      <option> Bisalwas Kalan - BIWK </option>
+      <option> Bisanattam - BSM </option>
+      <option> Bisapurkalan - BRKH </option>
+      <option> Bishnathganj - BTJ </option>
+      <option> Bishnupur - VSU </option>
+      <option> Bishrampur - BSPR </option>
+      <option> Bisra - BZR </option>
+      <option> Bissamcuttack - BMCK </option>
+      <option> Bissau - BUB </option>
+      <option> Bisugirsharif - BGSF </option>
+      <option> Biswan - BVN </option>
+      <option> Bitragunta - BTTR </option>
+      <option> Biyavra Rajgarh - BRRG </option>
+      <option> Bobas - BOBS </option>
+      <option> Bobbili - VBL </option>
+      <option> Bodhadi Bujrug - BHBK </option>
+      <option> Bodwad - BDWD </option>
+      <option> Bohali - BHLI </option>
+      <option> Bohani - BNE </option>
+      <option> Boinda - BONA </option>
+      <option> Boisar - BOR </option>
+      <option> Bokajan - BXJ </option>
+      <option> Bokaro Stl City - BKSC </option>
+      <option> Bokaro Thermal - BKRO </option>
+      <option> Bolai - BLX </option>
+      <option> Bolarum - BMO </option>
+      <option> Bolarum Bazar - BOZ </option>
+      <option> Bolinna Doaba - BLND </option>
+      <option> Bolpur S Niktn - BHP </option>
+      <option> Bolsa - BLSA </option>
+      <option> Bomadra - BOM </option>
+      <option> Bommidi - BQI </option>
+      <option> Bona Kalu - BKL </option>
+      <option> Bondamunda - BNDM </option>
+      <option> Bongaigaon - BNGN </option>
+      <option> Bonidanga - BDAG </option>
+      <option> Bordhal - BXY </option>
+      <option> Bordi - BIO </option>
+      <option> Borhat - BFD </option>
+      <option> Boribial - BRB </option>
+      <option> Boridand - BRND </option>
+      <option> Borivali - BVI </option>
+      <option> Boroti - BOT </option>
+      <option> Borraguhallu - BGHU </option>
+      <option> Bortalao - BTL </option>
+      <option> Borvihir - BRVR </option>
+      <option> Botad Junction - BTD </option>
+      <option> Bpt Station - XXXX </option>
+      <option> Brahmanagudem - BMGM </option>
+      <option> Brahmanpalli - BMPL </option>
+      <option> Brahmapur - BAM </option>
+      <option> Brajrajnagar - BRJN </option>
+      <option> Brayla Chaurasi - BRLA </option>
+      <option> Budalur - BAL </option>
+      <option> Budaun - BEM </option>
+      <option> Buddireddippati - BDY </option>
+      <option> Budhi - BDHY </option>
+      <option> Budhlada - BLZ </option>
+      <option> Budni - BNI </option>
+      <option> Budvel - BDVL </option>
+      <option> Bulandshahr - BSC </option>
+      <option> Bundi - BUDI </option>
+      <option> Bundki - BEK </option>
+      <option> Buniadpur - BNDP </option>
+      <option> Burhanpur - BAU </option>
+      <option> Burhar - BUH </option>
+      <option> Burhwal - BUW </option>
+      <option> Burnpur - BURN </option>
+      <option> Butari - BTR </option>
+      <option> Buti Bori - BTBR </option>
+      <option> Buxar - BXR </option>
+      <option> Byadarahalli - BDRL </option>
+      <option> Byadgi - BYD </option>
+      <option> Byculla - BY </option>
+      <option> Byndoor - BYNR </option>
+      <option> C Shahumharaj T - KOP </option>
+      <option> Cancona - CNO </option>
+      <option> Castle Rock - CLR </option>
+      <option> Cavalry Barrcks - CVB </option>
+      <option> Chabua - CHB </option>
+      <option> Chachaura Bngj - CBK </option>
+      <option> Chacher - CHCR </option>
+      <option> Chagallu - CU </option>
+      <option> Chaibasa - CBSA </option>
+      <option> Chainpur - CNPR </option>
+      <option> Chainwa - CW </option>
+      <option> Chajawa - CJW </option>
+      <option> Chajli - CJL </option>
+      <option> Chakand - CKH </option>
+      <option> Chakarbhatha - CHBT </option>
+      <option> Chakarpur - CKK </option>
+      <option> Chakdaha - CDH </option>
+      <option> Chakdayala - CKDL </option>
+      <option> Chakia - CAA </option>
+      <option> Chakki Bank - CHKB </option>
+      <option> Chakradharpur - CKP </option>
+      <option> Chakraj Mal - CAJ </option>
+      <option> Chakrod - CKOD </option>
+      <option> Chaksu - CKS </option>
+      <option> Chakulia - CKU </option>
+      <option> Chakur - CKX </option>
+      <option> Chalakudi - CKI </option>
+      <option> Chalama - CMZ </option>
+      <option> Chalgeri - CLI </option>
+      <option> Chalisgaon Junction - CSN </option>
+      <option> Challakere - CHKE </option>
+      <option> Chalsa Junction - CLD </option>
+      <option> Chalthan - CHM </option>
+      <option> Chamagram - CMX </option>
+      <option> Chamarajanagar - CMNR </option>
+      <option> Champa - CPH </option>
+      <option> Champaner Road Jn - CPN </option>
+      <option> Chand Siau - CPS </option>
+      <option> Chanda Fort - CAF </option>
+      <option> Chandan Nagar - CGR </option>
+      <option> Chandanattop - CTPE </option>
+      <option> Chandari - CNBI </option>
+      <option> Chandauli Mjhwr - CDMR </option>
+      <option> Chandausi Junction - CH </option>
+      <option> Chandawal - CNL </option>
+      <option> Chanderiya - CNA </option>
+      <option> Chandi Mandir - CNDM </option>
+      <option> Chandia Road - CHD </option>
+      <option> Chandigarh - CDG </option>
+      <option> Chandil Junction - CNI </option>
+      <option> Chandlodiya - CDLD </option>
+      <option> Chandlodiya - CLDY </option>
+      <option> Chandok - CNK </option>
+      <option> Chandragiri - CGI </option>
+      <option> Chandrakona Road - CDGR </option>
+      <option> Chandranathpur - CNE </option>
+      <option> Chandrapur - CD </option>
+      <option> Chandrapura - CRP </option>
+      <option> Chandur - CND </option>
+      <option> Chandur Bazar - CNDB </option>
+      <option> Chaneti - CHTI </option>
+      <option> Changanaseri - CGY </option>
+      <option> Changotola - CGLA </option>
+      <option> Changsari - CGS </option>
+      <option> Channani - CHNN </option>
+      <option> Channapatna - CPT </option>
+      <option> Chanpatia - CAI </option>
+      <option> Chaparmukh Junction - CPK </option>
+      <option> Charamula Kusum - CJS </option>
+      <option> Charanmahadevi - SMD </option>
+      <option> Charaud - CRW </option>
+      <option> Charbatia - CBT </option>
+      <option> Charegaon - CRN </option>
+      <option> Charghat Pipari - CGE </option>
+      <option> Charkhera - CRK </option>
+      <option> Charkhi Dadri - CKD </option>
+      <option> Charlapalli - CHZ </option>
+      <option> Charvattur - CHV </option>
+      <option> Chata - CHJ </option>
+      <option> Chatra - CTR </option>
+      <option> Chatrappatti - CHPT </option>
+      <option> Chatrapur - CAP </option>
+      <option> Chattriput - CTS </option>
+      <option> Chau Mahla - CMU </option>
+      <option> Chaube - CBH </option>
+      <option> Chauk - CHOK </option>
+      <option> Chaukhandi - CHH </option>
+      <option> Chaunrah - CNH </option>
+      <option> Chaura - CUX </option>
+      <option> Chauri Chaura - CC </option>
+      <option> Chausa - CSA </option>
+      <option> Chautara - CROA </option>
+      <option> Chauth Ka Brwra - CKB </option>
+      <option> Chavaj - CVJ </option>
+      <option> Chavalkhede - CHLK </option>
+      <option> Chawapall - CHA </option>
+      <option> Chebrol - CEL </option>
+      <option> Cheekateegalplm - CEM </option>
+      <option> Chengalpattu - CGL </option>
+      <option> Chengannur - CNGR </option>
+      <option> Chennai Beach - MSB </option>
+      <option> Chennai Central - MAS </option>
+      <option> Chennai Egmore - MS </option>
+      <option> Cheoki - COI </option>
+      <option> Cheriyanad - CYN </option>
+      <option> Cherukara - CQA </option>
+      <option> Chettinad - CTND </option>
+      <option> Chhabra Gugor - CAG </option>
+      <option> Chhan Arorian - CHNR </option>
+      <option> Chhandrauli - CDRL </option>
+      <option> Chhanera - CAER </option>
+      <option> Chhapi - CHP </option>
+      <option> Chhapra - CPR </option>
+      <option> Chhapra Kacheri - CI </option>
+      <option> Chharodi - CE </option>
+      <option> Chharra - CHRA </option>
+      <option> Chhatna - CJN </option>
+      <option> Chhina - CHN </option>
+      <option> Chhindwara Junction - CWA </option>
+      <option> Chhipadohar - CPDR </option>
+      <option> Chhota Gudha - COD </option>
+      <option> Chhoti Odai - COO </option>
+      <option> Chhulha - CLF </option>
+      <option> Chichaki - CCK </option>
+      <option> Chidambaram - CDM </option>
+      <option> Chiheru - CEU </option>
+      <option> Chik Banavar - BAW </option>
+      <option> Chikalthan - CTH </option>
+      <option> Chikhli - CKHS </option>
+      <option> Chikjajur Junction - JRU </option>
+      <option> Chikni Road - CKNI </option>
+      <option> Chikodi Road - CKR </option>
+      <option> Chilakalapudi - CLU </option>
+      <option> Chilbila Junction - CIL </option>
+      <option> Chilikidara - CLDR </option>
+      <option> Chilka - CLKA </option>
+      <option> Chilkahar - CHR </option>
+      <option> Chiluvur - CLVR </option>
+      <option> Chima Pahad - CMW </option>
+      <option> Chimidipalli - CMDP </option>
+      <option> Chinchli - CNC </option>
+      <option> Chinchpada - CPD </option>
+      <option> Chinchvad - CCH </option>
+      <option> Chinna Ganjam - CJM </option>
+      <option> Chinna Salem - CHSM </option>
+      <option> Chinnaravuru - CIV </option>
+      <option> Chinpai - CPLE </option>
+      <option> Chintaman Ganes - CNN </option>
+      <option> Chiplun - CHI </option>
+      <option> Chipurupalle - CPP </option>
+      <option> Chirala - CLX </option>
+      <option> Chirawa - CRWA </option>
+      <option> Chirayinkil - CRY </option>
+      <option> Chirgaon - CGN </option>
+      <option> Chirmiri - CHRM </option>
+      <option> Chit Baragaon - CBN </option>
+      <option> Chitahra - CTHR </option>
+      <option> Chitali - CIT </option>
+      <option> Chitgidda - CTF </option>
+      <option> Chitradurg - CTA </option>
+      <option> Chitrakot - CKTD </option>
+      <option> Chitrasani - CTT </option>
+      <option> Chitrod - COE </option>
+      <option> Chittapur - CT </option>
+      <option> Chittaranjan - CRJ </option>
+      <option> Chittaurgarh - COR </option>
+      <option> Chittor - CTO </option>
+      <option> Chityala - CTYL </option>
+      <option> Chodiala - CDL </option>
+      <option> Chola - CHL </option>
+      <option> Chomun Samod - COM </option>
+      <option> Chopan - CPU </option>
+      <option> Choral - CRL </option>
+      <option> Chorghatpiparia - CRE </option>
+      <option> Chorgi - CHRG </option>
+      <option> Chorvad Road - CVR </option>
+      <option> Choti Khatu - CTKT </option>
+      <option> Choupale - CUE </option>
+      <option> Chuchura - CNS </option>
+      <option> Chudawa - CRU </option>
+      <option> Chunar - CAR </option>
+      <option> Churaibari - CBZ </option>
+      <option> Churk - CUK </option>
+      <option> Churu - CUR </option>
+      <option> Cinnamara - CMA </option>
+      <option> Clutterbuckganj - CBJ </option>
+      <option> Coimbatore Junction - CBE </option>
+      <option> Coimbatore Nrth - CBF </option>
+      <option> Colonelganj - CLJ </option>
+      <option> Contai Road - CNT </option>
+      <option> Coonoor - ONR </option>
+      <option> Cossimbazar - CSZ </option>
+      <option> Cuddalore Port - CUPJ </option>
+      <option> Cuddapah - HX </option>
+      <option> Cumbum - CBM </option>
+      <option> Cuttack - CTC </option>
+      <option> Dabhaura - DBR </option>
+      <option> Dabhoda - DBO </option>
+      <option> Dabilpur - DBV </option>
+      <option> Dabka - DBKA </option>
+      <option> Dabla - DBLA </option>
+      <option> Dabpal - DPF </option>
+      <option> Dabpal - DBF </option>
+      <option> Dabra - DBA </option>
+      <option> Dabtara - DUB </option>
+      <option> Dadar - DR </option>
+      <option> Dadar - DDR </option>
+      <option> Dadhapara - DPH </option>
+      <option> Dadhdevi - DDV </option>
+      <option> Dadpur - DPX </option>
+      <option> Dadri - DER </option>
+      <option> Dagarhkeri - DRHI </option>
+      <option> Daghora - DAO </option>
+      <option> Dagmagpur - DAP </option>
+      <option> Dagori - DGS </option>
+      <option> Dahanu Road - DRD </option>
+      <option> Dahar Ka Balaji - DKBJ </option>
+      <option> Dahod - DHD </option>
+      <option> Dakaniya Talav - DKNT </option>
+      <option> Dakhineswar - DAKE </option>
+      <option> Daladi - DL </option>
+      <option> Dalauda - DLD </option>
+      <option> Dalbhumgarh - DVM </option>
+      <option> Dalelnagar - DLQ </option>
+      <option> Dalgaon - DLO </option>
+      <option> Daliganj - DAL </option>
+      <option> Dalkolha - DLK </option>
+      <option> Dalli Rajhara - DRZ </option>
+      <option> Dalmau Junction - DMW </option>
+      <option> Dalpatpur - DLP </option>
+      <option> Dalsingh Sarai - DSS </option>
+      <option> Daltonganj - DTO </option>
+      <option> Damanjodi - DMNJ </option>
+      <option> Damchara - DCA </option>
+      <option> Damoh - DMO </option>
+      <option> Danapur - DNR </option>
+      <option> Danauli Phlwria - DPL </option>
+      <option> Dandupur - DND </option>
+      <option> Danea - DNEA </option>
+      <option> Dangarwa - DNW </option>
+      <option> Dangoaposi - DPS </option>
+      <option> Danishpet - DSPT </option>
+      <option> Daniyawan Bzr H - DNWH </option>
+      <option> Dankaur - DKDE </option>
+      <option> Dankuni - DKAE </option>
+      <option> Dantan - DNT </option>
+      <option> Dantewara - DWZ </option>
+      <option> Dantra - DTRA </option>
+      <option> Danwar - DAR </option>
+      <option> Daotuhaja - DJA </option>
+      <option> Dapodi - DAPD </option>
+      <option> Dappar - DHPR </option>
+      <option> Dara - DARA </option>
+      <option> Darbhanga Junction - DBG </option>
+      <option> Darekasa - DKS </option>
+      <option> Darjeeling - DJ </option>
+      <option> Darliput - DPC </option>
+      <option> Darritola - DTL </option>
+      <option> Daryabad - DYD </option>
+      <option> Dasharathpur - DRTP </option>
+      <option> Dasna - DS </option>
+      <option> Dasuya - DZA </option>
+      <option> Datia - DAA </option>
+      <option> Daudpur - DDP </option>
+      <option> Daulatabad - DLB </option>
+      <option> Daulatpur Hat - DLPH </option>
+      <option> Daund Junction - DD </option>
+      <option> Daurai - DOZ </option>
+      <option> Daurala - DRLA </option>
+      <option> Dauram Madhpura - DMH </option>
+      <option> Dausa - DO </option>
+      <option> Dausni - DSNI </option>
+      <option> Davangere - DVG </option>
+      <option> Dayalpur - DLPR </option>
+      <option> Dayanand Nagar - DYE </option>
+      <option> Debagram - DEB </option>
+      <option> Debari - DRB </option>
+      <option> Deeg - DEEG </option>
+      <option> Degana Junction - DNA </option>
+      <option> Dehradun - DDN </option>
+      <option> Dehri On Sone - DOS </option>
+      <option> Dehu Road - DEHR </option>
+      <option> Dekargaon - DKGN </option>
+      <option> Delang - DEG </option>
+      <option> Delhi - DLI </option>
+      <option> Delhi Cantt - DEC </option>
+      <option> Delhi Kishangnj - DKZ </option>
+      <option> Delhi S Rohilla - DEE </option>
+      <option> Delhi Safdarjng - DSJ </option>
+      <option> Delhi Shahdara - DSA </option>
+      <option> Denduluru - DEL </option>
+      <option> Deoband - DBD </option>
+      <option> Deoghar - DGHR </option>
+      <option> Deojhar - DJHR </option>
+      <option> Deori - DOE </option>
+      <option> Deoria Sadar - DEOS </option>
+      <option> Deotala - DOTL </option>
+      <option> Depur Ph - DPUR </option>
+      <option> Derol - DRL </option>
+      <option> Derowan P. H. - DRWN </option>
+      <option> Desari - DES </option>
+      <option> Deshapran P.H. - DSPN </option>
+      <option> Deshnok - DSO </option>
+      <option> Devakottai Road - DKO </option>
+      <option> Devalgaon Auchr - DAV </option>
+      <option> Devangonthi - DKN </option>
+      <option> Devargudda - DAD </option>
+      <option> Devbaloda Chrda - DBEC </option>
+      <option> Devi Halt - DVH </option>
+      <option> Devlali - DVL </option>
+      <option> Devpura - DPZ </option>
+      <option> Devri Ph - DRPH </option>
+      <option> Dewanganj - DWG </option>
+      <option> Dewas - DWX </option>
+      <option> Dhaban - DABN </option>
+      <option> Dhaca Cantt - DHCA </option>
+      <option> Dhaka - DAKA </option>
+      <option> Dhalgaon - DLGN </option>
+      <option> Dhamalgaon - DMGN </option>
+      <option> Dhamangaon - DMN </option>
+      <option> Dhamara Ghat - DHT </option>
+      <option> Dhamdhamia - DDX </option>
+      <option> Dhamora - DAM </option>
+      <option> Dhampur - DPR </option>
+      <option> Dhana Kherli - DXK </option>
+      <option> Dhanakya - DNK </option>
+      <option> Dhanapur Orissa - DIR </option>
+      <option> Dhanari - DN </option>
+      <option> Dhanauri - DNRE </option>
+      <option> Dhanbad Junction - DHN </option>
+      <option> Dhandari Kalan - DDL </option>
+      <option> Dhandhera - DNRA </option>
+      <option> Dhanera - DQN </option>
+      <option> Dhaneta - DAN </option>
+      <option> Dhanmandal - DNM </option>
+      <option> Dhanuvachapuram - DAVM </option>
+      <option> Dhapewara - DPW </option>
+      <option> Dharangaon - DXG </option>
+      <option> Dhareshwar - DRS </option>
+      <option> Dharewada - DRW </option>
+      <option> Dharhara - DRH </option>
+      <option> Dhariwal - DHW </option>
+      <option> Dharmabad - DAB </option>
+      <option> Dharmanagar - DMR </option>
+      <option> Dharmapuri - DPJ </option>
+      <option> Dharmavaram Junction - DMM </option>
+      <option> Dharmpur Hmchl - DMP </option>
+      <option> Dharnaoda - DHR </option>
+      <option> Dharuadihi - DIH </option>
+      <option> Dharur - DRR </option>
+      <option> Dharwar - DWR </option>
+      <option> Dhasa Junction - DAS </option>
+      <option> Dhatrigram - DTAE </option>
+      <option> Dhaulpur - DHO </option>
+      <option> Dhauni - DWLE </option>
+      <option> Dhaura - DUA </option>
+      <option> Dhavalas - DHS </option>
+      <option> Dheena - DHA </option>
+      <option> Dhekiajili Road - DKJR </option>
+      <option> Dhekvad - DWD </option>
+      <option> Dhemaji - DMC </option>
+      <option> Dhengli Pp Goan - DGPP </option>
+      <option> Dhenkanal - DNKL </option>
+      <option> Dhilwan - DIW </option>
+      <option> Dhinda - DHND </option>
+      <option> Dhirera - DHRR </option>
+      <option> Dhodhar - DOD </option>
+      <option> Dhodra Mohar - DOH </option>
+      <option> Dhoki - DKY </option>
+      <option> Dhola Junction - DLJ </option>
+      <option> Dholi - DOL </option>
+      <option> Dholipal - DPK </option>
+      <option> Dhondi - DNDI </option>
+      <option> Dhone - DNC </option>
+      <option> Dhone - DHNE </option>
+      <option> Dhoraji - DJI </option>
+      <option> Dhrangdhra - DHG </option>
+      <option> Dhuankheri - DKRA </option>
+      <option> Dhubri - DBB </option>
+      <option> Dhubulia - DHU </option>
+      <option> Dhule - DHI </option>
+      <option> Dhulghat - DGT </option>
+      <option> Dhulian Ganga - DGLE </option>
+      <option> Dhulkot - DKT </option>
+      <option> Dhupguri - DQG </option>
+      <option> Dhuri Junction - DUI </option>
+      <option> Dhurwasin - DRSN </option>
+      <option> Dhutra - DTV </option>
+      <option> Dibrugarh - DBRG </option>
+      <option> Dibrugarh Town - DBRT </option>
+      <option> Didwana - DIA </option>
+      <option> Digaru - DGU </option>
+      <option> Digboi - DBY </option>
+      <option> Digha Flag Stn - DGHA </option>
+      <option> Dighwara - DGA </option>
+      <option> Digod - DXD </option>
+      <option> Diguvametta - DMT </option>
+      <option> Dihakho - DKE </option>
+      <option> Dijaobra - DJB </option>
+      <option> Dilawarnagar - DIL </option>
+      <option> Dildarnagar Junction - DLN </option>
+      <option> Dilmili - DMK </option>
+      <option> Dilwa - DLW </option>
+      <option> Dimapur - DMV </option>
+      <option> Dina Nagar - DNN </option>
+      <option> Dindigul Junction - DG </option>
+      <option> Diphu - DPU </option>
+      <option> Diplana - DPLN </option>
+      <option> Disa - DISA </option>
+      <option> Ditokcherra - DTC </option>
+      <option> Diva - DIVA </option>
+      <option> Divine Nagar - DINR </option>
+      <option> Diwankhavati - DWV </option>
+      <option> Diyatara Road - DTRD </option>
+      <option> Diyodar - DEOR </option>
+      <option> Dodballapur - DBU </option>
+      <option> Dodbele - DBL </option>
+      <option> Dodhi - DHE </option>
+      <option> Doikallu - DKLU </option>
+      <option> Doiwala - DWO </option>
+      <option> Dokwa - DKWA </option>
+      <option> Domingarh - DMG </option>
+      <option> Donakonda - DKD </option>
+      <option> Dondaicha - DDE </option>
+      <option> Dongargarh - DGG </option>
+      <option> Donkinavalasa - DNV </option>
+      <option> Doraha - DOA </option>
+      <option> Dornakal Junction - DKJ </option>
+      <option> Dosvada - DSD </option>
+      <option> Dubaha - DUBH </option>
+      <option> Dubrajpur - DUJ </option>
+      <option> Duddhinagar - DXN </option>
+      <option> Dudhani - DUD </option>
+      <option> Dudhwakhara - DKX </option>
+      <option> Duganpur - DUN </option>
+      <option> Duggirala - DIG </option>
+      <option> Duliajan - DJG </option>
+      <option> Dullahapur - DLR </option>
+      <option> Dulrasar - DUS </option>
+      <option> Dum Dum - DDJ </option>
+      <option> Dumariya - DY </option>
+      <option> Dumka - DUMK </option>
+      <option> Dumraon - DURE </option>
+      <option> Dumri Bihar - DMBR </option>
+      <option> Dumri Halt - DMRX </option>
+      <option> Dumri Juara - DRI </option>
+      <option> Dumurdaha - DMLE </option>
+      <option> Dumuriput - DMRT </option>
+      <option> Dundi - DDCE </option>
+      <option> Dundlod Mkdgrh - DOB </option>
+      <option> Dungarpur - DNRP </option>
+      <option> Dungri - DGI </option>
+      <option> Dungripali - DJX </option>
+      <option> Duraundha Junction - DDA </option>
+      <option> Durg - DURG </option>
+      <option> Durgada Gate - DGDG </option>
+      <option> Durgapur - DGR </option>
+      <option> Durgapura - DPA </option>
+      <option> Durgauti - DGO </option>
+      <option> Duroji - DAJ </option>
+      <option> Dusi - DUSI </option>
+      <option> Duvvada - DVD </option>
+      <option> Dwarapudi - DWP </option>
+      <option> Dwarka - DWK </option>
+      <option> Edavai - EVA </option>
+      <option> Edduladoddi - EDD </option>
+      <option> Ekambarakuppam - EKM </option>
+      <option> Ekangarsarai - EKR </option>
+      <option> Ekchari - EKC </option>
+      <option> Eklakhi - EKI </option>
+      <option> Ekma - EM </option>
+      <option> Ekma - EKMA </option>
+      <option> Elimala - ELM </option>
+      <option> Ellamanchili - YLM </option>
+      <option> Ellenabad - ENB </option>
+      <option> Eluru - EE </option>
+      <option> Eranakulam Junction - ERS </option>
+      <option> Eraniel - ERL </option>
+      <option> Ernakulam Town - ERN </option>
+      <option> Erode Junction - ED </option>
+      <option> Errupalem - YP </option>
+      <option> Etawah - ETW </option>
+      <option> Etmadpur - ETUE </option>
+      <option> Ettapur Road - ETP </option>
+      <option> Ettumanur - ETM </option>
+      <option> Ezhukone - EKN </option>
+      <option> Faizabad Junction - FD </option>
+      <option> Faizullapur - FYZ </option>
+      <option> Fakiragram Junction - FKM </option>
+      <option> Falakata - FLK </option>
+      <option> Falna - FA </option>
+      <option> Farah Town - FHT </option>
+      <option> Faridabad - FDB </option>
+      <option> Faridabad Nw Tn - FDN </option>
+      <option> Faridkot - FDK </option>
+      <option> Farrukhabad - FBD </option>
+      <option> Fateh Singhpura - FSP </option>
+      <option> Fatehabad Ch.Jn - FTD </option>
+      <option> Fatehgarh - FGR </option>
+      <option> Fatehgarh Sahib - FGSB </option>
+      <option> Fatehnagar - FAN </option>
+      <option> Fatehpur - FTP </option>
+      <option> Fatehpur Sikri - FTS </option>
+      <option> Fatehpur Skhwti - FPS </option>
+      <option> Fatwa - FUT </option>
+      <option> Fazalpur - FZL </option>
+      <option> Fazilka - FKA </option>
+      <option> Ferok - FK </option>
+      <option> Firozabad - FZD </option>
+      <option> Firozpur Cant - FZR </option>
+      <option> Firozpur City - FZP </option>
+      <option> Forbesganj - FBG </option>
+      <option> Furkating Junction - FKG </option>
+      <option> Fursatganj - FTG </option>
+      <option> G Pochampalli - GDPL </option>
+      <option> G.Ramachandrapu - GRCP </option>
+      <option> Gachhipura - GCH </option>
+      <option> Gadadharpur - GHLE </option>
+      <option> Gadag Junction - GDG </option>
+      <option> Gadarwara - GAR </option>
+      <option> Gadhwala - GDW </option>
+      <option> Gadiganuru - GNR </option>
+      <option> Gadwal - GWD </option>
+      <option> Gahlota - GLTA </option>
+      <option> Gahmar - GMR </option>
+      <option> Gaipura - GAE </option>
+      <option> Gajapatinagaram - GPI </option>
+      <option> Gajjelakonda - GJJ </option>
+      <option> Gajner - GJN </option>
+      <option> Gajraula Junction - GJL </option>
+      <option> Gajsinghpur - GJS </option>
+      <option> Galgalia - GAGA </option>
+      <option> Galudih - GUD </option>
+      <option> Gambhiri Road - GRF </option>
+      <option> Gamharia - GMH </option>
+      <option> Ganagapur Road - GUR </option>
+      <option> Ganaur - GNU </option>
+      <option> Gandhidham Bg - GIMB </option>
+      <option> Gandhidham Junction. - GIM </option>
+      <option> Gandhinagar Cap - GNC </option>
+      <option> Gandhinagar Jpr - GADJ </option>
+      <option> Gandhipuram Hal - GHPU </option>
+      <option> Gandhismriti - GNST </option>
+      <option> Ganeshganj - GAJ </option>
+      <option> Gangadhara - GGAR </option>
+      <option> Gangadharpur - GNGD </option>
+      <option> Gangaganj - GANG </option>
+      <option> Gangaghat - GAG </option>
+      <option> Gangajhari - GJ </option>
+      <option> Gangakher - GNH </option>
+      <option> Gangani - GNNA </option>
+      <option> Gangapur City - GGC </option>
+      <option> Gangarampur - GRMP </option>
+      <option> Gangiwara - GNW </option>
+      <option> Gangrar - GGR </option>
+      <option> Gangsar Jaitu - GJUT </option>
+      <option> Ganj Basoda - BAQ </option>
+      <option> Ganj Dundwara - GWA </option>
+      <option> Ganjam - GAM </option>
+      <option> Gankar - GALE </option>
+      <option> Gannavaram - GWM </option>
+      <option> Garh Dhrubeswar - GRB </option>
+      <option> Garh Jaipur - GUG </option>
+      <option> Garhara - GHX </option>
+      <option> Garhbeta - GBA </option>
+      <option> Garhi Harsaru - GHH </option>
+      <option> Garhi Manikpur - GRMR </option>
+      <option> Garhmuktesar - GMS </option>
+      <option> Garhmuktesar Br - GGB </option>
+      <option> Garhwa - GHQ </option>
+      <option> Garifa - GFAE </option>
+      <option> Garividi - GVI </option>
+      <option> Garla - GLA </option>
+      <option> Garot - GOH </option>
+      <option> Garpos - GPH </option>
+      <option> Garudubilli - GRBL </option>
+      <option> Garwa Road - GHD </option>
+      <option> Gatora - GTW </option>
+      <option> Gaura - GRX </option>
+      <option> Gauri Bazar - GB </option>
+      <option> Gauribidanur - GBD </option>
+      <option> Gauriganj - GNG </option>
+      <option> Gauripur - GUP </option>
+      <option> Gaushala - GWS </option>
+      <option> Gautamdhara - GATD </option>
+      <option> Gautamsthan - GTST </option>
+      <option> Gaya Junction - GAYA </option>
+      <option> Gayabari - GBE </option>
+      <option> Gazole - GZO </option>
+      <option> Gazulapalli - GZL </option>
+      <option> Gede - GEDE </option>
+      <option> Gegal Akhri - GEK </option>
+      <option> Geratpur - GER </option>
+      <option> Getor Jagatpura - GTJT </option>
+      <option> Gevra Road - GAD </option>
+      <option> Ghadela - GELA </option>
+      <option> Ghagghar - GHG </option>
+      <option> Ghagwal - GHGL </option>
+      <option> Ghanauli - GANL </option>
+      <option> Ghanpur - GNP </option>
+      <option> Ghantikhal Ndpr - GHNH </option>
+      <option> Gharaunda - GRA </option>
+      <option> Ghaso - GSO </option>
+      <option> Ghat Nandur - GTU </option>
+      <option> Ghataka Varana - GKB </option>
+      <option> Ghatampur - GTM </option>
+      <option> Ghatera - GEA </option>
+      <option> Ghatkesar - GT </option>
+      <option> Ghatprabha - GPB </option>
+      <option> Ghatsila - GTS </option>
+      <option> Ghaziabad - GZB </option>
+      <option> Ghazipur City - GCT </option>
+      <option> Ghoga - GGA </option>
+      <option> Ghoksadanga - GDX </option>
+      <option> Gholvad - GVD </option>
+      <option> Ghonsor - GNS </option>
+      <option> Ghoradongri - GDYA </option>
+      <option> Ghorawadi - GRWD </option>
+      <option> Ghorpuri - GPR </option>
+      <option> Ghosunda - GSD </option>
+      <option> Ghughuli - GH </option>
+      <option> Ghum - GHUM </option>
+      <option> Ghunghuti - GGT </option>
+      <option> Ghutku - GTK </option>
+      <option> Gidam - GIZ </option>
+      <option> Giddalur - GID </option>
+      <option> Giddarbaha - GDB </option>
+      <option> Gidhaur - GHR </option>
+      <option> Gidni - GII </option>
+      <option> Ginigera - GIN </option>
+      <option> Giridih - GRD </option>
+      <option> Girimaidan - GMDN </option>
+      <option> Girwar - GW </option>
+      <option> Goaldih - GADH </option>
+      <option> Goalpara Town - GLPT </option>
+      <option> Godamgura - GDQ </option>
+      <option> Godavari - GVN </option>
+      <option> Godhra Junction - GDA </option>
+      <option> Gogameri - GAMI </option>
+      <option> Gogamukh - GOM </option>
+      <option> Gogamukh - PDKN </option>
+      <option> Gohad Road - GOA </option>
+      <option> Gohana - GHNA </option>
+      <option> Gohpur - GPZ </option>
+      <option> Goilkera - GOL </option>
+      <option> Gokak Road - GKK </option>
+      <option> Gokarna Road - GOK </option>
+      <option> Gokulpur - GKL </option>
+      <option> Gola Gokaranath - GK </option>
+      <option> Gola Road - GRE </option>
+      <option> Golaghat - GLGT </option>
+      <option> Golakganj Jn - GKJ </option>
+      <option> Goldinganj - GJH </option>
+      <option> Goldingganj - GALG </option>
+      <option> Gollaprolu - GLP </option>
+      <option> Golsar - GOZ </option>
+      <option> Gomati Nagar - GTNR </option>
+      <option> Gomoh Junction - GMO </option>
+      <option> Gomta - GTT </option>
+      <option> Gonda Junction - GD </option>
+      <option> Gondal - GDL </option>
+      <option> Gondia Junction - G </option>
+      <option> Gondwanavisapur - GNVR </option>
+      <option> Goneana - GNA </option>
+      <option> Gooty - GY </option>
+      <option> Gop Jam - GOP </option>
+      <option> Gopalapatnam - GPT </option>
+      <option> Gora Ghuma - GGM </option>
+      <option> Gorakhnath - GRKN </option>
+      <option> Gorakhpur Cant - GKC </option>
+      <option> Gorakhpur City - GKY </option>
+      <option> Gorakhpur Junction - GKP </option>
+      <option> Gorapur - GPJ </option>
+      <option> Goraul - GRL </option>
+      <option> Goraya - GRY </option>
+      <option> Goregaon Road - GNO </option>
+      <option> Goresuar - GVR </option>
+      <option> Goriyan - GIO </option>
+      <option> Gosalpur - GSPR </option>
+      <option> Goshainganj - GGJ </option>
+      <option> Gossaigaon Hat - GOGH </option>
+      <option> Gotan - GOTN </option>
+      <option> Gothaj - GTE </option>
+      <option> Gothangam - GTX </option>
+      <option> Gotlam - GTLM </option>
+      <option> Gour Malda - GZM </option>
+      <option> Goverdhan - GDO </option>
+      <option> Govindgarh - GVG </option>
+      <option> Govindgarh Malk - GND </option>
+      <option> Govindpur Road - GBX </option>
+      <option> Govindpuri - GOV </option>
+      <option> Govindpuri - GOY </option>
+      <option> Gowdavalli - GWV </option>
+      <option> Gubbi - GBB </option>
+      <option> Gudaparti - GDPT </option>
+      <option> Gudgeri - GDI </option>
+      <option> Gudimetta - GMA </option>
+      <option> Gudivada Junction - GDV </option>
+      <option> Gudiyattam - GYM </option>
+      <option> Gudlavalleru - GVL </option>
+      <option> Gudma - GDM </option>
+      <option> Gudru Halt - GDU </option>
+      <option> Gudupulli - GDP </option>
+      <option> Gudur Junction - GDR </option>
+      <option> Gujhandi - GJD </option>
+      <option> Gulabhganj - GLG </option>
+      <option> Gulabpura - GBP </option>
+      <option> Gulaothi - GLH </option>
+      <option> Gulbarga - GR </option>
+      <option> Guldhar - GUH </option>
+      <option> Guledagudda Road - GED </option>
+      <option> Gullaguda - GGD </option>
+      <option> Gullipadu - GLU </option>
+      <option> Gulzarbagh - GZH </option>
+      <option> Gumada - GMDA </option>
+      <option> Gumani - GMAN </option>
+      <option> Gumia - GMIA </option>
+      <option> Gumman - GMM </option>
+      <option> Gummidipundi - GPD </option>
+      <option> Gumthal - GTF </option>
+      <option> Guna - GUNA </option>
+      <option> Gunadala - GALA </option>
+      <option> Gundalukamma - GKM </option>
+      <option> Gundardehi - GDZ </option>
+      <option> Guntakal Junction - GTL </option>
+      <option> Guntur Junction - GNT </option>
+      <option> Guptipara - GPAE </option>
+      <option> Gur Market - GRMT </option>
+      <option> Guramkhedi - GMD </option>
+      <option> Guraru - GRRU </option>
+      <option> Gurdaspur - GSP </option>
+      <option> Gurgaon - GGN </option>
+      <option> Gurhi - GUX </option>
+      <option> Guriya - GRI </option>
+      <option> Gurla - GQL </option>
+      <option> Gurpa - GAP </option>
+      <option> Gurra - GRO </option>
+      <option> Gursahaiganj - GHJ </option>
+      <option> Guru Harsahai - GHS </option>
+      <option> Guruvayur - GUV </option>
+      <option> Guskara - GKH </option>
+      <option> Guwahati - GHY </option>
+      <option> Guwarighat - GRG </option>
+      <option> Gwalior - GWL </option>
+      <option> Gyanpur Road - GYN </option>
+      <option> H Nizamuddin - NZM </option>
+      <option> Habibganj - HBJ </option>
+      <option> Habibwala - HBW </option>
+      <option> Hadapsar - HDP </option>
+      <option> Haddinagundu - HDD </option>
+      <option> Hadmadiya - HRM </option>
+      <option> Hadmatiya Junction - HM </option>
+      <option> Hadyal - HYL </option>
+      <option> Hafizpeta - HFZ </option>
+      <option> Hafizpur - HZR </option>
+      <option> Haflong Hill - HFG </option>
+      <option> Hagari - HGI </option>
+      <option> Haiaghat - HYT </option>
+      <option> Haidarnagar - HDN </option>
+      <option> Haidergarh - HGH </option>
+      <option> Hajipur Junction - HJP </option>
+      <option> Hakimpur - HKP </option>
+      <option> Halakatta - HLKT </option>
+      <option> Haldaur - HLDR </option>
+      <option> Haldi Road - HLDD </option>
+      <option> Haldia - HLZ </option>
+      <option> Haldibari - HDB </option>
+      <option> Haldipada - HIP </option>
+      <option> Haldwani - HDW </option>
+      <option> Halisahar - HLR </option>
+      <option> Halvad - HVD </option>
+      <option> Hamarapur - HMRR </option>
+      <option> Hamira - HMR </option>
+      <option> Hamirgarh - HMG </option>
+      <option> Hamirpur Road - HAR </option>
+      <option> Hamitonganj - HOJ </option>
+      <option> Hamsavaram - HVM </option>
+      <option> Hanakere - HNK </option>
+      <option> Handia Khas - HDK </option>
+      <option> Hansi - HNS </option>
+      <option> Hansiawas - HSWS </option>
+      <option> Hanuman Station - HNMN </option>
+      <option> Hanumangarh Junction - HMH </option>
+      <option> Hanumangarhtown - HMO </option>
+      <option> Hanwant - HWT </option>
+      <option> Hapa - HAPA </option>
+      <option> Hapur - HPU </option>
+      <option> Harangajao - HJO </option>
+      <option> Harangul - HGL </option>
+      <option> Haranya Kheri - HKH </option>
+      <option> Harauni - HRN </option>
+      <option> Harchandpur - HCP </option>
+      <option> Harda - HD </option>
+      <option> Hardas Bigha - HDE </option>
+      <option> Hardattpur - HDT </option>
+      <option> Hardoi - HRI </option>
+      <option> Hardua - HDU </option>
+      <option> Hargaon - HA </option>
+      <option> Harichandanpur - HCNR </option>
+      <option> Haridwar Junction - HW </option>
+      <option> Harihar - HRR </option>
+      <option> Harinagar - HIR </option>
+      <option> Harippad - HAD </option>
+      <option> Haripur - HP </option>
+      <option> Harischandrpur - HCR </option>
+      <option> Harishanker Road - HSK </option>
+      <option> Harkia Khal - HKL </option>
+      <option> Harmuti - HMY </option>
+      <option> Harnaut - HRT </option>
+      <option> Harpalganj - HRPG </option>
+      <option> Harpalpur - HPP </option>
+      <option> Harrad - HRV </option>
+      <option> Harrawala - HRW </option>
+      <option> Harri - HRB </option>
+      <option> Harsauli - HSI </option>
+      <option> Harsud - HRD </option>
+      <option> Harthala - HRH </option>
+      <option> Hasanparthi Road - HSP </option>
+      <option> Hasanpur Road - HPO </option>
+      <option> Hasimara - HSA </option>
+      <option> Hassan - HAS </option>
+      <option> Hathbandh - HN </option>
+      <option> Hathidah Junction - HTZ </option>
+      <option> Hathidah Upper - HTZU </option>
+      <option> Hathras City - HTC </option>
+      <option> Hathras Junction - HRS </option>
+      <option> Hathras Road - HTJ </option>
+      <option> Hathuran - HAT </option>
+      <option> Hatia - HTE </option>
+      <option> Hatikhali - HTL </option>
+      <option> Hatkanagale - HTK </option>
+      <option> Hatpuraini - HPLE </option>
+      <option> Haveri - HVR </option>
+      <option> Hazaribagh Road - HZD </option>
+      <option> Hbl Nagar - HBLN </option>
+      <option> Hebbal - HEB </option>
+      <option> Hejjala - HJL </option>
+      <option> Helem - HML </option>
+      <option> Hemagiri - HGR </option>
+      <option> Her - HER </option>
+      <option> Hijilli - HIJ </option>
+      <option> Hilara - HLX </option>
+      <option> Hilligrove - HLG </option>
+      <option> Hilsa - HIL </option>
+      <option> Himayatnagar - HEM </option>
+      <option> Himmatnagar - HMT </option>
+      <option> Hindaun City - HAN </option>
+      <option> Hindupur - HUP </option>
+      <option> Hinganghat - HGT </option>
+      <option> Hingoli Deccan - HNL </option>
+      <option> Hira Nagar - HRNR </option>
+      <option> Hirakud - HKG </option>
+      <option> Hirdagarh - HRG </option>
+      <option> Hirenanduru - HQR </option>
+      <option> Hirnoda - HDA </option>
+      <option> Hisar - HSR </option>
+      <option> Hodal - HDL </option>
+      <option> Hojai - HJI </option>
+      <option> Hol - HOL </option>
+      <option> Holalkere - HLK </option>
+      <option> Holambi Kalan - HUK </option>
+      <option> Hole Alur - HLAR </option>
+      <option> Hole Narsipur - HLN </option>
+      <option> Hombal - HBL </option>
+      <option> Honnavar - HNA </option>
+      <option> Hooghly Ghat - HYG </option>
+      <option> Hosdurga Road - HSD </option>
+      <option> Hoshangabad - HBD </option>
+      <option> Hoshiarpur - HSX </option>
+      <option> Hospet Junction - HPT </option>
+      <option> Hosur - HSRA </option>
+      <option> Hotgi - HG </option>
+      <option> Howbadh Jablpur - HBG </option>
+      <option> Howrah Junction - HWH </option>
+      <option> Hubli Junction - UBL </option>
+      <option> Hunsihadgil - HHD </option>
+      <option> Hyderabad Decan - HYB </option>
+      <option> Ib - IB </option>
+      <option> Ibrahimpur - IMR </option>
+      <option> Ichauli - ICL </option>
+      <option> Ichchpuram - IPM </option>
+      <option> Ichhapur - IP </option>
+      <option> Idaplli - IPL </option>
+      <option> Idgah Agra Junction - IDH </option>
+      <option> Igatpuri - IGP </option>
+      <option> Ikkar - IKK </option>
+      <option> Iklehra - IKR </option>
+      <option> Indapur - INP </option>
+      <option> Indara Junction - IAA </option>
+      <option> Indargarh - IDG </option>
+      <option> Indargarh - IDGH </option>
+      <option> Indi Road - IDR </option>
+      <option> Indore Junction Bg - INDB </option>
+      <option> Indore Jn Mg - INDM </option>
+      <option> Indrabil - IBL </option>
+      <option> Ipurupalem - IPPM </option>
+      <option> Iqbal Gadh - IQG </option>
+      <option> Iqbalpur - IQB </option>
+      <option> Iravipuram - IRP </option>
+      <option> Irinjalakuda - IJK </option>
+      <option> Irugur - IGU </option>
+      <option> Isand - EN </option>
+      <option> Isarda - ISA </option>
+      <option> Isarwara - ISH </option>
+      <option> Islampur - IPR </option>
+      <option> Ismaila Haryana - ISM </option>
+      <option> Ismailpur - IMGE </option>
+      <option> Itarsi Junction - ET </option>
+      <option> Itola - ITA </option>
+      <option> Itwari - ITR </option>
+      <option> Izzatnagar - IZN </option>
+      <option> Jabalpur - JBP </option>
+      <option> Jabli - JBL </option>
+      <option> Jabri - JBX </option>
+      <option> Jadcherla - JCL </option>
+      <option> Jagadhri - JUD </option>
+      <option> Jagadhri Wshop - JUDW </option>
+      <option> Jagadishpur - JGD </option>
+      <option> Jagatbela - JTB </option>
+      <option> Jagdalpur - JDB </option>
+      <option> Jagesharganj - JGJ </option>
+      <option> Jagi Road - JID </option>
+      <option> Jagraon - JGN </option>
+      <option> Jagudan - JDN </option>
+      <option> Jai Samand Road - JYM </option>
+      <option> Jaipur - JP </option>
+      <option> Jairamnagar - JRMG </option>
+      <option> Jais - JAIS </option>
+      <option> Jaisalmer - JSM </option>
+      <option> Jaithari - JTI </option>
+      <option> Jaitipur - JTU </option>
+      <option> Jaitsar - JES </option>
+      <option> Jaitwar - JTW </option>
+      <option> Jajiwal - JWL </option>
+      <option> Jajpur K Road - JJKR </option>
+      <option> Jakhal Junction - JHL </option>
+      <option> Jakhalabandha - JKB </option>
+      <option> Jakhalaun - JLN </option>
+      <option> Jakhanian - JKN </option>
+      <option> Jakhapura - JKPR </option>
+      <option> Jakhim - JHN </option>
+      <option> Jakhvada - JKA </option>
+      <option> Jalalganj - JLL </option>
+      <option> Jalalpur Dhai - JPD </option>
+      <option> Jalamb Junction - JM </option>
+      <option> Jalandhar Cant - JRC </option>
+      <option> Jalandhar City - JUC </option>
+      <option> Jalargarh - JAG </option>
+      <option> Jalesar Road - JLS </option>
+      <option> Jaleswar - JER </option>
+      <option> Jalgaon Junction - JL </option>
+      <option> Jalindri - JNRI </option>
+      <option> Jaliya Devani - JALD </option>
+      <option> Jallalabd - JBD </option>
+      <option> Jalna - J </option>
+      <option> Jalor - JOR </option>
+      <option> Jalpaiguri - JPG </option>
+      <option> Jalpaiguri Road - JPE </option>
+      <option> Jalsu - JAC </option>
+      <option> Jam Jodhpur Junction - JDH </option>
+      <option> Jam Wanthali - WTJ </option>
+      <option> Jama - JAMA </option>
+      <option> Jamalpur Junction - JMP </option>
+      <option> Jambara - JMV </option>
+      <option> Jamdha - JMD </option>
+      <option> Jamga - JMG </option>
+      <option> Jamikunta - JMKT </option>
+      <option> Jamirghata - JMQ </option>
+      <option> Jammu Tawi - JAT </option>
+      <option> Jamnagar - JAM </option>
+      <option> Jamsar - JMS </option>
+      <option> Jamtara - JMT </option>
+      <option> Jamui - JMU </option>
+      <option> Jamunamukh - JMK </option>
+      <option> Jamunia Kalan - JMKL </option>
+      <option> Janakpur Road - JNR </option>
+      <option> Jandiala - JNL </option>
+      <option> Jandrapeta - JAQ </option>
+      <option> Jangaon - ZN </option>
+      <option> Janghai Junction - JNH </option>
+      <option> Jangipur Road - JRLE </option>
+      <option> Jankampet Junction - JKM </option>
+      <option> Janwal - JOA </option>
+      <option> Jaora - JAO </option>
+      <option> Japla - JPL </option>
+      <option> Jaraikela - JRA </option>
+      <option> Jarandeshwar - JSV </option>
+      <option> Jarangdih - JAN </option>
+      <option> Jargaon - JRJ </option>
+      <option> Jaroli - JRLI </option>
+      <option> Jarti - JRT </option>
+      <option> Jarwal Road - JLD </option>
+      <option> Jasidih Junction - JSME </option>
+      <option> Jasra - JSR </option>
+      <option> Jaswantgarh - JSH </option>
+      <option> Jaswantnagar - JGR </option>
+      <option> Jath Road - JTRD </option>
+      <option> Jatinga - JTG </option>
+      <option> Jatkanhar - JTR </option>
+      <option> Jaunpur City - JOP </option>
+      <option> Jaunpur Junction - JNU </option>
+      <option> Jawad Road - JWO </option>
+      <option> Jawaharnagar - JWNR </option>
+      <option> Jawaharnagar - JWHR </option>
+      <option> Jawai Bandh - JWB </option>
+      <option> Jawali - JAL </option>
+      <option> Jayasingpur - JSP </option>
+      <option> Jaynagar - JYG </option>
+      <option> Jehanabad - JHD </option>
+      <option> Jejuri - JJR </option>
+      <option> Jeonara Ph - JONR </option>
+      <option> Jeonathpur - JEP </option>
+      <option> Jeruwa Khera - JRK </option>
+      <option> Jetalsar Junction - JLR </option>
+      <option> Jethi - JTY </option>
+      <option> Jeur - JEUR </option>
+      <option> Jeypore - JYP </option>
+      <option> Jgmbla Kshnprm - JBK </option>
+      <option> Jhajha - JAJ </option>
+      <option> Jhalawar Road - JHW </option>
+      <option> Jhalida - JAA </option>
+      <option> Jhalwara - JLW </option>
+      <option> Jhansi Junction - JHS </option>
+      <option> Jhantipahari - JPH </option>
+      <option> Jhapater Dhal - JTL </option>
+      <option> Jhargram - JGM </option>
+      <option> Jharia - JRI </option>
+      <option> Jharradih - JDI </option>
+      <option> Jharsuguda Junction - JSG </option>
+      <option> Jhilmili - JLY </option>
+      <option> Jhimri - JHMR </option>
+      <option> Jhingura - JHG </option>
+      <option> Jhinjhak - JJK </option>
+      <option> Jhulasan - JUL </option>
+      <option> Jhunjhunun - JJN </option>
+      <option> Jhunpa - JUP </option>
+      <option> Jiaganj - JJG </option>
+      <option> Jigna - JIA </option>
+      <option> Jimidipeta - JMPT </option>
+      <option> Jind Junction - JIND </option>
+      <option> Jinti Road - JNTR </option>
+      <option> Jiradei - ZRD </option>
+      <option> Jiradei - ZRDE </option>
+      <option> Jirania - JRNA </option>
+      <option> Jirat - JIT </option>
+      <option> Jirwan - JRWN </option>
+      <option> Jite - JITE </option>
+      <option> Jiyapuram - JPM </option>
+      <option> Jmtra Paraswara - JPV </option>
+      <option> Jo Jagabor - JO </option>
+      <option> Jodhpur Junction - JU </option>
+      <option> Jogal - JOL </option>
+      <option> Jogbani - JBN </option>
+      <option> Jogendranagar - JGNR </option>
+      <option> Jogi Magra - JOM </option>
+      <option> Jogighopa - JPZ </option>
+      <option> Jolarpettai - JTJ </option>
+      <option> Jonha - JON </option>
+      <option> Jorai - JOQ </option>
+      <option> Joramow - JRW </option>
+      <option> Joravasan - JRS </option>
+      <option> Jorawarnagar Junction - JVN </option>
+      <option> Jorhat Town - JTTN </option>
+      <option> Joychandi Pahar - JOC </option>
+      <option> Jugaur - JRR </option>
+      <option> Jugpura - JRG </option>
+      <option> Jujumura - JUJA </option>
+      <option> Jukehi - JKE </option>
+      <option> Julana - JNA </option>
+      <option> Junagadh Junction - JND </option>
+      <option> Jung Bahadurgnj - JBG </option>
+      <option> Junnor Deo - JNO </option>
+      <option> Jutogh - JTO </option>
+      <option> Jwalapur - JWP </option>
+      <option> Kabakaputtur - KBPR </option>
+      <option> Kacheguda - KCG </option>
+      <option> Kachewani - KWN </option>
+      <option> Kachhia Bridge - KCO </option>
+      <option> Kachnara Road - KCNR </option>
+      <option> Kachujor - KOX </option>
+      <option> Kadakavur - KVU </option>
+      <option> Kadakola - KDO </option>
+      <option> Kadalundi - KN </option>
+      <option> Kadambur - KDU </option>
+      <option> Kadavakuduru - KVDU </option>
+      <option> Kadaynallur - KDNL </option>
+      <option> Kadethan - KDTN </option>
+      <option> Kadipur - KDQ </option>
+      <option> Kadiri - KRY </option>
+      <option> Kadiyan - KYM </option>
+      <option> Kadur - DRU </option>
+      <option> Kafurpur - KFPR </option>
+      <option> Kahalgaon - CLG </option>
+      <option> Kahet - KRAI </option>
+      <option> Kahiliya - KH </option>
+      <option> Kaialsa - KIV </option>
+      <option> Kaikolur - KKLR </option>
+      <option> Kaikoram - KKRM </option>
+      <option> Kailahat - KYT </option>
+      <option> Kailasapuram - KLPM </option>
+      <option> Kaimganj - KMJ </option>
+      <option> Kairla - KAI </option>
+      <option> Kaithal - KLE </option>
+      <option> Kaithalkuchi - KTCH </option>
+      <option> Kajgaon - KJ </option>
+      <option> Kajoragram - KJME </option>
+      <option> Kajra - KJH </option>
+      <option> Kajrat Nawadih - KYF </option>
+      <option> Kakapora - KAPE </option>
+      <option> Kakarghatti - KKHT </option>
+      <option> Kakinada Port - COA </option>
+      <option> Kakinada Town - CCT </option>
+      <option> Kakirigumma - KKGM </option>
+      <option> Kaklur - KKLU </option>
+      <option> Kakori - KKJ </option>
+      <option> Kala Akhar - KQE </option>
+      <option> Kalachand - KQI </option>
+      <option> Kaladehi - KDHI </option>
+      <option> Kalamb Road - KMRD </option>
+      <option> Kalamboli - KLMC </option>
+      <option> Kalamboli - KLMG </option>
+      <option> Kalamna - KAV </option>
+      <option> Kalana - KALN </option>
+      <option> Kalanaur Kalan - KLNK </option>
+      <option> Kalanwali - KNL </option>
+      <option> Kalapipal - KPP </option>
+      <option> Kaldhari - KLDI </option>
+      <option> Kalgupur - KCP </option>
+      <option> Kalhar - KAH </option>
+      <option> Kali Sindh - KSH </option>
+      <option> Kalian Chak - KXE </option>
+      <option> Kalianpur - KAP </option>
+      <option> Kalinarynpur Junction - KLNP </option>
+      <option> Kalipahari - KPK </option>
+      <option> Kaliyanganj - KAJ </option>
+      <option> Kalka - KLK </option>
+      <option> Kalkund - KKD </option>
+      <option> Kallakkudi Plgh - KKPM </option>
+      <option> Kallal - KAL </option>
+      <option> Kalligudi - KGD </option>
+      <option> Kallkiri - KCI </option>
+      <option> Kalluru - KLU </option>
+      <option> Kalmeshwar - KSWR </option>
+      <option> Kalmitar - KLTR </option>
+      <option> Kalol - KLL </option>
+      <option> Kalpi - KPI </option>
+      <option> Kalsur - KVS </option>
+      <option> Kalunga - KLG </option>
+      <option> Kalupara Ghat - KAPG </option>
+      <option> Kalyan Junction - KYN </option>
+      <option> Kalyani - KYI </option>
+      <option> Kalyanpur Road - KPRD </option>
+      <option> Kamakhya - KYQ </option>
+      <option> Kamakhyaguri - KAMG </option>
+      <option> Kamalapuram - KKM </option>
+      <option> Kamalganj - KLJ </option>
+      <option> Kamalnagar - KMNR </option>
+      <option> Kamalpurgram - KLPG </option>
+      <option> Kamalur - KMLR </option>
+      <option> Kamarbandha Ali - KXL </option>
+      <option> Kamareddi - KMC </option>
+      <option> Kamarkundu - KQU </option>
+      <option> Kamasamudram - KSM </option>
+      <option> Kamathe - KMAH </option>
+      <option> Kamli - KMLI </option>
+      <option> Kamptee - KP </option>
+      <option> Kampur - KWM </option>
+      <option> Kamshet - KMST </option>
+      <option> Kamtaul - KML </option>
+      <option> Kanakpura - KKU </option>
+      <option> Kanalas Junction - KNLS </option>
+      <option> Kanas Road - KASR </option>
+      <option> Kanchipuram - CJ </option>
+      <option> Kanchrapara - KPA </option>
+      <option> Kandaghat - KDZ </option>
+      <option> Kandarpur - KDRP </option>
+      <option> Kandel Road - KDLR </option>
+      <option> Kandra - KND </option>
+      <option> Kandrori - KNDI </option>
+      <option> Kanginhal - KGX </option>
+      <option> Kanhaipur - KNHP </option>
+      <option> Kanhangad - KZE </option>
+      <option> Kanhegaon - KNGN </option>
+      <option> Kanil - KANJ </option>
+      <option> Kanina Khas - KNNK </option>
+      <option> Kaniwara - KWB </option>
+      <option> Kaniyapuram - KXP </option>
+      <option> Kanjari Boriyav - KBRV </option>
+      <option> Kankaha - KKAH </option>
+      <option> Kankanadi - KNKD </option>
+      <option> Kankather - KHE </option>
+      <option> Kankavali - KKW </option>
+      <option> Kanki - KKA </option>
+      <option> Kankinara - KNR </option>
+      <option> Kannapuram - KPQ </option>
+      <option> Kannauj - KJN </option>
+      <option> Kannur - CAN </option>
+      <option> Kanoh - KANO </option>
+      <option> Kanpur Anwrganj - CPA </option>
+      <option> Kanpur Central - CNB </option>
+      <option> Kanshbahal - KXN </option>
+      <option> Kansrao - QSR </option>
+      <option> Kantabanji - KBJ </option>
+      <option> Kantadih - KTD </option>
+      <option> Kantakapalle - KPL </option>
+      <option> Kanth - KNT </option>
+      <option> Kanthan Junction - KNHN </option>
+      <option> Kanthi P H - KATI </option>
+      <option> Kanwalpura - KIW </option>
+      <option> Kanwat - KAWT </option>
+      <option> Kanyakumari - CAPE </option>
+      <option> Kapan - KPNA </option>
+      <option> Kapasan - KIN </option>
+      <option> Kapilas Road - KIS </option>
+      <option> Kappil - KFI </option>
+      <option> Kapren - KPZ </option>
+      <option> Kapseti - KEH </option>
+      <option> Kaptanganj Junction - CPJ </option>
+      <option> Kapurdha Halt - KPDH </option>
+      <option> Kapurthala - KXH </option>
+      <option> Karaboh - KRBO </option>
+      <option> Karad - KRD </option>
+      <option> Karagola Road - CRR </option>
+      <option> Karaikal - KIK </option>
+      <option> Karaikkudi Junction - KKDI </option>
+      <option> Karaila Road Junction - KRLR </option>
+      <option> Karajgi - KJG </option>
+      <option> Karak Bel - KKB </option>
+      <option> Karakavalasa - KVLS </option>
+      <option> Karambeli - KEB </option>
+      <option> Karamelaram - CRLM </option>
+      <option> Karamnasa - KMS </option>
+      <option> Karamtola - KRMA </option>
+      <option> Karanjadi - KFD </option>
+      <option> Karanjgaon - KAJG </option>
+      <option> Karanpur Ato - KPTO </option>
+      <option> Karauta - KWO </option>
+      <option> Karavadi - KRV </option>
+      <option> Karbigwan - KBN </option>
+      <option> Karchana - KCN </option>
+      <option> Karchha - KDHA </option>
+      <option> Kareli - KY </option>
+      <option> Karengi - KEG </option>
+      <option> Karepalli - KRA </option>
+      <option> Karepur - KRPR </option>
+      <option> Kargi Road - KGB </option>
+      <option> Karhiya Bhadeli - KYX </option>
+      <option> Kariganuru - KGW </option>
+      <option> Karimganj Junction - KXJ </option>
+      <option> Karimnagar - KRMR </option>
+      <option> Karimuddin Pur - KMDR </option>
+      <option> Karisath - KRS </option>
+      <option> Karjat - KJT </option>
+      <option> Karjoda - KRJD </option>
+      <option> Karkeli - KKI </option>
+      <option> Karkheli - KEK </option>
+      <option> Karmad - KMV </option>
+      <option> Karmali - KRMI </option>
+      <option> Karna - KAR </option>
+      <option> Karnal - KUN </option>
+      <option> Karonda - KOA </option>
+      <option> Karonji - KJZ </option>
+      <option> Karpurigram - KPGM </option>
+      <option> Kartarpur - KRE </option>
+      <option> Karunagapalli - KPY </option>
+      <option> Karur - KRR </option>
+      <option> Karwar - KAWR </option>
+      <option> Kasara - KSRA </option>
+      <option> Kasaragod - KGQ </option>
+      <option> Kasganj - KSJ </option>
+      <option> Kashi - KEI </option>
+      <option> Kashi Chak - KSC </option>
+      <option> Kashipur - KPV </option>
+      <option> Kashipura Sarar - KSPR </option>
+      <option> Kashti - KSTH </option>
+      <option> Kasim Kota Halt - KCH </option>
+      <option> Kasimkota - KSK </option>
+      <option> Kasimpur - KCJ </option>
+      <option> Kastha - KSTA </option>
+      <option> Kasu - KASU </option>
+      <option> Katakhal Junction - KTX </option>
+      <option> Katareah - KTRH </option>
+      <option> Kathara Road - KTRR </option>
+      <option> Kathghar - KGF </option>
+      <option> Kathgodam - KGM </option>
+      <option> Kathleeghat - KEJ </option>
+      <option> Kathua - KTHU </option>
+      <option> Katihar Junction - KIR </option>
+      <option> Katni - KTE </option>
+      <option> Katni Murwara - KMZ </option>
+      <option> Katni South - KTES </option>
+      <option> Katol - KATL </option>
+      <option> Katora - KTO </option>
+      <option> Katpadi Junction - KPD </option>
+      <option> Katra - KEA </option>
+      <option> Katrasgarh - KTH </option>
+      <option> Katwa - KWAE </option>
+      <option> Kaurha - KUF </option>
+      <option> Kavali - KVZ </option>
+      <option> Kavathe Mahankl - KVK </option>
+      <option> Kavutaram - KVM </option>
+      <option> Kawargaon - KWGN </option>
+      <option> Kayalpattinam - KZY </option>
+      <option> Kayamsar - QMRS </option>
+      <option> Kayankulam Junction - KYJ </option>
+      <option> Kayar - KAYR </option>
+      <option> Kazhakuttam - KZK </option>
+      <option> Kazipet Junction - KZJ </option>
+      <option> Kcg Falaknuma - FM </option>
+      <option> Keckhi - KCKI </option>
+      <option> Kedgaon - KDG </option>
+      <option> Kelod - KLOD </option>
+      <option> Kelva Road - KLV </option>
+      <option> Kem - KEM </option>
+      <option> Kemri - KEMR </option>
+      <option> Kendposi - KNPS </option>
+      <option> Kendrapara Road - KNPR </option>
+      <option> Kendujhargarh - KDJR </option>
+      <option> Kendukana - KDKN </option>
+      <option> Kengeri - KGI </option>
+      <option> Keolari - KLZ </option>
+      <option> Kesamudram - KDM </option>
+      <option> Kesavaram - KSVM </option>
+      <option> Keshavganj - KVJ </option>
+      <option> Keshod - KSD </option>
+      <option> Keshorai Patan - KPTN </option>
+      <option> Kesinga - KSNG </option>
+      <option> Kesri Singhpur - KESR </option>
+      <option> Ketti - KXT </option>
+      <option> Keutguda - KTGA </option>
+      <option> Khachrod - KUH </option>
+      <option> Khada - KZA </option>
+      <option> Khadapa - KDPA </option>
+      <option> Khadki - KK </option>
+      <option> Khaga - KGA </option>
+      <option> Khagaria Junction - KGG </option>
+      <option> Khagraghat Road - KGLE </option>
+      <option> Khairar Junction - KID </option>
+      <option> Khairatabad Dcn - KQD </option>
+      <option> Khairthal - KRH </option>
+      <option> Khajauli - KJI </option>
+      <option> Khajuraho - KURJ </option>
+      <option> Khalari - KLRE </option>
+      <option> Khalilabad - KLD </option>
+      <option> Khalilpur - KIP </option>
+      <option> Khalispur - KSF </option>
+      <option> Khallikot - KIT </option>
+      <option> Khaltipur - KTJ </option>
+      <option> Khamargachhi - KMAE </option>
+      <option> Khambhaliya - KMBL </option>
+      <option> Khamgaon - KMN </option>
+      <option> Khammam - KMT </option>
+      <option> Khana Junction - KAN </option>
+      <option> Khanapur - KNP </option>
+      <option> Khandala - KAD </option>
+      <option> Khandbaara - KBH </option>
+      <option> Khandip - KNDP </option>
+      <option> Khandwa - KNW </option>
+      <option> Khanna - KNN </option>
+      <option> Khanna Banjari - KHBJ </option>
+      <option> Khanyan - KHN </option>
+      <option> Khapri Kheda - KPKD </option>
+      <option> Kharagpur Junction - KGP </option>
+      <option> Kharak - KHRK </option>
+      <option> Kharia Khangarh - KXG </option>
+      <option> Khariar Road - KRAR </option>
+      <option> Kharsaliya - KRSA </option>
+      <option> Kharsia - KHS </option>
+      <option> Kharwa - KRW </option>
+      <option> Kharwa Chanda - KRCD </option>
+      <option> Khat - KHAT </option>
+      <option> Khatauli - KAT </option>
+      <option> Khatgaon - KHTG </option>
+      <option> Khatima - KHMA </option>
+      <option> Khatipura - KWP </option>
+      <option> Khatu - KHTU </option>
+      <option> Khed - KHED </option>
+      <option> Kheduli - KQW </option>
+      <option> Khemli - KLH </option>
+      <option> Khera Kalan - KHKN </option>
+      <option> Kheri Salwa - KSW </option>
+      <option> Kheril - KL </option>
+      <option> Kheta Sarai - KS </option>
+      <option> Khileriyan - KLYN </option>
+      <option> Khimel - KZQ </option>
+      <option> Khinaniyan - KNNA </option>
+      <option> Khirkiya - KKN </option>
+      <option> Khirsadoh Junction - KUX </option>
+      <option> Khodiyar - KHD </option>
+      <option> Khodiyar - KHDB </option>
+      <option> Khodri - KOI </option>
+      <option> Khoirabari - KBY </option>
+      <option> Khongsara - KGS </option>
+      <option> Khorason Road - KRND </option>
+      <option> Khori - KORI </option>
+      <option> Khudiram B Pusa - PUV </option>
+      <option> Khudiram B Pusa - KRBP </option>
+      <option> Khumtai - KUTI </option>
+      <option> Khunkhuna - KKNA </option>
+      <option> Khurai - KYE </option>
+      <option> Khurda Road Junction - KUR </option>
+      <option> Khurdpur - KUPR </option>
+      <option> Khurhand - KHU </option>
+      <option> Khurial - KWE </option>
+      <option> Khurja City - KJY </option>
+      <option> Khurja Junction - KRJ </option>
+      <option> Khusropur - KOO </option>
+      <option> Khutaha - KTHA </option>
+      <option> Khutbav - KTT </option>
+      <option> Kichha - KHH </option>
+      <option> Kikakui Road - KKRD </option>
+      <option> Kila Kadaiyam - KKY </option>
+      <option> Kila Raipur - QRP </option>
+      <option> Kilikollur - KLQ </option>
+      <option> Kim - KIM </option>
+      <option> Kinwat - KNVT </option>
+      <option> Kirakat - KCT </option>
+      <option> Kirandul - KRDL </option>
+      <option> Kiraoli - KLB </option>
+      <option> Kiratgarh - KRTH </option>
+      <option> Kiratpur Sahib - KART </option>
+      <option> Kirihrapur - KER </option>
+      <option> Kirloskarvadi - KOV </option>
+      <option> Kiroda - KRC </option>
+      <option> Kirodimalnagar - KDTR </option>
+      <option> Kishanganj - KNE </option>
+      <option> Kishangarh - KSG </option>
+      <option> Kishanpur - KSP </option>
+      <option> Kisoni - KONY </option>
+      <option> Kistamsettipali - KSTE </option>
+      <option> Kita - KITA </option>
+      <option> Kiul Junction - KIUL </option>
+      <option> Kivarli - KWI </option>
+      <option> Kiwar Khed - HKR </option>
+      <option> Kochuveli - KCVL </option>
+      <option> Kodaganur - KAG </option>
+      <option> Kodaikanal Road - KQN </option>
+      <option> Kodavaluru - KJJ </option>
+      <option> Koderma - KQR </option>
+      <option> Kodi - KODI </option>
+      <option> Kodiyar Mandir - KDMR </option>
+      <option> Kodumudi - KMD </option>
+      <option> Koduru - KOU </option>
+      <option> Koelwar - KWR </option>
+      <option> Kohir Deccan - KOHR </option>
+      <option> Koiripur - KEPR </option>
+      <option> Kokrajhar - KOJ </option>
+      <option> Kolad - KOL </option>
+      <option> Kolakalur - KLX </option>
+      <option> Kolanukonda - KAQ </option>
+      <option> Kolaras - KLRS </option>
+      <option> Kolayat - KLYT </option>
+      <option> Kolda - KFF </option>
+      <option> Kolkata - CP </option>
+      <option> Kolkata - KOAA </option>
+      <option> Kollam Junction - QLN </option>
+      <option> Kollikhutaha - KKTA </option>
+      <option> Kolnur - KOLR </option>
+      <option> Komakhan - KMK </option>
+      <option> Komatipalli - KMX </option>
+      <option> Kondagunta - KQA </option>
+      <option> Kondapalli - KI </option>
+      <option> Kondapuram - KDP </option>
+      <option> Kopa Samhota - KPS </option>
+      <option> Kopai - KPLE </option>
+      <option> Kopargaon - KPG </option>
+      <option> Koparia - KFA </option>
+      <option> Koppal - KBL </option>
+      <option> Koradih - KRDH </option>
+      <option> Korahia - KRHA </option>
+      <option> Korai Halt - KRIH </option>
+      <option> Koraput - KRPU </option>
+      <option> Korba - KRBA </option>
+      <option> Koregaon - KRG </option>
+      <option> Korukkupet Junction - KOK </option>
+      <option> Korukonda - KUK </option>
+      <option> Kosad - KSE </option>
+      <option> Kosamba Junction - KSB </option>
+      <option> Kosgi - KO </option>
+      <option> Kosi Kalan - KSV </option>
+      <option> Kot Fatteh - KTF </option>
+      <option> Kot Kapura - KKP </option>
+      <option> Kota Junction - KOTA </option>
+      <option> Kotabommali - KBM </option>
+      <option> Kotala - KEN </option>
+      <option> Kotalpukur - KLP </option>
+      <option> Kotana - KTOA </option>
+      <option> Kotapar Road - KPRR </option>
+      <option> Kotarlia - KRL </option>
+      <option> Kotdwara - KTW </option>
+      <option> Kothar - KTR </option>
+      <option> Kothari Road - KTHD </option>
+      <option> Koti - KOTI </option>
+      <option> Kotikulam - KQK </option>
+      <option> Kotlakheri - KTKH </option>
+      <option> Kotli Kalan - KTKL </option>
+      <option> Kotma - KTMA </option>
+      <option> Kotmi Sonan Hlt - KTSH </option>
+      <option> Kotshila - KSX </option>
+      <option> Kotta Pndlpalli - KPLL </option>
+      <option> Kottapalli - KYOP </option>
+      <option> Kottarakara - KKZ </option>
+      <option> Kottavalasa - KTV </option>
+      <option> Kottayam - KTYM </option>
+      <option> Kovilpatti - CVP </option>
+      <option> Kovvur - KVR </option>
+      <option> Kozhikode - CLT </option>
+      <option> Krishanrajanaga - KRNR </option>
+      <option> Krishna - KSN </option>
+      <option> Krishna Canal - KCC </option>
+      <option> Krishna Ch Pura - KCV </option>
+      <option> Krishnama Kona - KEF </option>
+      <option> Krishnapur - KRP </option>
+      <option> Krishnarajapurm - KJM </option>
+      <option> Krishnashilla - KRSL </option>
+      <option> Krishngr Cty Junction - KNJ </option>
+      <option> Kuchaman City - KMNC </option>
+      <option> Kuchman - KCA </option>
+      <option> Kudachi - KUD </option>
+      <option> Kudal - KUDL </option>
+      <option> Kudalnagar - KON </option>
+      <option> Kudatini - KDN </option>
+      <option> Kudra - KTQ </option>
+      <option> Kudsad - KDSD </option>
+      <option> Kuhuri - KUU </option>
+      <option> Kukra Khapa - KFP </option>
+      <option> Kulali - KUI </option>
+      <option> Kulem - QLM </option>
+      <option> Kulharia - KUA </option>
+      <option> Kulitalai - KLT </option>
+      <option> Kulitthurai - KZT </option>
+      <option> Kulitturai West - KZTW </option>
+      <option> Kulpahar - KLAR </option>
+      <option> Kulti - ULT </option>
+      <option> Kulwa - KLA </option>
+      <option> Kumar Sadra - KMSD </option>
+      <option> Kumardubi - KMME </option>
+      <option> Kumarghat - KUGT </option>
+      <option> Kumarhatti - KMTI </option>
+      <option> Kumbakonam - KMU </option>
+      <option> Kumbhraj - KHRJ </option>
+      <option> Kumbla - KMQ </option>
+      <option> Kumedpur - KDPR </option>
+      <option> Kumhar Marenga - KMEZ </option>
+      <option> Kumhari - KMI </option>
+      <option> Kumrabad Rohini - KBQ </option>
+      <option> Kumsi - KMSI </option>
+      <option> Kumta - KT </option>
+      <option> Kumtha Khurd - KTKR </option>
+      <option> Kunda Harnamgnj - KHNM </option>
+      <option> Kundalgarh - KDLG </option>
+      <option> Kundapura - KUDA </option>
+      <option> Kundara - KUV </option>
+      <option> Kundara East - KFV </option>
+      <option> Kundarkhi - KD </option>
+      <option> Kundgol - KNO </option>
+      <option> Kuneanganj - KVG </option>
+      <option> Kuneru - KNRT </option>
+      <option> Kunki - KZU </option>
+      <option> Kuntighat - KJU </option>
+      <option> Kupgal - KGL </option>
+      <option> Kuppam - KPN </option>
+      <option> Kurali - KRLI </option>
+      <option> Kurduvadi - KWV </option>
+      <option> Kurgunta - KQT </option>
+      <option> Kuri - KIF </option>
+      <option> Kurichedu - KCD </option>
+      <option> Kurla Junction - CLA </option>
+      <option> Kurlas - KRLS </option>
+      <option> Kurnool Town - KRNT </option>
+      <option> Kursela - KUE </option>
+      <option> Kurseong - KGN </option>
+      <option> Kurukshetra Junction - KKDE </option>
+      <option> Kurumbur - KZB </option>
+      <option> Kushtala - KTA </option>
+      <option> Kushtaur - KSU </option>
+      <option> Kusmhi - KHM </option>
+      <option> Kutralam - KTM </option>
+      <option> Kuttippuram - KTU </option>
+      <option> Kyataneakeri Rd - KTK </option>
+      <option> Kyatsandra - KIAT </option>
+      <option> Laban - LBN </option>
+      <option> Labha - LAV </option>
+      <option> Lachhmangarh Sk - LNH </option>
+      <option> Lachhmanpur - LMN </option>
+      <option> Lachyan - LHN </option>
+      <option> Ladda - LDX </option>
+      <option> Ladhowal - LDW </option>
+      <option> Ladnun - LAU </option>
+      <option> Ladpura - LR </option>
+      <option> Lahabon - LHB </option>
+      <option> Laheria Sarai - LSI </option>
+      <option> Lahli - LHLL </option>
+      <option> Lailakh Mamlkha - LMM </option>
+      <option> Lajpat Nagar - LPNR </option>
+      <option> Lakadiya - LKZ </option>
+      <option> Lakheri - LKE </option>
+      <option> Lakhewali - LKW </option>
+      <option> Lakhimpur - LMP </option>
+      <option> Lakhmapur - LKY </option>
+      <option> Lakhminia - LKN </option>
+      <option> Lakhna - LKNA </option>
+      <option> Lakholi - LAE </option>
+      <option> Lakhtar - LTR </option>
+      <option> Lakkadkot - LKKD </option>
+      <option> Lakkavarapukota - LVK </option>
+      <option> Lakodara - LKD </option>
+      <option> Laksar Junction - LRJ </option>
+      <option> Lakshmibai Ngr - LMNR </option>
+      <option> Lakswa - LXA </option>
+      <option> Lal Kuan - LKU </option>
+      <option> Lalaguda Gate - LGDH </option>
+      <option> Lalawadi - LLD </option>
+      <option> Lalbagh Crt Road - LCAE </option>
+      <option> Lalganj - LLJ </option>
+      <option> Lalgarh Junction - LGH </option>
+      <option> Lalgola - LGL </option>
+      <option> Lalgopalganj - LGO </option>
+      <option> Lalgudi - LLI </option>
+      <option> Lalit Lakshmipr - LLPR </option>
+      <option> Lalitpur - LAR </option>
+      <option> Lalpur - LLR </option>
+      <option> Lalpur Jam - LPJ </option>
+      <option> Lalpur Umri - LRU </option>
+      <option> Lalru - LLU </option>
+      <option> Lamana - LNA </option>
+      <option> Lambhua - LBA </option>
+      <option> Lamta - LTA </option>
+      <option> Landaura - LDR </option>
+      <option> Langting - LGT </option>
+      <option> Lanjigarh Road - LJR </option>
+      <option> Lanka - LKA </option>
+      <option> Lar Road - LRD </option>
+      <option> Lasalgaon - LS </option>
+      <option> Laseri - LSE </option>
+      <option> Lasur - LSR </option>
+      <option> Latehar - LTHR </option>
+      <option> Latemda - LMTD </option>
+      <option> Lathidad - LTD </option>
+      <option> Latur - LUR </option>
+      <option> Latur Road - LTRR </option>
+      <option> Laxmipur Road - LKMR </option>
+      <option> Ledo - LEDO </option>
+      <option> Lehra Gaga - LHA </option>
+      <option> Lekoda - LOD </option>
+      <option> Leliguma - LLGM </option>
+      <option> Lidhora Khurd - LDA </option>
+      <option> Liliya Mota - LMO </option>
+      <option> Limbdi - LM </option>
+      <option> Limbgaon - LBG </option>
+      <option> Limkheda - LMK </option>
+      <option> Linga - LIG </option>
+      <option> Lingampalli - LPI </option>
+      <option> Linganenidoddi - LMD </option>
+      <option> Lingti - LNT </option>
+      <option> Lodipur Bishnpr - LDP </option>
+      <option> Loha - LOHA </option>
+      <option> Loharu - LHU </option>
+      <option> Loharwara - LHW </option>
+      <option> Lohian Khas Junction - LNK </option>
+      <option> Loisingha - LSX </option>
+      <option> Lokdhikhera - LDE </option>
+      <option> Lokmanya Nagar - LKMN </option>
+      <option> Lokmanyatilak T - LTT </option>
+      <option> Lonand - LNN </option>
+      <option> Lonavala - LNL </option>
+      <option> Londa Junction - LD </option>
+      <option> Longrangajao - LJO </option>
+      <option> Loni - LONI </option>
+      <option> Lorha - LOA </option>
+      <option> Lotapahar - LPH </option>
+      <option> Lotarva - LTV </option>
+      <option> Lovedale - LOV </option>
+      <option> Lower Haflong - LFG </option>
+      <option> Luckeesarai Junction - LKR </option>
+      <option> Lucknow City - LC </option>
+      <option> Lucknow Ne - LJN </option>
+      <option> Lucknow Nr - LKO </option>
+      <option> Ludhiana Junction - LDH </option>
+      <option> Lumding Junction - LMG </option>
+      <option> Luni Junction - LUNI </option>
+      <option> Luni Richha - LNR </option>
+      <option> Lunkaransar - LKS </option>
+      <option> Lusa - LUSA </option>
+      <option> Lusadiya - LSD </option>
+      <option> Macharya - MCV </option>
+      <option> Machavaram - MCVM </option>
+      <option> Machelipatnam - MTM </option>
+      <option> Machhakunda - MKRD </option>
+      <option> Madan Mahal - MML </option>
+      <option> Madanapalle Road - MPL </option>
+      <option> Madankata - MNC </option>
+      <option> Madanpur - MPJ </option>
+      <option> Madar - MD </option>
+      <option> Madar Jn - MDJN </option>
+      <option> Maddikera - MKR </option>
+      <option> Maddur - MAD </option>
+      <option> Madgaon - MAO </option>
+      <option> Madha - MA </option>
+      <option> Madhavnagar - MDVR </option>
+      <option> Madhi - MID </option>
+      <option> Madhira - MDR </option>
+      <option> Madhopur Punjab - MDPB </option>
+      <option> Madhosingh - MBS </option>
+      <option> Madhubani - MBI </option>
+      <option> Madhupur Junction - MDP </option>
+      <option> Madurai Junction - MDU </option>
+      <option> Madurantakam - MMK </option>
+      <option> Madure - MADR </option>
+      <option> Madwarani - MWRN </option>
+      <option> Maghar - MHH </option>
+      <option> Magra - MUG </option>
+      <option> Mahadanapuram - MMH </option>
+      <option> Mahadevsal - MXW </option>
+      <option> Mahajan - MHJ </option>
+      <option> Mahali Marup - MMV </option>
+      <option> Mahanadi - MHN </option>
+      <option> Mahanagar - MANG </option>
+      <option> Mahansar - MWR </option>
+      <option> Mahasamund - MSMD </option>
+      <option> Mahbubabad - MABD </option>
+      <option> Mahbubnagar - MBNR </option>
+      <option> Mahe - MAHE </option>
+      <option> Mahendragarh - MHRG </option>
+      <option> Mahes Khunt - MSK </option>
+      <option> Mahesana Junction - MSH </option>
+      <option> Maheshi - MVV </option>
+      <option> Maheshmunda - MMD </option>
+      <option> Mahidpur Road - MEP </option>
+      <option> Mahipal Road - MPLR </option>
+      <option> Mahmudabad Avdh - MMB </option>
+      <option> Mahoba - MBA </option>
+      <option> Maholi - MAHO </option>
+      <option> Mahpur - MHO </option>
+      <option> Mahroi - MFQ </option>
+      <option> Mahuda - MHQ </option>
+      <option> Mahugarha - MUGA </option>
+      <option> Mahur - MXR </option>
+      <option> Mahuva Junction - MHV </option>
+      <option> Maibang - MBG </option>
+      <option> Maihar - MYR </option>
+      <option> Maikalganj - MINJ </option>
+      <option> Mailani - MLN </option>
+      <option> Mailaram - MWY </option>
+      <option> Mailongdisa - MGX </option>
+      <option> Mainpuri - MNQ </option>
+      <option> Mairwa - MW </option>
+      <option> Majbat - MJBT </option>
+      <option> Majhagawan - MJG </option>
+      <option> Majhola Pakarya - MJZ </option>
+      <option> Majhowlia - MJL </option>
+      <option> Majri Junction - MJRI </option>
+      <option> Makarpura - MPR </option>
+      <option> Makhdumpur Gaya - MDE </option>
+      <option> Makhu - MXH </option>
+      <option> Makrana Junction - MKN </option>
+      <option> Makrera - MKRA </option>
+      <option> Makronia - MKRN </option>
+      <option> Maksi - MKC </option>
+      <option> Makudi - MKDI </option>
+      <option> Makum Junction - MJN </option>
+      <option> Malakhera - MKH </option>
+      <option> Malakpet Kcg - MXT </option>
+      <option> Malancha - MLNH </option>
+      <option> Malanpur - MLAR </option>
+      <option> Malarna - MLZ </option>
+      <option> Malavli - MVL </option>
+      <option> Malda Town - MLDT </option>
+      <option> Malegaon Vyenku - MGVK </option>
+      <option> Malerkotla - MET </option>
+      <option> Malhar - MAAR </option>
+      <option> Malhargarh - MLG </option>
+      <option> Malhour - ML </option>
+      <option> Maligura - MVG </option>
+      <option> Malihabad - MLD </option>
+      <option> Malikpeth - MKPT </option>
+      <option> Malikpur - MLKP </option>
+      <option> Malipur - MLPR </option>
+      <option> Maliya - MALX </option>
+      <option> Maliya Hatina - MLHA </option>
+      <option> Maliya Miyana - MALB </option>
+      <option> Malkajgiri - MJF </option>
+      <option> Malkapur - MKU </option>
+      <option> Malkapur Road - MALK </option>
+      <option> Malkapuram - MLK </option>
+      <option> Malkhaid Road - MQR </option>
+      <option> Malkhedi - MAKR </option>
+      <option> Mallanwala Khas - MWX </option>
+      <option> Mallappa Gate - MLGT </option>
+      <option> Mallapur - MLP </option>
+      <option> Mallarpur - MLV </option>
+      <option> Malleswaram - MWM </option>
+      <option> Mallickpur Hat - MKRH </option>
+      <option> Mallividu - MVW </option>
+      <option> Malliyala - MYL </option>
+      <option> Malout - MOT </option>
+      <option> Malsian Shahkht - MQS </option>
+      <option> Malthan - MLM </option>
+      <option> Malur - MLO </option>
+      <option> Malwan - MWH </option>
+      <option> Maman - MOM </option>
+      <option> Mambalam - MBM </option>
+      <option> Manabar - MVF </option>
+      <option> Manaksar - MNSR </option>
+      <option> Manamadurai Junction - MNM </option>
+      <option> Mananpur - MNP </option>
+      <option> Mananwala - MOW </option>
+      <option> Manaparai - MPA </option>
+      <option> Manauri - MRE </option>
+      <option> Mancheral - MCI </option>
+      <option> Mancheswar - MCS </option>
+      <option> Manda Road - MNF </option>
+      <option> Mandagere - MGF </option>
+      <option> Mandal - MDL </option>
+      <option> Mandalgarh - MLGH </option>
+      <option> Mandamari - MMZ </option>
+      <option> Mandapam - MMM </option>
+      <option> Mandasa Road - MMS </option>
+      <option> Mandasor - MDS </option>
+      <option> Mandavalli - MDVL </option>
+      <option> Mandawar M Road - MURD </option>
+      <option> Manderdisa - MYD </option>
+      <option> Mandhar - MDH </option>
+      <option> Mandi Adampur - ADR </option>
+      <option> Mandi Bamora - MABA </option>
+      <option> Mandi Dabwali - MBY </option>
+      <option> Mandi Dhanaura - MNDR </option>
+      <option> Mandi Dip - MDDP </option>
+      <option> Mandir Hasaud - MNDH </option>
+      <option> Mandor - MDB </option>
+      <option> Mandrak - MXK </option>
+      <option> Manduadih - MUV </option>
+      <option> Mandya - MYA </option>
+      <option> Manendragarh - MDGR </option>
+      <option> Mangal Mahudi - MAM </option>
+      <option> Mangalagiri - MAG </option>
+      <option> Mangaliyawas - MLI </option>
+      <option> Mangalore Cntl - MAQ </option>
+      <option> Mangalore Junction - MAJN </option>
+      <option> Mangaon - MNI </option>
+      <option> Mangliya Gaon - MGG </option>
+      <option> Mangolpuri - MGLP </option>
+      <option> Mangrolla - MGRL </option>
+      <option> Mani Nagar - MANI </option>
+      <option> Manigram - MGLE </option>
+      <option> Manikgarh - MAGH </option>
+      <option> Manikpur Junction - MKP </option>
+      <option> Manikul - MIK </option>
+      <option> Maninagar - MAN </option>
+      <option> Maniyachchi Junction - MEJ </option>
+      <option> Manjari Budruk - MJBK </option>
+      <option> Manjeshwar - MJS </option>
+      <option> Manjhi - MHT </option>
+      <option> Mankapur Junction - MUR </option>
+      <option> Mankar - MNAE </option>
+      <option> Mankatha - MKB </option>
+      <option> Manmad Junction - MMR </option>
+      <option> Mannargudi - MQ </option>
+      <option> Manoharabad - MOB </option>
+      <option> Manoharganj - MNJ </option>
+      <option> Manoharpur - MOU </option>
+      <option> Mansa - MSZ </option>
+      <option> Mansi Junction - MNE </option>
+      <option> Mantatti - MVH </option>
+      <option> Manthralayam Road - MALM </option>
+      <option> Manuguru - MUGR </option>
+      <option> Manwath Road - MVO </option>
+      <option> Marahra - MH </option>
+      <option> Maramjhiri - MJY </option>
+      <option> Marampalli - MRPL </option>
+      <option> Mararikulam - MAKM </option>
+      <option> Marauda - MXA </option>
+      <option> Marenga - MEZ </option>
+      <option> Margherita - MRG </option>
+      <option> Mariahu - MAY </option>
+      <option> Mariani Junction - MXN </option>
+      <option> Maripat - MIU </option>
+      <option> Markahandi U Ht - MQQ </option>
+      <option> Markapur Road - MRK </option>
+      <option> Markona - MKO </option>
+      <option> Markundi - MKD </option>
+      <option> Maroli - MRL </option>
+      <option> Marpalli - MRF </option>
+      <option> Marripalem Ph - MIPM </option>
+      <option> Marthipalayam - MPLM </option>
+      <option> Martur - MR </option>
+      <option> Marwar Balia - MBSK </option>
+      <option> Marwar Bhinmal - MBNL </option>
+      <option> Marwar Junction - MJ </option>
+      <option> Marwar Lohwat - MWT </option>
+      <option> Marwar Mathanya - MMY </option>
+      <option> Marwar Mundwa - MDW </option>
+      <option> Marwasgram - MWJ </option>
+      <option> Masaipet - ME </option>
+      <option> Masit - MST </option>
+      <option> Maskanwa - MSW </option>
+      <option> Masudan - MSDN </option>
+      <option> Masur - MSR </option>
+      <option> Matheran - MAE </option>
+      <option> Mathura Cant - MRT </option>
+      <option> Mathura Junction - MTJ </option>
+      <option> Mathurapur - MUW </option>
+      <option> Matlabpur - MTB </option>
+      <option> Matmari - MTU </option>
+      <option> Mau Aimma - MEM </option>
+      <option> Mau Junction - MAU </option>
+      <option> Mau Ranipur - MRPR </option>
+      <option> Mauhari - MZH </option>
+      <option> Maula Ali - MLY </option>
+      <option> Maur - MAUR </option>
+      <option> Maval - MAA </option>
+      <option> Mavelikara - MVLK </option>
+      <option> Mavli Junction - MVJ </option>
+      <option> Mayakonda - MYK </option>
+      <option> Mayiladuturai J - MV </option>
+      <option> Mayyanad - MYY </option>
+      <option> Mccluskieganj - MGME </option>
+      <option> Mecheda - MCA </option>
+      <option> Mecheri Road - MCRD </option>
+      <option> Medapadu - MPU </option>
+      <option> Medchal - MED </option>
+      <option> Meerut Cant - MUT </option>
+      <option> Meerut City - MTC </option>
+      <option> Meghnagar - MGN </option>
+      <option> Mehnar Road - MNO </option>
+      <option> Mehsi - MAI </option>
+      <option> Meja Road - MJA </option>
+      <option> Melattur - MLTR </option>
+      <option> Melmaruvattur - MLMR </option>
+      <option> Melusar - MELH </option>
+      <option> Memari - MYM </option>
+      <option> Meralgram - MQX </option>
+      <option> Meramandolil - MRDL </option>
+      <option> Merta Road Junction - MTD </option>
+      <option> Metupalaiyam - MTP </option>
+      <option> Metur Dam - MTDM </option>
+      <option> Metyal Sohar - MYX </option>
+      <option> Mewa Nawada - MWE </option>
+      <option> Mhasoda Dongar - MSDG </option>
+      <option> Mhmdvd Kheda Road - MHD </option>
+      <option> Mhow - MHOW </option>
+      <option> Midnapore - MDN </option>
+      <option> Migrendisa - MGE </option>
+      <option> Mihinpurwa - MIN </option>
+      <option> Mihrawan - MIH </option>
+      <option> Milak - MIL </option>
+      <option> Milavittan - MVN </option>
+      <option> Minchnal - MNL </option>
+      <option> Miraj Junction - MRJ </option>
+      <option> Miranpur Katra - MK </option>
+      <option> Mirchadhori - MCQ </option>
+      <option> Mirhakur - MIQ </option>
+      <option> Mirkhal - MQL </option>
+      <option> Mirthal - MRTL </option>
+      <option> Miryalaguda - MRGA </option>
+      <option> Mirza Cheuki - MZC </option>
+      <option> Mirzapali - MZL </option>
+      <option> Mirzapur - MZP </option>
+      <option> Misrauli - MFL </option>
+      <option> Misrod - MSO </option>
+      <option> Mitawal - MTI </option>
+      <option> Mithapur - MTHP </option>
+      <option> Miyagam Karjan - MYG </option>
+      <option> Miyana - MYN </option>
+      <option> Miyana - MINA </option>
+      <option> Modinagar - MDNR </option>
+      <option> Modnimb - MLB </option>
+      <option> Modran - MON </option>
+      <option> Modukuru - MDKU </option>
+      <option> Moga - MOGA </option>
+      <option> Mohadi Prgn Lng - MHAD </option>
+      <option> Mohammadkhera - MQE </option>
+      <option> Mohandi - MHND </option>
+      <option> Mohanlalganj - MLJ </option>
+      <option> Mohanur - MONR </option>
+      <option> Mohapani Mal - MPML </option>
+      <option> Moharajpur - MJP </option>
+      <option> Mohibullapur - MBP </option>
+      <option> Mohitnagar - MOP </option>
+      <option> Mohiuddinnagar - MOG </option>
+      <option> Mohol - MO </option>
+      <option> Mohope - MHPE </option>
+      <option> Mokalsar - MKSR </option>
+      <option> Mokameh Junction - MKA </option>
+      <option> Mokholi - MXL </option>
+      <option> Molakalmuru - MOMU </option>
+      <option> Mondh - MOF </option>
+      <option> Monu - MANU </option>
+      <option> Mor - MOR </option>
+      <option> Moradabad - MB </option>
+      <option> Morak - MKX </option>
+      <option> Moranhat - MRHT </option>
+      <option> Morappur - MAP </option>
+      <option> Morbi - MVI </option>
+      <option> Mordad Tanda - MWK </option>
+      <option> Mordar - MRDD </option>
+      <option> Morena - MRA </option>
+      <option> Morgram - MGAE </option>
+      <option> Mori Bera - MOI </option>
+      <option> Morinda - MRND </option>
+      <option> Morkadhana - MKDN </option>
+      <option> Morthala - MXO </option>
+      <option> Morwani - MRN </option>
+      <option> Moth - MOTH </option>
+      <option> Motichur - MOTC </option>
+      <option> Motipur - MTR </option>
+      <option> Muddanuru - MOO </option>
+      <option> Mudkhed - MUE </option>
+      <option> Muftiganj - MFJ </option>
+      <option> Mugat - MGC </option>
+      <option> Mughal Sarai Junction - MGS </option>
+      <option> Muhammadabad - MMA </option>
+      <option> Muhammadganj - MDJ </option>
+      <option> Mukerian - MEX </option>
+      <option> Mukhasa Parur - MKSP </option>
+      <option> Mukhtiar Balwar - MKT </option>
+      <option> Muktapur - MKPR </option>
+      <option> Muktsar - MKS </option>
+      <option> Mukundarayapurm - MCN </option>
+      <option> Mukundawadi Ha - MKDD </option>
+      <option> Mukuria - MFA </option>
+      <option> Mul Marora - MME </option>
+      <option> Mulacalacheruvu - MCU </option>
+      <option> Mulanturutti - MNTT </option>
+      <option> Mulanur - MAR </option>
+      <option> Muli Road - MOL </option>
+      <option> Mulki - MULK </option>
+      <option> Multai - MTY </option>
+      <option> Mulvad - MVD </option>
+      <option> Mumbai Central - BCT </option>
+      <option> Mumbai Cst - CSTM </option>
+      <option> Munabao - MBF </option>
+      <option> Mundalaram - MDLM </option>
+      <option> Munderwa - MND </option>
+      <option> Mundha Pande - MPH </option>
+      <option> Mundhewadi - MVE </option>
+      <option> Mundikota - MNU </option>
+      <option> Mungaiakami - MGKM </option>
+      <option> Mungaoli - MNV </option>
+      <option> Muniguda - MNGD </option>
+      <option> Munirabad - MRB </option>
+      <option> Munroturuttu - MQO </option>
+      <option> Munumaka - MUK </option>
+      <option> Mupa - MUPA </option>
+      <option> Muradnagar - MUD </option>
+      <option> Muragacha - MGM </option>
+      <option> Murarai - MRR </option>
+      <option> Murarpur - MPY </option>
+      <option> Murdeshwar - MRDW </option>
+      <option> Murgamahadev Rd - MMVR </option>
+      <option> Murhipar - MUP </option>
+      <option> Muri - MURI </option>
+      <option> Muribahal - MRBL </option>
+      <option> Murkeongselek - MZS </option>
+      <option> Murliganj - MRIJ </option>
+      <option> Mursan - MSN </option>
+      <option> Murshadpur - MSDR </option>
+      <option> Murshidabad - MBB </option>
+      <option> Murtajapur - MZR </option>
+      <option> Murti - MRTY </option>
+      <option> Murud - MRX </option>
+      <option> Murukkampuzha - MQU </option>
+      <option> Musafir Khana - MFKA </option>
+      <option> Musra - MUA </option>
+      <option> Mustabada - MBD </option>
+      <option> Muzaffarnagar - MOZ </option>
+      <option> Muzaffarpur Junction - MFP </option>
+      <option> Muzzampur Nryn - MZM </option>
+      <option> Mysore Junction - MYS </option>
+      <option> N Ghaziabad - GZN </option>
+      <option> N. Panakudi - NPK </option>
+      <option> Nabadwip Dham - NDAE </option>
+      <option> Nabenagar Road - NBG </option>
+      <option> Nabha - NBA </option>
+      <option> Nabipur - NIU </option>
+      <option> Nadauj - NDU </option>
+      <option> Nadbai - NBI </option>
+      <option> Nadiad Junction - ND </option>
+      <option> Nadikode - NDKD </option>
+      <option> Nadwan - NDW </option>
+      <option> Nagalapalle - NPL </option>
+      <option> Naganahalli - NHY </option>
+      <option> Nagansur - NGS </option>
+      <option> Nagaon - NGAN </option>
+      <option> Nagappattinam - NGT </option>
+      <option> Nagar - NGE </option>
+      <option> Nagar Untari - NUQ </option>
+      <option> Nagari - NGI </option>
+      <option> Nagari - NG </option>
+      <option> Nagaria Sadat - NRS </option>
+      <option> Nagarnabi - NGF </option>
+      <option> Nagarsol - NSL </option>
+      <option> Nagarur - NRR </option>
+      <option> Nagarwara - NWA </option>
+      <option> Nagaur - NGO </option>
+      <option> Nagbhir Junction - NAB </option>
+      <option> Nagda Junction - NAD </option>
+      <option> Nager Coil Town - NJT </option>
+      <option> Nagercoil Junction - NCJ </option>
+      <option> Nageshwadi Halt - NGHW </option>
+      <option> Nagina - NGG </option>
+      <option> Nagireddipalli - NRDP </option>
+      <option> Naglatula - NGLT </option>
+      <option> Nagore - NCR </option>
+      <option> Nagothane - NGTN </option>
+      <option> Nagpur - NGP </option>
+      <option> Nagpur Road - NPRD </option>
+      <option> Naharkatiya - NHK </option>
+      <option> Naihati Junction - NH </option>
+      <option> Naikheri - NKI </option>
+      <option> Naila - NIA </option>
+      <option> Naini - NYN </option>
+      <option> Nainpur Junction - NIR </option>
+      <option> Najibabad Junction - NBD </option>
+      <option> Nakachari - NCH </option>
+      <option> Nakodar Junction - NRO </option>
+      <option> Naksalbari - NAK </option>
+      <option> Naktisemra - NKX </option>
+      <option> Nal Halt - NX </option>
+      <option> Nal Halt - NAL </option>
+      <option> Nalanda - NLD </option>
+      <option> Nalbari - NLV </option>
+      <option> Nalgonda - NLDA </option>
+      <option> Nalhati Junction - NHT </option>
+      <option> Nallapadu - NLPD </option>
+      <option> Naloi Barwa - BVZ </option>
+      <option> Nalwar - NW </option>
+      <option> Namakkal - NMKL </option>
+      <option> Namburu - NBR </option>
+      <option> Namkhana - NMKA </option>
+      <option> Namkon - NKM </option>
+      <option> Namli - NLI </option>
+      <option> Namrup - NAM </option>
+      <option> Namtiali - NMT </option>
+      <option> Nana - NANA </option>
+      <option> Nandalur - NRE </option>
+      <option> Nanded - NED </option>
+      <option> Nandesari - NDR </option>
+      <option> Nandganj - NDJ </option>
+      <option> Nandgaon - NGN </option>
+      <option> Nandgaon Road - NAN </option>
+      <option> Nandol Dehegam - NHM </option>
+      <option> Nandre - NDE </option>
+      <option> Nandura - NN </option>
+      <option> Nandurbar - NDB </option>
+      <option> Nandyal - NDL </option>
+      <option> Nangal Dam - NLDM </option>
+      <option> Nangloi - NNO </option>
+      <option> Nanguneri - NNN </option>
+      <option> Nanjangud Town - NTW </option>
+      <option> Nanpara Junction - NNP </option>
+      <option> Napasar - NPS </option>
+      <option> Naraikkinar - NRK </option>
+      <option> Naraina - NRI </option>
+      <option> Naraj Marthapur - NQR </option>
+      <option> Narangi - NNGE </option>
+      <option> Naranjipur - NRGR </option>
+      <option> Naranpur - NANR </option>
+      <option> Narasapur - NS </option>
+      <option> Narasaraopet - NRT </option>
+      <option> Narasingapalli - NASP </option>
+      <option> Narayanpet Road - NRPD </option>
+      <option> Narayanpur - NNR </option>
+      <option> Naraynpur Anant - NRPA </option>
+      <option> Nardana - NDN </option>
+      <option> Narela - NUR </option>
+      <option> Nariaoli - NOI </option>
+      <option> Narkatiaganj Junction - NKE </option>
+      <option> Narkher - NRKR </option>
+      <option> Narnaul - NNL </option>
+      <option> Naroda - NRD </option>
+      <option> Narsinghpur - NU </option>
+      <option> Narsipatnam Road - NRP </option>
+      <option> Narsipuram Halt - NSX </option>
+      <option> Narwana Junction - NRW </option>
+      <option> Narwasi - NRWI </option>
+      <option> Nashipur Road - NSO </option>
+      <option> Nasik Road - NK </option>
+      <option> Nasirabad - NSD </option>
+      <option> Nasrala - NAS </option>
+      <option> Nathdwara - NDT </option>
+      <option> Nathnagar - NAT </option>
+      <option> Naugachia - NNA </option>
+      <option> Naugarh - NUH </option>
+      <option> Naupada Junction - NWP </option>
+      <option> Nautanwa - NTV </option>
+      <option> Navabpalem - NBM </option>
+      <option> Navade Road - NVRD </option>
+      <option> Navagadh - NUD </option>
+      <option> Navapur - NWU </option>
+      <option> Navipet - NVT </option>
+      <option> Navsari - NVS </option>
+      <option> Nawa City - NAC </option>
+      <option> Nawabganj Gonda - NGB </option>
+      <option> Nawadah - NWD </option>
+      <option> Nawagaon - NVG </option>
+      <option> Nawalgarh - NWH </option>
+      <option> Nawandgi - NAW </option>
+      <option> Nawapara Road - NPD </option>
+      <option> Naya Azadpur - NDAZ </option>
+      <option> Naya Nangal - NNGL </option>
+      <option> Nayadupeta - NYP </option>
+      <option> Nayagaon - NYO </option>
+      <option> Nayagarh - NYG </option>
+      <option> Nayandahalli - NYH </option>
+      <option> Nazareth - NZT </option>
+      <option> Nazirganj - NAZJ </option>
+      <option> Nekonda - NKD </option>
+      <option> Nellore - NLR </option>
+      <option> Nenpur - NEP </option>
+      <option> Neora - NEO </option>
+      <option> Neora Naddi - NOR </option>
+      <option> Nepanagar - NPNR </option>
+      <option> Neral - NRL </option>
+      <option> Nergundi - NRG </option>
+      <option> New Alipurdaur - NOQ </option>
+      <option> New Amravat - NAVI </option>
+      <option> New Balarampur - NBPH </option>
+      <option> New Bongaigaon - NBQ </option>
+      <option> New Cooch Behar - NCB </option>
+      <option> New Delhi - NDLS </option>
+      <option> New Farakka Junction - NFK </option>
+      <option> New Guntur - NGNT </option>
+      <option> New Jalpaiguri - NJP </option>
+      <option> New Katni Junction - NKJ </option>
+      <option> New Mal Junction - NMZ </option>
+      <option> New Maynaguri - NMX </option>
+      <option> New Misamari - NMM </option>
+      <option> New Morinda - NMDA </option>
+      <option> New Tinsukia Junction - NTSK </option>
+      <option> Neyyattinkara - NYY </option>
+      <option> Nibhapur - NBP </option>
+      <option> Nidadavolu Junction - NDD </option>
+      <option> Nidamangalam - NMJ </option>
+      <option> Nidhani - NDNI </option>
+      <option> Nidigallu - NDZ </option>
+      <option> Nidubrolu - NDO </option>
+      <option> Nigaura - NIQ </option>
+      <option> Nigohan - NHN </option>
+      <option> Nihalgarh - NHH </option>
+      <option> Nilaje - NILD </option>
+      <option> Nilaje - NIIJ </option>
+      <option> Nilaje - JNRD </option>
+      <option> Nilakantheswar - NKW </option>
+      <option> Nilambur Road - NIL </option>
+      <option> Nileshwar - NLE </option>
+      <option> Nilokheri - NLKR </option>
+      <option> Nim Ka Thana - NMK </option>
+      <option> Nimach - NMH </option>
+      <option> Nimar Kheri - NKR </option>
+      <option> Nimbahera - NBH </option>
+      <option> Nimbal - NBL </option>
+      <option> Nimbhora - NB </option>
+      <option> Nimdih - NIM </option>
+      <option> Nimpura - NMP </option>
+      <option> Nimtita - NILE </option>
+      <option> Nindhar Benar - NDH </option>
+      <option> Ningala Junction - NGA </option>
+      <option> Nipani Vadgaon - NPW </option>
+      <option> Nipania - NPI </option>
+      <option> Niphad - NR </option>
+      <option> Nira - NIRA </option>
+      <option> Nirakarpur - NKP </option>
+      <option> Nisui - NSU </option>
+      <option> Nivari - NEW </option>
+      <option> Nivasar - NIV </option>
+      <option> Niwar - NWR </option>
+      <option> Niwas Road - NWB </option>
+      <option> Niyol - NOL </option>
+      <option> Nizamabad - NZB </option>
+      <option> Nizampur - NIP </option>
+      <option> Nmg Tamdalge - NMGT </option>
+      <option> Noadar Dhal - NRX </option>
+      <option> Noamundi - NOMD </option>
+      <option> Nohar - NHR </option>
+      <option> Nokha - NOK </option>
+      <option> Nokhra - NKRA </option>
+      <option> Nomoda - NMD </option>
+      <option> Nonera - NNE </option>
+      <option> Norla Road - NRLR </option>
+      <option> North Lakhimpur - NLP </option>
+      <option> Nosaria - NOA </option>
+      <option> Nowrozabad - NRZB </option>
+      <option> Nrynpur Tatwar - NNW </option>
+      <option> Nua - NUA </option>
+      <option> Nuagaon - NXN </option>
+      <option> Nudurupadu - NDPU </option>
+      <option> Nujella - NUJ </option>
+      <option> Numaligarh - NMGY </option>
+      <option> Nunkhar - NRA </option>
+      <option> Nurmahal - NRM </option>
+      <option> Nuzvid - NZD </option>
+      <option> Obaidulla Ganj - ODG </option>
+      <option> Obra Dam - OBR </option>
+      <option> Obulavaripalli - OBVP </option>
+      <option> Oddam Hatram - ODC </option>
+      <option> Odela - OEA </option>
+      <option> Odha - ODHA </option>
+      <option> Okha - OKHA </option>
+      <option> Okhla - OKA </option>
+      <option> Old Malda - OMLF </option>
+      <option> Omalur - OML </option>
+      <option> Omkareshwar Rd - OM </option>
+      <option> Ondagram - ODM </option>
+      <option> Ongole - OGL </option>
+      <option> Orai - ORAI </option>
+      <option> Orga - ORGA </option>
+      <option> Osiyan - OSN </option>
+      <option> Ottappalam - OTP </option>
+      <option> Pachhapur - PCH </option>
+      <option> Pachor Road - PFR </option>
+      <option> Pachora Junction - PC </option>
+      <option> Pachwan - PNWN </option>
+      <option> Padadhari - PDH </option>
+      <option> Padampur - PDF </option>
+      <option> Padhegaon - PDGN </option>
+      <option> Padla - PDQ </option>
+      <option> Padnur - PDNR </option>
+      <option> Padrauna - POU </option>
+      <option> Padriganj - PNJ </option>
+      <option> Padse - PDP </option>
+      <option> Padua - PFU </option>
+      <option> Padubidri - PDD </option>
+      <option> Padugupadu - PGU </option>
+      <option> Pagla Chandi - PCX </option>
+      <option> Pahara - PRE </option>
+      <option> Paharpur - PRP </option>
+      <option> Paharsar - PRSR </option>
+      <option> Pakala Junction - PAK </option>
+      <option> Pakni - PK </option>
+      <option> Pakur - PKR </option>
+      <option> Palachauri - PCLI </option>
+      <option> Palaiyam - PALM </option>
+      <option> Palakkad - PGT </option>
+      <option> Palakkodu - PCV </option>
+      <option> Palakollu - PKO </option>
+      <option> Palam - PM </option>
+      <option> Palani - PLNI </option>
+      <option> Palanpur Junction - PNU </option>
+      <option> Palari - PUE </option>
+      <option> Palasa - PSA </option>
+      <option> Paldhi - PLD </option>
+      <option> Palej - PLJ </option>
+      <option> Palghar - PLG </option>
+      <option> Palghat Town - PGTN </option>
+      <option> Pali A - PAIL </option>
+      <option> Pali Marwar - PMY </option>
+      <option> Palia - PLA </option>
+      <option> Palia Kalan - PLK </option>
+      <option> Paliba - PBV </option>
+      <option> Palikona - POA </option>
+      <option> Pallikere - PKP </option>
+      <option> Palliyadi - PYD </option>
+      <option> Palsana - PLSN </option>
+      <option> Palsora Makrawa - PSO </option>
+      <option> Palwal - PWL </option>
+      <option> Paman - PMN </option>
+      <option> Pamban Junction - PBM </option>
+      <option> Pampore - PMPE </option>
+      <option> Panagarh - PAN </option>
+      <option> Panapakam - PAM </option>
+      <option> Panch Pipila - PCN </option>
+      <option> Panchgram - PNGM </option>
+      <option> Panchra - PCR </option>
+      <option> Pandabeswar - PAW </option>
+      <option> Pandaul - PDW </option>
+      <option> Pandavapura - PANP </option>
+      <option> Pandharpur - PVR </option>
+      <option> Pandhurna - PAR </option>
+      <option> Pandoli - PMO </option>
+      <option> Paneli Moti - PLM </option>
+      <option> Pangaon - PNF </option>
+      <option> Pangri - PJR </option>
+      <option> Paniahwa - PNYA </option>
+      <option> Paniajob - PJB </option>
+      <option> Panipat Junction - PNP </option>
+      <option> Panisagar - PASG </option>
+      <option> Panjgam - PJGM </option>
+      <option> Panki - PNK </option>
+      <option> Panoli - PAO </option>
+      <option> Panpali - PNPL </option>
+      <option> Panposh - PPO </option>
+      <option> Panruti - PRT </option>
+      <option> Pansar - PN </option>
+      <option> Panskura - PKU </option>
+      <option> Pantnagar - PBW </option>
+      <option> Panvel - PNVL </option>
+      <option> Panyam - PNM </option>
+      <option> Papanasam - PML </option>
+      <option> Papinayaknahali - PKL </option>
+      <option> Paradgaon - PDG </option>
+      <option> Paradip - PRDP </option>
+      <option> Paradol - PRDL </option>
+      <option> Paradsinga Halt - PSK </option>
+      <option> Paraiya - PRY </option>
+      <option> Paramakkudi - PMK </option>
+      <option> Paras - PS </option>
+      <option> Parashshala - PASA </option>
+      <option> Parasia - PUX </option>
+      <option> Parasnath - PNME </option>
+      <option> Paravur - PVU </option>
+      <option> Parbati - PRB </option>
+      <option> Parbhani Junction - PBN </option>
+      <option> Pardi - PAD </option>
+      <option> Parewadi - PRWD </option>
+      <option> Parhihara - PIH </option>
+      <option> Parisal - PSL </option>
+      <option> Parli Vaijnath - PRLI </option>
+      <option> Parmanandpur - PMU </option>
+      <option> Parpanangadi - PGI </option>
+      <option> Parsa Bazar - PRBZ </option>
+      <option> Parsa Khera - PKRA </option>
+      <option> Parsabad - PSB </option>
+      <option> Parsipur - PRF </option>
+      <option> Parsneu - PSV </option>
+      <option> Parsoda - PSD </option>
+      <option> Parsoli - PSLI </option>
+      <option> Partapgarh Junction - PBH </option>
+      <option> Partur - PTU </option>
+      <option> Parvatipuram - PVP </option>
+      <option> Parvatipuram Tn - PVPT </option>
+      <option> Pasivedala - PSDA </option>
+      <option> Pasraha - PSR </option>
+      <option> Patal Pani - PTP </option>
+      <option> Patansaongi - PTS </option>
+      <option> Patara - PTRE </option>
+      <option> Patas - PAA </option>
+      <option> Pataudi Road - PTRD </option>
+      <option> Patchur - PU </option>
+      <option> Pathankot - PTK </option>
+      <option> Pathankot Cantt - PTKC </option>
+      <option> Pathardih Bazar - PBQ </option>
+      <option> Pathardih Junction - PEH </option>
+      <option> Patharia - PHA </option>
+      <option> Patharkandi - PTKD </option>
+      <option> Pathauli - PTLI </option>
+      <option> Pathrad - PARD </option>
+      <option> Pathri - PRI </option>
+      <option> Pathsala - PBL </option>
+      <option> Patiala - PTA </option>
+      <option> Patliputra - PPTA </option>
+      <option> Patna Junction - PNBE </option>
+      <option> Patna Saheb - PNC </option>
+      <option> Patranga - PTH </option>
+      <option> Patratu - PTRU </option>
+      <option> Patsul - PTZ </option>
+      <option> Pattambi - PTB </option>
+      <option> Pattikkad - PKQ </option>
+      <option> Pavurchutram - PCM </option>
+      <option> Pawapuri Road - PQE </option>
+      <option> Payagpur - PDR </option>
+      <option> Payangadi - PAZ </option>
+      <option> Payradanga - PDX </option>
+      <option> Payyanur - PAY </option>
+      <option> Payyoli - PYOL </option>
+      <option> Pedabramadvam - PBD </option>
+      <option> Pedana - PAV </option>
+      <option> Pedanyknpalayam - PDKM </option>
+      <option> Pedda Avutapale - PAVP </option>
+      <option> Peddakurapadu - PKPU </option>
+      <option> Peddapalli - PDPL </option>
+      <option> Peddavadiapudi - PVD </option>
+      <option> Peddempet - PPZ </option>
+      <option> Pembarti - PBP </option>
+      <option> Pen - PEN </option>
+      <option> Pencharthal - PEC </option>
+      <option> Pendekallu - PDL </option>
+      <option> Pendra Road - PND </option>
+      <option> Pendurti - PDT </option>
+      <option> Pennadam - PNDM </option>
+      <option> Penukonda - PKD </option>
+      <option> Penumarru - PUMU </option>
+      <option> Peppeganj - PJ </option>
+      <option> Peralam Jn - PEM </option>
+      <option> Perambur - PER </option>
+      <option> Perecherla - PRCA </option>
+      <option> Pergaon - PG </option>
+      <option> Pernem - PERN </option>
+      <option> Perunguzhi - PGZ </option>
+      <option> Pettaivayatalai - PLI </option>
+      <option> Pgdp - PGDP </option>
+      <option> Phagwara Junction - PGW </option>
+      <option> Phalodi - PLC </option>
+      <option> Phalodi Junction - PLCJ </option>
+      <option> Phanda - PUD </option>
+      <option> Phaphamau Junction - PFM </option>
+      <option> Phaphund - PHD </option>
+      <option> Phephna Junction - PEP </option>
+      <option> Phesar - PES </option>
+      <option> Phiding - PDJ </option>
+      <option> Phillaur Junction - PHR </option>
+      <option> Phirangipuram - PPM </option>
+      <option> Phulera Junction - FL </option>
+      <option> Phuleswar - FLR </option>
+      <option> Phulpur - PLP </option>
+      <option> Phulwari Sharif - PWS </option>
+      <option> Phulwartanr - PLJE </option>
+      <option> Phusro - PUS </option>
+      <option> Piardoba - PBA </option>
+      <option> Pichkurirdhal - PCQ </option>
+      <option> Piduguralla - PGRL </option>
+      <option> Pilamedu - PLMD </option>
+      <option> Piler - PIL </option>
+      <option> Pili Bangan - PGK </option>
+      <option> Pilibhit Junction - PBE </option>
+      <option> Pilioda - PDZ </option>
+      <option> Pilkhua - PKW </option>
+      <option> Pimpalkhuti - PMKT </option>
+      <option> Pimpri - PMP </option>
+      <option> Pindlai - PQL </option>
+      <option> Pindra Road - PDRD </option>
+      <option> Pindrai - PDE </option>
+      <option> Pingleshwar - PLW </option>
+      <option> Pingli - PIZ </option>
+      <option> Pipalsana - PLS </option>
+      <option> Pipar Road Junction - PPR </option>
+      <option> Pipardahi - PED </option>
+      <option> Pipariya - PPI </option>
+      <option> Piparsand - POF </option>
+      <option> Pipla Halt - PQA </option>
+      <option> Piplaj - PPF </option>
+      <option> Piplia - PIP </option>
+      <option> Piplod Junction - PPD </option>
+      <option> Piploda Bagla - PPG </option>
+      <option> Pipra - PPA </option>
+      <option> Pipraich - PPC </option>
+      <option> Pipraigaon - PIA </option>
+      <option> Piprala - PFL </option>
+      <option> Pipri Dih - PPH </option>
+      <option> Pir Umrod - PUO </option>
+      <option> Piravam Road - PVRD </option>
+      <option> Pirdulesha Halt - PRDH </option>
+      <option> Pirpainti - PPT </option>
+      <option> Pirtala - PRTL </option>
+      <option> Pirthiganj - PHV </option>
+      <option> Pirumadara - PRM </option>
+      <option> Pirwa - PW </option>
+      <option> Pitambarpur - PMR </option>
+      <option> Pithapuram - PAP </option>
+      <option> Plassey - PLY </option>
+      <option> Pmbakvl Shandy - PBKS </option>
+      <option> Pocharam - PCZ </option>
+      <option> Podanur Junction - PTJ </option>
+      <option> Pokharni Nrsnha - PKNS </option>
+      <option> Pokhrayan - PHN </option>
+      <option> Pokla - PKF </option>
+      <option> Pokran - POK </option>
+      <option> Polur - PRL </option>
+      <option> Ponduru - PDU </option>
+      <option> Ponmlai Gld Rck - GOC </option>
+      <option> Pophlaj - PPJ </option>
+      <option> Porbandar - PBR </option>
+      <option> Porjanpur - PRNR </option>
+      <option> Posotia - PST </option>
+      <option> Pothahi - PFT </option>
+      <option> Pothia - POT </option>
+      <option> Potkapalli - PTKP </option>
+      <option> Potlapadu - POO </option>
+      <option> Potul - POZ </option>
+      <option> Powerkheda - PRKD </option>
+      <option> Powerpet - PRH </option>
+      <option> Pradhankhunta - PKA </option>
+      <option> Prantij - PRJ </option>
+      <option> Prantik - PNE </option>
+      <option> Prattiapadu - PTPU </option>
+      <option> Prayag - PRG </option>
+      <option> Prshtampatnam - PRPT </option>
+      <option> Ptnsngi Twn Hlt - PSX </option>
+      <option> Puducherry - PDY </option>
+      <option> Pudukad - PUK </option>
+      <option> Pudukkottai - PDKT </option>
+      <option> Pugalur - PGR </option>
+      <option> Pukkirivari - PRV </option>
+      <option> Pulgaon Junction - PLO </option>
+      <option> Pulla - PUA </option>
+      <option> Pullampet - PMT </option>
+      <option> Punalur - PUU </option>
+      <option> Punarakh - PHK </option>
+      <option> Pundhag - PNW </option>
+      <option> Pundi - PUN </option>
+      <option> Pundooah - PDA </option>
+      <option> Pune Junction - PUNE </option>
+      <option> Punkunnam - PNQ </option>
+      <option> Punpun - PPN </option>
+      <option> Punsia - PNSA </option>
+      <option> Puntamba - PB </option>
+      <option> Puraini - PNI </option>
+      <option> Puranpur - PP </option>
+      <option> Purbasthali - PSAE </option>
+      <option> Puri - PURI </option>
+      <option> Purna Junction - PAU </option>
+      <option> Purnia Junction - PRNA </option>
+      <option> Purua Khera - PRKE </option>
+      <option> Purulia Junction - PRR </option>
+      <option> Pusauli - PSE </option>
+      <option> Putalapattu - PTT </option>
+      <option> Putlacheruvu - PCU </option>
+      <option> Puttur - PUT </option>
+      <option> Pwn Klaknder Road - PQN </option>
+      <option> Quilandi - QLD </option>
+      <option> Rachagunnari - RCG </option>
+      <option> Radhagaon - RDF </option>
+      <option> Radhakishorepur - RQP </option>
+      <option> Radhanpur - RDHP </option>
+      <option> Radhikapur - RDP </option>
+      <option> Rae Bareli Junction - RBL </option>
+      <option> Rafiganj - RFJ </option>
+      <option> Ragaul - RGU </option>
+      <option> Raghavapuram - RGPM </option>
+      <option> Raghunathpalli - RGP </option>
+      <option> Raghunathpur - RPR </option>
+      <option> Raghunathpur - RCTC </option>
+      <option> Raghuraj Singh - RRS </option>
+      <option> Rahama - RHMA </option>
+      <option> Rahenbata - RNBT </option>
+      <option> Rahimabad - RBD </option>
+      <option> Rahimatpur - RMP </option>
+      <option> Rahuri - RRI </option>
+      <option> Rai Singh Nagar - RSNR </option>
+      <option> Raichur - RC </option>
+      <option> Raigadh Road - RGQ </option>
+      <option> Raiganj - RGJ </option>
+      <option> Raigarh - RIG </option>
+      <option> Raigir - RAG </option>
+      <option> Raika Bagh - RKB </option>
+      <option> Raimehatpur - MTPR </option>
+      <option> Raipur Junction - R </option>
+      <option> Rairakhol - RAIR </option>
+      <option> Raisi - RSI </option>
+      <option> Raiwala - RWL </option>
+      <option> Raj Gangpur - GP </option>
+      <option> Raj Nandgaon - RJN </option>
+      <option> Raja Ka Sahaspr - RJK </option>
+      <option> Raja Ki Mandi - RKM </option>
+      <option> Rajabera - RJB </option>
+      <option> Rajaldesar - RJR </option>
+      <option> Rajamundry - RJY </option>
+      <option> Rajanagar - RJA </option>
+      <option> Rajankunti - RNN </option>
+      <option> Rajapalayam - RJPM </option>
+      <option> Rajapur Road - RAJP </option>
+      <option> Rajawari - RJI </option>
+      <option> Rajchandrapur - RCD </option>
+      <option> Rajendra Pul - RJO </option>
+      <option> Rajendranagar - RJQ </option>
+      <option> Rajgarh - RHG </option>
+      <option> Rajghat Narora - RG </option>
+      <option> Rajgir - RGD </option>
+      <option> Rajgram - RJG </option>
+      <option> Rajkharsawan Junction - RKSN </option>
+      <option> Rajkiawas - RKZ </option>
+      <option> Rajkot Junction - RJT </option>
+      <option> Rajmane - RM </option>
+      <option> Rajpura Junction - RPJ </option>
+      <option> Rajula City - RJU </option>
+      <option> Rajula Junction - RLA </option>
+      <option> Rakha Mines - RHE </option>
+      <option> Rakhiyal - RKH </option>
+      <option> Ram Chaura Road - RMC </option>
+      <option> Ram Nagar J K - RMJK </option>
+      <option> Ramakona - RMO </option>
+      <option> Raman - RMN </option>
+      <option> Ramanagaram - RMGM </option>
+      <option> Ramanathapuram - RMD </option>
+      <option> Ramannapet - RMNP </option>
+      <option> Rambha - RBA </option>
+      <option> Rambhaddarpur - RBZ </option>
+      <option> Ramdevra - RDRA </option>
+      <option> Rameswaram - RMM </option>
+      <option> Ramganga - RGB </option>
+      <option> Ramganj Mandi - RMA </option>
+      <option> Ramgarh Cant - RMT </option>
+      <option> Ramgarhwa - RGH </option>
+      <option> Ramgiri - RGI </option>
+      <option> Ramgundam - RDM </option>
+      <option> Ramkola - RKL </option>
+      <option> Ramna - RMF </option>
+      <option> Ramnagar - RMR </option>
+      <option> Ramnagar Bengal - RMRB </option>
+      <option> Rampur - RMU </option>
+      <option> Rampur Bazar - RMPB </option>
+      <option> Rampur Dumra - RDUM </option>
+      <option> Rampur Hat - RPH </option>
+      <option> Rampura Beri - RMB </option>
+      <option> Rampura Phul - PUL </option>
+      <option> Ramsagar - RSG </option>
+      <option> Ranaghat Junction - RHA </option>
+      <option> Ranala - RNL </option>
+      <option> Ranapratapnagar - RPZ </option>
+      <option> Ranavav - RWO </option>
+      <option> Ranchi - RNC </option>
+      <option> Ranchi Road - RRME </option>
+      <option> Rangaliting - RNGG </option>
+      <option> Rangapara North - RPAN </option>
+      <option> Rangapuram - RGM </option>
+      <option> Rangiya Junction - RNY </option>
+      <option> Rangtong - RTG </option>
+      <option> Rani - RANI </option>
+      <option> Ranibennur - RNR </option>
+      <option> Raniganj - RNG </option>
+      <option> Raniwara - RNV </option>
+      <option> Ranjangaon Road - RNJD </option>
+      <option> Ranjani - RNE </option>
+      <option> Ranoli - RNO </option>
+      <option> Ranolishishu - RNIS </option>
+      <option> Ranpur - RUR </option>
+      <option> Ranthambhore - RNT </option>
+      <option> Ranyal Jasmiya - RCJ </option>
+      <option> Raoti - RTI </option>
+      <option> Rasayani - RSYI </option>
+      <option> Rasipuram - RASP </option>
+      <option> Rasra - RSR </option>
+      <option> Rasulabad - RUB </option>
+      <option> Rasuriya - RYS </option>
+      <option> Ratan Shahr - RSH </option>
+      <option> Ratangarh Junction - RTGH </option>
+      <option> Ratangarh West - RXW </option>
+      <option> Ratanpur - RPUR </option>
+      <option> Ratanpura - RTP </option>
+      <option> Rathdhana - RDDE </option>
+      <option> Ratlam Junction - RTM </option>
+      <option> Ratnagiri - RN </option>
+      <option> Ratnapur - RNU </option>
+      <option> Rau - RAU </option>
+      <option> Rauli - RUL </option>
+      <option> Ravalpali Kalan - RPK </option>
+      <option> Raver - RV </option>
+      <option> Ravikampadu - RVD </option>
+      <option> Ravindrakhani - RVKH </option>
+      <option> Ravtha Road - RDT </option>
+      <option> Rawania Dungar - RWJ </option>
+      <option> Raxual Junction - RXL </option>
+      <option> Ray - RAY </option>
+      <option> Raya - RAYA </option>
+      <option> Rayadrug - RDG </option>
+      <option> Rayagada - RGDA </option>
+      <option> Rayalcheruvu - RLO </option>
+      <option> Rayanapad - RYP </option>
+      <option> Raybag - RBG </option>
+      <option> Razampeta - RJP </option>
+      <option> Rechni Road - RECH </option>
+      <option> Regupalem - REG </option>
+      <option> Rejinagar - REJ </option>
+      <option> Ren - REN </option>
+      <option> Rengali - RGL </option>
+      <option> Renigunta Junction - RU </option>
+      <option> Renukut - RNQ </option>
+      <option> Renwal - RNW </option>
+      <option> Reoti - ROI </option>
+      <option> Reoti B Khera - RBK </option>
+      <option> Repalle - RAL </option>
+      <option> Rethorakalan - RAKL </option>
+      <option> Rewa - REWA </option>
+      <option> Rewari - RE </option>
+      <option> Rewral - RRL </option>
+      <option> Rikhabdev Road - RDD </option>
+      <option> Ringas Junction - RGS </option>
+      <option> Risama - RSA </option>
+      <option> Rishikesh - RKSH </option>
+      <option> Risia - RS </option>
+      <option> Rithi - REI </option>
+      <option> Rjndr Ngr Bihar - RJPB </option>
+      <option> Rmgrh Shekhwati - RSWT </option>
+      <option> Rmkrshnaprm Gte - RKO </option>
+      <option> Rningr Jlpaigri - RQJ </option>
+      <option> Roberts Ganj - RBGJ </option>
+      <option> Robertson - ROB </option>
+      <option> Roha - ROHA </option>
+      <option> Rohat - RT </option>
+      <option> Rohtak Junction - ROK </option>
+      <option> Roorkee - RK </option>
+      <option> Roshanpur - RHN </option>
+      <option> Rotegaon - RGO </option>
+      <option> Rourkela - ROU </option>
+      <option> Rowriah Sdg - RWH </option>
+      <option> Rowta Bagan - RWTB </option>
+      <option> Royapuram - RPM </option>
+      <option> Roza Junction - ROZA </option>
+      <option> Rudauli - RDL </option>
+      <option> Rudrapur City - RUPC </option>
+      <option> Rukadi - RKD </option>
+      <option> Rukmapur - RMY </option>
+      <option> Rukni - RUI </option>
+      <option> Runkhera - RNH </option>
+      <option> Runni Saidpur - RUSD </option>
+      <option> Rupamau - RUM </option>
+      <option> Rupaund - RPD </option>
+      <option> Rupbas - RBS </option>
+      <option> Rupnagar - RPAR </option>
+      <option> Rupnarayanpur - RNPR </option>
+      <option> Rupra Road - RPRD </option>
+      <option> Rupsa Junction - ROP </option>
+      <option> Rura - RURA </option>
+      <option> Rusera Ghat - ROA </option>
+      <option> Ruthiyai - RTA </option>
+      <option> S Bhakhtiyarpur - SBV </option>
+      <option> S K Para - SKAP </option>
+      <option> S Narayan Chpla - SNC </option>
+      <option> S Venkteswrpalm - SVPM </option>
+      <option> Sabarmati Junction - SBI </option>
+      <option> Sabarmati Junction - SBT </option>
+      <option> Sabaur - SBO </option>
+      <option> Sachin - SCH </option>
+      <option> Sadar Bazar - DSB </option>
+      <option> Sadashivapet Road - SSPD </option>
+      <option> Sadat - SDT </option>
+      <option> Sadisopur - SDE </option>
+      <option> Sadulpur Junction - SDLP </option>
+      <option> Sadulshahr - SDS </option>
+      <option> Sadura - SDUA </option>
+      <option> Safdarganj - SGJ </option>
+      <option> Safedabad - SFH </option>
+      <option> Safilguda - SFX </option>
+      <option> Sagadapata - SGDP </option>
+      <option> Sagar Jambagaru - SRF </option>
+      <option> Sagardighi - SDI </option>
+      <option> Sagauli Junction - SGL </option>
+      <option> Sagoni - SAO </option>
+      <option> Saharanpur - SRE </option>
+      <option> Saharsa Junction - SHC </option>
+      <option> Saharsrakund - SHSK </option>
+      <option> Sahatwar - STW </option>
+      <option> Saheli - SAHL </option>
+      <option> Sahibabad - SBB </option>
+      <option> Sahibganj Junction - SBG </option>
+      <option> Sahibpur Kml Junction - SKJ </option>
+      <option> Sahibzada Asngr - SASN </option>
+      <option> Sahjanwa - SWA </option>
+      <option> Sai P Nilayam - SSPN </option>
+      <option> Saidapur - SADP </option>
+      <option> Saidraja - SYJ </option>
+      <option> Saij Sertha Road - SHRD </option>
+      <option> Sainagar Shirdi - SNSI </option>
+      <option> Saintala - SFC </option>
+      <option> Sainthia - SNT </option>
+      <option> Saiyid Sarawan - SYWN </option>
+      <option> Sakaldiha - SLD </option>
+      <option> Sakhi Gopal - SIL </option>
+      <option> Sakhoti Tanda - SKF </option>
+      <option> Sakhpur - SKR </option>
+      <option> Sakhun - SK </option>
+      <option> Sakleshpur - SKLR </option>
+      <option> Sakri Junction - SKI </option>
+      <option> Sakrigali Junction - SLJ </option>
+      <option> Saktesgarh - SKGH </option>
+      <option> Sakti - SKT </option>
+      <option> Salagaon - SQQ </option>
+      <option> Salaia - SYA </option>
+      <option> Salamatpur - SMT </option>
+      <option> Salanpur - SLS </option>
+      <option> Salar - SALE </option>
+      <option> Salauna - SLNA </option>
+      <option> Salawas - SZ </option>
+      <option> Salboni - SLB </option>
+      <option> Salchapra - SCA </option>
+      <option> Salekasa - SKS </option>
+      <option> Salem Junction - SA </option>
+      <option> Salem Town - SXT </option>
+      <option> Salemgarhmasani - SJSM </option>
+      <option> Salempur Junction - SRU </option>
+      <option> Sali - SALI </option>
+      <option> Salichauka Road - SCKR </option>
+      <option> Salkaroad - SLKR </option>
+      <option> Salmari - SRI </option>
+      <option> Salogra - SLR </option>
+      <option> Salpura - SYL </option>
+      <option> Salwa - SAL </option>
+      <option> Samakhiali - SIO </option>
+      <option> Samakhiali B G - SIOB </option>
+      <option> Samalkha - SMK </option>
+      <option> Samalkot Junction - SLO </option>
+      <option> Samalpatti - SLY </option>
+      <option> Samastipur Junction - SPJ </option>
+      <option> Samaswara - SMSR </option>
+      <option> Samba - SMBX </option>
+      <option> Sambalpur - SBP </option>
+      <option> Sambalpur City - SBPY </option>
+      <option> Sambalpur Road - SBPD </option>
+      <option> Sambhar Lake - SBR </option>
+      <option> Samdhari Junction - SMR </option>
+      <option> Samlaya Junction - SMLA </option>
+      <option> Samnapur - SMC </option>
+      <option> Sampla - SPZ </option>
+      <option> Samsi - SM </option>
+      <option> Samudragarh - SMAE </option>
+      <option> Samuktala Road - SMTA </option>
+      <option> Sanahwal - SNL </option>
+      <option> Sanand - SAU </option>
+      <option> Sanat Nagar - SNF </option>
+      <option> Sanawad - SWD </option>
+      <option> Sanchi - SCI </option>
+      <option> Sandila - SAN </option>
+      <option> Saneh Road - SNX </option>
+      <option> Sanganapur - SNGR </option>
+      <option> Sanganer - SNGN </option>
+      <option> Sangaria - SGRA </option>
+      <option> Sangat - SGF </option>
+      <option> Sangli - SLI </option>
+      <option> Sangmeshwar - SGR </option>
+      <option> Sangola - SGLA </option>
+      <option> Sangrur - SAG </option>
+      <option> Sanichara - SAC </option>
+      <option> Sanjali - SNJL </option>
+      <option> Sanjan - SJN </option>
+      <option> Sank - SANK </option>
+      <option> Sanka - SNKR </option>
+      <option> Sankarankovil - SNKL </option>
+      <option> Sankaridrug - SGE </option>
+      <option> Sankarpur - SNQ </option>
+      <option> Sankopara - SXP </option>
+      <option> Sanosra - SOA </option>
+      <option> Sansarpur - SNRR </option>
+      <option> Sant Road - SAT </option>
+      <option> Santaldih - SNTD </option>
+      <option> Santalpur - SNLR </option>
+      <option> Santamagulur - SAB </option>
+      <option> Santragachi Junction - SRC </option>
+      <option> Sanvatsar - SNVR </option>
+      <option> Sanverdam Chuch - SVM </option>
+      <option> Sanvrad - SVO </option>
+      <option> Saoner Junction - SONR </option>
+      <option> Saonga Halt - SZH </option>
+      <option> Sapatgram - SPX </option>
+      <option> Sape Wamne - SAPE </option>
+      <option> Sapekhati - SPK </option>
+      <option> Saphale - SAH </option>
+      <option> Saradhna - SDH </option>
+      <option> Saragbundia - SRBA </option>
+      <option> Saragchni - SGV </option>
+      <option> Sarai - SAI </option>
+      <option> Sarai Chandi - SYC </option>
+      <option> Sarai Kansrai - SQN </option>
+      <option> Sarai Mir - SMZ </option>
+      <option> Sarangpur - SFW </option>
+      <option> Saraswatinagar - SRWN </option>
+      <option> Sarbahara - SBRA </option>
+      <option> Sardargram - SDGM </option>
+      <option> Sardarnagar - SANR </option>
+      <option> Sardarshahr - SRDR </option>
+      <option> Sardiha - SUA </option>
+      <option> Sareigram - SGAM </option>
+      <option> Sareri - SSR </option>
+      <option> Sarkoni - SIQ </option>
+      <option> Sarnath - SRNT </option>
+      <option> Sarola - SRL </option>
+      <option> Sarona - SZB </option>
+      <option> Sarotra Road - SZA </option>
+      <option> Sarupathar - SZR </option>
+      <option> Sarupsar Jn - SRPR </option>
+      <option> Sarwari - SVD </option>
+      <option> Sasaram - SSM </option>
+      <option> Sasni - SNS </option>
+      <option> Sason - SSN </option>
+      <option> Sasthankotta - STKT </option>
+      <option> Satara - STR </option>
+      <option> Sathajagat - STJT </option>
+      <option> Sathi - SAHI </option>
+      <option> Sathiaon - SAA </option>
+      <option> Sathin Road - SWF </option>
+      <option> Satna - STA </option>
+      <option> Satnali - STNL </option>
+      <option> Satrod - STD </option>
+      <option> Sattenapalle - SAP </option>
+      <option> Satulur - STUR </option>
+      <option> Satuna - SCO </option>
+      <option> Satur - SRT </option>
+      <option> Saugor - SGO </option>
+      <option> Saunshi - SNH </option>
+      <option> Sausar - SASR </option>
+      <option> Savalyapuram - SYM </option>
+      <option> Savanur - SVNR </option>
+      <option> Savarda - SVX </option>
+      <option> Savarkundla - SVKD </option>
+      <option> Savda - SAV </option>
+      <option> Sawai Madhopur - SWM </option>
+      <option> Sawalgi - SVG </option>
+      <option> Sawantwadi Road - SWV </option>
+      <option> Sayan - SYN </option>
+      <option> Sbb Jogulamba H - SBBJ </option>
+      <option> Sbewbabudih - SBW </option>
+      <option> Sealdah - SDAH </option>
+      <option> Secunderabad Junction - SC </option>
+      <option> Sehore - SEH </option>
+      <option> Selu - SELU </option>
+      <option> Semapur - SMO </option>
+      <option> Semari - SES </option>
+      <option> Senchoa Jn - SCE </option>
+      <option> Sendra - SEU </option>
+      <option> Sengottai - SCT </option>
+      <option> Seohara - SEO </option>
+      <option> Seoni - SEY </option>
+      <option> Seoraphuli - SHE </option>
+      <option> Seram - SEM </option>
+      <option> Serampore - SRP </option>
+      <option> Settihally - SET </option>
+      <option> Sevagram - SEGM </option>
+      <option> Sewapuri - SWPR </option>
+      <option> Seydunganallur - SDNR </option>
+      <option> Shadnagar - SHNR </option>
+      <option> Shahabad - SDB </option>
+      <option> Shahbad Marknda - SHDM </option>
+      <option> Shahdol - SDL </option>
+      <option> Shahganj Junction - SHG </option>
+      <option> Shahjahanpur - SZP </option>
+      <option> Shahjehanpur - SPN </option>
+      <option> Shahpur Patoree - SPP </option>
+      <option> Shahzad Nagar - SAR </option>
+      <option> Shaitansinghngr - STSN </option>
+      <option> Shajapur - SFY </option>
+      <option> Shakti Nagar - SKTN </option>
+      <option> Shakurbasti - SSB </option>
+      <option> Shalashah Thana - SHLT </option>
+      <option> Shalimar - SHM </option>
+      <option> Sham Chaurasi - SCQ </option>
+      <option> Shambhupura - SMP </option>
+      <option> Shamgarh - SGZ </option>
+      <option> Shamlaji Road - SJS </option>
+      <option> Shamli - SMQL </option>
+      <option> Shankargarh - SRJ </option>
+      <option> Shankarpalli - SKP </option>
+      <option> Shdspra Padmpra - SAS </option>
+      <option> Shedbal - SED </option>
+      <option> Shegaon - SEG </option>
+      <option> Sheikpura - SHK </option>
+      <option> Shelgoan H - SLGH </option>
+      <option> Shendri - SEI </option>
+      <option> Sheo Singh Pura - SHNX </option>
+      <option> Sheoprasadnager - SPDR </option>
+      <option> Sherekan - SRKN </option>
+      <option> Shertalai - SRTL </option>
+      <option> Shikara - SKY </option>
+      <option> Shikohabad Junction - SKB </option>
+      <option> Shimiliaguda - SMLG </option>
+      <option> Shimoga - SME </option>
+      <option> Shimoga Town - SMET </option>
+      <option> Shirravde - SIW </option>
+      <option> Shirud - SHF </option>
+      <option> Shiupur - SOP </option>
+      <option> Shivaji Bridge - CSB </option>
+      <option> Shivalingapuram - SLPM </option>
+      <option> Shivanarayanpur - SVRP </option>
+      <option> Shivani - SHV </option>
+      <option> Shivarampur - WSC </option>
+      <option> Shivnagar - SHNG </option>
+      <option> Shivpura - SVT </option>
+      <option> Shivpuri - SVPI </option>
+      <option> Shivrampur - SWC </option>
+      <option> Shmata V D Ktra - SVDK </option>
+      <option> Shoghi - SGS </option>
+      <option> Sholavandan - SDN </option>
+      <option> Sholinghur - SHU </option>
+      <option> Shoranur Junction - SRR </option>
+      <option> Shri Amirgadh - SIM </option>
+      <option> Shri Bhavnath - SBHN </option>
+      <option> Shri Ganganagar - SGNR </option>
+      <option> Shri Karanpur - SRW </option>
+      <option> Shri Madhopur - SMPR </option>
+      <option> Shri Mahabirji - SMBJ </option>
+      <option> Shribdrya Lathi - SBLT </option>
+      <option> Shridham - SRID </option>
+      <option> Shrigonda Road - SGND </option>
+      <option> Shrirajnagar - SAGR </option>
+      <option> Shrirangapatna - S </option>
+      <option> Shrungavarpukta - SUP </option>
+      <option> Shujaatpur - SJT </option>
+      <option> Shujalpur - SJP </option>
+      <option> Shyamnagar - SNR </option>
+      <option> Shyampuri - SMPA </option>
+      <option> Sibsagar Town - SRTN </option>
+      <option> Siddhpur - SID </option>
+      <option> Sidhauli - SD </option>
+      <option> Sidmukh - SDMK </option>
+      <option> Sigadam - SGDM </option>
+      <option> Sihapar - SIPR </option>
+      <option> Siho - SIHO </option>
+      <option> Sihor Gujarat - SOJN </option>
+      <option> Sihora Road - SHR </option>
+      <option> Sikandarpur - SKQ </option>
+      <option> Sikandra Rao - SKA </option>
+      <option> Sikar Junction - SIKR </option>
+      <option> Sikarpai - SKPI </option>
+      <option> Silak Jhori - SZY </option>
+      <option> Silao - SILO </option>
+      <option> Silapathar - SPTR </option>
+      <option> Silaut - SLT </option>
+      <option> Silchar - SCL </option>
+      <option> Silghat Town - SHTT </option>
+      <option> Siliari - SLH </option>
+      <option> Siliguri - SGUD </option>
+      <option> Siliguri Junction - SGUJ </option>
+      <option> Siliguru Town - SGUT </option>
+      <option> Silli - SLF </option>
+      <option> Simaluguri Junction - SLGR </option>
+      <option> Simaria - SAE </option>
+      <option> Simbhooli - SMBL </option>
+      <option> Simhachalam - SCM </option>
+      <option> Simla - SML </option>
+      <option> Simultala - STL </option>
+      <option> Simurali - SMX </option>
+      <option> Sindhawadar - SDD </option>
+      <option> Sindhudurg - SNDD </option>
+      <option> Sindi - SNI </option>
+      <option> Sindkheda - SNK </option>
+      <option> Sindpan - SDPN </option>
+      <option> Sindriblock Hut - SDBH </option>
+      <option> Sindurwa - SYW </option>
+      <option> Singaperumlkoil - SKL </option>
+      <option> Singapuram Road - SPRD </option>
+      <option> Singaram - SGRM </option>
+      <option> Singarayakonda - SKM </option>
+      <option> Singarpur - SNPR </option>
+      <option> Singhpur - SNGP </option>
+      <option> Singrauli - SGRL </option>
+      <option> Sini Junction - SINI </option>
+      <option> Sirajnagar H - SRJN </option>
+      <option> Sirari - SRY </option>
+      <option> Siras - SRAS </option>
+      <option> Sirathu - SRO </option>
+      <option> Sird - SIRD </option>
+      <option> Sirhind Junction - SIR </option>
+      <option> Siripuram - SRPM </option>
+      <option> Sirjam - SRJM </option>
+      <option> Sirkazhi - SY </option>
+      <option> Sirohi Road - SOH </option>
+      <option> Sirpur Kagazngr - SKZR </option>
+      <option> Sirpur Town - SRUR </option>
+      <option> Sirsa - SSA </option>
+      <option> Sirsaul - SSL </option>
+      <option> Sisarka - SSKA </option>
+      <option> Sisvinhalli - SVHE </option>
+      <option> Siswa Bazar - SBZ </option>
+      <option> Sitabinj - STBJ </option>
+      <option> Sitafal Mandi - STPD </option>
+      <option> Sitalnagar - STNR </option>
+      <option> Sitalpur - STLR </option>
+      <option> Sitamarhi - SMI </option>
+      <option> Sitampet - STPT </option>
+      <option> Sitanagaram - SNM </option>
+      <option> Sitapur - STP </option>
+      <option> Sitapur Cant - SCC </option>
+      <option> Sitapur City - SPC </option>
+      <option> Sitarampur - STN </option>
+      <option> Siuri - SURI </option>
+      <option> Sivaganga - SVGA </option>
+      <option> Sivajinagar - SVJR </option>
+      <option> Sivakasi - SVKS </option>
+      <option> Sivungaon - SVN </option>
+      <option> Siwaith - SWE </option>
+      <option> Siwan Junction - SV </option>
+      <option> Siwani - SWNI </option>
+      <option> Sleemanabad Road - SBD </option>
+      <option> Sodpur - SEP </option>
+      <option> Sogra - SOGR </option>
+      <option> Sohagpur - SGP </option>
+      <option> Sohwal - SLW </option>
+      <option> Sojat Road - SOD </option>
+      <option> Solan - SOL </option>
+      <option> Solan Brewery - SBY </option>
+      <option> Solapur Junction - SUR </option>
+      <option> Somalapuram - SLM </option>
+      <option> Somanayakkanpti - SKPT </option>
+      <option> Somanur - SNO </option>
+      <option> Somesar - SOS </option>
+      <option> Somidevipalle - SDV </option>
+      <option> Somna - SOM </option>
+      <option> Somnath - SMNH </option>
+      <option> Sompeta - SPT </option>
+      <option> Somra Bazar - SOAE </option>
+      <option> Somtane - SMNE </option>
+      <option> Son Nagar - SEB </option>
+      <option> Sonada - SAD </option>
+      <option> Sonadanga - SVH </option>
+      <option> Sonagir - SOR </option>
+      <option> Sonai - SYZ </option>
+      <option> Sonakhan - SXN </option>
+      <option> Sonalli - SI </option>
+      <option> Sonasan - SNSN </option>
+      <option> Sonbarsa Kcheri - SBM </option>
+      <option> Sondad - SNV </option>
+      <option> Sondha Road - SCN </option>
+      <option> Sonegaon - SNN </option>
+      <option> Songadh - SGD </option>
+      <option> Soni - SONI </option>
+      <option> Sonik - SIC </option>
+      <option> Sonipat - SNP </option>
+      <option> Sonpur Junction - SEE </option>
+      <option> Sonshelu - SNSL </option>
+      <option> Sontalai - SQL </option>
+      <option> Sonua - SWR </option>
+      <option> Sonwara - SWO </option>
+      <option> Sorbhog Junction - SBE </option>
+      <option> Soro - SORO </option>
+      <option> Soron - SRN </option>
+      <option> Soron - SRNK </option>
+      <option> Sorupeta - SPQ </option>
+      <option> Sri Dungargarh - SDGH </option>
+      <option> Sri Kalahasti - KHT </option>
+      <option> Srikakulam Road - CHE </option>
+      <option> Srikrishn Nagar - SKN </option>
+      <option> Srinagar - SINA </option>
+      <option> Srinagar - SNAR </option>
+      <option> Srinivasa Nagar - SHAN </option>
+      <option> Sriramnagar - SRNR </option>
+      <option> Srirangam - SRGM </option>
+      <option> Srivaikuntam - SVV </option>
+      <option> Srivilliputtur - SVPR </option>
+      <option> Stuartpuram - SPF </option>
+      <option> Subarnamrigi - SBNM </option>
+      <option> Subedarganj - SFG </option>
+      <option> Subrahmanya Roa - SBHR </option>
+      <option> Subzi Mandi - SZM </option>
+      <option> Sudamdih - SDMD </option>
+      <option> Sudhani - SUD </option>
+      <option> Sudsar - SDF </option>
+      <option> Suhsarai - SOW </option>
+      <option> Suisa - SSIA </option>
+      <option> Sujangarh - SUJH </option>
+      <option> Sujanpur - SJNP </option>
+      <option> Sujnipara - SPLE </option>
+      <option> Sukinda Road - SKND </option>
+      <option> Sukna - SN </option>
+      <option> Sukrimangela - SOY </option>
+      <option> Sukritipur - SQF </option>
+      <option> Suku - SXV </option>
+      <option> Suku - SUKU </option>
+      <option> Suladhal - SUL </option>
+      <option> Sulehalli - SUH </option>
+      <option> Sulerjavalge - SLGE </option>
+      <option> Sulgare - SGRE </option>
+      <option> Sulgare - SGRD </option>
+      <option> Sullurupeta - SPE </option>
+      <option> Sultanganj - SGG </option>
+      <option> Sultanpur - SLN </option>
+      <option> Sultanpur Lodi - SQR </option>
+      <option> Summer Hill - SHZ </option>
+      <option> Sumreri - SMRR </option>
+      <option> Sunak - SUC </option>
+      <option> Sunam - SFM </option>
+      <option> Sur Khand Ka Kh - SZK </option>
+      <option> Sura Nussi - SRX </option>
+      <option> Suraimanpur - SIP </option>
+      <option> Surajgarh - SRGH </option>
+      <option> Surajpur - SUPR </option>
+      <option> Surajpur Road - SJQ </option>
+      <option> Surareddipalem - SDM </option>
+      <option> Surat - ST </option>
+      <option> Suratgarh Junction - SOG </option>
+      <option> Surathkal - SL </option>
+      <option> Suratpura - SURP </option>
+      <option> Surendranagar - SUNR </option>
+      <option> Surendranagar G - SRGT </option>
+      <option> Surgaon Banjari - SGBJ </option>
+      <option> Suriawan - SAW </option>
+      <option> Suwansa - SWS </option>
+      <option> Suwasra - SVA </option>
+      <option> Swadinpur - SDLE </option>
+      <option> Swarupganj - SRPJ </option>
+      <option> Tadakalpudi - TPY </option>
+      <option> Tadali - TAE </option>
+      <option> Tadepalligudem - TDD </option>
+      <option> Tadipatri - TU </option>
+      <option> Tadwal - TVL </option>
+      <option> Taherpur - THP </option>
+      <option> Tahsil Bhadra - TSD </option>
+      <option> Tahsil Fatehpur - TSF </option>
+      <option> Taiabpur - TBR </option>
+      <option> Tajpur - TJP </option>
+      <option> Tajpur Dehma - TJD </option>
+      <option> Takal - TAKL </option>
+      <option> Takari - TKR </option>
+      <option> Takarkhede - TKHE </option>
+      <option> Takia - TQA </option>
+      <option> Takli - TKI </option>
+      <option> Takli Bhansali - TKLB </option>
+      <option> Taklimiya - TKMY </option>
+      <option> Taksal - TSL </option>
+      <option> Taku - TAKU </option>
+      <option> Talaiyuthu - TAY </option>
+      <option> Talakhajuri - TLKH </option>
+      <option> Talamanchi - TMC </option>
+      <option> Talandu - TLO </option>
+      <option> Talbahat - TBT </option>
+      <option> Talcher - TLHR </option>
+      <option> Talcher Road - TLHD </option>
+      <option> Talchhapar - TLC </option>
+      <option> Talegaon - TGN </option>
+      <option> Talgaria - TLE </option>
+      <option> Talguppa - TLGP </option>
+      <option> Talit - TIT </option>
+      <option> Taljhari - TLJ </option>
+      <option> Talmadla - TMD </option>
+      <option> Talod - TOD </option>
+      <option> Taloja Panchand - TPND </option>
+      <option> Talvadya - TLV </option>
+      <option> Talwandi - TWB </option>
+      <option> Tambaram - TBM </option>
+      <option> Tamkuhi Road - TOI </option>
+      <option> Tamluk - TMZ </option>
+      <option> Tamna - TAO </option>
+      <option> Tanakpur - TPU </option>
+      <option> Tanda Urmar - TDO </option>
+      <option> Tandur - TDU </option>
+      <option> Tangarmunda - TGM </option>
+      <option> Tangiriapal - TGRL </option>
+      <option> Tangla - TNL </option>
+      <option> Tangra - TRA </option>
+      <option> Tanguturu - TNR </option>
+      <option> Tankuppa - TKN </option>
+      <option> Tanuku - TNKU </option>
+      <option> Tanur - TA </option>
+      <option> Tapa - TAPA </option>
+      <option> Tapri - TPZ </option>
+      <option> Taradevi - TVI </option>
+      <option> Tarana Road - TAN </option>
+      <option> Taraori - TRR </option>
+      <option> Tarapith Road - TPF </option>
+      <option> Taregna - TEA </option>
+      <option> Targaon - TAZ </option>
+      <option> Tarigoppula - TGU </option>
+      <option> Tarikere Junction - TKE </option>
+      <option> Tarlupadu - TLU </option>
+      <option> Tarsarai - TRS </option>
+      <option> Taru - TR </option>
+      <option> Tatanagar Junction - TATA </option>
+      <option> Tatibahar - TBH </option>
+      <option> Tatisilwai - TIS </option>
+      <option> Teghra - TGA </option>
+      <option> Tehta - THA </option>
+      <option> Tekkabigha - TKBG </option>
+      <option> Telam - TQM </option>
+      <option> Telaprolu - TOU </option>
+      <option> Teliamura - TLMR </option>
+      <option> Telo - TELO </option>
+      <option> Telta - TETA </option>
+      <option> Tenali Junction - TEL </option>
+      <option> Tenganmada - TGQ </option>
+      <option> Tenkasi Junction - TSI </option>
+      <option> Tettu - TTU </option>
+      <option> Tetulmari - TET </option>
+      <option> Thadi - THY </option>
+      <option> Thakurganj - TKG </option>
+      <option> Thakurtota - TKH </option>
+      <option> Thalassery - TLY </option>
+      <option> Thallak - THKU </option>
+      <option> Thalwara - TLWA </option>
+      <option> Than Junction - THAN </option>
+      <option> Thana Bihpur Junction - THB </option>
+      <option> Thandla Road - THDR </option>
+      <option> Thane - TNA </option>
+      <option> Thanjavur - TJ </option>
+      <option> Tharsa - TAR </option>
+      <option> Thawe Jn - THE </option>
+      <option> Therubali - THV </option>
+      <option> Thiruvarur Junction - TVR </option>
+      <option> Thivim - THVM </option>
+      <option> Thokur - TOK </option>
+      <option> Thrisur - TCR </option>
+      <option> Thuria - THUR </option>
+      <option> Tibi - TIBI </option>
+      <option> Tihu - TIHU </option>
+      <option> Tikaria - TKYR </option>
+      <option> Tikekarwadi - TKWD </option>
+      <option> Tikiri - TKRI </option>
+      <option> Tikunia - TQN </option>
+      <option> Tilak Bridge - TKJ </option>
+      <option> Tilaru - TIU </option>
+      <option> Tilati - TLT </option>
+      <option> Tilaya - TIA </option>
+      <option> Tilbhita - TBB </option>
+      <option> Tilda - TLD </option>
+      <option> Tildanga - TDLE </option>
+      <option> Tilhar - TLH </option>
+      <option> Tiloniya - TL </option>
+      <option> Timarni - TBN </option>
+      <option> Timbarva - TBV </option>
+      <option> Timmanacherla - TIM </option>
+      <option> Timmapur - TMX </option>
+      <option> Timtala - TMT </option>
+      <option> Tindharia - TDH </option>
+      <option> Tindivanam - TMV </option>
+      <option> Tinpahar Junction - TPH </option>
+      <option> Tinsukia Junction - TSK </option>
+      <option> Tipkai - TPK </option>
+      <option> Tiptur - TTR </option>
+      <option> Tiraldih - TUL </option>
+      <option> Tirchrpali Fort - TP </option>
+      <option> Tirora - TRO </option>
+      <option> Tiruchchirapali - TPJ </option>
+      <option> Tiruchendur - TCN </option>
+      <option> Tiruchrpali Twn - TPTN </option>
+      <option> Tiruchrpli Plki - TPE </option>
+      <option> Tirukoilur - TRK </option>
+      <option> Tirumangalam - TMQ </option>
+      <option> Tirunelveli - TEN </option>
+      <option> Tirunnavaya - TUA </option>
+      <option> Tirupadripulyur - TDPR </option>
+      <option> Tiruparankndrm - TDN </option>
+      <option> Tirupati - TPTY </option>
+      <option> Tirupattur Junction - TPT </option>
+      <option> Tiruppur - TUP </option>
+      <option> Tirur - TIR </option>
+      <option> Tiruttangal - TTL </option>
+      <option> Tiruttani - TRT </option>
+      <option> Tiruvalla - TRVL </option>
+      <option> Tiruvannamalai - TNM </option>
+      <option> Tiruverumbur - TRB </option>
+      <option> Tisi - TISI </option>
+      <option> Tisua - TSA </option>
+      <option> Titabar - TTB </option>
+      <option> Titagarh - TGH </option>
+      <option> Titlagarh - TIG </option>
+      <option> Titwa - TTW </option>
+      <option> Tivari - TIW </option>
+      <option> To Darjeeling - DJRZ </option>
+      <option> To Darjeeling - DJR </option>
+      <option> Todarpur - TDP </option>
+      <option> Tohana - TUN </option>
+      <option> Tomka - TMKA </option>
+      <option> Topokal - TPQ </option>
+      <option> Toranagallu - TNGL </option>
+      <option> Torang - TRAN </option>
+      <option> Tori - TORI </option>
+      <option> Tribeni - TBAE </option>
+      <option> Trikarpur - TKQ </option>
+      <option> Trilochan Mahdo - TLMD </option>
+      <option> Triupunittura - TRTR </option>
+      <option> Trivandrum Cntl - TVC </option>
+      <option> Trivandrum Pett - TVP </option>
+      <option> Trivellore - TRL </option>
+      <option> Tsunduru - TSR </option>
+      <option> Tufanganj - TFGN </option>
+      <option> Tuggali - TGL </option>
+      <option> Tuglakabad - TKD </option>
+      <option> Tuiya Pani - TPNI </option>
+      <option> Tukaithad - TTZ </option>
+      <option> Tulin - THO </option>
+      <option> Tuljapur - TGP </option>
+      <option> Tulwara Jhil - TLI </option>
+      <option> Tumkur - TK </option>
+      <option> Tumsar Road - TMR </option>
+      <option> Tundla Junction - TDL </option>
+      <option> Tung - TUNG </option>
+      <option> Tuni - TUNI </option>
+      <option> Tunia - TUX </option>
+      <option> Tupkadih - TKB </option>
+      <option> Turavur - TUVR </option>
+      <option> Turekala Road - TRKR </option>
+      <option> Turtipar - TTI </option>
+      <option> Tuti Melur - TME </option>
+      <option> Tuticorin - TN </option>
+      <option> Tuvvur - TUV </option>
+      <option> Twining Ganj - TWG </option>
+      <option> Tyada - TXD </option>
+      <option> Tyakal - TCL </option>
+      <option> Uchana - UCA </option>
+      <option> Uchippuli - UCP </option>
+      <option> Udagamandalam - UAM </option>
+      <option> Udaipur City - UDZ </option>
+      <option> Udalguri - ULG </option>
+      <option> Udalkachar - UKR </option>
+      <option> Udasar - UDS </option>
+      <option> Udgir - UDGR </option>
+      <option> Udhampur - UHP </option>
+      <option> Udhna Junction - UDN </option>
+      <option> Udupi - UD </option>
+      <option> Udvada - UVD </option>
+      <option> Ugar Khurd - UGR </option>
+      <option> Ugna Halt - UGNA </option>
+      <option> Ugrasenpur - URPR </option>
+      <option> Ugwe - UGWE </option>
+      <option> Ujalvav - UJ </option>
+      <option> Ujhani - UJH </option>
+      <option> Ujiarpur - UJP </option>
+      <option> Ujjain Junction - UJN </option>
+      <option> Ukai Songadh - USD </option>
+      <option> Ukhali - UKH </option>
+      <option> Ukhra - UKA </option>
+      <option> Ukshi - UKC </option>
+      <option> Ulavapadu - UPD </option>
+      <option> Ulhasnagar - ULNR </option>
+      <option> Ullal - ULL </option>
+      <option> Ulubaria - ULB </option>
+      <option> Umar Tali - UTA </option>
+      <option> Umardashi - UM </option>
+      <option> Umaria - UMR </option>
+      <option> Umaria Ispa Hlt - UIH </option>
+      <option> Umbargam Road - UBR </option>
+      <option> Umdanagar - UR </option>
+      <option> Umed - UMED </option>
+      <option> Umra - UMRA </option>
+      <option> Umra Nala - ULA </option>
+      <option> Umri - UMRI </option>
+      <option> Una Himachal - UHL </option>
+      <option> Unawa Aithor - UAR </option>
+      <option> Unchahar Junction - UCR </option>
+      <option> Unchaulia - UCH </option>
+      <option> Unchdih - UND </option>
+      <option> Unchhera - UHR </option>
+      <option> Unchi Bassi - UCB </option>
+      <option> Undasa Madhawpu - UDM </option>
+      <option> Undi - UNDI </option>
+      <option> Unguturu - VGT </option>
+      <option> Unhel - UNL </option>
+      <option> Unjalur - URL </option>
+      <option> Unjha - UJA </option>
+      <option> Unnao Junction - ON </option>
+      <option> Untare Road - URD </option>
+      <option> Uparmal - URML </option>
+      <option> Upleta - UA </option>
+      <option> Uppal - OPL </option>
+      <option> Uppala - UAA </option>
+      <option> Uppugunduru - UGD </option>
+      <option> Uren - UREN </option>
+      <option> Urga - URGA </option>
+      <option> Urkura - URK </option>
+      <option> Urma - URMA </option>
+      <option> Uruli - URI </option>
+      <option> Usalapur - USL </option>
+      <option> Usmanabad - UMD </option>
+      <option> Usmanpur - UPR </option>
+      <option> Utarlai - UTL </option>
+      <option> Utarsanda - UTD </option>
+      <option> Utrahtia - UTR </option>
+      <option> Utran - URN </option>
+      <option> Uttukuli - UKL </option>
+      <option> Vadakara - BDJ </option>
+      <option> Vadgaon - VDN </option>
+      <option> Vadgaon Nila - VDGN </option>
+      <option> Vadgaon Nila - WDN </option>
+      <option> Vadlamannadu - VMD </option>
+      <option> Vadod - VXD </option>
+      <option> Vadodara Junction - BRC </option>
+      <option> Vaibhavwadi Road - VBW </option>
+      <option> Vaikam Road - VARD </option>
+      <option> Vailapuzha - VPZ </option>
+      <option> Vaitarna - VTN </option>
+      <option> Vakav - WKA </option>
+      <option> Valapattanam - VAPM </option>
+      <option> Valappadi G Hlt - VGE </option>
+      <option> Valathoor - VLT </option>
+      <option> Valivade - VV </option>
+      <option> Valivade - VVE </option>
+      <option> Valiveru - VRU </option>
+      <option> Vallikunnu - VLI </option>
+      <option> Valliyur - VLY </option>
+      <option> Valsad - BL </option>
+      <option> Vambori - VBR </option>
+      <option> Vangani - VGI </option>
+      <option> Vangaon - VGN </option>
+      <option> Vaniyambadi - VN </option>
+      <option> Vaniyambalam - VNB </option>
+      <option> Vapi - VAPI </option>
+      <option> Varahi - VRX </option>
+      <option> Varanasi City - BCY </option>
+      <option> Varanasi Junction - BSB </option>
+      <option> Varangaon - VNA </option>
+      <option> Varediya - VRE </option>
+      <option> Varkala - VAK </option>
+      <option> Varnama - VRM </option>
+      <option> Vartej - VTJ </option>
+      <option> Varvala - VVA </option>
+      <option> Vasad Junction - VDA </option>
+      <option> Vasai Road - BSR </option>
+      <option> Vasco Da Gama - VSG </option>
+      <option> Vatlur - VAT </option>
+      <option> Vatva - VTA </option>
+      <option> Vedayapalem - VDE </option>
+      <option> Vedchha - VDH </option>
+      <option> Veer - VEER </option>
+      <option> Vejandla - VJA </option>
+      <option> Velalacheruv Ht - VLCA </option>
+      <option> Velankanni - VLKN </option>
+      <option> Veli - VELI </option>
+      <option> Vellacheruvu - VLE </option>
+      <option> Vellankanni - VLNK </option>
+      <option> Vellore Cant - VLR </option>
+      <option> Vellore Town - VT </option>
+      <option> Vemuru - VMU </option>
+      <option> Vendodu - VDD </option>
+      <option> Vendra - VND </option>
+      <option> Venkatachalam - VKT </option>
+      <option> Venkatagiri - VKI </option>
+      <option> Venkatnagra - VKR </option>
+      <option> Veraval - VRL </option>
+      <option> Verka Junction - VKA </option>
+      <option> Verna - VEN </option>
+      <option> Vetapalemu - VTM </option>
+      <option> Vidisha - BHS </option>
+      <option> Vidyapatidham - VPDA </option>
+      <option> Vidyapatinagar - VPN </option>
+      <option> Vidyasagar - VDS </option>
+      <option> Vijapur - VJF </option>
+      <option> Vijay Pur - VJP </option>
+      <option> Vijayawada Junction - BZA </option>
+      <option> Vijiypur Jammu - VJPJ </option>
+      <option> Vikarabad Junction - VKB </option>
+      <option> Vikhran Road - VKH </option>
+      <option> Vikramgarh Alot - VMA </option>
+      <option> Vikramnagar - VRG </option>
+      <option> Vilad - VL </option>
+      <option> Vilavade - VID </option>
+      <option> Vilayatkalan Road - VYK </option>
+      <option> Villuparam Junction - VM </option>
+      <option> Vindhyachal - BDL </option>
+      <option> Vinhere - VINH </option>
+      <option> Vinukonda - VKN </option>
+      <option> Viramgam Junction - VG </option>
+      <option> Virani Alur - VRLR </option>
+      <option> Virapur - VP </option>
+      <option> Virar - VR </option>
+      <option> Viravada - VRV </option>
+      <option> Viravalli - VRVL </option>
+      <option> Viravasaram - VVM </option>
+      <option> Virbhadra - VRH </option>
+      <option> Virpur - VRR </option>
+      <option> Virudunagar Junction - VPT </option>
+      <option> Visapur - VPR </option>
+      <option> Vishakapatnam - VSKP </option>
+      <option> Vishnupuram - VNUP </option>
+      <option> Vishrambag - VRB </option>
+      <option> Vishvamitri - VS </option>
+      <option> Vishvamitri - VSI </option>
+      <option> Viswanath Chrli - VNE </option>
+      <option> Vithisvarankol - VDL </option>
+      <option> Viveka Vihar - VVB </option>
+      <option> Vizianagram Junction - VZM </option>
+      <option> Vridhachalam Junction - VRI </option>
+      <option> Vyara - VYA </option>
+      <option> Vyasnagar - VYN </option>
+      <option> W R S Colony Ph - WRC </option>
+      <option> Wadakancheri - WKI </option>
+      <option> Wadegaon - WDG </option>
+      <option> Wadhwan City - WC </option>
+      <option> Wadi - WADI </option>
+      <option> Wadiaram - WDR </option>
+      <option> Wadrengdisa - WDA </option>
+      <option> Wadsa - WSA </option>
+      <option> Wadsinge - WDS </option>
+      <option> Wadwal Nagnath - WDLN </option>
+      <option> Wair - WAIR </option>
+      <option> Walajah Road Junction - WJR </option>
+      <option> Wan Road - WND </option>
+      <option> Wanegaon - WNG </option>
+      <option> Wani - WANI </option>
+      <option> Wankaner Junction - WKR </option>
+      <option> Wanparti Road - WPR </option>
+      <option> Wansjaliya - WSJ </option>
+      <option> Warangal - WL </option>
+      <option> Wardha Junction - WR </option>
+      <option> Waria - OYR </option>
+      <option> Waris Aleganj - WRS </option>
+      <option> Warora - WRR </option>
+      <option> Washermanpet - WST </option>
+      <option> Washim - WHM </option>
+      <option> Washimbe - WSB </option>
+      <option> Wathar - WTR </option>
+      <option> Wazerganj - WZJ </option>
+      <option> Wellington - WEL </option>
+      <option> Wena - WENA </option>
+      <option> Whitefield - WFD </option>
+      <option> Wihirgaon - VHGN </option>
+      <option> Wirur - WIRR </option>
+      <option> Wyndhamganj - WDM </option>
+      <option> Boddavara - BDVR </option>
+      <option> Yadgir - YG </option>
+      <option> Yalvigi - YLG </option>
+      <option> Yamuna Bdg Agra - JAB </option>
+      <option> Yataluru - YAL </option>
+      <option> Yedamangala - YDM </option>
+      <option> Yedshi - YSI </option>
+      <option> Yelhanka Junction - YNK </option>
+      <option> Yeliyur - Y </option>
+      <option> Yellakaru - YLK </option>
+      <option> Yeola - YL </option>
+      <option> Yerpedu - YPD </option>
+      <option> Yerraguntla - YA </option>
+      <option> Yesvantpur Junction - YPR </option>
+      <option> Yevat - YT </option>
+      <option> Yusufpur - YFP </option>
+      <option> Zafarabad Junction - ZBD </option>
+      <option> Zahirabad - ZB </option>
+      <option> Zamania - ZNA </option>
+      <option> Zampini - ZPI </option>
+      <option> Zangalapalle - ZPL </option>
+      <option> Zarap - ZARP </option>
+      <option> Zawar - ZW </option>
+    </template>
 
+    <script>
+      var search = document.querySelector('#search');
+      var results = document.querySelector('#searchresults');
+      var templateContent = document.querySelector('#resultstemplate').content;
+      search.addEventListener('keyup', function handler(event) {
+      while (results.children.length) results.removeChild(results.firstChild);
+      var inputVal = new RegExp(search.value.trim(), 'i');
+      var set = Array.prototype.reduce.call(templateContent.cloneNode(true).children, function searchFilter(frag, item, i) {
+          if (inputVal.test(item.textContent) && frag.children.length < 6) frag.appendChild(item);
+          return frag;
+      }, document.createDocumentFragment());
+      results.appendChild(set);
+      });
+    </script>
 
         {% endblock %}
