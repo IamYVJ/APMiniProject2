@@ -375,22 +375,24 @@ def train():
 
 @app.route('/trainsearch',methods = ['POST', 'GET'])
 def trainsearch():
-    srcStn="HWH"
-    srcCity=""
-    destStn="Raipur"
-    destCity=""
+    # srcStn="HWH"
+    # srcCity=""
+    # destStn="Raipur"
+    # destCity=""
+    searchDep = ""
+    searchArr = ""
     dep=""
     dtoday = str(date.today())
     if request.method == 'POST':
-        srcCity = request.form['from']
-        destCity = request.form['to']
+        searchDep = request.form['from']
+        searchArr = request.form['to']
         dep=request.form['tday'].split('-')
 
-    destStn = destCity[destCity.find('-')+2:]
+    # destStn = destCity[destCity.find('-')+2:]
     # destCity = destCity[:destCity.find('-')-1]
-    print(srcCity)
-    print(destCity)
-    print(dep)
+    # print(srcCity)
+    # print(destCity)
+    # print(dep)
 
     # with sqlite3.connect('app/site.db') as conn:
     #     cur = conn.cursor()
@@ -416,11 +418,13 @@ def trainsearch():
     #     for rows in flights:
     #         cur.execute("INSERT INTO flights (flightid, destination ,arrival,airlines,flightno,depart,arrive,duration ,type,price) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)", (rows[0],rows[1],rows[2],rows[3],rows[4],rows[5],rows[6],rows[7],rows[8],rows[9]))
     # print(flights)
-    train=trainSearch(srcStn, srcCity, destStn, destCity, dep[2], dep[1], dep[0])
+    # train=trainSearch(srcStn, srcCity, destStn, destCity, dep[2], dep[1], dep[0])
+    train = trainSearch(searchDep, searchArr, dep[2], dep[1], dep[0])
     global a
     # train=[['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'Booking not allowed', 'Updated 3 hrs ago'], ['3 Tier AC', '1165', 'RLWL 24', 'Updated 1 day ago'], ['2 Tier AC', '1660', 'RLWL 14', 'Updated 3 hrs ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['JNANESWARI DEL', '#12101', 'S   T   W   S', '2:30 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 5m', '3:35 AM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'RLWL 41', 'Updated 1 day ago'], ['3 Tier AC', '1165', 'RLWL 22', 'Updated 1 day ago'], ['2 Tier AC', '1660', 'RLWL 6', 'Updated 1 day ago'], ['1st Class AC', '2815', 'RLWL 3', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['SNSI HWH SUP EX', '#22893', 'S', '6:10 AM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 20m', '7:30 PM  Sun', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '445', 'RLWL 90', 'Updated 1 day ago'], ['3 Tier AC', '1175', 'RLWL 36', 'Updated 1 day ago'], ['2 Tier AC', '1675', 'Booking not allowed', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['AZAD HIND EX', '#12129', 'S   M   T   W   T   F   S', '2:52 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 23m', '4:15 AM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'RLWL 44', 'Updated 18 hrs ago'], ['3 Tier AC', '1165', 'Booking not allowed', 'Updated 18 hrs ago'], ['2 Tier AC', '1660', 'RLWL 9', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['HOWRAH MAI', '#12809', 'S   M   T   W   T   F   S', '4:10 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 40m', '5:50 AM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'RLWL 49', 'Updated 6 hrs ago'], ['3 Tier AC', '1165', 'RLWL 24', 'Updated 1 day ago'], ['2 Tier AC', '1660', 'RLWL 9', 'Updated 1 day ago'], ['1st Class AC', '2815', 'RLWL 2', 'Updated 2 days ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['HOWRAH EXPRES', '#12833', 'S   M   T   W   T   F   S', '11:05 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '14h 25m', '1:30 PM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '445', 'RLWL 69', 'Updated 19 hrs ago'], ['3 Tier AC', '1175', 'RLWL 17', 'Updated 9 hrs ago'], ['2 Tier AC', '1675', 'RLWL 16', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['LTT SHALIMAR E', '#18029', 'S   M   T   W   T   F   S', '7:42 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '16h 38m', '12:20 PM  Mon', 'SHMDifferentYou searched for trains arriving in HWH (Kolkata), but this train arrives in SHM (Shalimar).HWH R SHMShalimar', [['Sleeper', '410', 'RLWL 55', 'Updated 23 hrs ago'], ['3 Tier AC', '1120', 'RLWL 17', 'Updated 23 hrs ago'], ['2 Tier AC', '1615', 'RLWL 8', 'Updated 23 hrs ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019']]
     a=train
     # print(train[1][8][0])
+    print(train)
     return render_template('trainsearch.html', flights=train)
 
 @app.route('/booktrain',methods = ['POST', 'GET'])
@@ -550,4 +554,3 @@ def hoteldescription():
     hotelid =  str(request.args.get('hotelid'))
     print(hotelid)
     return render_template('hoteldescription.html')
-

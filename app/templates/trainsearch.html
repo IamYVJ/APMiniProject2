@@ -40,17 +40,19 @@ Arrival    </h6></div>
             </div>
     <div class="col-lg-3 text-center" style="   top: 15px;">
         <h5>{{row["departureTime"]}}</h5>
-        <h6 style="margin-top: 10px;">AAAA</h6>
+        <h6 style="margin-top: 10px;">{{row["departureStnCode"]}} - {{row["departureStn"]}}</h6>
+        <h6 style="margin-top: 10px;">{{row["departureCity"]}}</h6>
     </div>
     <div class="col-lg-3 text-center" style=" margin top: 25px;">
             <h6>
                 {{row["duration"]}}
             </h6>
-            <!-- <h6>{{row}}</h6> --> 
+            <!-- <h6>{{row}}</h6> -->
     </div>
     <div class="col-lg-3 text-center" style="   top: 15px;">
             <h5>{{row["arrivalTime"]}}</h5>
-            <h6 style="margin-top: 10px;">{{row["trainNo"]}}</h6>
+            <h6 style="margin-top: 10px;">{{row["arrivalStnCode"]}} - {{row["arrivalStn"]}}</h6>
+            <h6 style="margin-top: 10px;">{{row["arrivalCity"]}}</h6>
 
     </div>
 </div>
