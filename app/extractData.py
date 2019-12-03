@@ -8,5 +8,6 @@ def extractFlight(rawData):
     return(data)
 
 def extractTrain(rawData):
-    rawData = rawData[1:-1]
-    
+    rawData = re.sub("'", "\"", rawData)
+    data = json.loads(rawData)
+    return(data)
