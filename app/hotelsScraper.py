@@ -237,18 +237,19 @@ def hotelDetail(hotel_url):
     rating_list.append(review_raw.find(attrs={'itemprop':'reviewCount'})['content'])
 
     return(name,rating_list,info_list,image_list,room_type_list)
+url = 'https://www.expedia.co.in/Raipur-Hotels-Courtyard-By-Marriott-Raipur.h13396463.Hotel-Information?chkin=18%2F12%2F2019&chkout=19%2F12%2F2019&regionId=3033&destination=Raipur%2C+Chhattisgarh%2C+India&swpToggleOn=true&rm1=a1&x_pwa=1&trackingData=Cmp-sxTkbnzA7%2F3DWBGYeOfcxkanzI0hc6KjIEUuvXwL%2BGP9xhhMl%2FF6Jt8%2FIyh%2BOC215FoVnjqxYbKwlNVgZDYHUfWODXWYVQLzmVitxk%2BKPZBGlcpbtETE8aU1O79OEvdYtJ%2Bskg3ZFvrjoNo%2FwATVowJcUg94rawxLShzv%2BxHXSfnJ%2FF5L21vgYsdPNUyI5gG4%2BC9%2Btc25BccbUYldu4drru6fZQENeoSgZFE7WQL%2BXfRjaY%2Bv2OG4uMOihvfOHoD98aqZdkJaopmtK5YcE%2FAFFVoF0ZrcuYRn%2BSuBrv1S84wajtZWRBmcOl9XMRlpuxpy9XstHjVGZ6bdm0MsaVqBWudW%2BHd0T7rxz8Ua%2FQFrKIxBIeNROhxSSytB4CltZYozWFWyIBo323GQ8F%2FM9Odm%2FmiSrlH503%2FI%2Bri5fbG70iLxBoYxs7K17QprvymLIAV8kpp0YVVA3tIHJjqpytSNGpfNQAHzUl3wTG6%2BIWcq28%2FRG8COh3AdeEmFv8YUf%2FXPc1MJ01qmWmTsfHGdyNPYBQ7ztHf8iOwaxyD9LP71JVjwk%2B2Htj9OKqFz5jhor%2BXioYbLo8G0HLdwLSmniZ65Ll3ks9CLkMNUMP%2B25HujN9CQzdqLZ4jEjO0FzKfSoAAnKs%2BVCwMO3CTQM5oBhD02m7cUESeMcQvvqP6qUNtRtwq3qe4xstIMRN6KfaFhld9ckymbPTIMrjDek22kUvEMFOyK9xLcXItb43heaf7OFvcj54iY7SbSykv7dZqTEvL7m%2BSW1FcPFsXlw0kBSH9Cx%2FCZqucAJlAtYi2KBWS2xngkVtN39hJBr%2BvZePOxDPIfJqivwXw3w2%2Fuyq8uhusfQc0MlSa4jj%2FyhbsvjlHMVtimY7n22E%2Fnwbg1V0xiua3ZiqNdasXsQO7W8y9xj8E%2FKwkD8KzEJjgnkstYVg%2BwP%2B%2FNZrCvqnKRwhTJwopn0RdqN3aUGyp4l8M7CZmX8THNHm%2FJbUZYyJmyDhOiRybKAgACJQZ6qKDagh3KTo2DOohEE6mK1QOxHGTF2lGVZohU%2B6XCGLZ58hiAVqPmhhE0rHkinrUnlM5xfkVcRShcrLJ8ohOW8lbz09CO2MoYJfRZZ6V8%2FvPCsvOMNRMRYzPA01Hc%2FWWxBFTI7owFwJBO5yL3qKXjZ%2BZ0X3mDCkCayQ0hV6W0WROlljZQSWF6sP8YPQzbHMGtioFPODCMWqjhnTEobRVxTd6LO4%3D&rank=1&testVersionOverride=Buttercup%2C31936.93479.0%2C31844.87534.0%2C31779.89311.1%2C33090.94624.3%2C33131.92839.0%2C33739.93396.0&slots=HSR_A&position=1&beaconIssued=2019-12-03T22%3A56%3A11&sort=recommended&top_dp=5240&top_cur=INR&rfrr=HSR&pwa_ts=1575413773103&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5jby5pbi9Ib3RlbC1TZWFyY2g%3D%27'
 
 def main():
     # a = hotelDetail('https://www.expedia.co.in/Raipur-Hotels-Hyatt-Raipur.h7065412.Hotel-Information?chkin=16/12/2019&chkout=17/12/2019&regionId=3033&destination=Raipur,+Chhattisgarh,+India&swpToggleOn=true&rm1=a2&x_pwa=1&trackingData=Cmp-wejY4k4JV22sZZUrBZm/jM4sYnQwYc1++xQAxmP9yqQ0CcwBjDAOu1DvHUcSDTu/rw66hA5lqXAuY0OlgVu2Wn6g99XPx5fF8fcl9+Pv3RS7Jl7d6RswGem6p8ZWZo3OODa0aX7D/dnxX4mQlHehJ+hLt+7o8gcSCwme5R4XwC8cl9bBALNYYhJ63kClS6EahFLuKhCKZgqSsEbETToa18UfXutbT85cSyIwudWTTCHT6NUz/W9OaT2WMc1gXlK1E+wBDfNSoOL/YTrxDc7p3nYrPwIwHpJT4jYYJypkDYQPJ+2RDxe1yLdcS+e+LBkdk9P7i3OkhER02m5eAOAzQQCGbuZTdR12KXwGwfO1/l54UXTfFCFIhku6drh1ujrjSyEPdtsJW8ZKcig2xxX0xfrMg4Bgc2kXruhATYSIpfIPNr0+tH37bIuwQaMOk4AY6e12xPI1DuLEBpGzMrPzLpMEu37f5kZDblw5wZYzX9fTDEzEeJzVCtft8n0DekPRe5hkNRvmX1Z3EoMQ0VMOH4MfEyQNoPqf9uTllr8/60ZiKRSnvBfpXbJ/IZOr2TiQM58QY+letcbPnpWLerI+TfR81WQYXU4mTFyEBNVsekBa2ydWHmwsb+1m9ocb3rkmeCoOTVQb8PCXcsClFAelOB0vPumMlZuhPgvqmNU1XRLmmmWYl3HRtEnoAtTDAnJTJtclqcJrIsAqPwOG0xxtj94y3yvfdI9Ffd4zJzsaFgafvuSCcz0Io2R7FRE0lGO+0JOzYjm9c2cBRpfBJRNhM31gO16rFTgqONWHgH38wcoyzvlJpbt1LYxhpu5ufLqNqBw6FbZgpyT2A803U2KZrFE613udHSsJ+qsoPIYGHU5GUiwtmix+eyu18WDbKCej2i7XW7Il48v0qUYh+hPnISmpxp1TZsD7aSA0YfhpI3r+bBYCHeE2P2MKU931HlD3I0YczAkf/aqZ0gGRZY/Ic4NIrB8SAi7+US4VjAEc7PnU9gpJoYZ84AxPBo5Fb0z+CedCEIT3rrYVKcknlk4lldJapTXqhGISg1mdm6oLuuQ=&rank=2&testVersionOverride=Buttercup,31936.93479.5,31844.87534.0,31779.89311.1,33090.94624.2,33131.92839.0&slots=HSR_AA&position=2&beaconIssued=2019-12-02T14:12:18&sort=recommended&top_dp=6250&top_cur=INR&rfrr=HSR&pwa_ts=1575295936192&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5jby5pbi9Ib3RlbC1TZWFyY2g=')
-    # for i in range(0,5):
-    #     print(a[i])
-    in_date = ['05','12','2019']
-    out_date = ['06','12','2019']
-    hotel_list = soupSite(get_source_sel('Raipur',in_date,out_date,1,2))
-    # print(hotel_list)
-    with open('out.txt', 'w') as f:
-        for item in hotel_list:
-            f.write("%s\n" % item)
+    a = hotelDetail(url)
+    for i in range(0,5):
+        print(a[i])
+    # in_date = ['05','12','2019']
+    # out_date = ['06','12','2019']
+    # hotel_list = soupSite(get_source_sel('Raipur',in_date,out_date,1,2))
+    # with open('out.txt', 'w') as f:
+    #     for item in hotel_list:
+    #         f.write("%s\n" % item)
 
 if __name__ == "__main__":
     main()

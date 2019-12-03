@@ -89,6 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv_flask/
 
 # Spyder project settings
 .spyderproject
@@ -111,3 +112,6 @@ outp.txt
 outpout.html
 outpsdfsfd.txt
 test.py
+
+#vscode config
+.vscode/
