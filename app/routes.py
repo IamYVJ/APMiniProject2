@@ -17,6 +17,8 @@ from app.generatePNRCode import generatePNR
 from app.gen_qr import genQR
 from app.extractData import extractFlight
 from app.hotelsScraper import soupSite,getSource
+from app.emailSend import EmailClass
+
 
 app.config['OAUTH_CREDENTIALS'] = {
     'google': {
@@ -266,14 +268,30 @@ def flightbooked():
     dtoday = str(date.today())
     print(a['departureTime'])
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
-    genQR(current_user.id, pnr, passenger['passengersInfo'][0]['firstName'],passenger['passengersInfo'][0]['lastName'],a['departureCityCode'],a['arrivalCityCode'],a['totalDuration'],a['departureTime'],a['arrivalTime'],dtoday,5)
+    genQR(current_user.id, pnr, passenger['passengersInfo'][0]['firstName'],passenger['passengersInfo'][0]['lastName'],a['departureCityCode'],a['arrivalCityCode'],a['totalDuration'],a['departureTime'],a['arrivalTime'],dtoday)
     details=str(a)
     returndetails=str(return1)
     passengerdetails=str(passenger)
+    print(abc)
+    fare=["","",""]
+    if(len(return1)>5):
+        fare2=int(a['baseFare'])+int(return1['baseFare'])
+        fare[0]=fare2
+        fare2=int(a['fuelSurcharge'])+int(return1['fuelSurcharge'])
+        fare[1]=fare2
+        fare2=int(a['totalFare'])+int(return1['totalFare'])
+        fare[2]=fare2
+    else:
+        fare2=int(a['baseFare'])
+        fare[0]=fare2
+        fare2=int(a['fuelSurcharge'])
+        fare[1]=fare2
+        fare2=int(a['totalFare'])
+        fare[2]=fare2
     with sqlite3.connect('app/site.db') as conn:
         cur = conn.cursor()
         cur.execute("INSERT INTO orderflights (userId, details ,pnr,passengers,return) VALUES (?, ?, ?, ?,?)", (current_user.id,details,pnr,passengerdetails,returndetails))
-    return render_template('flightbooked.html', row=abc, passenger=passenger,pnr=pnr)
+    return render_template('flightbooked.html', row=abc, passenger=passenger,pnr=pnr,fare=fare)
 
 
 
@@ -489,9 +507,10 @@ def trainbooked():
     sdetails=str(b)
     with sqlite3.connect('app/site.db') as conn:
         cur = conn.cursor()
-        cur.execute("INSERT INTO ordertrains1 (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
+        cur.execute("INSERT INTO ordertrains (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
     genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
+    
     return render_template('trainbooked.html', pnr=pnr, row=b)
 
 @app.route('/hotels',methods = ['POST', 'GET'])
@@ -530,3 +549,15 @@ def hoteldescription():
     hotelid =  str(request.args.get('hotelid'))
     print(hotelid)
     return render_template('hoteldescription.html')
+
+@app.route('/trainhistory',methods = ['POST', 'GET'])
+@login_required
+def trainhistory():
+    with sqlite3.connect('app/site.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM ordertrains WHERE userid="+str(current_user.id))
+        row=cur.fetchall()
+    print(row)
+    return render_template('hoteldescription.html')
+
+
