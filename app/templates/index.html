@@ -2,6 +2,8 @@
 
 {% extends "base.html" %}
 
+
+
 {% block content %}
         <div class="container" style="margin-top: 100px;">
             <div class="row">
@@ -12,7 +14,7 @@
                         <form action="#" class="filter-search">
                             <div class="category-search">
                                 <h5>Search Category</h5>
-                                <select class="ca-search">
+                                <select class="ca-search selectize">
                                     <option>Restaurants</option>
                                     <option>Hotels</option>
                                     <option>Food & Drinks</option>
@@ -26,10 +28,44 @@
                                     <option>New York</option>
                                 </select>
                             </div>
+                            
+                            <div id="myDropdown" class="dropdown-content">
+                                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                                    <a href="#about">About</a>
+                                    <a href="#base">Base</a>
+                                    <a href="#blog">Blog</a>
+                                    <a href="#contact">Contact</a>
+                                    <a href="#custom">Custom</a>
+                                    <a href="#support">Support</a>
+                                    <a href="#tools">Tools</a>
+                                  </div>
+                                    
+
                             <button type="submit">Search Now</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+<script>function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+          txtValue = a[i].textContent || a[i].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+          } else {
+            a[i].style.display = "none";
+          }
+        }
+      }</script>
+
+        
+    
+        
         {% endblock %}
+
+

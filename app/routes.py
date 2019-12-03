@@ -16,6 +16,7 @@ from app.trainscraper import trainSearch
 from app.generatePNRCode import generatePNR
 from app.gen_qr import genQR
 from app.extractData import extractFlight
+from app.hotelsScraper import soupSite,getSource
 
 app.config['OAUTH_CREDENTIALS'] = {
     'google': {
@@ -475,17 +476,17 @@ def trainpayment():
 @app.route('/trainbooked',methods = ['POST', 'GET'])
 @login_required
 def trainbooked():
-    # trainid =  str(request.args.get('trainid'))
-    # ind=(int(trainid[0]))
-    # priceindex=int(trainid[1])
-    # global a
-    # b=a[ind]
-    # print(b)
-    # print(b[ind])
-    # b[8]=b[8][priceindex]
-    # print(b)
+    trainid =  str(request.args.get('trainid'))
+    ind=(int(trainid[0]))
+    priceindex=int(trainid[1])
+    global a
+    b=a[ind]
+    print(b)
+    print(b[ind])
+    b[8]=b[8][priceindex]
+    print(b)
     # b="['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Mon', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Tue', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', ['3 Tier AC', '1165', 'RLWL 23', 'Updated 8 hrs ago'], 'R', 'Raipur', 'HWH', 'Kolkata', '02-12-2019', ['yash.burad_ug21@ashoka.edu.in', '9898', 'Mr.', 'Yash', 'Burad']]"
-    b={'flightID': 'DELIDR6E503820191215IDRRPR6E25220191215_6EAPI', 'xmlKey': '6EAPI', 'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'totalStops': '1', 'totalDuration': '07:25', 'totalLayover': '04:45', 'airline': '', 'airlineCode': '', 'vehicleCode': '', 'flightNo': '', 'departureCityCode': '', 'arrivalCityCode': '', 'departureDate': '', 'arrivalDate': '', 'departureTime': '', 'arrivalTime': '', 'aircraft': '', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': '', 'baseFare': '6091', 'totalFare': '7241', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '1150', 'PSF': '0', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': [{'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '5038', 'departureCityCode': 'DEL', 'arrivalCityCode': 'IDR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '09:10', 'arrivalTime': '10:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}, {'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '252', 'departureCityCode': 'IDR', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '15:20', 'arrivalTime': '16:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}]}
+    # b={'flightID': 'DELIDR6E503820191215IDRRPR6E25220191215_6EAPI', 'xmlKey': '6EAPI', 'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'totalStops': '1', 'totalDuration': '07:25', 'totalLayover': '04:45', 'airline': '', 'airlineCode': '', 'vehicleCode': '', 'flightNo': '', 'departureCityCode': '', 'arrivalCityCode': '', 'departureDate': '', 'arrivalDate': '', 'departureTime': '', 'arrivalTime': '', 'aircraft': '', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': '', 'baseFare': '6091', 'totalFare': '7241', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '1150', 'PSF': '0', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': [{'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '5038', 'departureCityCode': 'DEL', 'arrivalCityCode': 'IDR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '09:10', 'arrivalTime': '10:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}, {'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '252', 'departureCityCode': 'IDR', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '15:20', 'arrivalTime': '16:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}]}
     pnr=generatePNR()
     print(pnr)
     sdetails=str(b)
@@ -501,3 +502,28 @@ def hotels():
     dtoday = str(date.today())
     print(dtoday)
     return render_template('hotels.html', dtoday = dtoday)
+
+@app.route('/myorders',methods = ['POST', 'GET'])
+def myorders():
+    dtoday = str(date.today())
+    print(dtoday)
+    return render_template('myorders.html', dtoday = dtoday)
+
+@app.route('/hotelsearch',methods = ['POST', 'GET'])
+def hotelsearch():
+    if request.method == 'POST':
+        destination = request.form['place']
+        rooms = request.form['rooms']
+        checkin = request.form['inday']
+        checkout = request.form['outday']
+        adults = request.form['adults']
+    print(destination)
+    print(rooms)
+    print(checkin)
+    print(checkout)
+    print(adults)
+    # row=soupSite(getSource(destination,checkin,checkout,rooms,adults))
+    dtoday = str(date.today())
+    row=[[0, 'Courtyard by Marriott Raipur', 'Raipur', '4,680', 'https://thumbnails.trvl-media.com/eE9z7pDtp1yjX_Bg5neHpTD4nUY=/455x235/smart/images.trvl-media.com/hotels/14000000/13400000/13396500/13396463/c2d22074_b.jpg', '4.8/5', 'Exceptional', '15'], [1, 'Hyatt Raipur', 'Viewed', '6,250', 'https://thumbnails.trvl-media.com/ogtUmbfUQd5cXKkVsVq2PGTW96k=/455x235/smart/images.trvl-media.com/hotels/8000000/7070000/7065500/7065412/38c7f465_b.jpg', '4.1/5', 'Very Good', '50'], [2, 'Courtyard by Marriott Raipur', 'Raipur', '4,680', 'https://thumbnails.trvl-media.com/gNYraClYJIVqrY3_nANKYV_e-lo=/455x235/smart/images.trvl-media.com/hotels/14000000/13400000/13396500/13396463/b1aa54ca_w.jpg', '4.8/5', 'Exceptional', '15'], [3, 'Hotel Sayaji Raipur', 'Viewed', '7,350', 'https://thumbnails.trvl-media.com/8BopfeA7_HctEpYJObkaJf2XKII=/1200x800/smart/images.trvl-media.com/hotels/19000000/18350000/18341000/18340918/c4bc0712_w.jpg', '4.0/5', 'Very Good', '8'], [4, 'Hyatt Raipur', 'Viewed', '6,250', 'https://thumbnails.trvl-media.com/CdV7xdS6tJV5XyBSUMUUjw438aA=/1200x800/smart/images.trvl-media.com/hotels/8000000/7070000/7065500/7065412/38c7f465_w.jpg', '4.1/5', 'Very Good', '50'], [5, 'Singhania Sarovar Portico', 'Viewed', '3,699', 'https://thumbnails.trvl-media.com/JOpjEtnpV-2AoadE8uQ_tTM1-Yc=/1200x800/smart/images.trvl-media.com/hotels/23000000/22200000/22196300/22196226/6366c4de_w.jpg', '4.5/5', 'Wonderful', '4'], [6, 'Hotel Babylon Inn', 'Viewed', '3,675', 'https://thumbnails.trvl-media.com/8hys69DaSuteA4B-6oJEKnBcGQw=/1200x800/smart/images.trvl-media.com/hotels/9000000/8830000/8821700/8821682/4dca0f0e_w.jpg', '4.3/5', 'Excellent', '6'], [7, 'OYO 6325 Hotel Kiran', 'Viewed', '2,804', 'https://thumbnails.trvl-media.com/DoPpGnIU3jgNRULoofWCN7sUdzs=/1200x800/smart/images.trvl-media.com/hotels/24000000/23180000/23172200/23172134/22d0d28b_w.jpg', '5/5', 'Excellent', 449], [8, 'Hotel Piccadily Raipur', 'Viewed', '3,284', 'https://thumbnails.trvl-media.com/DFBMUSlCUtkYhBuVp3SWopCLIuc=/1200x800/smart/images.trvl-media.com/hotels/37000000/36690000/36690000/36689993/859392c2_w.jpg', '5/5', 'Excellent', 197], [9, 'iStay Hotels Raipur Junction', 'Viewed', '2,101', 'https://thumbnails.trvl-media.com/V3K6ozgA5LMAzaLnoTDpQCAhe9k=/1200x800/smart/images.trvl-media.com/hotels/18000000/17790000/17786800/17786798/738d97a8_w.jpg', '4.0/5', 'Very Good', '1'], [10, 'Hotel Venkatesh International', 'Viewed', '50,000', 'https://thumbnails.trvl-media.com/cZNxlWjUVTHTH53ZkqXn9FBqPNU=/1200x800/smart/images.trvl-media.com/hotels/38000000/37110000/37103400/37103360/041a91e0_w.jpg', '4/5', 'Very Good', 205], [11, 'Clarks Inn suites Raipur', 'Viewed', '5,300', 'https://thumbnails.trvl-media.com/nuf_yMBMv1CGfk9_Uvc8Brj93PQ=/1200x800/smart/images.trvl-media.com/hotels/36000000/35880000/35879700/35879613/944d39d0_w.jpg', '5/5', 'Very Good', '1'], [12, 'Hotel Grand Rajputana', 'Viewed', '2,499', 'https://thumbnails.trvl-media.com/f-7bovMMjzUI5aAU7pMpQOiLWSU=/1200x800/smart/images.trvl-media.com/hotels/20000000/19940000/19935400/19935311/ba1868eb_w.jpg', '5/5', 'Very Good', 416], [13, 'Landmark Hotel', 'Viewed', '2,850', 'https://thumbnails.trvl-media.com/JwSsRk474eP9RO7Ji9fcz4Z2c8s=/1200x800/smart/images.trvl-media.com/hotels/38000000/37630000/37625300/37625256/168d14c7_w.jpg', '5/5', 'Very Good', 1466], [14, 'SPOT ON 37254 Hotel Krishna', 'Viewed', '914', 'https://thumbnails.trvl-media.com/RxT1Rj2ajlMVDEd_f7ynSlzZkY8=/1200x800/smart/images.trvl-media.com/hotels/43000000/42580000/42573200/42573199/0a6469d7_w.jpg', '4/5', 'Very Good', 846], [15, 'Le ROI Raipur', 'Viewed', '1,999', 'https://thumbnails.trvl-media.com/UjrFjmyDivsmGEeCKV4tBrYmLlo=/1200x800/smart/images.trvl-media.com/hotels/11000000/10990000/10984200/10984119/77ef0366_w.jpg', '4.3/5', 'Excellent', '7'], [16, 'Mayfair Lake Resort', 'Viewed', '7,000', 'https://thumbnails.trvl-media.com/0DrbcEqNYmcSVq61OEzqVsl9Fds=/1200x800/smart/images.trvl-media.com/hotels/34000000/33800000/33797900/33797883/f171c84b_w.jpg', '5/5', 'Excellent', 1177], [17, 'OYO 27933 Hotel Green Valley', 'Viewed', '3,281', 'https://thumbnails.trvl-media.com/MbRwphfqMnsE2qT8_9MhpFP0gcE=/1200x800/smart/images.trvl-media.com/hotels/41000000/40160000/40152100/40152028/0bf2efc1_w.jpg', '5/5', 'Excellent', 174], [18, 'Hotel Shamrock', 'Viewed', '2,600', 'https://images.trvl-media.com:443/hotels/4000000/3500000/3494500/3494475/372180e0_y.jpg', '3.7/5', 'Good', '6'], [19, 'Hotel Aditya', 'Viewed', '2,189', 'https://thumbnails.trvl-media.com/qvCk_UF2Gd5b4mv_Cer0FteqGT8=/1200x800/smart/images.trvl-media.com/hotels/36000000/35180000/35170600/35170506/aa16ec26_w.jpg', '5/5', 'Good', 943]]
+    print(dtoday)
+    return render_template('hotelsearch.html', dtoday = dtoday, row=row)
