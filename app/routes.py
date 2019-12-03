@@ -169,7 +169,7 @@ def returnflightsearch():
     dep=return1[2].split('-')
     print(type)
     flights=flightSearch(return1[1],return1[0],dep[2],dep[1],dep[0])
-    
+
     # with sqlite3.connect('app/site.db') as conn:
     #     cur = conn.cursor()
     #     for rows in flights:
@@ -353,7 +353,7 @@ def payment():
     passenger["passengersInfo"][0]["phoneNo"]=number
     passenger["passengersInfo"][0]["title"]=title
     print(passenger)
-    if(flight>999):  
+    if(flight>999):
         return render_template('payment.html', row=abc,fare=fare)
     else:
         return render_template('payment.html', row=a,fare=fare)
@@ -374,9 +374,9 @@ def train():
 
 @app.route('/trainsearch',methods = ['POST', 'GET'])
 def trainsearch():
-    srcStn="R"
+    srcStn="HWH"
     srcCity=""
-    destStn="HWH"
+    destStn="Raipur"
     destCity=""
     dep=""
     dtoday = str(date.today())
@@ -384,10 +384,13 @@ def trainsearch():
         srcCity = request.form['from']
         destCity = request.form['to']
         dep=request.form['tday'].split('-')
+
+    destStn = destCity[destCity.find('-')+2:]
+    # destCity = destCity[:destCity.find('-')-1]
     print(srcCity)
     print(destCity)
     print(dep)
-    
+
     # with sqlite3.connect('app/site.db') as conn:
     #     cur = conn.cursor()
     #     cur.execute("SELECT count(*) FROM flights")
@@ -416,7 +419,7 @@ def trainsearch():
     global a
     # train=[['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'Booking not allowed', 'Updated 3 hrs ago'], ['3 Tier AC', '1165', 'RLWL 24', 'Updated 1 day ago'], ['2 Tier AC', '1660', 'RLWL 14', 'Updated 3 hrs ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['JNANESWARI DEL', '#12101', 'S   T   W   S', '2:30 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 5m', '3:35 AM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'RLWL 41', 'Updated 1 day ago'], ['3 Tier AC', '1165', 'RLWL 22', 'Updated 1 day ago'], ['2 Tier AC', '1660', 'RLWL 6', 'Updated 1 day ago'], ['1st Class AC', '2815', 'RLWL 3', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['SNSI HWH SUP EX', '#22893', 'S', '6:10 AM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 20m', '7:30 PM  Sun', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '445', 'RLWL 90', 'Updated 1 day ago'], ['3 Tier AC', '1175', 'RLWL 36', 'Updated 1 day ago'], ['2 Tier AC', '1675', 'Booking not allowed', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['AZAD HIND EX', '#12129', 'S   M   T   W   T   F   S', '2:52 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 23m', '4:15 AM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'RLWL 44', 'Updated 18 hrs ago'], ['3 Tier AC', '1165', 'Booking not allowed', 'Updated 18 hrs ago'], ['2 Tier AC', '1660', 'RLWL 9', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['HOWRAH MAI', '#12809', 'S   M   T   W   T   F   S', '4:10 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '13h 40m', '5:50 AM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '440', 'RLWL 49', 'Updated 6 hrs ago'], ['3 Tier AC', '1165', 'RLWL 24', 'Updated 1 day ago'], ['2 Tier AC', '1660', 'RLWL 9', 'Updated 1 day ago'], ['1st Class AC', '2815', 'RLWL 2', 'Updated 2 days ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['HOWRAH EXPRES', '#12833', 'S   M   T   W   T   F   S', '11:05 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '14h 25m', '1:30 PM  Mon', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', [['Sleeper', '445', 'RLWL 69', 'Updated 19 hrs ago'], ['3 Tier AC', '1175', 'RLWL 17', 'Updated 9 hrs ago'], ['2 Tier AC', '1675', 'RLWL 16', 'Updated 1 day ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019'], ['LTT SHALIMAR E', '#18029', 'S   M   T   W   T   F   S', '7:42 PM  Sun', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '16h 38m', '12:20 PM  Mon', 'SHMDifferentYou searched for trains arriving in HWH (Kolkata), but this train arrives in SHM (Shalimar).HWH R SHMShalimar', [['Sleeper', '410', 'RLWL 55', 'Updated 23 hrs ago'], ['3 Tier AC', '1120', 'RLWL 17', 'Updated 23 hrs ago'], ['2 Tier AC', '1615', 'RLWL 8', 'Updated 23 hrs ago']], 'R', 'Raipur', 'HWH', 'Kolkata', '01-12-2019']]
     a=train
-    print(train[1][8][0])
+    # print(train[1][8][0])
     return render_template('trainsearch.html', flights=train)
 
 @app.route('/booktrain',methods = ['POST', 'GET'])
@@ -428,7 +431,7 @@ def booktrain():
     print(priceindex)
     global a
     print(a[ind])
-    print(a[ind][8][priceindex])
+    print(a[ind]["classes"][priceindex])
     dtoday = str(date.today())
     print(dtoday)
     # if form.validate_on_submit():
@@ -454,38 +457,51 @@ def trainpayment():
     print(ind)
     print(priceindex)
     global a
-    b=[]
-    b.append(email)
-    b.append(number)
-    b.append(title)
-    b.append(firstname)
-    b.append(lastname)
-    print(b)
-    a = list(a)
-    a[ind].append(b)
+    # b=[]
+    # b.append(email)
+    # b.append(number)
+    # b.append(title)
+    # b.append(firstname)
+    # b.append(lastname)
+    # print(b)
+    passenger = {
+    "title" : "",
+    "firstName" : "",
+    "lastName" : "",
+    "emailID" : "",
+    "phoneNo" : ""
+    }
+    passenger["title"] = title
+    passenger["firstName"] = firstname
+    passenger["lastName"] = lastname
+    passenger["emailID"] = email
+    passenger["phoneNo"] = number
+    # a = list(a)
+    # a[ind].append(b)
+    a[ind]["passengerDetails"] = passenger
     print(a[ind])
-    print(a[ind][8][priceindex][1])
+    print(a[ind]["classes"][priceindex]["price"])
     # with sqlite3.connect('app/site.db') as conn:
     #     cur = conn.cursor()
     #     cur.execute("SELECT * FROM flights WHERE flightid =" +str(flight))
-    #     row=cur.fetchone()    
+    #     row=cur.fetchone()
     # print(row)
-    return render_template('trainpayment.html', price=a[ind][8][priceindex][1], ind=ind,priceindex=priceindex)
+    return render_template('trainpayment.html', price=a[ind]["classes"][priceindex]["price"], ind=ind,priceindex=priceindex)
 
 @app.route('/trainbooked',methods = ['POST', 'GET'])
 @login_required
 def trainbooked():
-    # trainid =  str(request.args.get('trainid'))
-    # ind=(int(trainid[0]))
-    # priceindex=int(trainid[1])
-    # global a
-    # b=a[ind]
-    # print(b)
+    trainid =  str(request.args.get('trainid'))
+    ind=(int(trainid[0]))
+    priceindex=int(trainid[1])
+    global a
+    b=a[ind]
+    print(b)
     # print(b[ind])
-    # b[8]=b[8][priceindex]
+    b["classes"]=b["classes"][priceindex]
     # print(b)
     # b="['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Mon', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Tue', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', ['3 Tier AC', '1165', 'RLWL 23', 'Updated 8 hrs ago'], 'R', 'Raipur', 'HWH', 'Kolkata', '02-12-2019', ['yash.burad_ug21@ashoka.edu.in', '9898', 'Mr.', 'Yash', 'Burad']]"
-    b={'flightID': 'DELIDR6E503820191215IDRRPR6E25220191215_6EAPI', 'xmlKey': '6EAPI', 'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'totalStops': '1', 'totalDuration': '07:25', 'totalLayover': '04:45', 'airline': '', 'airlineCode': '', 'vehicleCode': '', 'flightNo': '', 'departureCityCode': '', 'arrivalCityCode': '', 'departureDate': '', 'arrivalDate': '', 'departureTime': '', 'arrivalTime': '', 'aircraft': '', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': '', 'baseFare': '6091', 'totalFare': '7241', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '1150', 'PSF': '0', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': [{'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '5038', 'departureCityCode': 'DEL', 'arrivalCityCode': 'IDR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '09:10', 'arrivalTime': '10:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}, {'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '252', 'departureCityCode': 'IDR', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '15:20', 'arrivalTime': '16:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}]}
+    # b={'flightID': 'DELIDR6E503820191215IDRRPR6E25220191215_6EAPI', 'xmlKey': '6EAPI', 'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'totalStops': '1', 'totalDuration': '07:25', 'totalLayover': '04:45', 'airline': '', 'airlineCode': '', 'vehicleCode': '', 'flightNo': '', 'departureCityCode': '', 'arrivalCityCode': '', 'departureDate': '', 'arrivalDate': '', 'departureTime': '', 'arrivalTime': '', 'aircraft': '', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': '', 'baseFare': '6091', 'totalFare': '7241', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '1150', 'PSF': '0', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': [{'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '5038', 'departureCityCode': 'DEL', 'arrivalCityCode': 'IDR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '09:10', 'arrivalTime': '10:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}, {'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '252', 'departureCityCode': 'IDR', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '15:20', 'arrivalTime': '16:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}]}
     pnr=generatePNR()
     print(pnr)
     sdetails=str(b)
@@ -493,7 +509,7 @@ def trainbooked():
         cur = conn.cursor()
         cur.execute("INSERT INTO ordertrains1 (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
-    # genQR(current_user.id, pnr, b[14][3],b[14][4],b[10],b[12],b[5],b[3],b[6],b[13],5)
+    genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
     return render_template('trainbooked.html', pnr=pnr, row=b)
 
 @app.route('/hotels',methods = ['POST', 'GET'])
