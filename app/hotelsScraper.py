@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 import time
 from selenium.webdriver.firefox.options import Options
-from app.OSDetect import osDetect
+# from app.OSDetect import osDetect
 # from OSDetect import osDetect
 
 def getSource(destination,check_in,check_out,rooms,guest):
@@ -117,21 +117,21 @@ def get_img(hotel_url):
 
 def hotelDetail(hotel_url):
     driver = ""
-    syst = osDetect()
+    # syst = osDetect()
 
-    if syst=='W':
-        options = Options()
-        options.headless = True
-        driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
+    # if syst=='W':
+    #     options = Options()
+    #     options.headless = True
+    #     driver = wd.Firefox(executable_path = r'drivers\Windows\geckodriver.exe', options=options)
 
-    elif syst=='M':
-        driver = wd.Chrome()
+    # elif syst=='M':
+    #     driver = wd.Chrome()
 
-    elif syst=='L':
-        # options = Options()
-        # options.headless = True
-        # driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
-        driver =  wd.Chrome("d:\\Users\\Sai\Desktop\\chromedriver.exe")
+    # elif syst=='L':
+    #     # options = Options()
+    #     # options.headless = True
+    #     driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
+    driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
     driver.get(hotel_url)
     page_raw = driver.page_source
     driver.close()
@@ -151,13 +151,13 @@ def hotelDetail(hotel_url):
     room_type_list = []
     for room in room_data.find_all('li' , attrs={'data-stid':'section-roomtype'}):
         local_list = []
-        local_list.append(room.find('span', attrs={'aria-hidden':'true','class':'uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate'}))
+        local_list.append(room.find('span', attrs={'aria-hidden':'true','class':'uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate'}).text)
 
         raws = room.find_all('span', attrs={'class':'all-l-padding-two'})
         for q  in raws:
             local_list.append(q.text)
 
-        local_list.append(room.find('span', attrs={'data-stid':'content-hotel-display-price'}).find(attrs={'aria-hidden':'true'}).text.strip("Rs."))
+        # local_list.append(room.find('span', attrs={'data-stid':'content-hotel-display-price'}).find(attrs={'aria-hidden':'true'}).text.strip("Rs."))
         room_type_list.append(local_list)
 
     # Info Section
@@ -184,7 +184,8 @@ def hotelDetail(hotel_url):
     return(name,rating_list,info_list,image_list,room_type_list)
 
 def main():
-    hotelDetail('https://www.expedia.co.in/Raipur-Hotels-Hyatt-Raipur.h7065412.Hotel-Information?chkin=16/12/2019&chkout=17/12/2019&regionId=3033&destination=Raipur,+Chhattisgarh,+India&swpToggleOn=true&rm1=a2&x_pwa=1&trackingData=Cmp-wejY4k4JV22sZZUrBZm/jM4sYnQwYc1++xQAxmP9yqQ0CcwBjDAOu1DvHUcSDTu/rw66hA5lqXAuY0OlgVu2Wn6g99XPx5fF8fcl9+Pv3RS7Jl7d6RswGem6p8ZWZo3OODa0aX7D/dnxX4mQlHehJ+hLt+7o8gcSCwme5R4XwC8cl9bBALNYYhJ63kClS6EahFLuKhCKZgqSsEbETToa18UfXutbT85cSyIwudWTTCHT6NUz/W9OaT2WMc1gXlK1E+wBDfNSoOL/YTrxDc7p3nYrPwIwHpJT4jYYJypkDYQPJ+2RDxe1yLdcS+e+LBkdk9P7i3OkhER02m5eAOAzQQCGbuZTdR12KXwGwfO1/l54UXTfFCFIhku6drh1ujrjSyEPdtsJW8ZKcig2xxX0xfrMg4Bgc2kXruhATYSIpfIPNr0+tH37bIuwQaMOk4AY6e12xPI1DuLEBpGzMrPzLpMEu37f5kZDblw5wZYzX9fTDEzEeJzVCtft8n0DekPRe5hkNRvmX1Z3EoMQ0VMOH4MfEyQNoPqf9uTllr8/60ZiKRSnvBfpXbJ/IZOr2TiQM58QY+letcbPnpWLerI+TfR81WQYXU4mTFyEBNVsekBa2ydWHmwsb+1m9ocb3rkmeCoOTVQb8PCXcsClFAelOB0vPumMlZuhPgvqmNU1XRLmmmWYl3HRtEnoAtTDAnJTJtclqcJrIsAqPwOG0xxtj94y3yvfdI9Ffd4zJzsaFgafvuSCcz0Io2R7FRE0lGO+0JOzYjm9c2cBRpfBJRNhM31gO16rFTgqONWHgH38wcoyzvlJpbt1LYxhpu5ufLqNqBw6FbZgpyT2A803U2KZrFE613udHSsJ+qsoPIYGHU5GUiwtmix+eyu18WDbKCej2i7XW7Il48v0qUYh+hPnISmpxp1TZsD7aSA0YfhpI3r+bBYCHeE2P2MKU931HlD3I0YczAkf/aqZ0gGRZY/Ic4NIrB8SAi7+US4VjAEc7PnU9gpJoYZ84AxPBo5Fb0z+CedCEIT3rrYVKcknlk4lldJapTXqhGISg1mdm6oLuuQ=&rank=2&testVersionOverride=Buttercup,31936.93479.5,31844.87534.0,31779.89311.1,33090.94624.2,33131.92839.0&slots=HSR_AA&position=2&beaconIssued=2019-12-02T14:12:18&sort=recommended&top_dp=6250&top_cur=INR&rfrr=HSR&pwa_ts=1575295936192&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5jby5pbi9Ib3RlbC1TZWFyY2g=')
+    a = hotelDetail('https://www.expedia.co.in/Raipur-Hotels-Hyatt-Raipur.h7065412.Hotel-Information?chkin=16/12/2019&chkout=17/12/2019&regionId=3033&destination=Raipur,+Chhattisgarh,+India&swpToggleOn=true&rm1=a2&x_pwa=1&trackingData=Cmp-wejY4k4JV22sZZUrBZm/jM4sYnQwYc1++xQAxmP9yqQ0CcwBjDAOu1DvHUcSDTu/rw66hA5lqXAuY0OlgVu2Wn6g99XPx5fF8fcl9+Pv3RS7Jl7d6RswGem6p8ZWZo3OODa0aX7D/dnxX4mQlHehJ+hLt+7o8gcSCwme5R4XwC8cl9bBALNYYhJ63kClS6EahFLuKhCKZgqSsEbETToa18UfXutbT85cSyIwudWTTCHT6NUz/W9OaT2WMc1gXlK1E+wBDfNSoOL/YTrxDc7p3nYrPwIwHpJT4jYYJypkDYQPJ+2RDxe1yLdcS+e+LBkdk9P7i3OkhER02m5eAOAzQQCGbuZTdR12KXwGwfO1/l54UXTfFCFIhku6drh1ujrjSyEPdtsJW8ZKcig2xxX0xfrMg4Bgc2kXruhATYSIpfIPNr0+tH37bIuwQaMOk4AY6e12xPI1DuLEBpGzMrPzLpMEu37f5kZDblw5wZYzX9fTDEzEeJzVCtft8n0DekPRe5hkNRvmX1Z3EoMQ0VMOH4MfEyQNoPqf9uTllr8/60ZiKRSnvBfpXbJ/IZOr2TiQM58QY+letcbPnpWLerI+TfR81WQYXU4mTFyEBNVsekBa2ydWHmwsb+1m9ocb3rkmeCoOTVQb8PCXcsClFAelOB0vPumMlZuhPgvqmNU1XRLmmmWYl3HRtEnoAtTDAnJTJtclqcJrIsAqPwOG0xxtj94y3yvfdI9Ffd4zJzsaFgafvuSCcz0Io2R7FRE0lGO+0JOzYjm9c2cBRpfBJRNhM31gO16rFTgqONWHgH38wcoyzvlJpbt1LYxhpu5ufLqNqBw6FbZgpyT2A803U2KZrFE613udHSsJ+qsoPIYGHU5GUiwtmix+eyu18WDbKCej2i7XW7Il48v0qUYh+hPnISmpxp1TZsD7aSA0YfhpI3r+bBYCHeE2P2MKU931HlD3I0YczAkf/aqZ0gGRZY/Ic4NIrB8SAi7+US4VjAEc7PnU9gpJoYZ84AxPBo5Fb0z+CedCEIT3rrYVKcknlk4lldJapTXqhGISg1mdm6oLuuQ=&rank=2&testVersionOverride=Buttercup,31936.93479.5,31844.87534.0,31779.89311.1,33090.94624.2,33131.92839.0&slots=HSR_AA&position=2&beaconIssued=2019-12-02T14:12:18&sort=recommended&top_dp=6250&top_cur=INR&rfrr=HSR&pwa_ts=1575295936192&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5jby5pbi9Ib3RlbC1TZWFyY2g=')
+    print(a[4])
     # in_date = ['05','12','2019']
     # out_date = ['06','12','2019']
     # hotel_list = soupSite(getSource('Raipur',in_date,out_date,1,2))
