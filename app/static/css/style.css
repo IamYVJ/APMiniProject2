@@ -2970,6 +2970,11 @@ input[type="email"] {
 	margin-left: 30px;
   }
 
+  .hotelsearch ::placeholder {
+	color: black; !important
+	left: 30px;
+  }
+
 
 .hotels h1,h2,h3,h4,h5,h6{
 	color:#001959;

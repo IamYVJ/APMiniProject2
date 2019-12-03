@@ -8,7 +8,6 @@ import time
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options as OptionsCr
 from app.OSDetect import osDetect
-# from OSDetect import osDetect
 
 global driver
 driver = ""
@@ -258,8 +257,56 @@ def gettraindata(rawData):
     return(traindata)
 
 
+def fixTrainData(traindata):
+    trainDataDict = []
+    for i in traindata:
+
+        train = {
+            "trainName" : "",
+             "trainNo" : "",
+             "days" : "",
+             "departureTime" : "",
+             "depStnInfo" : "",
+             "duration" : "",
+             "arrivalTime" : "",
+             "arrStnInfo" : "",
+             "classes" : "",
+             "departureCity" : "",
+             "departureStnCode" : "",
+             "arrivalCity" : "",
+             "arrivalStnCode" : "",
+             "departureDate" : "",
+             "arrivalDate" : ""
+            }
+
+        train["trainName"] = i[0]
+        train["trainNo"] = i[1]
+        train["days"] = i[2]
+        train["departureTime"] = i[3]
+        train["depStnInfo"] = i[4]
+        train["duration"] = i[5]
+        train["arrivalTime"] = i[6]
+        train["arrStnInfo"] = i[7]
+        # train["classes"] = i[8]
+        classes = []
+        for j in i[8]:
+            tclass = {
+            "className" : "",
+            "price" : "",
+            "availability" : "",
+            "update" : ""
+            }
+            tclass["className"] = j[0]
+            tclass["price"] = j[1]
+            tclass["availability"] = j[2]
+            tclass["update"] = j[3]
+            classes.append(tclass)
+        train["classes"] = classes
+        trainDataDict.append(train)
+    return(trainDataDict)
 
 def trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
+    # return([{'trainName': 'GITANJALI EX', 'trainNo': '#12859', 'days': 'S   M   T   W   T   F   S', 'departureTime': '11:35 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '12h 55m', 'arrivalTime': '12:30 PM  Fri', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '440', 'availability': 'RLWL 39', 'update': 'Updated 1 day ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'PBR HOWRAH EX', 'trainNo': '#12905', 'days': 'M   T   F', 'departureTime': '2:30 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '13h 5m', 'arrivalTime': '3:35 AM  Fri', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '440', 'availability': 'RLWL 18', 'update': 'Updated 18 hrs ago'}, {'className': '3 Tier AC', 'price': '1165', 'availability': 'RLWL 12', 'update': 'Updated 18 hrs ago'}, {'className': '2 Tier AC', 'price': '1660', 'availability': 'RLWL 6', 'update': 'Updated 18 hrs ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'AZAD HIND EX', 'trainNo': '#12129', 'days': 'S   M   T   W   T   F   S', 'departureTime': '2:52 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '13h 23m', 'arrivalTime': '4:15 AM  Fri', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '440', 'availability': 'RLWL 16', 'update': 'Updated 1 day ago'}, {'className': '3 Tier AC', 'price': '1165', 'availability': 'RLWL 10', 'update': 'Updated 1 day ago'}, {'className': '2 Tier AC', 'price': '1660', 'availability': 'RLWL 4', 'update': 'Updated 1 day ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'HOWRAH MAI', 'trainNo': '#12809', 'days': 'S   M   T   W   T   F   S', 'departureTime': '4:10 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '13h 40m', 'arrivalTime': '5:50 AM  Fri', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '440', 'availability': 'RLWL 31', 'update': 'Updated 1 day ago'}, {'className': '3 Tier AC', 'price': '1165', 'availability': 'RLWL 18', 'update': 'Updated 15 hrs ago'}, {'className': '2 Tier AC', 'price': '1660', 'availability': 'RLWL 11', 'update': 'Updated 15 hrs ago'}, {'className': '1st Class AC', 'price': '2815', 'availability': 'RLWL 1', 'update': 'Updated 1 day ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'HOWRAH EXPRES', 'trainNo': '#12833', 'days': 'S   M   T   W   T   F   S', 'departureTime': '11:05 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '14h 25m', 'arrivalTime': '1:30 PM  Fri', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '445', 'availability': 'RLWL 35', 'update': 'Updated 2 days ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'KARMABHOOMI EX', 'trainNo': '#22511', 'days': 'T', 'departureTime': '6:05 AM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '15h 25m', 'arrivalTime': '9:30 PM  Thu', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '440', 'availability': 'RLWL 77', 'update': 'Updated 18 hrs ago'}, {'className': '3 Tier AC', 'price': '1165', 'availability': 'RLWL 30', 'update': 'Updated 1 day ago'}, {'className': '2 Tier AC', 'price': '1660', 'availability': 'Booking not allowed', 'update': 'Updated 1 day ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'LTT SHALIMAR E', 'trainNo': '#18029', 'days': 'S   M   T   W   T   F   S', 'departureTime': '7:42 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '16h 38m', 'arrivalTime': '12:20 PM  Fri', 'arrStnInfo': 'SHMDifferentYou searched for trains arriving in HWH (Kolkata), but this train arrives in SHM (Shalimar).HWH R SHMShalimar', 'classes': [{'className': '3 Tier AC', 'price': '', 'availability': 'C1120RLWL 11', 'update': 'Updated 1 day ago'}, {'className': '2 Tier AC', 'price': '1615', 'availability': 'RLWL 3', 'update': 'Updated 1 day ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}, {'trainName': 'SAMARSATA EX', 'trainNo': '#12151', 'days': 'T   F', 'departureTime': '3:40 PM  Thu', 'depStnInfo': 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', 'duration': '16h 45m', 'arrivalTime': '8:25 AM  Fri', 'arrStnInfo': 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', 'classes': [{'className': 'Sleeper', 'price': '480', 'availability': 'RLWL 23', 'update': 'Updated 13 hrs ago'}, {'className': '3 Tier AC', 'price': '1270', 'availability': 'RLWL 14', 'update': 'Updated 1 day ago'}, {'className': '2 Tier AC', 'price': '1820', 'availability': 'RLWL 4', 'update': 'Updated 13 hrs ago'}, {'className': '1st Class AC', 'price': '3100', 'availability': 'RLWL 1', 'update': 'Updated 3 days ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': ''}])
 
     rawData = get_source(srcStn, srcCity, destStn, destCity, dd, mm, yyyy)
     traindata = gettraindata(rawData)
@@ -270,6 +317,7 @@ def trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy):
         i.append(destStn)
         i.append(destCity)
         i.append(str(dd)+'-'+str(mm)+'-'+str(yyyy))
+    traindata = fixTrainData(traindata)
     return(traindata)
 
 
@@ -280,15 +328,17 @@ def test():
     srcCity = 'Raipur'
     destStn = 'HWH'
     destCity = 'Kolkata'
-    dd = 30
-    mm = 11
+    dd = 12
+    mm = 12
     yyyy = 2019
 
     traindata =  trainSearch(srcStn, srcCity, destStn, destCity, dd, mm, yyyy)
 
+    # print(traindata)
+
     for i in traindata:
-        for j in i:
-            print(j)
+        print(i)
         print()
 
+# from OSDetect import osDetect
 # test()

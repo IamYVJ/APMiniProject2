@@ -4460,3 +4460,9 @@ stations = [
   ['4459', 'Zarap', 'ZARP', ''],
   ['4460', 'Zawar', 'ZW', '2']
 ]
+
+
+def makeHTML():
+    for i in stations:
+        print("<option> " + str(i[1]) + " - " + str(i[2]) + " </option>")
+makeHTML()

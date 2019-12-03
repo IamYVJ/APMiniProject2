@@ -113,7 +113,7 @@
             </div>
         </div>
 
-
+{%set a="raipur" %}
 <script>
     function hide(){
         document.getElementById("rday").style.opacity = "0";
@@ -151,7 +151,7 @@
         input = document.getElementById('myInput');
         input.value="Adele";
         if(a==1){
-            input.value="Adele";
+            input.value="{{a}}";
             ul = document.getElementById("myUL");
             ul.style.display="none";
         }

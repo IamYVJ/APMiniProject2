@@ -8,37 +8,37 @@
     margin-left: 0px;background-color: rgba(255, 255, 255, 0.6);
     padding-top: 30px; margin-top: 50px; width: 1120px; height: 170px; margin-bottom: 30px; border-radius: 15px 15px 15px 15px;">
         <div class="col-lg-3 text-center" style="top:15px;">
-            
-            <h4>{{row[0]}}</h4>
-            <h6>{{row[1]}}</h6>
-            <h6>{{row[2]}}</h6>
+
+            <h4>{{row["trainName"]}}</h4>
+            <h6>{{row["trainNo"]}}</h6>
+            <h6>{{row["days"]}}</h6>
 
             </div>
     <div class="col-lg-2" style="    top: 15px;">
-        <h5>{{row[10]}}</h5>
+        <h5>{{row["departureCity"]}}</h5>
         <h6>__________</h6>
-        <h4 style=" margin-top: 5px;">{{row[9]}}</h4>
+        <h4 style=" margin-top: 5px;">{{row["departureStnCode"]}}</h4>
 
     </div>
     <div class="col-lg-4 text-center" style="    top: 15px;">
                 <h6 style="font-size: 16px; position:relative; left: 0px; margin-bottom: -5px; ">
-                 {{row[5]}}
+                 {{row["duration"]}}
                 </h6>
                 <h6 style="margin-bottom: 5px;
                 ">_______________________________</h6>
                 </h6>
-                <h6>{{row[8][ind][0]}} | {{row[8][ind][2]}}</h6>
-                
-            
-    </div>
-    <div class="col-lg-3 text-center" style="    top: 15px;">
-            <h5>{{row[12]}}</h5>
-        <h6>__________</h6>
-        <h4 style=" margin-top: 5px;">{{row[11]}}</h4>
+                <h6>{{row["classes"][ind]["className"]}} | {{row["classes"][ind]["availability"]}}</h6>
+
 
     </div>
-    
-        
+    <div class="col-lg-3 text-center" style="    top: 15px;">
+            <h5>{{row["arrivalCity"]}}</h5>
+        <h6>__________</h6>
+        <h4 style=" margin-top: 5px;">{{row["arrivalStnCode"]}}</h4>
+
+    </div>
+
+
     </div>
 
     <form action="/trainpayment?trainid={{i}}{{ind}}"  method="POST">
@@ -62,7 +62,7 @@
         <div class="col-lg-12 text-center">
                 Your booking details will be sent to this email address and mobile number.
         </div>
-        
+
     </div>
     <div class="row col-lg-12" style="height: 1px; top:-50px;" >
         <div class="col-lg-12 text-center">
@@ -83,7 +83,7 @@
                         <input name="firstname" type="text" placeholder="    Enter your First Name" required style="border-radius: 5px;    width: 70%;
                         height: 40px;">
                 </div>
-            
+
             <div class="col-lg-3 text-center" style="margin-left: -50px;    top: 15px;">
                     <input name="lastname" type="text" placeholder="    Enter your Last Name" required style=" border-radius: 5px;   width: 227px;
                     height: 40px;" >
@@ -95,10 +95,10 @@
     margin-left: 0px; padding-top: 20px;" >
     <div class="col-lg-12 text-center">
             <h4>Fare Details</h4></div>
-        
-            
+
+
             <div class="col-lg-12 text-center" style="margin-left:    top: 15px;">
-                    <h4>Total Fare: {{row[8][ind][1]}}</h4>
+                    <h4>Total Fare: {{row["classes"][ind]["price"]}}</h4>
             </div>
             <div class="col-lg-7" style="margin-left: 55px;">
                 <button type="submit" style="top:20px;!important">BOOK NOW</button>
@@ -109,8 +109,8 @@
 
 
 
-        
-            
+
+
         </div>
 
 </div>
