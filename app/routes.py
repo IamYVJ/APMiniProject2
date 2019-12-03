@@ -549,5 +549,5 @@ def hotelsearch():
 def hoteldescription():
     hotelid =  str(request.args.get('hotelid'))
     print(hotelid)
-    return render_template('hotelsearch.html')
+    return render_template('hoteldescription.html')
 

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hoteldescription " style="background-color: rgb(255,255,255,0.7);top: -60px;
+position: relative;; height:700px; overflow:auto; margin: 55px 55px;">
+    <div class="row">
+<div class="slideshow-container col-lg-7" style="height: 500px;">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="https://thumbnails.trvl-media.com/CdV7xdS6tJV5XyBSUMUUjw438aA=/1200x800/smart/images.trvl-media.com/hotels/8000000/7070000/7065500/7065412/38c7f465_w.jpg" style="width:800px;height:500px;">
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="/static/img/flight.jpg" style="width:800px;height:500px;">
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="/static/img/hotel.png" style="width:800px;height:500px;">
+        </div>
+      
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <div class="col-lg-5" style=" left:-15px;height: 500px; background-color: rgb(255,255,255,0,7); padding-top: 20px;padding-left: 0px; padding-right: 0px;">
+        <h4 style="border-bottom:1px solid grey; text-align: center;">Courtyard by Marriot Raipur</h4>
+        <br>
+        <div style="height:30px; border-bottom: 1px solid grey;padding-bottom: 5px; ">
+        <h5 style="margin-left: 40px;margin-bottom: 24px;">   4.8/5 Exceptional</h5><h5 style="    margin-top: -45px;
+        margin-left: 450px;">15 Reviews</h5>
+        </div>
+        <div style="padding-top: 20px; padding-left:10px;"><h4>Property Amenities:</h4>
+        
+        
+        </div>
+
+    </div>
+    </div>
+
+<div class="row">
+        <div class="hotels row col-lg-11" style="  width:1000px;
+        margin-top: 50px;
+        background-color: rgb(255,255,255);
+        height: 200px;
+        border-radius: 5px;
+        margin-left: 45px;
+        border-radius: 10px;
+        top: auto;
+        padding-top: 14px;">
+            <div><img src="row[4]" style="width: 302px;
+                height: 170px;"> </div>
+                <div style="width: 770px; padding-left: 20px;"><h3>Deluxe Room</h3>
+                <h6 style="margin-top: 15px;">1 King Bed</h5>
+                <h6 style="margin-top: 15px;">City view </h6>
+                <h6 style="margin-top: 15px;">Sleeps 3</h6>
+                <h4 style="    position: relative;
+                top: -130px;
+                left: 800px;">Rs row[3]</h4>
+        
+            </div>
+</div>
+      
+      <!-- The dots/circles -->
+      
+    </div>
+
+
+
+
+
+
+
+<script>var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        // Next/previous controls
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        // Thumbnail image controls
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }</script>
+
+{% endblock %}
