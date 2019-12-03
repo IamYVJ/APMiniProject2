@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<div class="container" style="background-color:rgb(0,0,0,0.6); height:700px; overflow:auto;">
+<div class="container" style="background-color:rgb(0,0,0,0.5); height:700px; overflow:auto;">
 <form action="{{ url_for('hotelsearch') }}"   method="POST">
 <div class="hotelsearch row" style="margin-top: 20px;">
-                <input type="text" class="col-lg-4" style="    margin-left: 20px;
+                <input type="text" class="col-lg-4" placeholder="{{place}}" style="    margin-left: 20px;
         border-radius: 10px;
         height: 40px;">
         <input type="text" placeholder="{{inday}}"

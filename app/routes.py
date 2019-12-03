@@ -375,10 +375,7 @@ def train():
 
 @app.route('/trainsearch',methods = ['POST', 'GET'])
 def trainsearch():
-    # srcStn="HWH"
-    # srcCity=""
-    # destStn="Raipur"
-    # destCity=""
+
     searchDep = ""
     searchArr = ""
     dep=""
@@ -387,37 +384,6 @@ def trainsearch():
         searchDep = request.form['from']
         searchArr = request.form['to']
         dep=request.form['tday'].split('-')
-
-    # destStn = destCity[destCity.find('-')+2:]
-    # destCity = destCity[:destCity.find('-')-1]
-    # print(srcCity)
-    # print(destCity)
-    # print(dep)
-
-    # with sqlite3.connect('app/site.db') as conn:
-    #     cur = conn.cursor()
-    #     cur.execute("SELECT count(*) FROM flights")
-    #     row=cur.fetchone()
-    #     print(row[0])
-    # if(row[0]==0):
-    #     if(departureCode=="" or arrivalCode=="" or len(dep)==0):
-    #         return render_template('flights.html',form=form, dtoday = dtoday)
-    #     # else:
-    #         # flights = flightSearch(departureCode, arrivalCode, dep[2], dep[1], dep[0])
-    # else:
-    #     with sqlite3.connect('app/site.db') as conn:
-    #         cur = conn.cursor()
-    #         cur.execute("SELECT * FROM flights")
-    #         row=cur.fetchall()
-    #         for rows in row:
-    #             flights.append(rows)
-    # print(flights)
-    # flights=[[0, 'New Delhi', 'Mumbai', 'Go Air', 'G8-429', '21:35', '23:50', '2h 15m ', 'Non Stop ', '5308'], [1, 'New Delhi', 'Mumbai', 'Go Air', 'G8-338', '10:30', '12:50', '2h 20m ', 'Non Stop ', '5308'], [2, 'New Delhi', 'Mumbai', 'Go Air', 'G8-640', '18:00', '20:20', '2h 20m ', 'Non Stop ', '5308'], [3, 'New Delhi', 'Mumbai', 'Go Air', 'G8-544', '22:40', '01:00+ 1 day', '2h 20m ', 'Non Stop ', '5308'], [4, 'New Delhi', 'Mumbai', 'Go Air', 'G8-446', '19:40', '22:05', '2h 25m ', 'Non Stop ', '5308'], [5, 'New Delhi', 'Mumbai', 'Vistara', 'UK-975', '06:00', '08:00', '2h 00m ', 'Non Stop ', '5518'], [6, 'New Delhi', 'Mumbai', 'Air India', 'AI-887', '07:00', '09:05', '2h 05m ', 'Non Stop ', '5518'], [7, 'New Delhi', 'Mumbai', 'Vistara', 'UK-985', '19:50', '21:55', '2h 05m ', 'Non Stop ', '5518'], [8, 'New Delhi', 'Mumbai', 'Air India', 'AI-805', '20:00', '22:10', '2h 10m ', 'Non Stop ', '5518'], [9, 'New Delhi', 'Mumbai', 'Air India', 'AI-191', '21:00', '23:10', '2h 10m ', 'Non Stop ', '5518'], [10, 'New Delhi', 'Mumbai', 'Vistara', 'UK-927', '09:30', '11:40', '2h 10m ', 'Non Stop ', '5518'], [11, 'New Delhi', 'Mumbai', 'Vistara', 'UK-953', '20:40', '22:50', '2h 10m ', 'Non Stop ', '5518'], [12, 'New Delhi', 'Mumbai', 'Vistara', 'UK-981', '21:40', '23:50', '2h 10m ', 'Non Stop ', '5518'], [13, 'New Delhi', 'Mumbai', 'Vistara', 'UK-933', '15:30', '17:40', '2h 10m ', 'Non Stop ', '5518'], [14, 'New Delhi', 'Mumbai', 'Go Air', 'G8-530', '07:00', '09:10', '2h 10m ', 'Non Stop ', '5518'], [15, 'New Delhi', 'Mumbai', 'Air India', 'AI-665', '08:00', '10:15', '2h 15m ', 'Non Stop ', '5518'], [16, 'New Delhi', 'Mumbai', 'Air India', 'AI-24', '18:00', '20:15', '2h 15m ', 'Non Stop ', '5518'], [17, 'New Delhi', 'Mumbai', 'Vistara', 'UK-995', '10:20', '12:35', '2h 15m ', 'Non Stop ', '5518'], [18, 'New Delhi', 'Mumbai', 'Vistara', 'UK-993', '12:45', '15:00', '2h 15m ', 'Non Stop ', '5518'], [19, 'New Delhi', 'Mumbai', 'Vistara', 'UK-923', '06:40', '09:00', '2h 20m ', 'Non Stop ', '5518'], [20, 'New Delhi', 'Mumbai', 'Vistara', 'UK-963', '08:50', '11:10', '2h 20m ', 'Non Stop ', '5518'], [21, 'New Delhi', 'Mumbai', 'Vistara', 'UK-945', '11:40', '14:00', '2h 20m ', 'Non Stop ', '5518'], [22, 'New Delhi', 'Mumbai', 'Vistara', 'UK-955', '17:45', '20:05', '2h 20m ', 'Non Stop ', '5518'], [23, 'New Delhi', 'Mumbai', 'Vistara', 'UK-977', '18:55', '21:15', '2h 20m ', 'Non Stop ', '5518'], [24, 'New Delhi', 'Mumbai', 'Air Asia', 'I5-881', '05:20', '07:30', '2h 10m ', 'Non Stop ', '5600']]
-    # with sqlite3.connect('app/site.db') as conn:
-    #     cur = conn.cursor()
-    #     for rows in flights:
-    #         cur.execute("INSERT INTO flights (flightid, destination ,arrival,airlines,flightno,depart,arrive,duration ,type,price) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)", (rows[0],rows[1],rows[2],rows[3],rows[4],rows[5],rows[6],rows[7],rows[8],rows[9]))
-    # print(flights)
     # train=trainSearch(srcStn, srcCity, destStn, destCity, dep[2], dep[1], dep[0])
     train = trainSearch(searchDep, searchArr, dep[2], dep[1], dep[0])
     global a
@@ -425,6 +391,16 @@ def trainsearch():
     a=train
     # print(train[1][8][0])
     print(train)
+    if(len(a)==0):
+        flash('No trains found for this route', 'danger')
+        return render_template('train.html')
+    elif(len(a)==1):
+        if(a[0]==1):
+            flash('No station found for '+searchArr , 'danger')
+        elif(a[0]==0):
+            flash('No station found for '+searchDep , 'danger')
+        return render_template('train.html')
+
     return render_template('trainsearch.html', flights=train)
 
 @app.route('/booktrain',methods = ['POST', 'GET'])
@@ -500,8 +476,8 @@ def trainbooked():
     ind=(int(trainid[0]))
     priceindex=int(trainid[1])
     global a
-    a= {'trainName': 'JNANESWARISUPDL', 'trainNo': '#12102', 'days': 'S   M   W   T', 'departureTime': '10:50 PM  Thu', 'depStnInfo': 'HWHYou searched for trains departing from HWH(HWH), but this train departs from HWH (Howrah Jn)HWH HWH RHowrah Jn', 'duration': '12h 25m', 'arrivalTime': '11:15 AM  Fri', 'arrStnInfo': 'RYou searched for trains arriving in R (Raipur), but this train arrives in R (Raipur Jn).R HWH RRaipur Jn', 'classes': [{'className': 'Sleeper', 'price': '445', 'availability': 'PQWL 51', 'update': 'Updated 2 hrs ago'}, {'className': '3 Tier AC', 'price': '1175', 'availability': 'PQWL 26', 'update': 'Updated 30 mins ago'}, {'className': '2 Tier AC', 'price': '1675', 'availability': 'PQWL 18', 'update': 'Updated 22 hrs ago'}, {'className': '1st Class AC', 'price': '2835', 'availability': 'PQWL 7', 'update': 'Updated 22 hrs ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': '', 'passengerDetails': {'title': 'Mr.', 'firstName': 'Yash', 'lastName': 'Burad', 'emailID': 'yash.burad_ug21@ashoka.edu.in', 'phoneNo': '9898'}}
-    b=a
+    # a= {'trainName': 'JNANESWARISUPDL', 'trainNo': '#12102', 'days': 'S   M   W   T', 'departureTime': '10:50 PM  Thu', 'depStnInfo': 'HWHYou searched for trains departing from HWH(HWH), but this train departs from HWH (Howrah Jn)HWH HWH RHowrah Jn', 'duration': '12h 25m', 'arrivalTime': '11:15 AM  Fri', 'arrStnInfo': 'RYou searched for trains arriving in R (Raipur), but this train arrives in R (Raipur Jn).R HWH RRaipur Jn', 'classes': [{'className': 'Sleeper', 'price': '445', 'availability': 'PQWL 51', 'update': 'Updated 2 hrs ago'}, {'className': '3 Tier AC', 'price': '1175', 'availability': 'PQWL 26', 'update': 'Updated 30 mins ago'}, {'className': '2 Tier AC', 'price': '1675', 'availability': 'PQWL 18', 'update': 'Updated 22 hrs ago'}, {'className': '1st Class AC', 'price': '2835', 'availability': 'PQWL 7', 'update': 'Updated 22 hrs ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': '', 'passengerDetails': {'title': 'Mr.', 'firstName': 'Yash', 'lastName': 'Burad', 'emailID': 'yash.burad_ug21@ashoka.edu.in', 'phoneNo': '9898'}}
+    b=a[ind]
     print(b)
     # print(b[ind])
     b["classes"]=b["classes"][priceindex]
@@ -515,7 +491,7 @@ def trainbooked():
         cur = conn.cursor()
         cur.execute("INSERT INTO ordertrains1 (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
-    # genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
+    genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
     return render_template('trainbooked.html', pnr=pnr, row=b)
 
 @app.route('/hotels',methods = ['POST', 'GET'])

@@ -72,7 +72,31 @@ for i in a:
 # e=row[0][2].toArray()
 # print(e)
 
-conn.execute('''ALTER table orderflights ADD return TEXT''')
+a=[['Internet ', 'Available in all rooms: Free WiFi and wired Internet ', 'Available in some public areas: Free WiFi '
+    ],
+    ['Parking and public transport ', 'Free valet parking ', 'Limited parking spaces', 'Free 24-hour return airport shuttle ', 'Airport shuttle on request ', 'Limo/town car service' ],
+    ['Food and drink ', 'Buffet breakfast available for a fee 6: 30 AM–10: 30 AM on weekdays and 6: 30 AM–11 AM on weekends: INR 531 per person', '1 restaurant and 1 coffee shop/cafe', '1 bar', '24-hour room service'
+    ],
+    ['Things to do ', 'Health club ', 'Shopping '
+    ],
+    ['Family friendly ', 'Babysitting/childcare (surcharge)', 'Dry-cleaning service', 'Corner/local shop', 'Laundry facilities', 'Rollaway/extra beds (surcharge)'
+    ],
+    ['Conveniences ', 'ATM/banking services ', 'Banquet hall ', 'Lift ', 'Free newspapers in reception ', 'Front-desk safe ', 'Gift shop/newsstand ', 'Corner/local shop ', 'Reception hall '
+    ],
+    ['Guest services ', '24-hour front desk ', 'Concierge services ', 'Dry-cleaning service ', 'Laundry facilities ', 'Luggage storage ', 'Porter ', 'Tour/ticket assistance ', 'Turndown service ', 'Wedding services '
+    ],
+    ['Languages spoken ', 'English ', 'Hindi '
+    ],
+    ['Business services ', 'Business centre ', 'Computer station ', 'Meeting rooms ', 'Conference space (4758 square feet) '
+    ],
+    ['Accessibility ', 'If you have requests for specific accessibility needs, please note them in the special requests field on the booking page after selecting your room. ', 'Accessible bathroom ', 'In-room accessibility ', 'Wheelchair-accessible path of travel '
+    ],
+    ['More ', 'Designated smoking areas (fines apply) '
+    ]
+]
+print(a[0])
+
+# conn.execute('''ALTER table orderflights ADD return TEXT''')
 # # conn.execute('''CREATE TABLE orderflights
 # 		(userid INTEGER ,
 # 		orderid INTEGER PRIMARY KEY,
