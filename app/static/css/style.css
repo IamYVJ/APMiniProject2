@@ -2979,3 +2979,11 @@ input[type="email"] {
 .hotels h1,h2,h3,h4,h5,h6{
 	color:#001959;
 }
+
+.row1 .nice-select{
+	height: 40px;!important
+	right: 10px;!important
+}
+.row1 input{
+	border-radius: 5px;
+}

@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import random
 import re
-
+# from app import app
 from selenium import webdriver as wd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -12,6 +12,7 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 import time
 from selenium.webdriver.firefox.options import Options
 from app.OSDetect import osDetect
+# from OSDetect import osDetect
 
 def getSource(destination,check_in,check_out,rooms,guest):
     url = "https://www.expedia.co.in/Hotel-Search"

@@ -3,12 +3,13 @@
 {% block content %}
 <div class=" container booking" style="height:700px;  overflow: auto;">
     <div class="row">
-        <h4 style="color: #FF5581; margin-left: 30px; margin-top: 20px;"> Review Your Booking</h4>
+        <h4 style="color: #FF5581; margin-left: 30px; margin-top: 20px;"> Your Booking has been confirmed!</h4>
         <h4 style="color: #FF5581; margin-left: 330px; margin-top: 20px;">                                      PNR:{{pnr}}</h4>
+
         <div class="flightresult row text-center"  style="height: 130px; margin-right: 0px;
     margin-left: 0px;background-color: rgba(255, 255, 255, 0.6);
     padding-top: 30px; margin-top: 50px; width: 1120px; height: 170px; margin-bottom: 30px; border-radius: 15px 15px 15px 15px;">
-        <div class="col-lg-3 text-center" style="top:15px;">
+                                <div class="col-lg-3 text-center" style="top:15px;">
 
             <h4>{{row["trainName"]}}</h4>
             <h6>{{row["trainNo"]}}</h6>
@@ -41,10 +42,12 @@
     </div>
 
     <div class="row1">
-            <h4 style="color: #FF5581; margin-left: 45px; margin-top: 20px;"> Enter Traveller Details </h4>
+            <h4 style="color: #FF5581; margin-left: 45px; margin-top: 20px;">  Traveller Details: </h4>
+            <!-- <img src="/static/QR/1BESSSEB.png" alt="" style="width: 200px;height:auto; margin-left: 800px;"> -->
+
             <div class="flightresult row"  style="height: 130px; margin-right: 0px;
         margin-left: 5px;background-color: rgba(255, 255, 255, 0.6);
-        padding-top: 30px; margin-top: 50px; width: 1120px; height: 800px; border-radius: 15px 15px 15px 15px;
+        padding-top: 30px; margin-top: 50px; width: 1120px; height: 300px; border-radius: 15px 15px 15px 15px;
         font-family:'Times New Roman', Times, serif">
             <div class="row col-lg-12" style="height: 110px;">
             <div class="col-lg-3 text-right " style=" top: 20px;">
@@ -57,40 +60,49 @@
                 <input name="phone" type="number" placeholder="{{row["passengerDetails"]["phoneNo"]}}" style="width: 100%;
                 height: 40px;" disabled >
         </div>
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center" style="top: 20px; color: #24282c;">
                 Your booking details will be sent to this email address and mobile number.
         </div>
 
     </div>
-    <div class="row col-lg-12" style="height: 1px; top:-50px;" >
-        <div class="col-lg-12 text-center">
-            <h4>Traveller Information</h4>
-            <h6 style="margin-top: 20px; font-size:14px;">Important Note: Please ensure that the names of the passengers on the travel documents is the same as on their government issued identity proof.</h6>
-        </div>
-    </div>
-    <div class="row col-lg-12" style=" top:-50px;" >
+    
+    <div class="row col-lg-12" style="top:-10px " >
             <div class="col-lg-3 text-right " style=" top: 20px;">
-                    <h4>Adult 1:</h4>
+                    <h4>Passengers:</h4>
                     </div>
                 <div class="col-lg-4 text-left" style=" top: 15px;">
                                 <select name="title" class="ca-search" style="border-radius: 0px;">
                                                 <option>{{row["passengerDetails"]["title"]}}</option>
                                             </select>
-                        <input name="firstname" type="text" placeholder="{{row["passengerDetails"]["firstName"]}}" style="    width: 70%;
+                        <input name="firstname" type="text" placeholder="{{row["passengerDetails"]["firstName"]}}" style="    width: 53%;
                         height: 40px;" disabled>
                 </div>
 
-            <div class="col-lg-3 text-center" style="margin-left: -50px;    top: 15px;">
-                    <input name="lastname" type="text" placeholder="{{row["passengerDetails"]["lastName"]}}" style="    width: 227px;
+            <div class="col-lg-3 text-center" style="margin-left: -100px;    top: 15px;">
+                    <input name="lastname" type="text" placeholder="{{row["passengerDetails"]["lastName"]}}" style="    width: 350px;
                     height: 40px;" disabled >
             </div>
     </div>
+    <div class="row col-lg-12" style="height: 1px;top:-15px; " >
+            <div class="col-lg-12 text-center">
+                
+                <h6 style="margin-top: 20px; font-size:14px; color: #24282c;">Important Note: Please ensure that the names of the passengers on the travel documents is the same as on their government issued identity proof.</h6>
+            </div>
+        </div>
+            </div>
+    </div>
 
-    <div class="row col-lg-12" style="top: -50px;
-    border-top: 2px solid #ed517f;
-    margin-left: 0px; padding-top: 20px;" >
+    <div class="row1">
+            <h4 style="color: #FF5581; margin-left: 45px; margin-top: 40px;">  Fare Details: </h4>
+            <div class="flightresult row"  style="height: 130px; margin-right: 0px;
+        margin-left: 5px;background-color: rgba(255, 255, 255, 0.6);
+        padding-top: 30px; margin-top: 50px; width: 1120px; height: 100px; border-radius: 15px 15px 15px 15px;
+        font-family:'Times New Roman', Times, serif">
+    <div class="row col-lg-12" style="top: 0px;
+    
+    margin-left: 0px; " >
     <div class="col-lg-12 text-center">
-            <h4>Fare Details</h4></div>
+           
 
 
             <div class="col-lg-12 text-center" style="margin-left:    top: 15px;">
@@ -98,6 +110,7 @@
             </div>
             </div>
     </div>
+    </div></div>
 
 
 

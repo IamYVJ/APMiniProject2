@@ -496,7 +496,8 @@ def trainbooked():
     ind=(int(trainid[0]))
     priceindex=int(trainid[1])
     global a
-    b=a[ind]
+    a= {'trainName': 'JNANESWARISUPDL', 'trainNo': '#12102', 'days': 'S   M   W   T', 'departureTime': '10:50 PM  Thu', 'depStnInfo': 'HWHYou searched for trains departing from HWH(HWH), but this train departs from HWH (Howrah Jn)HWH HWH RHowrah Jn', 'duration': '12h 25m', 'arrivalTime': '11:15 AM  Fri', 'arrStnInfo': 'RYou searched for trains arriving in R (Raipur), but this train arrives in R (Raipur Jn).R HWH RRaipur Jn', 'classes': [{'className': 'Sleeper', 'price': '445', 'availability': 'PQWL 51', 'update': 'Updated 2 hrs ago'}, {'className': '3 Tier AC', 'price': '1175', 'availability': 'PQWL 26', 'update': 'Updated 30 mins ago'}, {'className': '2 Tier AC', 'price': '1675', 'availability': 'PQWL 18', 'update': 'Updated 22 hrs ago'}, {'className': '1st Class AC', 'price': '2835', 'availability': 'PQWL 7', 'update': 'Updated 22 hrs ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': '', 'passengerDetails': {'title': 'Mr.', 'firstName': 'Yash', 'lastName': 'Burad', 'emailID': 'yash.burad_ug21@ashoka.edu.in', 'phoneNo': '9898'}}
+    b=a
     print(b)
     # print(b[ind])
     b["classes"]=b["classes"][priceindex]
@@ -510,7 +511,7 @@ def trainbooked():
         cur = conn.cursor()
         cur.execute("INSERT INTO ordertrains1 (userid, details ,qrcode,pnr) VALUES (?, ?, ?, ?)", (current_user.id,sdetails,pnr,pnr))
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
-    genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
+    # genQR(current_user.id, pnr, b["passengerDetails"]["firstName"],b["passengerDetails"]["lastName"],b["departureStnCode"],b["arrivalStnCode"],b["duration"],b["departureTime"],b["arrivalTime"],b["departureDate"])
     return render_template('trainbooked.html', pnr=pnr, row=b)
 
 @app.route('/hotels',methods = ['POST', 'GET'])
