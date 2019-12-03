@@ -39,10 +39,31 @@ def getSource(destination,check_in,check_out,rooms,guest):
     #     file.write(response.content)
     return(response.content)
 
+def get_source_sel(destination,check_in,check_out,rooms,guest):
+    c_in_str = check_in[0] + '%2F' + check_in[1] + '%2F' + check_in[2]
+    c_out_str = check_out[0] + '%2F' + check_out[1] + '%2F' + check_out[2]
+
+    url = 'https://www.expedia.co.in/Hotel-Search?destination=' + str(destination) + '&startDate=' + str(c_in_str) + '&endDate=' + str(c_out_str) + '&rooms=' + str(rooms) + '&adults=' + str(guest)
+
+    driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
+    driver.get(url)
+    driver.minimize_window
+
+    y = 100
+    for i in range(20):
+        driver.execute_script("window.scrollTo(0,"+ str(y)+");")
+        y += 500
+        time.sleep(0.07)
+
+    page_raw = driver.page_source
+    driver.close()
+    return(page_raw)
+
 def soupSite(raw_html):
-    soup = BeautifulSoup(raw_html,'lxml')
+    soup = BeautifulSoup(raw_html,'html5lib')
     final_list = []
     i = 0
+    count = 0
     for list_ in soup.findAll('li', class_='listing uitk-cell xl-cell-1-1 l-cell-1-1 m-cell-1-1 s-cell-1-1'):
         if(list_['data-stid']):
             pass
@@ -84,6 +105,8 @@ def soupSite(raw_html):
                 tp = img_url_raw.find('url(')
                 img_url = img_url_raw[tp+4:img_url_raw.find('),')]
             except Exception as e:
+                continue
+                print(i)
                 print('img link not found.....resorting to hotel link to get the img')
                 img_url = get_img(hotel_url=hotel_link)
                 # print(e)
@@ -133,6 +156,7 @@ def hotelDetail(hotel_url):
     #     driver = wd.Firefox(executable_path = r'drivers/Linux/geckodriver', options=options)
     driver = wd.Chrome(executable_path= 'drivers/Linux/chromedriver')
     driver.get(hotel_url)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     page_raw = driver.page_source
     driver.close()
     raw_html = BeautifulSoup(page_raw,'html5lib')
@@ -184,14 +208,16 @@ def hotelDetail(hotel_url):
     return(name,rating_list,info_list,image_list,room_type_list)
 
 def main():
-    a = hotelDetail('https://www.expedia.co.in/Raipur-Hotels-Hyatt-Raipur.h7065412.Hotel-Information?chkin=16/12/2019&chkout=17/12/2019&regionId=3033&destination=Raipur,+Chhattisgarh,+India&swpToggleOn=true&rm1=a2&x_pwa=1&trackingData=Cmp-wejY4k4JV22sZZUrBZm/jM4sYnQwYc1++xQAxmP9yqQ0CcwBjDAOu1DvHUcSDTu/rw66hA5lqXAuY0OlgVu2Wn6g99XPx5fF8fcl9+Pv3RS7Jl7d6RswGem6p8ZWZo3OODa0aX7D/dnxX4mQlHehJ+hLt+7o8gcSCwme5R4XwC8cl9bBALNYYhJ63kClS6EahFLuKhCKZgqSsEbETToa18UfXutbT85cSyIwudWTTCHT6NUz/W9OaT2WMc1gXlK1E+wBDfNSoOL/YTrxDc7p3nYrPwIwHpJT4jYYJypkDYQPJ+2RDxe1yLdcS+e+LBkdk9P7i3OkhER02m5eAOAzQQCGbuZTdR12KXwGwfO1/l54UXTfFCFIhku6drh1ujrjSyEPdtsJW8ZKcig2xxX0xfrMg4Bgc2kXruhATYSIpfIPNr0+tH37bIuwQaMOk4AY6e12xPI1DuLEBpGzMrPzLpMEu37f5kZDblw5wZYzX9fTDEzEeJzVCtft8n0DekPRe5hkNRvmX1Z3EoMQ0VMOH4MfEyQNoPqf9uTllr8/60ZiKRSnvBfpXbJ/IZOr2TiQM58QY+letcbPnpWLerI+TfR81WQYXU4mTFyEBNVsekBa2ydWHmwsb+1m9ocb3rkmeCoOTVQb8PCXcsClFAelOB0vPumMlZuhPgvqmNU1XRLmmmWYl3HRtEnoAtTDAnJTJtclqcJrIsAqPwOG0xxtj94y3yvfdI9Ffd4zJzsaFgafvuSCcz0Io2R7FRE0lGO+0JOzYjm9c2cBRpfBJRNhM31gO16rFTgqONWHgH38wcoyzvlJpbt1LYxhpu5ufLqNqBw6FbZgpyT2A803U2KZrFE613udHSsJ+qsoPIYGHU5GUiwtmix+eyu18WDbKCej2i7XW7Il48v0qUYh+hPnISmpxp1TZsD7aSA0YfhpI3r+bBYCHeE2P2MKU931HlD3I0YczAkf/aqZ0gGRZY/Ic4NIrB8SAi7+US4VjAEc7PnU9gpJoYZ84AxPBo5Fb0z+CedCEIT3rrYVKcknlk4lldJapTXqhGISg1mdm6oLuuQ=&rank=2&testVersionOverride=Buttercup,31936.93479.5,31844.87534.0,31779.89311.1,33090.94624.2,33131.92839.0&slots=HSR_AA&position=2&beaconIssued=2019-12-02T14:12:18&sort=recommended&top_dp=6250&top_cur=INR&rfrr=HSR&pwa_ts=1575295936192&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5jby5pbi9Ib3RlbC1TZWFyY2g=')
-    print(a[4])
-    # in_date = ['05','12','2019']
-    # out_date = ['06','12','2019']
-    # hotel_list = soupSite(getSource('Raipur',in_date,out_date,1,2))
-    # # print(hotel_list)
-    # with open('out.txt', 'w') as f:
-    #     for item in hotel_list:
-    #         f.write("%s\n" % item)
+    # a = hotelDetail('https://www.expedia.co.in/Raipur-Hotels-Hyatt-Raipur.h7065412.Hotel-Information?chkin=16/12/2019&chkout=17/12/2019&regionId=3033&destination=Raipur,+Chhattisgarh,+India&swpToggleOn=true&rm1=a2&x_pwa=1&trackingData=Cmp-wejY4k4JV22sZZUrBZm/jM4sYnQwYc1++xQAxmP9yqQ0CcwBjDAOu1DvHUcSDTu/rw66hA5lqXAuY0OlgVu2Wn6g99XPx5fF8fcl9+Pv3RS7Jl7d6RswGem6p8ZWZo3OODa0aX7D/dnxX4mQlHehJ+hLt+7o8gcSCwme5R4XwC8cl9bBALNYYhJ63kClS6EahFLuKhCKZgqSsEbETToa18UfXutbT85cSyIwudWTTCHT6NUz/W9OaT2WMc1gXlK1E+wBDfNSoOL/YTrxDc7p3nYrPwIwHpJT4jYYJypkDYQPJ+2RDxe1yLdcS+e+LBkdk9P7i3OkhER02m5eAOAzQQCGbuZTdR12KXwGwfO1/l54UXTfFCFIhku6drh1ujrjSyEPdtsJW8ZKcig2xxX0xfrMg4Bgc2kXruhATYSIpfIPNr0+tH37bIuwQaMOk4AY6e12xPI1DuLEBpGzMrPzLpMEu37f5kZDblw5wZYzX9fTDEzEeJzVCtft8n0DekPRe5hkNRvmX1Z3EoMQ0VMOH4MfEyQNoPqf9uTllr8/60ZiKRSnvBfpXbJ/IZOr2TiQM58QY+letcbPnpWLerI+TfR81WQYXU4mTFyEBNVsekBa2ydWHmwsb+1m9ocb3rkmeCoOTVQb8PCXcsClFAelOB0vPumMlZuhPgvqmNU1XRLmmmWYl3HRtEnoAtTDAnJTJtclqcJrIsAqPwOG0xxtj94y3yvfdI9Ffd4zJzsaFgafvuSCcz0Io2R7FRE0lGO+0JOzYjm9c2cBRpfBJRNhM31gO16rFTgqONWHgH38wcoyzvlJpbt1LYxhpu5ufLqNqBw6FbZgpyT2A803U2KZrFE613udHSsJ+qsoPIYGHU5GUiwtmix+eyu18WDbKCej2i7XW7Il48v0qUYh+hPnISmpxp1TZsD7aSA0YfhpI3r+bBYCHeE2P2MKU931HlD3I0YczAkf/aqZ0gGRZY/Ic4NIrB8SAi7+US4VjAEc7PnU9gpJoYZ84AxPBo5Fb0z+CedCEIT3rrYVKcknlk4lldJapTXqhGISg1mdm6oLuuQ=&rank=2&testVersionOverride=Buttercup,31936.93479.5,31844.87534.0,31779.89311.1,33090.94624.2,33131.92839.0&slots=HSR_AA&position=2&beaconIssued=2019-12-02T14:12:18&sort=recommended&top_dp=6250&top_cur=INR&rfrr=HSR&pwa_ts=1575295936192&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5jby5pbi9Ib3RlbC1TZWFyY2g=')
+    # for i in range(0,5):
+    #     print(a[i])
+    in_date = ['05','12','2019']
+    out_date = ['06','12','2019']
+    hotel_list = soupSite(get_source_sel('Raipur',in_date,out_date,1,2))
+    # print(hotel_list)
+    with open('out.txt', 'w') as f:
+        for item in hotel_list:
+            f.write("%s\n" % item)
+
 if __name__ == "__main__":
     main()
