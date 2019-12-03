@@ -1,1 +1,46 @@
 "[{\"label\":\"Ludhiana, Punjab, India\",\"latitude\":30.90902,\"name\":\"Ludhiana\",\"longitude\":75.8516,\"city_name\":\"Ludhiana\",\"city_ufi\":null,\"type\":\"ci\",\"nr_hotels\":136,\"dest_type\":\"city\",\"country\":\"India\",\"rtl\":0,\"hotels\":136,\"dest_id\":\"-2102840\",\"region\":\"Punjab\",\"timezone\":\"Asia/Kolkata\",\"cc1\":\"in\",\"image_url\":\"http://r-ec.bstatic.com/xdata/images/city/150x150/630214.jpg?k=32fc25aa9949910d29528de53cd676f7fb0e93fc03e8473e4b52e495c42e544a&o=\",\"lc\":\"en\"},{\"image_url\":\"http://r-ec.bstatic.com/xdata/images/hotel/150x150/218454077.jpg?k=c7131b88eba00c86fe946abb8595871f365801b37a7569482611c5af7ac79988&o=\",\"lc\":\"en\",\"cc1\":\"in\",\"hotels\":1,\"dest_id\":\"5580839\",\"rtl\":0,\"country\":\"India\",\"region\":\"Punjab\",\"timezone\":\"Asia/Kolkata\",\"type\":\"ho\",\"nr_hotels\":1,\"dest_type\":\"hotel\",\"longitude\":75.8496812,\"city_name\":\"Ludhiana\",\"city_ufi\":-2102840,\"name\":\"LUDHIANA\",\"label\":\"LUDHIANA, Ludhiana, Punjab, India\",\"latitude\":30.8843259},{\"dest_id\":\"344722\",\"hotels\":1,\"country\":\"India\",\"rtl\":0,\"region\":\"Punjab\",\"timezone\":\"Asia/Kolkata\",\"cc1\":\"in\",\"image_url\":\"http://r-ec.bstatic.com/xdata/images/hotel/150x150/157747481.jpg?k=2cc0fe2e6f573e96ec358d95fe6afe2715bb0dd2718cedf280b9831b83c4d5d3&o=\",\"lc\":\"en\",\"label\":\"Park Plaza, Ludhiana, Ludhiana, Punjab, India\",\"latitude\":30.9015077989615,\"city_ufi\":-2102840,\"longitude\":75.8311007916927,\"city_name\":\"Ludhiana\",\"name\":\"Park Plaza, Ludhiana\",\"type\":\"ho\",\"nr_hotels\":1,\"dest_type\":\"hotel\"},{\"cc1\":\"in\",\"lc\":\"en\",\"image_url\":\"http://r-ec.bstatic.com/xdata/images/hotel/150x150/110319641.jpg?k=a4be1c5dafa23b3c070f94d4420c7b742ee32c47b8a5aaf5328e6dbf8530043a&o=\",\"timezone\":\"Asia/Kolkata\",\"region\":\"Punjab\",\"country\":\"India\",\"rtl\":0,\"hotels\":1,\"dest_id\":\"907100\",\"name\":\"Hyatt Regency Ludhiana\",\"longitude\":75.7880379259586,\"city_name\":\"Ludhiana\",\"city_ufi\":-2102840,\"dest_type\":\"hotel\",\"type\":\"ho\",\"nr_hotels\":1,\"latitude\":30.8859554817014,\"label\":\"Hyatt Regency Ludhiana, Ludhiana, Punjab, India\"},{\"dest_id\":\"900061645\",\"hotels\":61,\"rtl\":0,\"country\":\"India\",\"region\":\"Punjab\",\"timezone\":\"Asia/Kolkata\",\"cc1\":\"in\",\"lc\":\"en\",\"label\":\"Ludhiana Junction Railway Station, Ludhiana, Punjab, India\",\"latitude\":30.9127757,\"longitude\":75.847691,\"city_name\":\"Ludhiana\",\"city_ufi\":-2102840,\"name\":\"Ludhiana Junction Railway Station\",\"type\":\"la\",\"nr_hotels\":61,\"dest_type\":\"landmark\"}]"
+
+('Hyatt Raipur',
+['4.1', 'Very Good', '50'
+],
+[
+    ['Internet ', 'Available in all rooms: Free WiFi and wired Internet ', 'Available in some public areas: Free WiFi '
+    ],
+    ['Parking and public transport ', 'Free valet parking ', 'Limited parking spaces', 'Free 24-hour return airport shuttle ', 'Airport shuttle on request ', 'Limo/town car service '
+    ],
+    ['Food and drink ', 'Buffet breakfast available for a fee 6: 30 AM–10: 30 AM on weekdays and 6: 30 AM–11 AM on weekends: INR 531 per person', '1 restaurant and 1 coffee shop/cafe', '1 bar', '24-hour room service'
+    ],
+    ['Things to do ', 'Health club ', 'Shopping '
+    ],
+    ['Family friendly ', 'Babysitting/childcare (surcharge)', 'Dry-cleaning service', 'Corner/local shop', 'Laundry facilities', 'Rollaway/extra beds (surcharge)'
+    ],
+    ['Conveniences ', 'ATM/banking services ', 'Banquet hall ', 'Lift ', 'Free newspapers in reception ', 'Front-desk safe ', 'Gift shop/newsstand ', 'Corner/local shop ', 'Reception hall '
+    ],
+    ['Guest services ', '24-hour front desk ', 'Concierge services ', 'Dry-cleaning service ', 'Laundry facilities ', 'Luggage storage ', 'Porter ', 'Tour/ticket assistance ', 'Turndown service ', 'Wedding services '
+    ],
+    ['Languages spoken ', 'English ', 'Hindi '
+    ],
+    ['Business services ', 'Business centre ', 'Computer station ', 'Meeting rooms ', 'Conference space (4758 square feet) '
+    ],
+    ['Accessibility ', 'If you have requests for specific accessibility needs, please note them in the special requests field on the booking page after selecting your room. ', 'Accessible bathroom ', 'In-room accessibility ', 'Wheelchair-accessible path of travel '
+    ],
+    ['More ', 'Designated smoking areas (fines apply) '
+    ]
+],
+['https: //thumbnails.trvl-media.com/CdV7xdS6tJV5XyBSUMUUjw438aA=/1200x800/smart/images.trvl-media.com/hotels/8000000/7070000/7065500/7065412/38c7f465_w.jpg', 'https://thumbnails.trvl-media.com/8f65MBMoCCJzNcESHvpk5XPHD7Y=/1200x800/smart/images.trvl-media.com/hotels/8000000/7070000/7065500/7065412/efd6fef0_w.jpg', 'https://thumbnails.trvl-media.com/0gIW4fi9oSAuPw4BQbKdqvYaWL8=/1200x800/smart/images.trvl-media.com/hotels/8000000/7070000/7065500/7065412/e8595ee8_w.jpg'], [[<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500
+truncate">Room, 1 King Bed</span>, 'City view', 'Sleeps 3', '1 King Bed'], [<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate">Room, 2 Single
+Beds</span>, 'City view', 'Sleeps 3', '2 Single Beds'
+],
+[<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate">Deluxe Room,
+    1 King Bed</span>, 'City view', 'Sleeps 3', '1 King Bed'
+],
+[<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate">Deluxe Room,
+    1 King Bed, Corner</span>, 'City view', 'Sleeps 3', '1 King Bed'
+],
+[<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate">Suite (Hyatt)</span>, 'City view', 'Sleeps 3', '1 King Bed'
+],
+[<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate">Executive Suite (Hyatt)</span>, 'City view', 'Sleeps 3', '1 King Bed'
+],
+[<span aria-hidden="true" class="uitk-cell s-cell-fill m-cell-fill l-cell-shrink uitk-type-heading-500 truncate">Presidential Suite</span>, 'City view', 'Sleeps 3', '1 King Bed'
+]
+])

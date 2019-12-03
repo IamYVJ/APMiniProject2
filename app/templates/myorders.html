@@ -3,18 +3,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="myorders container">
+<div class="myorders container" style="background-color: rgb(0,0,0,0.6); height:350px; margin-top:180px;">
     <div class="row" style="height: 350px;">
-        <div class="col-lg-4 myacc" style="border-right: 1px solid white;">
-            
-                    </div>
-        <div class="col-lg-4 myacc" style="border-right: 1px solid white;">
-            
-            </div>      
+        <a style="display: contents; cursor: pointer;">
+        <div class="trainimage col-lg-4 " style="padding:0px; border-right: 1px solid  rgb(255,255,255,0.6);">
+                <img class="image" src="/static/img/train.jpeg" alt=""><div class="middle">
+                        <div class="text" >Train Order History</div>
+                      </div>
+                    </div> </a>
+                    <a style="display: contents;cursor: pointer;">
+                    <div class="flightimage col-lg-4 " style="padding:0px; border-right: 1px solid  rgb(255,255,255,0.6); ">
+                            <img class="image" src="/static/img/flight.jpg" style="height: 100%;" alt=""><div class="middle">
+                                    <div class="text" >Flight Order History</div>
+                                  </div>
+                                </div>     
+</a>        <a style="display: contents;cursor: pointer;">
 
-        <div class="col-lg-4 myacc">
-                
-            </div>
+                                <div class="hotelimage col-lg-4 " style="padding:0px;  ">
+                                        <img class="image" src="/static/img/hotel.png" style="height: 100%;"><div class="middle">
+                                                <div class="text" >Hotel Order History</div>
+                                              </div>
+                                            </div> </a> 
             
 
 

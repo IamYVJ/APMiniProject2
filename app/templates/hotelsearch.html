@@ -8,12 +8,12 @@
                 <input type="text" class="col-lg-4" style="    margin-left: 20px;
         border-radius: 10px;
         height: 40px;">
-        <input type="text" placeholder="12-12-2019"
+        <input type="text" placeholder="{{inday}}"
         onfocus="(this.type='date')" style="height: 40px;
         background-color: white;
         border-radius: 10px;
         margin-left: 15px;width: 190px;"> 
-      <input type="text" placeholder="12-12-2019"
+      <input type="text" placeholder="{{outday}}"
       onfocus="(this.type='date')" style="height: 40px;
       background-color: white;
       border-radius: 10px;
@@ -31,6 +31,7 @@
 </form>
 
 {%for row in row%}
+<a href="/hoteldescription?hotelid={{loop.index-1}}">
 <div class="hotels row col-lg-12" style="   right: 15px;
 margin-top: 50px;
 background-color: rgb(255,255,255,0.9);
@@ -52,6 +53,8 @@ padding-top: 14px;">
 
 
 </div>
+
+</a>
 {%endfor%}
 
 </div>

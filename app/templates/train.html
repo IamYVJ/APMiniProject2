@@ -11,7 +11,7 @@
                         <h1>Where to next?</h1>
                         <form action="{{ url_for('trainsearch') }}" class="filter-search flights" method="POST">
 
-                            <div class="category-search" style="width: 25%; !important">
+                            <div class="category-search" style="width: 300px; !important">
                                 <h5>From:</h5>
                                 <input type="text" name="from" id="myInput" onkeyup="myFunction()" placeholder="From">
                                 <ul id="myUL">
@@ -30,7 +30,7 @@
                             <div class="category-search" style="width: 500px; !important">
                                     <div class="location-search" style="width:258px;     position: relative;
                                     top: 45px;
-                                    left: 50px;">
+                                    left: 10px;">
                                 <h5>To:</h5>
                                 <!-- <input type="text" name="to" id="myInput" onkeyup="myFunction()" placeholder="From">
                                 <ul id="myUL">
@@ -52,8 +52,11 @@
 
 
 
-                                <input type="text" name="to" id="search"  placeholder="type 'r'" list="searchresults" autocomplete="off" />
-                                <datalist id="searchresults"></datalist>
+                                <input type="text"  class="trainarrival" name="to" id="search"  placeholder="To" list="searchresults" autocomplete="off" style="background-color: transparent;
+                                border: 1px solid white;
+                                height: 50px;
+                                width: 280px; color: white; padding: 25px;" >
+                                <datalist  style="display: table-column;" id="searchresults" ></datalist>
 
                             </div>
                             <div class="category-search" style="width: 110px; !important     margin-left: 70px;!important">
@@ -94,7 +97,16 @@
         input = document.getElementById('rday');
         input.style.display="none";
     }
-
+    function func(){
+      var a;
+      if(document.getElementById("search").value==""){}
+      else{
+      a=document.getElementById("search").value;
+      document.getElementById("search").value=a[0];
+      document.querySelector('#searchresults').content.style.display="None";
+      
+    }
+    }
 
     function myFunction() {
       // Declare variables
@@ -129,7 +141,7 @@
     </script>
 
     <template id="resultstemplate">
-      <option> A N Dev Nagar - ACND </option>
+      <option  > A N Dev Nagar - ACND </option>
       <option> Abhaipur - AHA </option>
       <option> Abhayapuri Asam - AYU </option>
       <option> Abohar - ABS </option>
