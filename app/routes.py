@@ -20,6 +20,7 @@ from app.hotelsScraper import soupSite,getSource
 from app.emailSend import EmailClass
 
 
+
 app.config['OAUTH_CREDENTIALS'] = {
     'google': {
         'id': '356186709623-6tb84gjrptp1ss0cificl90ia45qufa4.apps.googleusercontent.com',
@@ -496,9 +497,9 @@ def trainbooked():
     global a
     # a= {'trainName': 'JNANESWARISUPDL', 'trainNo': '#12102', 'days': 'S   M   W   T', 'departureTime': '10:50 PM  Thu', 'depStnInfo': 'HWHYou searched for trains departing from HWH(HWH), but this train departs from HWH (Howrah Jn)HWH HWH RHowrah Jn', 'duration': '12h 25m', 'arrivalTime': '11:15 AM  Fri', 'arrStnInfo': 'RYou searched for trains arriving in R (Raipur), but this train arrives in R (Raipur Jn).R HWH RRaipur Jn', 'classes': [{'className': 'Sleeper', 'price': '445', 'availability': 'PQWL 51', 'update': 'Updated 2 hrs ago'}, {'className': '3 Tier AC', 'price': '1175', 'availability': 'PQWL 26', 'update': 'Updated 30 mins ago'}, {'className': '2 Tier AC', 'price': '1675', 'availability': 'PQWL 18', 'update': 'Updated 22 hrs ago'}, {'className': '1st Class AC', 'price': '2835', 'availability': 'PQWL 7', 'update': 'Updated 22 hrs ago'}], 'departureCity': '', 'departureStnCode': '', 'arrivalCity': '', 'arrivalStnCode': '', 'departureDate': '', 'arrivalDate': '', 'passengerDetails': {'title': 'Mr.', 'firstName': 'Yash', 'lastName': 'Burad', 'emailID': 'yash.burad_ug21@ashoka.edu.in', 'phoneNo': '9898'}}
     b=a[ind]
-    print(b)
     # print(b[ind])
     b["classes"]=b["classes"][priceindex]
+    print(b)
     # print(b)
     # b="['GITANJALI EX', '#12859', 'S   M   T   W   T   F   S', '11:35 PM  Mon', 'RYou searched for trains departing from R(Raipur), but this train departs from R (Raipur Jn)R R HWHRaipur Jn', '12h 55m', '12:30 PM  Tue', 'HWHYou searched for trains arriving in HWH (Kolkata), but this train arrives in HWH (Howrah Jn).HWH R HWHHowrah Jn', ['3 Tier AC', '1165', 'RLWL 23', 'Updated 8 hrs ago'], 'R', 'Raipur', 'HWH', 'Kolkata', '02-12-2019', ['yash.burad_ug21@ashoka.edu.in', '9898', 'Mr.', 'Yash', 'Burad']]"
     # b={'flightID': 'DELIDR6E503820191215IDRRPR6E25220191215_6EAPI', 'xmlKey': '6EAPI', 'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'totalStops': '1', 'totalDuration': '07:25', 'totalLayover': '04:45', 'airline': '', 'airlineCode': '', 'vehicleCode': '', 'flightNo': '', 'departureCityCode': '', 'arrivalCityCode': '', 'departureDate': '', 'arrivalDate': '', 'departureTime': '', 'arrivalTime': '', 'aircraft': '', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': '', 'baseFare': '6091', 'totalFare': '7241', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '1150', 'PSF': '0', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': [{'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '5038', 'departureCityCode': 'DEL', 'arrivalCityCode': 'IDR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '09:10', 'arrivalTime': '10:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}, {'baggageAllowance': '15 kgs', 'classtype': 'Economy', 'airline': 'IndiGo', 'airlineCode': '6E', 'vehicleCode': '6E', 'flightNo': '252', 'departureCityCode': 'IDR', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-15', 'arrivalDate': '2019-12-15', 'departureTime': '15:20', 'arrivalTime': '16:35', 'aircraft': 'Airbus A320-100', 'departureTerminal': '', 'arrivalTerminal': '', 'mealCost': 'Paid Meal'}]}
@@ -557,7 +558,10 @@ def trainhistory():
         cur = conn.cursor()
         cur.execute("SELECT * FROM ordertrains WHERE userid="+str(current_user.id))
         row=cur.fetchall()
-    print(row)
-    return render_template('hoteldescription.html')
+    b=[] 
+    for j in row:  
+        i=extractFlight(j[2]) 
+        b.append(i)
+    return render_template('trainhistory.html',row=b)
 
 

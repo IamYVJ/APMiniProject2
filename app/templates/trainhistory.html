@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="flightsearch container" style="height:700px; color: black;   overflow: auto;">
-    <h4 style=" margin-bottom: 30px;"> Search Results:</h4>
+    <h4 style=" margin-bottom: 30px;"> Booking History:</h4>
 
 <div class="flightresult row text-center"  style="    height: 50px;
     margin-right: 10px;
@@ -13,7 +13,7 @@
     background-color: rgba(255, 255, 255);
     padding-top: 0px;">
         <div class="col-lg-3">
-        <div class="flightdetail"><h6>Sort By</h6>
+        <div class="flightdetail">
         </div>
             </div>
     <div class="col-lg-3" style="    top: 15px;">
@@ -27,7 +27,7 @@
         <h6>
 Arrival    </h6></div>
     </div>
-{% for row in flights %}
+{% for row in row %}
 <div class="flightresult row "  style="height: 130px; margin-right: 0px;
     margin-left: 0px;background-color: rgba(255, 255, 255);
     padding-top: 30px; margin-top: 40px; width: 1100px;">
@@ -38,22 +38,21 @@ Arrival    </h6></div>
             <h6 style="margin-top: 10px;">Departs on : {{row["days"]}}</h6>
         </div>
             </div>
-    <div class="col-lg-3 text-center" style="   top: 15px;">
+    <div class="col-lg-3 text-center" style="   top: 0px;">
         <h5>{{row["departureTime"]}}</h5>
         <h6 style="margin-top: 10px;">{{row["departureStnCode"]}} - {{row["departureStn"]}}</h6>
         <h6 style="margin-top: 10px;">{{row["departureCity"]}}</h6>
     </div>
-    <div class="col-lg-3 text-center" style=" margin top: 45px;">
+    <div class="col-lg-3 text-center" style=" margin top: 55px;">
             <h6>
                 {{row["duration"]}}
             </h6>
             <!-- <h6>{{row}}</h6> -->
     </div>
-    <div class="col-lg-3 text-center" style="   top: 15px;">
+    <div class="col-lg-3 text-center" style="   top: 0px;">
             <h5>{{row["arrivalTime"]}}</h5>
             <h6 style="margin-top: 10px;">{{row["arrivalStnCode"]}} - {{row["arrivalStn"]}}</h6>
             <h6 style="margin-top: 10px;">{{row["arrivalCity"]}}</h6>
-
     </div>
 </div>
 {% set a = (loop.index)*10 %}
@@ -62,52 +61,24 @@ Arrival    </h6></div>
 
 <div class="row" style="background-color: rgba(255, 255, 255,0.6); margin-right: 10px;
 margin-left: 0px; height: 180px; width: 1100px; ">
-{% for r in row["classes"] %}
-{% if r["availability"] == "Booking not allowed" %}
-<div class="col-lg-2" style="background-color: white;
-    margin: 10px 0px 10px 10px;
-    height: 90%; cursor: pointer;">
 
-        <h5 style="font-weight: 600; margin-top: 10px; ">{{r["className"]}} </h5>
-        <h5 style="margin-top: 5px;">Rs {{r["price"]}}</h5>
-        <h5 style="color: #f09819; margin-top: 5px;"> {{r["availability"]}}</h5>
-        <h6 style="margin-top: 5px; font-size: 10px;"> {{r["update"]}}</h6>
-    </div>
-{%else%}
-<a href="/booktrain?trainid={{a}}{{loop.index-1}}" style="display:contents;">
     <div class="col-lg-2" style="background-color: white;
     margin: 10px 0px 10px 10px;
     height: 90%; cursor: pointer;">
-
-        <h5 style="font-weight: 600; margin-top: 10px; ">{{r["className"]}} </h5>
-        <h5 style="margin-top: 5px;">Rs {{r["price"]}}</h5>
-        <h5 style="color: #f09819; margin-top: 5px;"> {{r["availability"]}}</h5>
-        <h6 style="margin-top: 5px; font-size: 10px;"> {{r["update"]}}</h6>
+        <h5 style="font-weight: 600; margin-top: 10px; ">{{row["classes"]["className"]}} </h5>
+        <h5 style="margin-top: 5px;">Rs {{row["classes"]["price"]}}</h5>
+        <h5 style="color: #f09819; margin-top: 5px;"> {{row["classes"]["availability"]}}</h5>
     </div>
-</a>
-{%endif%}
-{% endfor %}
-{% endfor %}
+
+    <h4 style="margin-top: 60px; width: 400px; margin-left:230px;"> Departure Date:{{row['departureDate']}}</h4>
+
 
 
 
     </div>
+{%endfor%}
 
-
-    <!-- <table style="width: 100%;">
-            <tr>
-                    <th>Sort By:</th>
-                    <th>Depart</th>
-                    <th>Arrive</th>
-                    <th>Duration</th>
-                    <th>Price per Adult</th>
-                  </tr>
-                  <tr>
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>50</td>
-                  </tr>
-                </table> -->
+   
 
 </div>
 {% endblock %}
