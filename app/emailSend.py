@@ -118,7 +118,7 @@ class EmailClass():
 
         # Create the root message and fill in the from, to, and subject headers
         msgRoot = MIMEMultipart('related')
-        msgRoot['Subject'] = '[QuadCore] Train Booking Confirmed!'
+        msgRoot['Subject'] = '[QuadCore] Flight Booking Confirmed!'
         msgRoot['From'] = strFrom
         msgRoot['To'] = strTo
         msgRoot.preamble = 'This is a multi-part message in MIME format.'
