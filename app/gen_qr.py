@@ -45,7 +45,7 @@ def qrlogo(qrPath):
     #
     # elif syst=='L':
     #     logo = Image.open(r'app/static/QuadCoreLogo/LogoWW.png')
-    logo = Image.open(getPath("app\static\QuadCoreLogo\LogoWW.png"))
+    logo = Image.open(getPath("app\\static\\QuadCoreLogo\\LogoWW.png"))
 
     # box = (220,310,731,320)
     # im.crop(box)
