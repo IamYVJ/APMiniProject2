@@ -14,7 +14,7 @@ from app.forms import ResetPasswordForm
 from app.flightScraperV2 import flightSearch
 from app.trainscraper import trainSearch
 from app.generatePNRCode import generatePNR
-from app.gen_qr import genTrainQR, genFlightQR 
+from app.gen_qr import genTrainQR, genFlightQR
 from app.extractData import extractFlight
 from app.hotelsScraper import soupSite,get_source_sel,hotelDetail
 from app.emailSend import EmailClass
@@ -156,6 +156,7 @@ def flightsearch():
     global return1
     form=FlightForm
     dtoday = str(date.today())
+    sp1 = ""
     if request.method == 'POST':
         type=request.form['type']
         if(type=='roundtrip'):
@@ -164,13 +165,14 @@ def flightsearch():
             dep=request.form['tday'].split('-')
             ret=request.form['rday'].split('-')
             return1[2]=request.form['rday']
+            return1[0]=departureCode
+            return1[1]=arrivalCode
+            spl=return1[2].split('-')
         else:
             departureCode = request.form['from']
             arrivalCode = request.form['to']
             dep=request.form['tday'].split('-')
-    return1[0]=departureCode
-    return1[1]=arrivalCode
-    spl=return1[2].split('-')
+
     # print(return1[2])
     # print(spl[0])
     # print(type)
@@ -188,6 +190,17 @@ def flightsearch():
         return render_template('flights.html',form=form, dtoday = dtoday)
     else:
         flights = flightSearch(departureCode, arrivalCode, dep[2], dep[1], dep[0])
+
+    if(len(flights)==0):
+        flash('No flights found for this route', 'danger')
+        return render_template('flights.html')
+    elif(len(flights)==1):
+        if(flights[0]==1):
+            flash('No station found for '+arrivalCode , 'danger')
+        elif(flights[0]==0):
+            flash('No station found for '+departureCode , 'danger')
+        return render_template('flights.html')
+
     # with sqlite3.connect('app/site.db') as conn:
     #     cur = conn.cursor()
     #     for rows in flights:
@@ -595,10 +608,10 @@ def hotelsearch():
         checkin = request.form['inday']
         checkout = request.form['outday']
     print(destination)
-    
+
     print(checkin)
     print(checkout)
-    
+
     row=soupSite(get_source_sel(destination,checkin,checkout,"1","1"))
     global a
     a=row
