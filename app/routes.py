@@ -257,15 +257,19 @@ def book():
 def flightbooked():
     global a
     # a={'flightID': 'DELRPRAI47720191204_GALDOM', 'xmlKey': 'GALDOM', 'baggageAllowance': '25 kgs', 'classtype': 'Economy', 'totalStops': '0', 'totalDuration': '01:40', 'totalLayover': '00:00', 'airline': 'Air India', 'airlineCode': 'AI', 'vehicleCode': 'AI', 'flightNo': '477', 'departureCityCode': 'DEL', 'arrivalCityCode': 'RPR', 'departureDate': '2019-12-04', 'arrivalDate': '2019-12-04', 'departureTime': '05:25', 'arrivalTime': '07:05', 'aircraft': 'Airbus A319', 'departureTerminal': 'T-3', 'arrivalTerminal': '', 'mealCost': 'Free Meal', 'baseFare': '3530', 'totalFare': '4153', 'px': 'ADT', 'qt': '1', 'fuelSurcharge': '355', 'PSF': '268', 'userDevelopmentFee': '0', 'goodsAndServiceTax': '0', 'GAST': '0', 'swachhBharatCess': '0', 'krishiKalyanCess': '0', 'cuteFee': '0', 'airportArrivalTax': '0', 'developmentFee': '0', 'otherFlightsInfo': []}
-    print(a)
+    # print(a)
     global passenger
     global return1
+    a['passengerDetails'] = passenger['passengersInfo'][0]
     abc=[]
     abc.append(a)
-    abc.append(return1)
-    # passenger={'passengersInfo': [{'firstName': 'Yash', 'lastName': 'Burad', 'emailID': '', 'phoneNo': '9898', 'title': 'Mr.', 'emailId': 'yash.burad_ug21@ashoka.edu.in'}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}]}
+    # abc.append(return1)
+    # abc.append(passenger)
+    # passenger={'passengersInfo': [{'firstName': 'Yash', 'lastName': 'Burad', 'emailID': '', 'phoneNo': '9898', 'title': 'Mr.', 'emailID': 'yash.burad_ug21@ashoka.edu.in'}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}]}
     print(passenger)
     pnr=generatePNR()
+    print(abc)
+    # print(passenger)
     dtoday = str(date.today())
     print(a['departureTime'])
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
@@ -273,7 +277,6 @@ def flightbooked():
     details=str(a)
     returndetails=str(return1)
     passengerdetails=str(passenger)
-    print(abc)
     fare=["","",""]
     if(len(return1)>5):
         fare2=int(a['baseFare'])+int(return1['baseFare'])
@@ -332,8 +335,8 @@ def reset_password(token):
 @login_required
 def payment():
     email=""
-    fare=['500','1000','1500']
-    return render_template('payment.html',fare=fare)
+    # fare=['500','1000','1500']
+    # return render_template('payment.html',fare=fare)
     dtoday = str(date.today())
     if request.method == 'POST':
         email = request.form['email']
@@ -371,7 +374,7 @@ def payment():
     print(return1)
     passenger["passengersInfo"][0]["firstName"]=firstname
     passenger["passengersInfo"][0]["lastName"]=lastname
-    passenger["passengersInfo"][0]["emailId"]=email
+    passenger["passengersInfo"][0]["emailID"]=email
     passenger["passengersInfo"][0]["phoneNo"]=number
     passenger["passengersInfo"][0]["title"]=title
     print(passenger)
@@ -572,4 +575,7 @@ def trainhistory():
     for j in row:
         i=extractFlight(j[2])
         b.append(i)
-    return render_template('trainhistory.html',row=b)
+
+    length=len(row)
+
+    return render_template('trainhistory.html',row=b,len=length)
