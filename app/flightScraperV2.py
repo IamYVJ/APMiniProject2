@@ -9,6 +9,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
 from app.OSDetect import osDetect
+from app.domesticAirports import searchAirports
 
 global driver
 driver = ""
@@ -92,6 +93,10 @@ def flightDetails(jsData, sCode):
             'flightNo' : '',
             'departureCityCode' : '',
             'arrivalCityCode' : '',
+            'departureCity' : '',
+            'arrivalCity' : '',
+            'departureAirport' : '',
+            'arrivalAirport': '',
             'departureDate' : '',
             'arrivalDate' : '',
             'departureTime' : '',
@@ -295,7 +300,30 @@ def flightDetails(jsData, sCode):
 
     return(flights)
 
-def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
+def flightSearch(searchDep, searchArr, dd, mm, yyyy):
+
+    if '-' in searchDep:
+        searchDep = searchDep[:searchDep.find('-')].strip()
+
+    boold, dep = searchAirports(searchDep)
+
+    if boold==False:
+        return([0])
+
+    print(dep)
+
+    if '-' in searchArr:
+        searchArr = searchArr[:searchArr.find('-')].strip()
+
+    boola, arr = searchAirports(searchArr)
+
+    if boola==False:
+        return([1])
+
+    print(arr)
+
+    departureCode = dep["IATA_code"]
+    arrivalCode = arr["IATA_code"]
 
     for i in range(3):
         flights = []
@@ -313,6 +341,11 @@ def flightSearch(departureCode, arrivalCode, dd, mm, yyyy):
             print()
             continue
 
+    for i in flights:
+        i['departureCity'] = dep['city_name']
+        i['arrivalCity'] = arr['city_name']
+        i['departureAirport'] = dep['airport_name']
+        i['arrivalAirport'] = arr['airport_name']
     return(flights)
 
 
