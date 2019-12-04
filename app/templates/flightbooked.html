@@ -1,4 +1,4 @@
-                                   
+
 
         {% extends "base.html" %}
 
@@ -27,17 +27,17 @@
             padding-top: 30px; margin-top: 0px; width: 1120px; height: 170px; margin-bottom: 30px; border-radius: 15px 15px 15px 15px;">
                 <div class="col-lg-3 text-center">
                     {%if row['airline'] == 'IndiGo'%}
-                    <div class="flightlogo1"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;"> 
+                    <div class="flightlogo1"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;">
                         {%elif row['airline'] == 'Air India'%}
                         <div class="flightlogo1"><img src="/static/img/ai.png" style="max-width: 100%; height: 60px;">
                             {%elif row['airline'] == 'Vistara'%}
-                        <div class="flightlogo1"><img src="/static/img/vistara.png" style="max-width: 100%; height: 60px;">  
+                        <div class="flightlogo1"><img src="/static/img/vistara.png" style="max-width: 100%; height: 60px;">
                             {%elif row['airline'] == 'Go Air'%}
-                            <div class="flightlogo1"><img src="/static/img/goair.png" style="max-width: 100%; height: 60px;"> 
+                            <div class="flightlogo1"><img src="/static/img/goair.png" style="max-width: 100%; height: 60px;">
                                 {%elif row['airline'] == 'Air Asia'%}
-                                <div class="flightlogo1"><img src="/static/img/Airasia.png" style="max-width: 100%; height: 60px;">   
+                                <div class="flightlogo1"><img src="/static/img/Airasia.png" style="max-width: 100%; height: 60px;">
                             {%else%}
-                            <div class="flightlogo1"><img src="/static/img/Spicejet.jpg" style="max-width: 100%; height: 60px;">  
+                            <div class="flightlogo1"><img src="/static/img/Spicejet.jpg" style="max-width: 100%; height: 60px;">
                                 {% endif %}
                             </div>
                     <h6>{{row['airline']}}</h6>
@@ -49,7 +49,7 @@
                 <h6>__________</h6>
                 <h6 style="font-size: 14px;">{{row['departureDate']}}</h6>
                 <h6 style="font-size: 14px;">Departure Terminal:{{row['departureTerminal']}}</h6>
-        
+
             </div>
             <div class="col-lg-4 text-center" style="    top: 15px;">
                         <h6 style="font-size: 16px; position:relative; left: 0px; margin-bottom: -5px; ">
@@ -61,7 +61,7 @@
                         <h6 style="font-size: 16px;">
                             15kg | Partially Refundable
                         </h6>
-                    
+
             </div>
             <div class="col-lg-3 text-center" style="    top: 15px;">
                     <h5>{{row['arrivalCityCode']}}</h5>
@@ -69,11 +69,11 @@
                 <h6>__________</h6>
                 <h6 style="font-size: 14px;">{{row['arrivalDate']}}</h6>
                 <h6 style="font-size: 14px;">Arrival Terminal:{{row['arrivalTerminal']}}</h6>
-        
-        
+
+
             </div>
-            
-                
+
+
             </div>
         {%else%}
         {% for i in row['otherFlightsInfo'] %}
@@ -82,17 +82,17 @@
             padding-top: 30px; margin-top: 0px; width: 1120px; height: 170px; margin-bottom: 30px; border-radius: 15px 15px 15px 15px;">
                 <div class="col-lg-3 text-center">
                     {%if row['otherFlightsInfo'][loop.index-1]['airline'] == 'IndiGo'%}
-                    <div class="flightlogo1"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;"> 
+                    <div class="flightlogo1"><img src="/static/img/indigo.png" style="max-width: 100%; height: 60px;">
                         {%elif row['otherFlightsInfo'][loop.index-1]['airline'] == 'Air India'%}
                         <div class="flightlogo1"><img src="/static/img/ai.png" style="max-width: 100%; height: 60px;">
                             {%elif row['otherFlightsInfo'][loop.index-1]['airline'] == 'Vistara'%}
-                        <div class="flightlogo1"><img src="/static/img/vistara.png" style="max-width: 100%; height: 60px;">  
+                        <div class="flightlogo1"><img src="/static/img/vistara.png" style="max-width: 100%; height: 60px;">
                             {%elif row['otherFlightsInfo'][loop.index-1]['airline'] == 'Go Air'%}
-                            <div class="flightlogo1"><img src="/static/img/goair.png" style="max-width: 100%; height: 60px;"> 
+                            <div class="flightlogo1"><img src="/static/img/goair.png" style="max-width: 100%; height: 60px;">
                                 {%elif row['otherFlightsInfo'][loop.index-1]['airline'] == 'Air Asia'%}
-                                <div class="flightlogo1"><img src="/static/img/Airasia.png" style="max-width: 100%; height: 60px;">   
+                                <div class="flightlogo1"><img src="/static/img/Airasia.png" style="max-width: 100%; height: 60px;">
                             {%else%}
-                            <div class="flightlogo1"><img src="/static/img/Spicejet.jpg" style="max-width: 100%; height: 60px;">  
+                            <div class="flightlogo1"><img src="/static/img/Spicejet.jpg" style="max-width: 100%; height: 60px;">
                                 {% endif %}
                             </div>
                     <h6>{{row['otherFlightsInfo'][loop.index-1]['airline']}}</h6>
@@ -104,7 +104,7 @@
                 <h6>__________</h6>
                 <h6 style="font-size: 14px;">{{row['otherFlightsInfo'][loop.index-1]['departureDate']}}</h6>
                 <h6 style="font-size: 14px;">Departure Terminal:{{row['otherFlightsInfo'][loop.index-1]['departureTerminal']}}</h6>
-        
+
             </div>
             <div class="col-lg-4 text-center" style="    top: 15px;">
                         <h6 style="font-size: 16px; position:relative; left: 0px; margin-bottom: -5px; ">
@@ -116,7 +116,7 @@
                         <h6 style="font-size: 16px;">
                             15kg | Partially Refundable
                         </h6>
-                    
+
             </div>
             <div class="col-lg-3 text-center" style="    top: 15px;">
                     <h5>{{row['otherFlightsInfo'][loop.index-1]['arrivalCityCode']}}</h5>
@@ -124,12 +124,12 @@
                 <h6>__________</h6>
                 <h6 style="font-size: 14px;">{{row['otherFlightsInfo'][loop.index-1]['arrivalDate']}}</h6>
                 <h6 style="font-size: 14px;">Arrival Terminal:{{row['otherFlightsInfo'][loop.index-1]['arrivalTerminal']}}</h6>
-        
+
             </div>
-            
-                
+
+
             </div>
-        
+
         {% endfor %}
         {%endif%}
         {% endfor%}
@@ -137,7 +137,7 @@
         <div class="row1">
                 <h4 style="color: #FF5581; margin-left: 45px; margin-top: 20px;">  Traveller Details: </h4>
                 <!-- <img src="/static/QR/1BESSSEB.png" alt="" style="width: 200px;height:auto; margin-left: 800px;"> -->
-    
+
                 <div class="flightresult row"  style="height: 130px; margin-right: 0px;
             margin-left: 5px;background-color: rgba(255, 255, 255, 0.6);
             padding-top: 30px; margin-top: 50px; width: 1120px; height: 300px; border-radius: 15px 15px 15px 15px;
@@ -147,7 +147,7 @@
                     <h4>Contact Details:</h4>
                     </div>
             <div class="col-lg-3 text-left" style=" top: 15px;">
-                    <input name="email" type="email" placeholder="{{passenger['passengersInfo'][0]['emailId']}}" disabled>
+                    <input name="email" type="email" placeholder="{{passenger['passengersInfo'][0]['emailID']}}" disabled>
             </div>
             <div class="col-lg-4 text-center" style="    top: 15px;">
                     <input name="phone" type="number" placeholder="{{passenger['passengersInfo'][0]['phoneNo']}}" style="width: 100%;
@@ -156,9 +156,9 @@
             <div class="col-lg-12 text-center" style="top: 20px; color: #24282c;">
                     Your booking details will be sent to this email address and mobile number.
             </div>
-    
+
         </div>
-        
+
         <div class="row col-lg-12" style="top:-10px " >
                 <div class="col-lg-3 text-right " style=" top: 20px;">
                         <h4>Passengers:</h4>
@@ -170,7 +170,7 @@
                             <input name="firstname" type="text" placeholder="{{passenger['passengersInfo'][0]['firstName']}}" style="    width: 53%;
                             height: 40px;" disabled>
                     </div>
-    
+
                 <div class="col-lg-3 text-center" style="margin-left: -100px;    top: 15px;">
                         <input name="lastname" type="text" placeholder="{{passenger['passengersInfo'][0]['lastName']}}" style="    width: 350px;
                         height: 40px;" disabled >
@@ -178,14 +178,14 @@
         </div>
         <div class="row col-lg-12" style="height: 1px;top:-15px; " >
                 <div class="col-lg-12 text-center">
-                    
+
                     <h6 style="margin-top: 20px; font-size:14px; color: #24282c;">Important Note: Please ensure that the names of the passengers on the travel documents is the same as on their government issued identity proof.</h6>
                 </div>
             </div>
                 </div>
         </div>
-    
-    
+
+
         <div class="row1">
                 <h4 style="color: #FF5581; margin-left: 45px; margin-top: 40px;">  Fare Details: </h4>
                 <div class="flightresult row"  style="height: 150px; margin-right: 0px;
@@ -199,7 +199,7 @@
                 <div class="col-lg-4 text-left" style=" top: 15px;">
                         <h4>Fee and Surchages:{{fare[1]}} </h4>
                 </div>
-            
+
             <div class="col-lg-3 text-center" style="margin-left: -50px;    top: 15px;">
                     <h4>Total Fare: {{fare[2]}}</h4>
             </div>
@@ -211,8 +211,8 @@
 
 
 
-        
-            
+
+
         </div>
 
 </div>
