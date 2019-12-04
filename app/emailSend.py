@@ -76,7 +76,7 @@ class EmailClass():
 
         #LOGO
         # This example assumes the image is in the current directory
-        fp = open(getPath("app\static\QuadCoreLogo\LogoWW.png"), 'rb')
+        fp = open(getPath("app\\static\\QuadCoreLogo\\LogoWW.png"), 'rb')
         msgImage = MIMEImage(fp.read())
         fp.close()
 
@@ -87,7 +87,7 @@ class EmailClass():
 
         #QR CODE
         # This example assumes the image is in the current directory
-        fp = open(getPath("app\static\QR\\" + pnr +  ".png"), 'rb')
+        fp = open(getPath("app\\static\\QR\\" + pnr +  ".png"), 'rb')
         msgImage = MIMEImage(fp.read())
         fp.close()
 
