@@ -41,6 +41,7 @@ def qrlogo(qrPath):
     # url.png('test.png',scale=20)
     im = Image.open(qrPath)
     im = im.convert("RGBA")
+    im = im.resize(2260,2260)
     logo = ""
 
     # syst = osDetect()
