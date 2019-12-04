@@ -11,6 +11,14 @@ from pathlib import Path, PureWindowsPath
 #     qrlogo("app/static/QR/" + pnr + ".png")
 #     return
 
+def genFlightQR(flightdata, pnr):
+    scale = 20
+    final_str = 'PNR: ' + pnr +'\nAirline: '+ flightdata["airline"]+ '    Flight No: ' + flightdata["flightNo"] + '\nDeparture: ' + flightdata["departureCityCode"]+ '    Arrival: ' + flightdata["arrivalCityCode"] +'\nDeparture Airport: ' + flightdata["departureAirport"] +'    Arrival Airport: ' + flightdata["arrivalAirport"] +'\nDeparture City: ' + flightdata["departureCity"]+ '    Arrival City: ' + flightdata["arrivalCity"] + '\nDeparture Time: ' + flightdata["departureTime"] + '    Arrival Time: ' + flightdata["arrivalTime"] + '\nDeparture Date: ' + flightdata["departureDate"]   + '    Arrival Date: ' + flightdata['arrivalDate'] + '\nDuration: ' + flightdata["totalDuration"] +'    Baggage Allowance: ' + flightdata['baggageAllowance']+'\nClass: ' + flightdata["classtype"]  + '   Fare: Rs' + flightdata["totalFare"]  + '\nPassenger Name: ' + flightdata["passengerDetails"]["title"]+ " " + flightdata["passengerDetails"]["firstName"] + " " + flightdata["passengerDetails"]["lastName"] + '\n\nThank you for choosing QuadCore.com'
+    big_code = pyqrcode.create(final_str, mode='binary')
+    big_code.png('app/static/QR/' + pnr + '.png', scale=scale)
+    qrlogo("app/static/QR/" + pnr + ".png")
+    return
+
 def genTrainQR(traindata, pnr):
     scale = 20
     final_str = 'PNR: ' + pnr +'\nTrain Name: '+ traindata["trainName"]+ '    Train No: ' + traindata["trainNo"] + '\nDeparture Station: ' + traindata["departureStnCode"]+ '    Arrival Station: ' + traindata["arrivalStnCode"] +'\nDeparture: ' + traindata["departureStn"] +'    Arrival: ' + traindata["arrivalStn"] +'\nDeparture City: ' + traindata["departureCity"]+ '    Arrival City: ' + traindata["arrivalCity"] + '\nDeparture Time: ' + traindata["departureTime"] + '    Arrival Time: ' + traindata["arrivalTime"] + '\nDeparture Date: ' + traindata["departureDate"]   + '    Duration: ' + traindata["duration"] +'\nClass: ' + traindata["classes"]["className"]  + '   Fare: Rs' + traindata["classes"]["price"]  + '\nPassenger Name: ' + traindata["passengerDetails"]["title"]+ " " + traindata["passengerDetails"]["firstName"] + " " + traindata["passengerDetails"]["lastName"] + '\n\nThank you for choosing QuadCore.com'
