@@ -61,12 +61,12 @@
                                     <a href="{{ url_for('myorders') }}"  class="navbar-item">
                                         My Orders
                                     </a>
-                                    
+
                                   <a href="{{ url_for('logout') }}">Logout</a>
                                 </div>
                               </div>
                     {%else%}
-                    <a href="{{ url_for('register') }}">Register/</a>
+                    <a href="{{ url_for('register') }}">Register|</a>
                     <a href="{{ url_for('login') }}">Login</a>
                 </div>
                 {%endif%}
@@ -81,7 +81,11 @@
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
           {% for category, message in messages %}
-            <div class="alert alert-{{ category }}" style="margin-top: -35px; text-align: center;">
+            <div class="alert alert-{{ category }}" style="margin-top: -35px; color:#721c24;
+background-color:
+#f8d7da;
+border-color:
+#f5c6cb; text-align: center;">
               {{ message }}
             </div>
           {% endfor %}
@@ -92,7 +96,7 @@
     </section>
     <!-- Hero Section End -->
 
-   
+
 
 
 
