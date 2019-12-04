@@ -261,9 +261,10 @@ def flightbooked():
     global passenger
     global return1
     a['passengerDetails'] = passenger['passengersInfo'][0]
+    return1['passengerDetails'] = passenger['passengersInfo'][0]
     abc=[]
     abc.append(a)
-    # abc.append(return1)
+    abc.append(return1)
     # abc.append(passenger)
     # passenger={'passengersInfo': [{'firstName': 'Yash', 'lastName': 'Burad', 'emailID': '', 'phoneNo': '9898', 'title': 'Mr.', 'emailID': 'yash.burad_ug21@ashoka.edu.in'}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}, {'firstName': '', 'lastName': '', 'emailID': '', 'phoneNo': '', 'title': ''}]}
     print(passenger)
