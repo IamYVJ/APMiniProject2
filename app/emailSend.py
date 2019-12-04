@@ -105,6 +105,71 @@ class EmailClass():
         s.sendmail(strFrom, strTo, msgRoot.as_string())
         s.quit()
 
+
+    def sendEmailFlight(flightdata, pnr):
+        # Send an HTML email with an embedded image and a plain text message for
+        # email clients that don't want to display the HTML.
+
+
+
+        # Define these once; use them twice!
+        strFrom = 'systems.quadcore@gmail.com'
+        strTo = flightdata["passengerDetails"]["emailID"]
+
+        # Create the root message and fill in the from, to, and subject headers
+        msgRoot = MIMEMultipart('related')
+        msgRoot['Subject'] = '[QuadCore] Train Booking Confirmed!'
+        msgRoot['From'] = strFrom
+        msgRoot['To'] = strTo
+        msgRoot.preamble = 'This is a multi-part message in MIME format.'
+
+        # Encapsulate the plain and HTML versions of the message body in an
+        # 'alternative' part, so message agents can decide which they want to display.
+        msgAlternative = MIMEMultipart('alternative')
+        msgRoot.attach(msgAlternative)
+
+        msgText = MIMEText('This is the alternative plain text message.')
+        msgAlternative.attach(msgText)
+
+        # We reference the image in the IMG SRC attribute by the ID we give it below
+        msgText = MIMEText('Dear ' + flightdata["passengerDetails"]["firstName"] + ',  <br> <br> Your booking has been confirmed! <br> <br> <b> PNR: ' + pnr +' </b><br><br> <b>Travel Details:</b> <br> Airline: '+ flightdata["airline"]+ ' <br> Flight No: ' + flightdata["flightNo"] + '<br> Departure: ' + flightdata["departureCityCode"]+'<br> Departure Airport: ' + flightdata["departureAirport"] +' <br> Departure City: ' + flightdata["departureCity"]+ '<br>Departure Time: ' + flightdata["departureTime"] + '<br> Departure Date: ' + flightdata["departureDate"] + '<br>Arrival: ' + flightdata["arrivalCityCode"] +'<br> Arrival Airport: ' + flightdata["arrivalAirport"] + ' <br> Arrival City: ' + flightdata["arrivalCity"] + '<br>Arrival Time: ' + flightdata["arrivalTime"] + '<br> Arrival Date: ' + flightdata["arrivalDate"] +'<br> Duration: ' + flightdata["totalDuration"] +'<br>Class: ' + flightdata["classtype"] + '<br> Baggage Allowance: ' + flightdata['baggageAllowance'] + '<br> Fare: Rs' + flightdata["totalFare"]  + ' <br><br> <b>Passenger Details:</b> <br> Passenger Name: ' + flightdata["passengerDetails"]["title"]+ " " + flightdata["passengerDetails"]["firstName"] + " " + flightdata["passengerDetails"]["lastName"] + '<br> Email ID: ' + flightdata["passengerDetails"]["emailID"]  +' <br> Phone No: ' + flightdata["passengerDetails"]["phoneNo"] + '<br> <br> Use this QR code to get all your travelling information on the go! <br><br> <img src="cid:image2"> <br><br> We hope you have a great trip! <br> <br> Thank you for choosing <i> QuadCore.com </i> <br> <br> Sincerely, <br><b>QuadCore Systems</b> <br><br> <img src="cid:image1">', 'html')
+        msgAlternative.attach(msgText)
+
+
+        #LOGO
+        # This example assumes the image is in the current directory
+        fp = open(getPath("app\\static\\QuadCoreLogo\\LogoWW.png"), 'rb')
+        msgImage = MIMEImage(fp.read())
+        fp.close()
+
+        # Define the image's ID as referenced above
+        msgImage.add_header('Content-ID', '<image1>')
+        msgRoot.attach(msgImage)
+
+
+        #QR CODE
+        # This example assumes the image is in the current directory
+        fp = open(getPath("app\\static\\QR\\" + pnr +  ".png"), 'rb')
+        msgImage = MIMEImage(fp.read())
+        fp.close()
+
+        # Define the image's ID as referenced above
+        msgImage.add_header('Content-ID', '<image2>')
+        msgRoot.attach(msgImage)
+
+
+
+        # Send the email (this example assumes SMTP authentication is required)
+        s = smtplib.SMTP('smtp.gmail.com', 587)
+        s.starttls()
+        s.login("systems.quadcore@gmail.com",
+                "Quadcore00")
+        s.sendmail(strFrom, strTo, msgRoot.as_string())
+        s.quit()
+
+
+
+
 def getPath(s):
     filename = PureWindowsPath(s)
     correct_path = Path(filename) # Convert path to the right format for the current operating system

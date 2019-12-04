@@ -14,7 +14,7 @@ from app.forms import ResetPasswordForm
 from app.flightScraperV2 import flightSearch
 from app.trainscraper import trainSearch
 from app.generatePNRCode import generatePNR
-from app.gen_qr import genTrainQR
+from app.gen_qr import genTrainQR, genFlightQR 
 from app.extractData import extractFlight
 from app.hotelsScraper import soupSite,get_source_sel,hotelDetail
 from app.emailSend import EmailClass
@@ -273,7 +273,9 @@ def flightbooked():
     dtoday = str(date.today())
     print(a['departureTime'])
     # user_id,pnr,firstname,lastname, departure,destination,flight_duration,departure_time,arrival_time,date,output,scale
-    genQR(current_user.id, pnr, passenger['passengersInfo'][0]['firstName'],passenger['passengersInfo'][0]['lastName'],a['departureCityCode'],a['arrivalCityCode'],a['totalDuration'],a['departureTime'],a['arrivalTime'],dtoday)
+    # genQR(current_user.id, pnr, passenger['passengersInfo'][0]['firstName'],passenger['passengersInfo'][0]['lastName'],a['departureCityCode'],a['arrivalCityCode'],a['totalDuration'],a['departureTime'],a['arrivalTime'],dtoday)
+    genFlightQR(a, pnr)
+    EmailClass.sendEmailFlight(a, pnr)
     details=str(a)
     returndetails=str(return1)
     passengerdetails=str(passenger)
