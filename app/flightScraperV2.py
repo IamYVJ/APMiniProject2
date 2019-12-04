@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options as OptionsCr
 import json
 from app.OSDetect import osDetect
 from app.domesticAirports import searchAirports
-
+from app.sortResults import sortFlights
 global driver
 driver = ""
 
@@ -346,6 +346,9 @@ def flightSearch(searchDep, searchArr, dd, mm, yyyy):
         i['arrivalCity'] = arr['city_name']
         i['departureAirport'] = dep['airport_name']
         i['arrivalAirport'] = arr['airport_name']
+
+    flights = sortFlights(flights, "totalFare", False)
+
     return(flights)
 
 
