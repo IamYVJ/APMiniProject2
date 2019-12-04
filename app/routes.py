@@ -484,6 +484,21 @@ def booktrain():
     #     return form.dt.data.strftime('%Y-%m-%d')
     return render_template('booktrain.html', row = a[ind], ind=priceindex, i=ind)
 
+@app.route('/type',methods = ['POST', 'GET'])
+def type():
+    type=  str(request.args.get('type'))
+    print(type)
+    if(type=="Flights"):
+        return render_template('flights.html')
+    elif(type=="Trains"):
+        return render_template('trains.html')
+    else:
+        return render_template('hotels.html')
+
+
+
+
+
 @app.route('/trainpayment',methods = ['POST', 'GET'])
 @login_required
 def trainpayment():
@@ -577,16 +592,16 @@ def myorders():
 def hotelsearch():
     if request.method == 'POST':
         destination = request.form['place']
-        rooms = request.form['rooms']
+        # rooms = request.form['rooms']
         checkin = request.form['inday']
         checkout = request.form['outday']
-        adults = request.form['adults']
+        # adults = request.form['adults']
     print(destination)
     print(rooms)
     print(checkin)
     print(checkout)
     print(adults)
-    row=soupSite(get_source_sel(destination,checkin,checkout,rooms,adults))
+    row=soupSite(get_source_sel(destination,checkin,checkout,1,1))
     global a
     a=row
     print(a)

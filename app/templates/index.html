@@ -11,21 +11,19 @@
                     <div class="hero-text">
                         <img src="/static/img/placeholder.png" alt="">
                         <h1>Where to next?</h1>
-                        <form action="#" class="filter-search">
+                        <form action="/type" class="filter-search">
                             <div class="category-search">
                                 <h5>Search Category</h5>
-                                <select class="ca-search selectize">
-                                    <option>Restaurants</option>
-                                    <option>Hotels</option>
-                                    <option>Food & Drinks</option>
-                                    <option>Home Delievery</option>
-                                    <option>Commercial Shops</option>
+                                <select name="type" class="ca-search selectize">
+                                   <a href="{{ url_for('flights') }}"><option>Flights</option></a> 
+                                   <a href="{{ url_for('hotels') }}"> <option>Hotels</option></a>
+                                   <a href="{{ url_for('train') }}"> <option>Trains</option></a>
                                 </select>
                             </div>
                             <div class="location-search">
                                 <h5>Your Location</h5>
                                 <select class="lo-search">
-                                    <option>New York</option>
+                                    <option>Select on the go</option>
                                 </select>
                             </div>
                             
