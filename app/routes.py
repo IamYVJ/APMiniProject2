@@ -18,7 +18,7 @@ from app.gen_qr import genTrainQR, genFlightQR
 from app.extractData import extractFlight
 from app.hotelsScraper import soupSite,get_source_sel,hotelDetail
 from app.emailSend import EmailClass
-
+from app.sortResults import sortFlights
 
 
 app.config['OAUTH_CREDENTIALS'] = {
@@ -111,12 +111,38 @@ def flights():
 
 @app.route('/sort',methods = ['POST', 'GET'])
 def sort():
-    sort =  str(request.args.get('flightid'))
-    sort=int(flight)
+    sort =  str(request.args.get('sort'))
+    print(sort)
+    value = sort[1:]
+    print(value)
+    sort=int(sort[0])
+    type='oneway'
+    # sort=1
     global a
+    print(a)
+    t=True
+    if(value)=='True':
+        t=True
+    else:
+        t=False
     if(sort==0):
-        if(a[0]['totalFare']>a[1]['totalFare'])
-        
+        if(t):
+            a=sortFlights(a,"totalFare",t)
+            t=False
+        else:
+            a=sortFlights(a,"totalFare",t)
+            t=True
+    elif(sort==1):
+        if(t):
+            a=sortFlights(a,"totalDuration",t)
+            t=False
+        else:
+            a=sortFlights(a,"totalDuration",t)
+            t=True
+    return render_template('flightsearch.html', flights=a,type=type ,t=t)
+
+
+
 
 
 
@@ -169,7 +195,7 @@ def flightsearch():
     print(flights)
     global a
     a=flights
-    return render_template('flightsearch.html', flights=flights,type=type)
+    return render_template('flightsearch.html', flights=flights,type=type, t=True)
 
 @app.route('/returnflightsearch',methods = ['POST', 'GET'])
 def returnflightsearch():
