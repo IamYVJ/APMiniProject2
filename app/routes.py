@@ -109,6 +109,17 @@ def flights():
         return form.dt.data.strftime('%Y-%m-%d')
     return render_template('flights.html',form=form, dtoday = dtoday)
 
+@app.route('/sort',methods = ['POST', 'GET'])
+def sort():
+    sort =  str(request.args.get('flightid'))
+    sort=int(flight)
+    global a
+    if(sort==0):
+        if(a[0]['totalFare']>a[1]['totalFare'])
+        
+
+
+
 @app.route('/flightsearch',methods = ['POST', 'GET'])
 def flightsearch():
     departureCode= ""
@@ -134,12 +145,12 @@ def flightsearch():
     return1[0]=departureCode
     return1[1]=arrivalCode
     spl=return1[2].split('-')
-    print(return1[2])
-    print(spl[0])
-    print(type)
-    print(departureCode)
-    print(arrivalCode)
-    print(dep)
+    # print(return1[2])
+    # print(spl[0])
+    # print(type)
+    # print(departureCode)
+    # print(arrivalCode)
+    # print(dep)
     # print(ret)
     # with sqlite3.connect('app/site.db') as conn:
     #     cur = conn.cursor()
@@ -260,8 +271,9 @@ def flightbooked():
     # print(a)
     global passenger
     global return1
+    if(len(return1)>6):
+        return1['passengerDetails'] = passenger['passengersInfo'][0]
     a['passengerDetails'] = passenger['passengersInfo'][0]
-    return1['passengerDetails'] = passenger['passengersInfo'][0]
     abc=[]
     abc.append(a)
     abc.append(return1)
