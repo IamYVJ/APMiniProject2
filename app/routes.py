@@ -547,7 +547,7 @@ def trainpayment():
     #     cur.execute("SELECT * FROM flights WHERE flightid =" +str(flight))
     #     row=cur.fetchone()
     # print(row)
-    return render_template('trainpayment.html', price=a[ind]["classes"][priceindex]["price"], ind=ind,priceindex=priceindex)
+    return render_template('trainpayment.html', price=a[ind]["classes"][priceindex]["price"], ind=ind,priceindex=priceindex,fare=a[ind]["classes"][priceindex]["price"])
 
 @app.route('/trainbooked',methods = ['POST', 'GET'])
 @login_required

@@ -29,12 +29,54 @@
         border-top: 1px solid white;
         border-bottom: 1px solid white;
         padding-top: 20px;
-        padding-left: 20px; padding-bottom: 20px;">You Pay:             Rs {{price}} </h4>
+        padding-left: 20px; padding-bottom: 20px;">You Pay:             </h4><input id="price" disabled type="text" placeholder="Rs {{price}}" style="    left: 140px;
+    font-size: 24px;
+    border: none;
+    color: white;
+    background-color: transparent;
+    position: relative;
+    top: -54px;">
+<h6 id="promocode" style="display: none;
+color: white;
+position: relative;
+left: 10px; margin-bottom: 15px;">Promo code of Rs 300 applied</h6>
+        <input id="promo" type="text" placeholder="Promo Code" style="    height: 40px;
+        margin-top: 0px;
+        background-color: transparent;
+        margin-left: 20px;
+        width: 200px;
+        padding-left: 10px; color:white;">
+        <button onclick="myfunction()" style="left: 70px;
+        height: 40px;
+        position: relative;
+        top: 10px;
+        color: #fff;
+        width: 100px;
+        background: #FF5581;
+        /* padding: 13px 65px; */
+        /* padding: 13px 65px; */
+        cursor: pointer;
+        border: 1px solid #FF5581;">Submit</button>
 
     </div>
 
     </div>
 
-
+    <script>
+            function myfunction(){
+               var a={{fare}};
+               var b= document.getElementById("promo").value;
+               if(b=="QC50"){
+                   var b=Math.round((a)-300)
+                   var c=Math.round(b);
+                   document.getElementById("price").value="Rs"+c;
+                   document.getElementById("promo").value="Promo Code applied";
+                   document.getElementById("promocode").style.display="block";
+           
+               }
+           
+            }
+           
+           </script>
 
 {% endblock %}

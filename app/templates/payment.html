@@ -69,13 +69,14 @@ left: 10px; margin-bottom: 15px;">Promo code of Rs 300 applied</h6>
 <script>
  function myfunction(){
     var a={{fare[2]}};
-    var b= document.getElementById("promo").value;
-    if(b=="QC50"){
-        var b=parseInt({{(a)}})*0.80
-        document.getElementById("price").value="Rs"+b;
-        document.getElementById("promo").value="Promo Code applied";
-        document.getElementById("promocode").style.display="block";
-
+               var b= document.getElementById("promo").value;
+               if(b=="QC50"){
+                   var b=Math.round(({{(a)}})-300)
+                   var c=Math.round(b);
+                   document.getElementById("price").value="Rs"+c;
+                   document.getElementById("promo").value="Promo Code applied";
+                   document.getElementById("promocode").style.display="block";
+           
     }
 
  }
