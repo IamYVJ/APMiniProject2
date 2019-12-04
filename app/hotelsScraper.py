@@ -120,7 +120,7 @@ def soupSite(raw_html):
             try:
                 img_url_raw =  image_data.div.figure.div.figure['style']
                 tp = img_url_raw.find('url(')
-                img_url = img_url_raw[tp+4:img_url_raw.find('),')]
+                img_url = img_url_raw[tp+4:img_url_raw.find('),')].lstrip('\"').rstrip(' \") ')
             except Exception as e:
                 continue
                 print(i)

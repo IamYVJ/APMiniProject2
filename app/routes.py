@@ -592,16 +592,14 @@ def myorders():
 def hotelsearch():
     if request.method == 'POST':
         destination = request.form['place']
-        # rooms = request.form['rooms']
         checkin = request.form['inday']
         checkout = request.form['outday']
-        # adults = request.form['adults']
     print(destination)
-    print(rooms)
+    
     print(checkin)
     print(checkout)
-    print(adults)
-    row=soupSite(get_source_sel(destination,checkin,checkout,1,1))
+    
+    row=soupSite(get_source_sel(destination,checkin,checkout,"1","1"))
     global a
     a=row
     print(a)
