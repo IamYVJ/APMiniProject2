@@ -1,0 +1,4 @@
+https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog
+https://github.com/miguelgrinberg/flask-oauth-example
+https://colorlib.com/wp/template/locals-directory/
+https://github.com/Durgaprasad-Nagarkatte/Simple-Flask-Shopping-Cart
