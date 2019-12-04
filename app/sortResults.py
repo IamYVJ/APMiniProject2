@@ -10,7 +10,17 @@ def sortFlights(flightdata, index, bool):
             print(i['totalFare'])
         return(flightdata)
     elif(index=='totalDuration'):
-        flightdata = sorted(flightdata, key = lambda l:l['totalDuration'], reverse=bool)
+        flightdata = sorted(flightdata, key = lambda l:l[index], reverse=bool)
         for i in flightdata:
             print(i['totalDuration'])
+        return(flightdata)
+    elif(index=='departureTime'):
+        flightdata = sorted(flightdata, key = lambda l:l[index], reverse=bool)
+        for i in flightdata:
+            print(i['departureTime'])
+        return(flightdata)
+    elif(index=='arrivalTime'):
+        flightdata = sorted(flightdata, key = lambda l:l[index], reverse=bool)
+        for i in flightdata:
+            print(i['arrivalTime'])
         return(flightdata)
