@@ -40,7 +40,7 @@ class EmailClass():
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
         s.login("systems.quadcore@gmail.com",
-                "Quadcore00")
+                "") #password here
         s.sendmail(msg['From'], [msg['To']], msg.as_string())
         s.quit()
 
@@ -101,7 +101,7 @@ class EmailClass():
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
         s.login("systems.quadcore@gmail.com",
-                "Quadcore00")
+                "") #password here
         s.sendmail(strFrom, strTo, msgRoot.as_string())
         s.quit()
 
@@ -163,7 +163,7 @@ class EmailClass():
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
         s.login("systems.quadcore@gmail.com",
-                "Quadcore00")
+                "") #password here
         s.sendmail(strFrom, strTo, msgRoot.as_string())
         s.quit()
 
