@@ -21,7 +21,7 @@ app.config.update(dict(
     MAIL_PORT=587,
     MAIL_USE_TLS=1,
     MAIL_USERNAME="systems.quadcore@gmail.com",
-    MAIL_PASSWORD="Quadcore00",
+    MAIL_PASSWORD="", #password here
     ADMINS = ["systems.quadcore@gmail.com"]
 ))
 
